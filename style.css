@@ -490,6 +490,39 @@ section.numbers:after {
   margin-top: calc(20vh - 2.5em);
 }
 
+/* CO TU MOŻNA ZOPTYMALIZOWAĆ??? */
+
+.onimg_crate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+  border-top: 1em solid black;
+}
+
+.crate_row {
+  position: relative;
+  width: 20%;
+  height: 70vh;
+  border: 20px solid #000205;
+  border-top: none;
+  background-color: transparent;
+}
+
+.row_limiter {
+  display: block;
+  background-color: #000205;
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
 .values_img {
   background-image: url("images/race.jpg");
   background-attachment: fixed;
@@ -503,10 +536,6 @@ section.numbers:after {
   left: 0;
   transition: all .4s linear;
   filter: grayscale(1);
-}
-
-.values_img:hover {
-  filter: grayscale(0);
 }
 
 .values_desc_container {
