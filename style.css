@@ -363,17 +363,6 @@ section.numbers:after {
   gap: 10vh;
 }
 
-.desc p,
-.desc blockquote {
-  position: relative;
-  font-size: 26px;
-  color: var(--main-font-color);
-  line-height: 150%;
-  text-align: left;
-  line-height: 150%;
-  letter-spacing: 2px;
-}
-
 .action_btn {
   position: relative;
   padding: 1em;
@@ -476,12 +465,13 @@ section.numbers:after {
   height: 1000vh;
 }
 
-/* VALUES STYLE  */
+/* ABOUT STYLE  */
 
 .values_wrap {
   height: 150vh;
   width: 100%;
   max-width: 100%;
+  margin-bottom: 4em;
 }
 
 .values_devider {
@@ -563,13 +553,6 @@ section.numbers:after {
   gap: 4em;
 }
 
-.values_txt {
-  font-size: var(--main-font-size);
-  font-family: var(--main-font-family);
-  letter-spacing: 2px;
-  line-height: 150%;
-}
-
 span.extra_border {
   content: "";
   display: block;
@@ -607,6 +590,101 @@ span.extra_border {
 
 .btn_wrap .action_btn {
   align-self: stretch;
+}
+
+/* BUSINESS STYLE  */
+
+.business {
+  padding: 4em 0;
+  height: 150vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+
+.biz_info_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-basis: 50%;
+}
+
+.biz_imgs {
+  padding-top: 4em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  height: 100%;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.biz_imgs::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000205;
+  transform-origin: top right;
+  transform: rotate(-75deg);
+}
+
+.biz_offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 50%;
+  height: 100%;
+  padding: 4em 4em 0 4em;
+  gap: 4vh;
+}
+
+.biz_assets_wrap {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 4em;
+}
+
+.assets_content {
+  flex-basis: 40%;
+}
+
+.assets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.asset {
+  width: 20vh;
+  height: 20vh;
+}
+
+.asset img {
+  height: 15vh;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.speedup_txt {
+  font-size: 1.35vw;
+  font-family: var(--main-font-family);
+  letter-spacing: 2px;
+  line-height: 150%;
+}
+
+h3 {
+  margin-bottom: 1em;
+  font-size: 1.70vw;
+  letter-spacing: 2px;
+  background: -webkit-linear-gradient(#f3f3f3, #acacac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 aside {

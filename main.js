@@ -1,9 +1,8 @@
-// ADD BGC AFTER SCROLL
+// STICKY MENU FN
 const nav = document.querySelector(".main_nav");
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
     const scrollVAlue = 300;
-    // let flag = true;
 
     if (scrollPosition >= scrollVAlue) {
         nav.classList.add("sticky_nav");
@@ -13,17 +12,11 @@ window.addEventListener("scroll", () => {
     }
 })
 
-// FUNCTION COUNTER 
-// const windowH = window.scrollY;
+// COUNTER FN 
 
 const carNumber = document.querySelector(".cars .big_number");
 const clientNumber = document.querySelector(".clients .big_number");
 const lendNumber = document.querySelector(".lends .big_number");
-
-// let headerFromTop = document.querySelector("header").clientHeight;
-// console.log(headerFromTop);
-
-
 
 let cartStart = 0;
 let clientStart = 0;
@@ -43,7 +36,7 @@ const startCounter = document.addEventListener("scroll", () => {
 
 });
 
-// SLIDER FUNCTION
+// SLIDER FN
 
 const firtsImg = document.querySelector(".defaultImg");
 const slider = [...document.querySelectorAll(".slider .slider__slide")];
@@ -83,11 +76,9 @@ let i = 0;
 
 sliderBtns.forEach((btn, i) => btn.dataset.key = `${i}`);
 
-
 const changeSlideByBtn = (e) => {
     let activeBtn = e.target.dataset.key;
     i = activeBtn - 1;
-    // slideH2.classList.remove("h2__animate");
     clearInterval(autoSlide);
     changeSlide();
     autoSlide = setInterval(changeSlide, time);
@@ -110,7 +101,6 @@ const changeSlide = () => {
     slider.forEach(slide => slide.classList.remove("active__slide"))
     slider[i].classList.add("active__slide");
     slider[i].style.backgroundImage = `url(${slide[i].image}`;
-    // slideH2.classList.add("h2__animate")
     slidePosition.style.top = `${slide[i].top}%`;
     slidePosition.style.left = `${slide[i].left}%`;
     slideH2.textContent = slide[i].h2;
@@ -119,15 +109,7 @@ const changeSlide = () => {
 
 let autoSlide = setInterval(changeSlide, time);
 
-// FUNCTION SHOW ELEMENTS AFTER SCROLL 
-
-
-
-
-
-
-
-// HORIZONTAL SLIDER FUNCTION 
+// HORIZONTAL SLIDER FN
 
 const windowW = window.innerWidth;
 const horizontalLength = document.querySelector(".element-wrapper").scrollWidth;
