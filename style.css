@@ -687,10 +687,68 @@ span.extra_border {
   width: 15vh;
 }
 
-.caption {
-  font-size: 23px;
-  letter-spacing: 2px;
+/* FLEET SECTION STYLE  */
+
+.fleet {
+  width: 100%;
+  height: 100vh;
+  padding: 4em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
+
+.fleet_grid {
+  flex-basis: 50%;
+  width: 25%;
+}
+
+.fleet_grid:nth-child(2) {
+  background-image: url(images/fleet-img-2.jpg);
+}
+
+.fleet_grid:nth-child(3) {
+  background-image: url(images/fleet-img-3.jpg);
+}
+
+.fleet_grid:nth-child(5) {
+  flex-basis: 100%;
+  position: relative;
+  width: 50%;
+  background-image: url(images/fleet-img-1.jpg);
+}
+
+.fleet_grid:nth-child(5) button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%);
+}
+
+.fleet_img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(1);
+}
+
+.fleet_img:hover {
+  filter: grayscale(0);
+}
+
+.fleet_info {
+  text-align: center;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fleet_link {
+  position: relative;
+}
+
+/* GENERAL STYLESHEET  */
 
 .speedup_txt {
   font-size: 1.35vw;
@@ -710,4 +768,10 @@ h3 {
 
 aside {
   height: 100vh;
+}
+
+.caption {
+  font-size: 23px;
+  letter-spacing: 2px;
+  line-height: 150%;
 }
