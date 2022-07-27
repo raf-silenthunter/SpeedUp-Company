@@ -618,6 +618,7 @@ span.extra_border {
   height: 100%;
   overflow: hidden;
   gap: 20px;
+  filter: grayscale(1);
 }
 
 .biz_imgs::after {
@@ -715,14 +716,18 @@ span.extra_border {
   flex-basis: 100%;
   position: relative;
   width: 50%;
-  background-image: url(images/fleet-img-1.jpg);
+}
+
+.fleet_grid:nth-child(5) img {
+  opacity: .2;
+  filter: grayscale(1);
 }
 
 .fleet_grid:nth-child(5) button {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(50%, 50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fleet_img {
@@ -732,20 +737,12 @@ span.extra_border {
   filter: grayscale(1);
 }
 
-.fleet_img:hover {
-  filter: grayscale(0);
-}
-
 .fleet_info {
   text-align: center;
   padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.fleet_link {
-  position: relative;
 }
 
 /* GENERAL STYLESHEET  */
