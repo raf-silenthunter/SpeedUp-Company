@@ -715,6 +715,139 @@ span.extra_border {
   text-align: center;
 }
 
+/* BRANDS ASIDE STYLE  */
+
+.brands-wrap {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  padding: 4em 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.brands_elements {
+  padding: 2em 0;
+}
+
+.brands-title {
+  width: 100%;
+  text-align: center;
+
+}
+
+.brands-slider-wrap {
+  flex-basis: 70%;
+}
+
+.brands-slider-wrap {
+  position: relative;
+}
+
+.brands-slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  flex-basis: 70%;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.brand_slide:nth-child(2n) {
+  transform: translateY(20%);
+}
+
+.brand_slide {
+  border: 20px solid transparent;
+  width: calc(100% / 8);
+  height: auto;
+}
+
+.brand_slide>* {
+  width: 100%;
+  height: 200px;
+  background-image: url(images/Mercedes_new_logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.brand_slide:nth-child(2)>* {
+  background-image: url(images/renault-logo-vector.png);
+}
+
+.brand_slide:nth-child(3)>* {
+  background-image: url(images/mazda-2.svg);
+}
+
+.brand_slide:nth-child(4)>* {
+  background-image: url(images/alfa-romeo.svg);
+}
+
+.brand_slide:nth-child(5)>* {
+  background-image: url(images/honda-logo-freelogovectors.net_.svg);
+}
+
+.brand_slide:nth-child(6)>* {
+  background-image: url(images/toyota.svg);
+}
+
+.brand_slide:nth-child(7)>* {
+  background-image: url(images/nissan-126.svg);
+}
+
+.brand_slide:nth-child(8)>* {
+  background-image: url(images/bmv-1.svg);
+}
+
+.brand_slide> :last-child {
+  transform: rotateX(180deg) translateY(70px);
+  mask-image: linear-gradient(transparent 50%, white 90%);
+}
+
+.brands-btn {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+}
+
+.l-btn {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.r-btn {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.brand_btn {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  border: 4px solid yellow;
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 15px 9px rgba(255, 255, 0, 0.81);
+  transition: all ease .4s;
+  cursor: pointer;
+}
+
+.brand_btn:hover {
+  box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 0, 0.81);
+}
+
+
+
 /* GENERAL STYLESHEET  */
 
 .speedup_txt {
