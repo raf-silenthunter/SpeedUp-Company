@@ -1,3 +1,7 @@
 
 .icon-right-open-big:before { content: '\e802'; } /* '' */
 .icon-left-open-big:before { content: '\e803'; } /* '' */
+.icon-facebook:before { content: '\f300'; } /* '' */
+.icon-twitter-bird:before { content: '\f303'; } /* '' */
+.icon-linkedin:before { content: '\f31a'; } /* '' */
+.icon-instagram-filled:before { content: '\f31f'; } /* '' */
