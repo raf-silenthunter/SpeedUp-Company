@@ -862,18 +862,23 @@ span.extra_border {
   margin-top: 10vh;
 }
 
-.footer_children {
+.media_wrap {
   padding: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form_media {
+  flex-grow: .2;
+  width: 100%;
 }
 
 .form_label {
-  display: block;
-  margin-bottom: 2em;
-}
-
-.label_btn {
-  display: block;
-  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nl_child:last-child {
@@ -896,6 +901,7 @@ span.extra_border {
 }
 
 .submit_btn {
+  margin: 0 auto;
   padding: 1em;
   width: 30%;
   color: black;
@@ -903,17 +909,16 @@ span.extra_border {
   font-size: var(--main-font-size);
 }
 
-.media {}
-
 .socials_wrap {
-
+  width: 35%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .sm_icon {
-  font-size: 2vmax;
+  font-size: 1.5vmax;
+  margin: 0;
 }
 
 
@@ -924,6 +929,12 @@ span.extra_border {
 
 .sitemap_wrap>* {
   flex-basis: 50%;
+}
+
+.social_btn {
+  width: 12vh;
+  height: 12vh;
+  margin-bottom: none;
 }
 
 /* GENERAL STYLESHEET  */

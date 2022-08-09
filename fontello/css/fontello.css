@@ -31,7 +31,6 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
 
@@ -66,8 +65,8 @@
 /* '' */
 .icon-left-open-big:before {
   content: '\e803';
-  margin-left: 0;
   font-size: 3.5em;
+  margin-right: .2em;
 }
 
 /* '' */
