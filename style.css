@@ -860,7 +860,7 @@ span.extra_border {
   padding: 4em;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 2em;
   align-items: center;
 }
 
@@ -872,7 +872,7 @@ span.extra_border {
 .form_label {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2em;
 }
 
 .nl_child:last-child {
@@ -933,7 +933,7 @@ span.extra_border {
 
 /* FOOTER -> PRIVACY + SITEMAP STYLE  */
 .sitemap_wrap {
-  height: 80vh;
+  max-height: 80vh;
   display: flex;
   justify-content: space-between;
   align-content: space-between;
