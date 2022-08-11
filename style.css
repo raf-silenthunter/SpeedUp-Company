@@ -526,10 +526,6 @@ section.numbers:after {
   border-radius: 3px;
 }
 
-.full_wid {
-  width: 100%;
-}
-
 .values_left_col,
 .values_right_col {
   width: 50%;
@@ -545,6 +541,71 @@ section.numbers:after {
 }
 
 /* CZY DA SIĘ JAKOŚ ZOPTYMALIZOWAĆ FLEXBOX W TEJ SEKCJI???  */
+
+/* CLIENTS STYLE  */
+
+.clients_wrap {
+  width: 100%;
+  height: 180vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20vh;
+}
+
+.clients_wrap>* {
+  height: 90vh;
+}
+
+.clients_master {
+  padding: 4em;
+}
+
+.clients_bgc {
+  background-color: #000205;
+}
+
+.biz_wrap,
+.priv_wrap {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.biz_wrap>*,
+.priv_wrap>* {
+  width: 50%;
+  padding: 2em;
+}
+
+.biz_info,
+.priv_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.priv_info {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.priv_imgs {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.biz_btn_width {
+  width: 70%;
+  font-size: 20px;
+}
+
+.priv_img {
+  border-left: 5px ridge yellow;
+}
 
 /* BUSINESS STYLE  */
 
@@ -579,17 +640,7 @@ section.numbers:after {
   filter: grayscale(1);
 }
 
-.biz_imgs::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000205;
-  transform-origin: top right;
-  transform: rotate(-75deg);
-}
+
 
 .biz_offer {
   height: 100%;
