@@ -512,17 +512,22 @@ section.numbers:after {
 .values_text_columns {
   padding: 2em 0;
   display: flex;
+
   justify-content: space-between;
   gap: 4em;
 }
 
-span.extra_border {
+.extra_border {
   content: "";
   display: block;
   width: 25%;
   height: calc(var(--main-font-size)/3);
   margin-bottom: 2em;
   border-radius: 3px;
+}
+
+.full_wid {
+  width: 100%;
 }
 
 .values_left_col,
@@ -541,20 +546,11 @@ span.extra_border {
 
 /* CZY DA SIĘ JAKOŚ ZOPTYMALIZOWAĆ FLEXBOX W TEJ SEKCJI???  */
 
-.btn_wrap {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.btn_wrap .action_btn {
-  align-self: stretch;
-}
-
 /* BUSINESS STYLE  */
+
+.justify_txt {
+  text-align: justify;
+}
 
 .business {
   height: 150vh;
