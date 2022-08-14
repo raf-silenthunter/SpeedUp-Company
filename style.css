@@ -596,6 +596,12 @@ section.numbers:after {
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+  filter: grayscale(1);
+  transition: all .8s ease;
+}
+
+.priv_imgs:hover {
+  filter: grayscale(0);
 }
 
 .biz_btn_width {
@@ -607,18 +613,88 @@ section.numbers:after {
   border-left: 5px ridge yellow;
 }
 
-/* BUSINESS STYLE  */
-
-.justify_txt {
-  text-align: justify;
+.biz_options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.options_wrap {
+  flex-grow: .9;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.option {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60%;
+  height: 100%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #acacac;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 15px 9px rgba(172, 172, 172, 0.81);
+  background: #000205;
+}
+
+.option:nth-child(1) {
+  left: -50%;
+  transform: scale(90%);
+}
+
+.option:nth-child(3) {
+  left: 90%;
+  transform: scale(90%);
+}
+
+.option_img {
+  background-image: url(images/item4.jpg);
+  background-position: center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: aqua;
+  width: 100%;
+  flex-basis: 50%;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.option_img_elems {
+  padding: 1em;
+}
+
+.option_btn {
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  border: 2px solid yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s ease;
+  box-shadow: inset 0px 0px 15px 9px rgba(255, 255, 0, 0.81);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+/* BUSINESS STYLE  */
+
 .business {
-  height: 150vh;
+  height: 100vh;
   width: 100%;
   padding: 4em 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .biz_info_wrap {
@@ -1056,9 +1132,9 @@ h3 {
   line-height: 150%;
 }
 
-aside {
+/* aside {
   height: 100vh;
-}
+} */
 
 .caption {
   font-size: 23px;
@@ -1082,7 +1158,9 @@ aside {
 }
 
 .important_word {
-  color: yellow;
+  background: -webkit-linear-gradient(#f3f3f3, #acacac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: yellow;
 }
 
 .wrap_master {
@@ -1092,4 +1170,8 @@ aside {
 
 .wrap_mainnav {
   margin-top: 10vh;
+}
+
+.justify_txt {
+  text-align: justify;
 }
