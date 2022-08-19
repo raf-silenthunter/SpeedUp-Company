@@ -14,9 +14,9 @@ window.addEventListener("scroll", () => {
 
 // COUNTER FN 
 
-const carNumber = document.querySelector(".cars .big_number");
-const clientNumber = document.querySelector(".clients .big_number");
-const lendNumber = document.querySelector(".lends .big_number");
+const carNumber = document.querySelector(".cars_num .big_number");
+const clientNumber = document.querySelector(".clients_num .big_number");
+const lendNumber = document.querySelector(".lends_num .big_number");
 
 let cartStart = 0;
 let clientStart = 0;

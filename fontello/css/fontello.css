@@ -59,6 +59,7 @@
 .icon-phone:before {
   content: '\e800';
   color: black;
+  margin-right: 10px;
 }
 
 /* '' */
@@ -85,6 +86,7 @@
 .icon-mail-alt:before {
   content: '\f0e0';
   color: black;
+  margin-right: 10px;
 }
 
 /* '' */
