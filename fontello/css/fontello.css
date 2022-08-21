@@ -71,13 +71,13 @@
 .icon-right-open-big:before {
   content: '\e802';
   margin-right: 0;
-  font-size: 3.5em;
+  font-size: 3em;
 }
 
 /* '' */
 .icon-left-open-big:before {
   content: '\e803';
-  font-size: 3.5em;
+  font-size: 3em;
   margin-right: .2em;
   margin-left: 0;
 }

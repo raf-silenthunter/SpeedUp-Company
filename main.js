@@ -14,9 +14,9 @@ window.addEventListener("scroll", () => {
 
 // COUNTER FN 
 
-const carNumber = document.querySelector(".cars_num .big_number");
-const clientNumber = document.querySelector(".clients_num .big_number");
-const lendNumber = document.querySelector(".lends_num .big_number");
+const carNumber = document.querySelector(".cars_num");
+const clientNumber = document.querySelector(".clients_num");
+const lendNumber = document.querySelector(".lends_num");
 
 let cartStart = 0;
 let clientStart = 0;
@@ -38,11 +38,11 @@ const startCounter = document.addEventListener("scroll", () => {
 
 // SLIDER FN
 
-const firtsImg = document.querySelector(".defaultImg");
-const slider = [...document.querySelectorAll(".slider .slider__slide")];
+const firtsImg = document.querySelector(".default_img");
+const slider = [...document.querySelectorAll(".slider .slider_slide")];
 const slideH2 = document.querySelector("header h2");
 const slidePosition = document.querySelector(".title");
-const sliderBtns = [...document.querySelectorAll(".slider_nav button")];
+const sliderBtns = [...document.querySelectorAll(".slider_btn")];
 
 const time = 8000;
 
@@ -61,7 +61,7 @@ const slide = [{
 }, {
     h2: "Szalej beztrosko po bezdrożach",
     top: 30,
-    left: 0,
+    left: 10,
     color: "green",
     image: "images/slide-3.jpg"
 }, {
@@ -94,12 +94,12 @@ const changeBtn = () => {
 
 const changeSlide = () => {
     i++;
-    firtsImg.classList.add("hideDefaultImg");
+    firtsImg.classList.add("hide_default_img");
     if (i >= slide.length) {
         i = 0;
     }
-    slider.forEach(slide => slide.classList.remove("active__slide"))
-    slider[i].classList.add("active__slide");
+    slider.forEach(slide => slide.classList.remove("active_slide"))
+    slider[i].classList.add("active_slide");
     slider[i].style.backgroundImage = `url(${slide[i].image}`;
     slidePosition.style.top = `${slide[i].top}%`;
     slidePosition.style.left = `${slide[i].left}%`;
