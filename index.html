@@ -15,7 +15,8 @@
 
 </head>
 <body>
-    <section>
+<div class="snap_parent">
+    <section class="snap_child">
         <nav class="main_nav">
             <div class="brandlogo gradient_txt">!SpeedUp</div>
             <ul class="mainnav_ul">
@@ -34,7 +35,7 @@
             </ul>
             <button type="button" class="sign_btn">Zaloguj się</button>
         </nav>
-        <header class="card">
+        <header class="header_wrap card">
             <div class="title">
                 <h2 class="card_title gradient_txt">Luksusowe samochody w Twoim zasięgu</h2>
             </div>
@@ -54,7 +55,7 @@
         </header>
     </section>
  <!-- COUNTER STYLE  -->
-    <section class="counter_content card">
+    <section class="counter_content card snap_child">
         <div class="numbers">
             <div class="number_wrap">
                 <p class="big_number cars_num gradient_txt"></p>
@@ -90,7 +91,7 @@
     <main>
         <article>
             <!-- ABOUT SECTION -->
-            <section class="card card_pad about_wrap">
+            <section class="card card_pad about_wrap snap_child">
                         <h1 class="h1_about card_title gradient_txt">!SpeedUp: wypożyczalnia ekskluzywnych samochodów</h1>
                         <div class="about_columns">
                             <div class="about_column">
@@ -113,8 +114,8 @@
                         </div>
             </section>
             <!-- CLIENTS SECION  -->
-            <section class="clients_wrap card_pad gradient_bgcolor">
-                <section class="biz_wrap clients_bgc">
+            <section class="clients card card_pad gradient_bgcolor snap_child">
+                <div class="biz_wrap clients_bgc">
                             <div class="biz_info">                                
                                     <h2 class="card_subtitle gradient_txt">Personalizowana oferta dla <span class="important_word">biznesu</span></h2>
                                     <span class="extra_border gradient_bgcolor"></span>
@@ -183,8 +184,11 @@
                                 </button>
                             </div>
                         </div>
-                </section>
-                <section class="priv_wrap clients_bgc">
+                    </div>
+            </section>
+            <!-- PRIV CLIENTS SECTION  -->
+            <section class="clients card card_pad gradient_bgcolor snap_child">
+                <div class="priv_wrap clients_bgc">
                     <div class="priv_imgs imgs_info">
                         <img src="images/biz-img-1.png" alt="" class="border_l">
                         <img src="images/biz-img-2.png" alt="" class="border_l">
@@ -193,17 +197,17 @@
                         <img src="images/biz-img-5.png" alt="" class="border_l">
                     </div>
                     <div class="priv_info">
-                            <h2 class="card_subtitle gradient_txt">Oferta dla <span class="important_word">klientów prywatnych</span></h2>
-                                                        <span class="extra_border gradient_bgcolor"></span>
-                            <p class="speedup_txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        <h2 class="card_subtitle gradient_txt">Oferta dla <span class="important_word">klientów prywatnych</span></h2>
+                        <span class="extra_border gradient_bgcolor"></span>
+                        <p class="speedup_txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                             Consequuntur aspernatur quae, totam culpa earum odio distinctio quia deserunt similique laborum dolorum,
                             soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
                         <button class="action_btn speedup_txt">Dowiedz się więcej!</button>
                     </div>
-                </section>
+                </div>
             </section>
             <!-- VALUES STYLE  -->
-            <section class="values_wrap card card_pad">
+            <section class="values_wrap card card_pad snap_child">
                     <div class="values_content">
                         <h3 class="card_subtitle gradient_txt">Szukasz korzyści?</h3>
                         <span class="extra_border gradient_bgcolor"></span>
@@ -233,7 +237,7 @@
                     </div>
             </section>
             <!-- BRANDS BAR SECTION  -->
-            <aside class="card card_pad brands_wrap">
+            <aside class="card card_pad brands_wrap snap_child">
                 <h2 class="card_subtitle gradient_txt">Jakie marki samochodów znajdziesz w naszej flocie?</h2>
                 <div class="brands_slider">
                     <div class="btn_wrap">
@@ -283,7 +287,7 @@
                 </div>
             </aside>
             <!-- FLEET SECTION  -->
-            <section class="fleet card">
+            <section class="fleet card snap_child">
                 <div class="fleet_grid fleet_info caption">
                     <h3 class="card_subtitle gradient_txt">Nasza flota liczy aż 50 niesamowitych wehikułów</h3>
                 </div>
@@ -300,7 +304,7 @@
                 </div>
             </section>
             <!-- RECOMMENDATION STYLE  -->
-                <aside class="recommend card">
+                <aside class="recommend card snap_child">
                     <div class="recommend_txt">
                         <figure>
                             <blockquote class="speedup_txt">
@@ -324,7 +328,7 @@
         </article>
     </main>
     <!-- BLOG SECTION STYLE  -->
-    <section class="card card_pad blog">
+    <section class="card card_pad blog snap_child">
         <p class="card_subtitle gradient_txt">Najnowsze publikacje na naszym blogu</p>
         <div class="posts_wrap">
             <a class="post" href="#">
@@ -364,7 +368,7 @@
         <button class="action_btn speedup_txt">Zobacz o czym piszemy</button>
     </section>
     <!-- NEWSLETTER SECTION  -->
-    <section class="card card_pad nl_wrap">
+    <section class="card card_pad nl_wrap snap_child">
         <p class="card_subtitle gradient_txt">Bądź zawsze na bieżąco</p>
         <form action="" class="nl_form">
             <label for="submit_mail" class="nl_label">
@@ -391,7 +395,7 @@
         </div>
     </section>
     <!-- FOOTER  -->
-    <footer class="card card_pad">
+    <footer class="card card_pad snap_child">
             <nav class="sitemap_wrap gradient_bgcolor">
                 <div class="sitemap_col">
                     <div class="map_title speedup_txt">Kontakt</div>
@@ -425,6 +429,7 @@
                 </div>
             </nav>
     </footer>
+</div>
     <script src="main.js"></script>
 </body>
 </html>

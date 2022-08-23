@@ -154,6 +154,10 @@ body {
 
 /* MAIN HEADER STYLE */
 
+.header_wrap {
+  position: relative;
+}
+
 .slider {
   position: relative;
   overflow: hidden;
@@ -470,17 +474,10 @@ body {
 
 /* CLIENTS STYLE  */
 
-.clients_wrap {
-  width: 100%;
-  height: 180vh;
+.clients {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 20vh;
-}
-
-.clients_wrap>* {
-  height: 90vh;
+  justify-content: center;
 }
 
 .clients_bgc {
@@ -489,6 +486,7 @@ body {
 
 .biz_wrap,
 .priv_wrap {
+  height: 90%;
   display: flex;
   justify-content: space-between;
 
@@ -1011,4 +1009,15 @@ body {
   .action_btn {
     padding: .85em;
   }
+}
+
+.snap_parent {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.snap_child {
+  scroll-snap-align: center;
+  height: 100vh;
 }

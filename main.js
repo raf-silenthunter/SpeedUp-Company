@@ -2,6 +2,7 @@
 const nav = document.querySelector(".main_nav");
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
+    console.log(scrollPosition);
     const scrollVAlue = 300;
 
     if (scrollPosition >= scrollVAlue) {
@@ -110,17 +111,17 @@ let autoSlide = setInterval(changeSlide, time);
 
 // HORIZONTAL SLIDER FN
 
-const windowW = window.innerWidth;
-const horizontalLength = document.querySelector(".element-wrapper").scrollWidth;
-const distFromTop = document.querySelector(".horizontal-section").offsetTop;
+// const windowW = window.innerWidth;
+// const horizontalLength = document.querySelector(".element-wrapper").scrollWidth;
+// const distFromTop = document.querySelector(".horizontal-section").offsetTop;
 
-const scrollDist = distFromTop + horizontalLength - windowW;
+// const scrollDist = distFromTop + horizontalLength - windowW;
 
-document.querySelector(".horizontal-section").style.height = horizontalLength + "px";
+// document.querySelector(".horizontal-section").style.height = horizontalLength + "px";
 
-window.onscroll = function () {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= distFromTop && scrollTop <= scrollDist) {
-        document.querySelector(".element-wrapper").style.transform = `translateX(-${scrollTop - distFromTop}px)`;
-    }
-}
+// window.onscroll = function () {
+//     const scrollTop = window.scrollY;
+//     if (scrollTop >= distFromTop && scrollTop <= scrollDist) {
+//         document.querySelector(".element-wrapper").style.transform = `translateX(-${scrollTop - distFromTop}px)`;
+//     }
+// }
