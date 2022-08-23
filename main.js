@@ -33,7 +33,6 @@ const startCounter = document.addEventListener("scroll", () => {
         const interval = setInterval(counter, 10);
         if (cartStart === 80) clearInterval(interval);
     }
-
 });
 
 // SLIDER FN
