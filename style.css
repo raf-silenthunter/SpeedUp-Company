@@ -66,8 +66,8 @@
   padding: 1em;
   border: 2px solid yellow;
   border-radius: 3px;
-  background: transparent;
-  color: var(--main-font-color);
+  background: yellow;
+  color: #000205;
   font-weight: 700;
   cursor: pointer;
   line-height: 2.5vh;
@@ -1009,15 +1009,4 @@ body {
   .action_btn {
     padding: .85em;
   }
-}
-
-.snap_parent {
-  scroll-snap-type: y mandatory;
-  height: 100vh;
-  overflow: scroll;
-}
-
-.snap_child {
-  scroll-snap-align: center;
-  height: 100vh;
 }
