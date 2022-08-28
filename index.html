@@ -14,58 +14,55 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    <header>
-        <nav class="main_nav">
-            <div class="brandlogo gradient_txt">!SpeedUp</div>
-            <ul class="mainnav_ul">
-                <li class="gradient_txt mainnav_li">
-                    <a href="#" class="mainnav_link">Oferta</a>
+<body class="page">
+    <!-- MAIN HEADER STYLE  -->
+        <nav class="main-nav">
+            <div class="brandlogo gradient-txt">!SpeedUp</div>
+            <ul class="main-nav__list">
+                <li class="main-nav__item gradient-txt">
+                    <a href="#" class="main-nav__link">Oferta</a>
                 </li>
-                <li class="gradient_txt mainnav_li">
-                    <a href="#" class="mainnav_link">Flota</a>
+                <li class="main-nav__item gradient-txt">
+                    <a href="#" class="main-nav__link">Flota</a>
                 </li>
-                <li class="gradient_txt mainnav_li">
-                    <a href="#" class="mainnav_link">Blog</a>
+                <li class="main-nav__item gradient-txt">
+                    <a href="#" class="main-nav__link">Blog</a>
                 </li>
-                <li class="gradient_txt mainnav_li">
-                    <a href="#" class="mainnav_link">Kontakt</a>
+                <li class="main-nav__item gradient-txt">
+                    <a href="#" class="main-nav__link">Kontakt</a>
                 </li>
             </ul>
-            <button type="button" class="sign_btn">Zaloguj się</button>
+            <button type="button" class="sign-btn sign-btn--lash">Zaloguj się</button>
         </nav>
-        <header class="header_wrap card">
-            <div class="title">
-                <h2 class="card_title gradient_txt">Luksusowe samochody w Twoim zasięgu</h2>
+        <header class="main-header page-item">
+            <h2 class="title title--large gradient-txt main-header__title">Luksusowe samochody w Twoim zasięgu</h2>
+            <div class="main-slider page-item">
+                <div class="main-slider__default main-slider__item"></div>
+                <div class="main-slider__item"></div>
+                <div class="main-slider__item"></div>
+                <div class="main-slider__item"></div>
+                <div class="main-slider__item"></div>
+                <nav class="btns-wrap main-slider__btns-wrap">
+                    <button type="button" class="main-slider__btn is-btn-filled"></button>
+                    <button type="button" class="main-slider__btn"></button>
+                    <button type="button" class="main-slider__btn"></button>
+                    <button type="button" class="main-slider__btn"></button>
+                </nav>
             </div>
-            <div class="slider card">
-                <div class="default_img card"></div>
-                <div class="slider_slide card"></div>
-                <div class="slider_slide card"></div>
-                <div class="slider_slide card"></div>
-                <div class="slider_slide card"></div>
-            </div>
-            <nav class="slider_nav">
-                <button type="button" class="slider_btn active"></button>
-                <button type="button" class="slider_btn"></button>
-                <button type="button" class="slider_btn"></button>
-                <button type="button" class="slider_btn"></button>
-            </nav>
         </header>
-    </header>
  <!-- COUNTER STYLE  -->
-    <section class="counter_content card">
+    <section class="counter_content page-item">
         <div class="numbers">
             <div class="number_wrap">
-                <p class="big_number cars_num gradient_txt"></p>
+                <p class="big_number cars_num gradient-txt"></p>
                 <p class="number_caption">samochodów w ofercie</p>
             </div>
             <div class="number_wrap">
-                <p class="big_number lends_num gradient_txt"></p>
+                <p class="big_number lends_num gradient-txt"></p>
                 <p class="number_caption">wypożyczeń</p>
             </div>
             <div class="number_wrap">
-                <p class="big_number clients_num gradient_txt"></p>
+                <p class="big_number clients_num gradient-txt"></p>
                 <p class="number_caption">zadowolonych klientów</p>
             </div>
         </div>
@@ -90,38 +87,46 @@
     <main>
         <article>
             <!-- ABOUT SECTION -->
-            <section class="card card_pad about_wrap">
-                        <h1 class="h1_about card_title gradient_txt">!SpeedUp: wypożyczalnia ekskluzywnych samochodów</h1>
-                        <div class="about_columns">
-                            <div class="about_column">
-                                <span class="extra_border gradient_bgcolor"></span>
-                                <p class="speedup_txt justify_txt">Nous excellons dans le domaine du potentiel humain et croyons en son pouvoir de façonner le changement stratégique,
-                                organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. </p>
+            <section class="about page-item page-item--pad">
+                        <h1 class="title title--large title--padding gradient-txt">!SpeedUp: wypożyczalnia ekskluzywnych samochodów</h1>
+                        <div class="about__columns-wrap">
+                            <div class="about__column">
+                                <div class="txt-intro">
+                                    <span class="extra-border gradient-bgcolor"></span>
+                                    <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel humain et croyons en son pouvoir de façonner le changement stratégique,
+                                    organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
+                                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. </p>
+                                </div>
                             </div>
-                            <div class="about_column">
-                                <span class="extra_border border_align-r gradient_bgcolor"></span>
-                                <p class="speedup_txt justify_txt">Nous excellons dans le domaine du potentiel humain et croyons en son pouvoir de façonner le changement stratégique,
-                                organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. </p>
+                            <div class="about__column">
+                                <div class="txt-intro">
+                                    <span class="extra-border extra-border--right gradient-bgcolor"></span>
+                                    <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel humain et croyons en son pouvoir de façonner le changement stratégique,
+                                    organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
+                                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. </p>
+                                </div>
                         </div>
             </section>
             <!-- CLIENTS SECION  -->
-            <section class="clients card card_pad gradient_bgcolor">
+            <section class="clients page-item page-item--pad gradient-bgcolor">
                 <div class="biz_wrap clients_bgc">
                             <div class="biz_info">                                
-                                    <h2 class="card_subtitle gradient_txt">Personalizowana oferta dla <span class="important_word">biznesu</span></h2>
-                                    <span class="extra_border gradient_bgcolor"></span>
-                                    <p class="speedup_txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Consequuntur aspernatur quae, totam culpa earum odio distinctio quia deserunt similique laborum dolorum,
-                                        soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
-                                <button class="action_btn speedup_txt">Dowiedz się więcej!</button>
+                                    <h2 class="card_subtitle gradient-txt">Personalizowana oferta dla <span class="important_word">biznesu</span></h2>
+                                        <div class="txt-intro">
+                                            <span class="extra-border gradient-bgcolor"></span>
+                                            <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel
+                                                humain et croyons en son pouvoir de façonner le changement stratégique,
+                                                organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
+                                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                                nulla pariatur.</p>
+                                        </div>
+                                <button class="action_btn speedup-txt">Dowiedz się więcej!</button>
                             </div>
                             <div class="biz_slider">
                                 <div>
@@ -146,7 +151,7 @@
                                                 <p class="option_p">Auta długoterminowe</p>
                                             </li>
                                         </ul>
-                                        <p class="gradient_bgcolor speedup_txt option_title">Premium</p>
+                                        <p class="gradient-bgcolor speedup-txt option_title">Premium</p>
                                     </div>
                                     <div class="option premium">
                                         <div class="option_img"></div>
@@ -156,7 +161,7 @@
                                             <li class="option_li"><p class="option_p">Darmowa myjnia</p></li>
                                             <li class="option_li"><p class="option_p">Auta długoterminowe</p></li>
                                         </ul>
-                                        <p class="gradient_bgcolor speedup_txt option_title">Premium</p>
+                                        <p class="gradient-bgcolor speedup-txt option_title">Premium</p>
                                     </div>
                                     <div class="option basic">
                                     <div class="option_img"></div>
@@ -174,7 +179,7 @@
                                                 <p class="option_p">Auta długoterminowe</p>
                                             </li>
                                         </ul>
-                                        <p class="gradient_bgcolor speedup_txt option_title">Premium</p>
+                                        <p class="gradient-bgcolor speedup-txt option_title">Premium</p>
                                 </div>
                                 </div>                           
                                 <div>
@@ -185,34 +190,18 @@
                         </div>
                     </div>
             </section>
-            <!-- PRIV CLIENTS SECTION  -->
-            <section class="clients card card_pad gradient_bgcolor">
-                <div class="priv_wrap clients_bgc">
-                    <div class="priv_imgs imgs_info">
-                        <img src="images/biz-img-1.png" alt="" class="border_l">
-                        <img src="images/biz-img-2.png" alt="" class="border_l">
-                        <img src="images/biz-img-3.png" alt="" class="border_l">
-                        <img src="images/biz-img-4.png" alt="" class="border_l">
-                        <img src="images/biz-img-5.png" alt="" class="border_l">
-                    </div>
-                    <div class="priv_info">
-                        <h2 class="card_subtitle gradient_txt">Oferta dla <span class="important_word">klientów prywatnych</span></h2>
-                        <span class="extra_border gradient_bgcolor"></span>
-                        <p class="speedup_txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Consequuntur aspernatur quae, totam culpa earum odio distinctio quia deserunt similique laborum dolorum,
-                            soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
-                        <button class="action_btn speedup_txt">Dowiedz się więcej!</button>
-                    </div>
-                </div>
-            </section>
             <!-- VALUES STYLE  -->
-            <section class="values_wrap card card_pad">
+            <section class="values_wrap page-item page-item--pad">
                     <div class="values_content">
-                        <h3 class="card_subtitle gradient_txt">Szukasz korzyści?</h3>
-                        <span class="extra_border gradient_bgcolor"></span>
-                        <p class="speedup_txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, rem est.
-                            Laborum voluptates, vel dolore debitis amet libero ducimus quasi ut soluta, rerum, iure molestiae quo modi.
-                            Voluptatibus, quae adipisci?</p>
+                        <h3 class="card_subtitle gradient-txt">Szukasz korzyści?</h3>
+                            <div class="txt-intro">
+                                <span class="extra-border gradient-bgcolor"></span>
+                                <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel
+                                    humain et croyons en son pouvoir de façonner le changement stratégique,
+                                    organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
+                                    ex ea commodo consequat.
+                                    </p>
+                            </div>
                     </div>
                     <div class="values_imgs_wrap">
                             <figure class="value">
@@ -235,9 +224,30 @@
                             </figure>
                     </div>
             </section>
+            <!-- PRIV CLIENTS SECTION  -->
+            <section class="clients page-item page-item--pad gradient-bgcolor">
+                <div class="priv_wrap clients_bgc">
+                    <div class="priv_imgs imgs_info">
+                        <img src="images/biz-img-1.png" alt="" class="border_l">
+                        <img src="images/biz-img-2.png" alt="" class="border_l">
+                        <img src="images/biz-img-3.png" alt="" class="border_l">
+                        <img src="images/biz-img-4.png" alt="" class="border_l">
+                        <img src="images/biz-img-5.png" alt="" class="border_l">
+                    </div>
+                    <div class="priv_info">
+                        <h2 class="card_subtitle gradient-txt">Oferta dla <span class="important_word">klientów prywatnych</span>
+                        </h2>
+                        <span class="extra-border gradient-bgcolor"></span>
+                        <p class="speedup-txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Consequuntur aspernatur quae, totam culpa earum odio distinctio quia deserunt similique laborum dolorum,
+                            soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
+                        <button class="action_btn speedup-txt">Dowiedz się więcej!</button>
+                    </div>
+                </div>
+            </section>
             <!-- BRANDS BAR SECTION  -->
-            <aside class="card card_pad brands_wrap">
-                <h2 class="card_subtitle gradient_txt">Jakie marki samochodów znajdziesz w naszej flocie?</h2>
+            <aside class="page-item page-item--pad brands_wrap">
+                <h2 class="card_subtitle gradient-txt">Jakie marki samochodów znajdziesz w naszej flocie?</h2>
                 <div class="brands_slider">
                     <div class="btn_wrap">
                         <button class="circle_btn_overlay brands_btn">
@@ -286,69 +296,69 @@
                 </div>
             </aside>
             <!-- FLEET SECTION  -->
-            <section class="fleet card">
+            <section class="fleet page-item">
                 <div class="fleet_grid fleet_info caption">
-                    <h3 class="card_subtitle gradient_txt">Nasza flota liczy aż 50 niesamowitych wehikułów</h3>
+                    <h3 class="card_subtitle gradient-txt">Nasza flota liczy aż 50 niesamowitych wehikułów</h3>
                 </div>
                 <div class="fleet_grid fleet_img"></div>
                 <div class="fleet_grid fleet_img"></div>
                 <div class="fleet_grid fleet_info">
-                    <p class="speedup_txt caption">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <p class="speedup-txt caption">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Natus magni repellendus amet aperiam, voluptatem reprehenderit quasi optio.
                     </p>
                 </div>
                 <div class="fleet_grid">
                         <img src="images/fleet-img-1.jpg" alt="" class="fleet_overlay">
-                        <button class="action_btn btn_center speedup_txt">Poznaj je wszystkie!</button>
+                        <button class="action_btn btn_center speedup-txt">Poznaj je wszystkie!</button>
                 </div>
             </section>
         </article>
     </main>
-    <!-- BLOG SECTION STYLE  -->
-    <section class="card card_pad blog">
-        <p class="card_subtitle gradient_txt">Najnowsze publikacje na naszym blogu</p>
-        <div class="posts_wrap">
-            <a class="post" href="#">
-                <img src="images/post_lexus_img.webp" alt="" class="post_cover">
-                <div class="post_content">
-                    <header class="post_head">
-                        <p class="caption post_cat">Recenzja</p>
-                        <h4 class="post_title">Mercedes S500 vs Lexus GH350</h4>
+    <!-- BLOG INTRO SECTION STYLE  -->
+    <section class="blog-intro page-item page-item--pad">
+        <p class="title title--medium gradient-txt">Najnowsze publikacje na naszym blogu</p>
+        <div class="blog-intro__wrap">
+            <a class="post-intro" href="#">
+                <img src="images/post_lexus_img.webp" alt="" class="post-intro__cover">
+                <div class="post-content post-intro__post-content">
+                    <header class="post-content__head">
+                        <p class="caption post-content__category">Recenzja</p>
+                        <h4 class="caption">Mercedes S500 vs Lexus GH350</h4>
                     </header>
                     <p class="caption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
                     amet animi quidem tempore!</p>
                 </div>
             </a>
-            <a class="post" href="#">
-                <img src="images/post_lakierowanie_img.webp" alt="" class="post_cover">
-                    <div class="post_content">
-                        <header class="post_head">
-                            <p class="caption post_cat">Poradnik</p>
-                            <h4 class="post_title">Jak dbać o lakier w używanym samochodzie?</h4>
+            <a class="post-intro" href="#">
+                <img src="images/post_lakierowanie_img.webp" alt="" class="post-intro__cover">
+                    <div class="post-content post-intro__post-content">
+                        <header class="post-content__head">
+                            <p class="caption post-content__category">Poradnik</p>
+                            <h4 class="caption">Jak dbać o lakier w używanym samochodzie?</h4>
                         </header>
                         <p class="caption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
                             amet animi quidem tempore!</p>
                     </div>
             </a>
-            <a class="post" href="#">
-                <img src="images/post_wynajem_img.jpg" alt="" class="post_cover">
-                <div class="post_content">
-                    <header class="post_head">
-                        <p class="caption post_cat">Artykuł</p>
-                        <h4 class="post_title">5 korzyści z wynajmu samochodu</h4>
+            <a class="post-intro" href="#">
+                <img src="images/post_wynajem_img.jpg" alt="" class="post-intro__cover">
+                <div class="post-content post-intro__post-content">
+                    <header class="post-content__head">
+                        <p class="caption post-content__category">Artykuł</p>
+                        <h4 class="caption">5 korzyści z wynajmu samochodu</h4>
                     </header>
                     <p class="caption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
                         amet animi quidem tempore!</p>
                 </div>
             </a>
         </div>
-        <button class="action_btn speedup_txt">Zobacz o czym piszemy</button>
+        <button class="action_btn speedup-txt">Zobacz o czym piszemy</button>
     </section>
     <!-- RECOMMENDATION STYLE  -->
-    <aside class="recommend card">
-        <div class="recommend_txt">
+    <aside class="recommend page__recommend page-item">
+        <div class="recommend__txt-wrap">
             <figure>
-                <blockquote class="speedup_txt">
+                <blockquote class="speedup-txt">
                     "Nie wynajmujemy samochodów. Wynajmujemy Twój zupełnie nowy wizerunek, adrenalinę
                     zakrapianą
                     benzyną, hurkot amortyzatorów... unikalne poczucie jedności z maszyną. Nasze auta to
@@ -359,21 +369,21 @@
                     a może adrenaliny?"
                 </blockquote>
                 <figcaption>
-                    <p class="caption president_cite"></br>- Samuel L. Jackson, President</p>
+                    <p class="caption caption--italics"></br>- Samuel L. Jackson, President</p>
                 </figcaption>
             </figure>
         </div>
-        <div class="president_photo">
+        <img src="images/president_speedup.png" alt="" class="recommend__photo">
         </div>
     </aside>
     <!-- NEWSLETTER SECTION  -->
-    <section class="card card_pad nl_wrap">
-        <p class="card_subtitle gradient_txt">Bądź zawsze na bieżąco</p>
+    <section class="page-item page-item--pad nl_wrap">
+        <p class="card_subtitle gradient-txt">Bądź zawsze na bieżąco</p>
         <form action="" class="nl_form">
             <label for="submit_mail" class="nl_label">
                 <input class="nl_input caption" type="email" id="submit_mail" value="Wpisz swój e-mail">
             </label>
-            <button class="action_btn speedup_txt">Zapisz się!</button>
+            <button class="action_btn speedup-txt">Zapisz się!</button>
         </form>
         <p class="caption">Nie zarzucamy Cię spamem. Informujemy jedynie o nowych autach w naszej ofercie, hellkitach, a
             także opisujemy ciekawe funkcjonalności naszych aut. Od czasu do czasu możesz spodziewać się również <span
@@ -394,36 +404,36 @@
         </div>
     </section>
     <!-- FOOTER  -->
-    <footer class="card card_pad">
-            <nav class="sitemap_wrap gradient_bgcolor">
-                <div class="sitemap_col">
-                    <div class="map_title speedup_txt">Kontakt</div>
-                    <ul class="footer_ul">
-                        <li class="footer_li caption">
+    <footer class="page-item page-item--pad">
+            <nav class="sitemap gradient-bgcolor">
+                <div class="sitemap__column">
+                    <p class="speedup-txt speedup-txt--uppercased">Kontakt</p>
+                    <ul class="sitemap__list">
+                        <li class="sitemap__item caption">
                             <span class="icon-phone">+48 000 000 000</span>
                         </li>
-                        <li class="footer_li caption">
+                        <li class="sitemap__item caption">
                             <span class="icon-mail-alt">speedup@gmail.com</span>
                         </li>
                     </ul>
-                    <p class="privacy_txt caption">Treści opublikowane w serwisie są chronione prawem autorskim, ich kopiowanie i wykorzystywanie bez zgody autorów
+                    <p class="caption">Treści opublikowane w serwisie są chronione prawem autorskim, ich kopiowanie i wykorzystywanie bez zgody autorów
                     zabronione.<br> &copy;!SpeedUp 2022</p>
-                    <a href="#" class="caption footer_link">Polityka prywatności</a>
+                    <a href="#" class="caption sitemap__link">Polityka prywatności</a>
                 </div>
-                <div class="sitemap_col">
-                    <div class="map_title speedup_txt">Oferta</div>
-                    <ul class="footer_ul">
-                        <li class="footer_li caption"><a href="" class="footer_link">Biznes</a></li>
-                        <li class="footer_li caption"><a href="" class="footer_link">Prywatny</a></li>
+                <div class="sitemap__column">
+                    <p class="speedup-txt speedup-txt--uppercased">Oferta</p>
+                    <ul class="sitemap__list">
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Biznes</a></li>
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Prywatny</a></li>
                     </ul>
                 </div>
-                <div class="sitemap_col">
-                    <div class="map_title speedup_txt">Flota</div>
-                    <ul class="footer_ul">
-                        <li class="footer_li caption"><a href="" class="footer_link">Sportowe</a></li>
-                        <li class="footer_li caption"><a href="" class="footer_link">Luksusowe</a></li>
-                        <li class="footer_li caption"><a href="" class="footer_link">Terenowe</a></li>
-                        <li class="footer_li caption"><a href="" class="footer_link">Zabytkowe</a></li>
+                <div class="sitemap__column">
+                    <p class="speedup-txt speedup-txt--uppercased">Flota</p>
+                    <ul class="sitemap__list">
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Sportowe</a></li>
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Luksusowe</a></li>
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Terenowe</a></li>
+                        <li class="sitemap__item caption"><a href="" class="sitemap__link">Zabytkowe</a></li>
                     </ul>
                 </div>
             </nav>

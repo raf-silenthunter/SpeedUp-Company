@@ -1,6 +1,6 @@
 /* Remember you have to attribute Andy Horvath */
 * {
-  /* DEFAULT SETTINGS */
+  /* DEFAULT SETTINGS FOR BASE FILE*/
   --main-font-family: 'Work Sans', sans-serif;
   --main-font-color: #f3f3f3;
   --main-font-size: 26px;
@@ -12,36 +12,30 @@
 
 /* GENERAL STYLESHEET  */
 
-.speedup_txt {
+.speedup-txt {
   font-size: 2.5vh;
   font-family: var(--main-font-family);
   letter-spacing: 2px;
   line-height: 150%;
 }
 
-.gradient_txt {
+.gradient-txt {
   background: -webkit-linear-gradient(#f3f3f3, #acacac);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gradient_bgcolor {
+.gradient-bgcolor {
   background: -webkit-linear-gradient(#acacac, #5f5f5f);
 }
 
-.card {
+.page-item {
   width: 100%;
   height: 100vh;
 }
 
-.card_pad {
+.page-item--pad {
   padding: 4em;
-}
-
-.card_title {
-  font-size: 4.5vh;
-  letter-spacing: 3px;
-  text-align: center;
 }
 
 .card_subtitle {
@@ -78,6 +72,11 @@
 
 .action_btn:hover {
   animation-play-state: paused;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes action {
@@ -126,22 +125,13 @@ body {
   overflow-x: hidden;
 }
 
-.extra_border {
-  content: "";
-  display: block;
-  width: 25%;
-  height: 1vh;
-  border-radius: 3px;
-  margin-bottom: 4vh;
-}
-
 .important_word {
   background: -webkit-linear-gradient(#f3f3f3, #acacac);
   -webkit-background-clip: text;
   -webkit-text-fill-color: yellow;
 }
 
-.justify_txt {
+.speedup-txt--justify {
   text-align: justify;
 }
 
@@ -154,19 +144,33 @@ body {
 
 /* MAIN HEADER STYLE */
 
-.header_wrap {
-  position: relative;
-}
-
-.slider {
+.main-slider {
   position: relative;
   overflow: hidden;
-  background-position: center;
-  background-size: cover;
 }
 
 .title {
+  letter-spacing: 3px;
+  text-align: center;
+  line-height: 150%;
+}
+
+.title--large {
+  font-size: 4.5vh;
+}
+
+.title--medium {
+  font-size: 3.5vh;
+}
+
+.title--padding {
+  padding: 2em;
+}
+
+.main-header__title {
   position: absolute;
+  background-position: center;
+  background-size: cover;
   top: 50%;
   left: 0;
   width: 40vw;
@@ -174,31 +178,27 @@ body {
   z-index: 2;
 }
 
-.default_img,
-.slider_slide {
+.main-slider__item {
+  width: 100%;
+  height: 100vh;
   position: absolute;
   left: 0;
+  top: 0;
   background-position: center;
   background-size: cover;
   transition: transform 1s linear, opacity 1s linear;
   overflow: hidden;
-}
-
-/* JAK TO MOŻNA ROZWIĄZAĆ???  */
-
-.default_img {
-  background-image: url('images/slide-1.jpg');
-  opacity: 0.4;
-  transform: translateY(0%);
-
-}
-
-.hide_default_img {
   opacity: 0;
   transform: translateY(-100%);
 }
 
-.slider_slide {
+.main-slider__default {
+  background-image: url('images/slide-1.jpg');
+  opacity: 0.4;
+  transform: translateY(0%);
+}
+
+.main-slider__hide-default {
   opacity: 0;
   transform: translateY(-100%);
 }
@@ -210,7 +210,7 @@ body {
 
 /* MAIN NAV STYLE  */
 
-.main_nav {
+.main-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -225,7 +225,7 @@ body {
   transition: background-color .4s linear;
 }
 
-.sticky_nav {
+.is-sticky {
   background-color: var(--main-bg-color);
 }
 
@@ -236,7 +236,7 @@ body {
   cursor: pointer;
 }
 
-.mainnav_ul {
+.main-nav__list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,24 +244,24 @@ body {
   list-style-type: none;
 }
 
-.mainnav_li {
+.main-nav__item {
   margin-left: 1em;
 }
 
-.mainnav_link {
+.main-nav__link {
   text-decoration: none;
   font-size: var(--main-font-size);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.mainnav_link:hover {
+.main-nav__link:hover {
   background: var(--main-font-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.mainnav_link:after {
+.main-nav__link:after {
   content: '';
   display: block;
   height: 2px;
@@ -271,18 +271,15 @@ body {
   transition: width linear 0.5s;
 }
 
-.mainnav_link:hover:after {
+.main-nav__link:hover:after {
   width: 100%;
 }
 
-.sign_btn {
-  position: relative;
-  top: 0;
-  left: 0;
+.sign-btn {
   padding: 0.5em;
-  background: transparent;
   border: 2px solid #acacac;
   border-radius: 3px;
+  background: transparent;
   color: var(--main-font-color);
   font-size: var(--main-font-size);
   letter-spacing: 2px;
@@ -291,11 +288,17 @@ body {
   transition: all 0.4s linear;
 }
 
-.sign_btn:hover {
+.sign-btn:hover {
   border: 2px solid #5f5f5f;
 }
 
-.sign_btn:after {
+.sign-btn--lash {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.sign-btn--lash:after {
   content: '';
   position: absolute;
   top: -40%;
@@ -308,24 +311,30 @@ body {
   background: -webkit-linear-gradient(#acacac, #5f5f5f);
 }
 
-.sign_btn:hover:after {
+.sign-btn--lash:hover:after {
   left: 120%;
 }
 
-.slider_nav {
+.btns-wrap {
   height: 5vh;
+  width: 35vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-slider__btns-wrap {
   position: absolute;
   bottom: 1.5em;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
-.slider_btn {
+.main-slider__btn {
   width: 7vw;
   height: 15px;
   border: 2px solid var(--main-font-color);
   border-radius: 10px;
-  margin: 0 .5em;
   background-color: transparent;
   cursor: pointer;
   transition: all .4s linear;
@@ -333,8 +342,8 @@ body {
   overflow: hidden;
 }
 
-.slider_btn:hover,
-.active {
+.main-slider__btn:hover,
+.is-btn-filled {
   box-shadow: 0px 0px 0px 0px rgba(172, 172, 172, 1);
   background-color: rgba(172, 172, 172, 1);
 }
@@ -445,30 +454,42 @@ body {
 
 /* ABOUT STYLE  */
 
-.about_wrap {
+.about {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.h1_about {
-  padding: 2em;
-}
-
-.about_columns {
+.about__columns-wrap {
   height: 90%;
   display: flex;
   justify-content: space-between;
+  gap: 6vh;
 }
 
-.about_column {
-  width: 47%;
+.about__column {
+  width: 50%;
+}
+
+.txt-intro {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4vh;
 }
 
-.border_align-r {
+.txt-intro__speedup-txt {
+  margin-top: 6vh;
+}
+
+.extra-border {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 1vh;
+  border-radius: 3px;
+}
+
+.extra-border--right {
   align-self: flex-end;
 }
 
@@ -791,25 +812,25 @@ body {
 
 /* BLOG STYLE  */
 
-.blog {
+.blog-intro {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.posts_wrap {
+.blog-intro__wrap {
   height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.posts_wrap>* {
+.blog-intro__wrap>* {
   width: 30%;
 }
 
-.post {
+.post-intro {
   position: relative;
   height: 45vh;
   text-decoration: none;
@@ -817,7 +838,7 @@ body {
   overflow: hidden;
 }
 
-.post_cover {
+.post-intro__cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -826,36 +847,33 @@ body {
   transition: all .8s ease;
 }
 
-.post:hover .post_cover {
+.post-intro:hover .post-intro__cover {
   transform: scale(1.2);
   filter: grayscale(0);
   opacity: .3;
 }
 
-.post_content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 45vh;
+.post-content {
   padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.post_head {
+.post-intro__post-content {
+  height: 45vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.post-content__head {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.post_title {
-  font-size: 2.5vh;
-  letter-spacing: 2px;
-  font-family: var(--main-font-family);
-}
-
-.post_cat {
+.post-content__category {
   width: fit-content;
   padding: .5em;
   border: 2px solid yellow;
@@ -865,11 +883,14 @@ body {
 /* RECOMMENDATION STYLE  */
 
 .recommend {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 4em;
+}
+
+.page__recommend {
+  position: relative;
 }
 
 .recommend::before {
@@ -887,24 +908,19 @@ body {
   z-index: -30;
 }
 
-.recommend_txt {
+.recommend__txt-wrap {
   width: 70%;
   padding: 4em;
   align-self: center;
 }
 
-.president_cite {
+.caption--italics {
   font-style: italic;
 }
 
-.president_photo {
-  position: relative;
+.recommend__photo {
   height: 90vh;
   flex-basis: 50%;
-  background-image: url('images/president_speedup.png');
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
   z-index: -2;
 }
 
@@ -958,7 +974,7 @@ body {
 
 /* FOOTER STYLE  */
 
-.sitemap_wrap {
+.sitemap {
   width: 100%;
   max-height: 100%;
   display: flex;
@@ -968,35 +984,35 @@ body {
   text-align: center;
 }
 
-.sitemap_wrap>* {
+.sitemap__column {
   flex-basis: 33%;
 }
 
-.sitemap_col>* {
+.sitemap__column>* {
   color: black;
   padding: .5em 0;
 }
 
-.map_title {
+.speedup-txt--uppercased {
   text-transform: uppercase;
 }
 
-.footer_ul {
+.sitemap__list {
   height: 20vh;
   list-style: none;
 }
 
-.footer_li {
+.sitemap__item {
   padding: .5em 0;
 }
 
-.footer_link {
+.sitemap__link {
   text-decoration: none;
   color: black;
   transition: all .4s ease;
 }
 
-.footer_link:hover {
+.sitemap__link:hover {
   color: #f3f3f3;
 }
 

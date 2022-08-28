@@ -1,15 +1,15 @@
 // STICKY MENU FN
-const nav = document.querySelector(".main_nav");
+const nav = document.querySelector(".main-nav");
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
     console.log(scrollPosition);
     const scrollVAlue = 300;
 
     if (scrollPosition >= scrollVAlue) {
-        nav.classList.add("sticky_nav");
+        nav.classList.add("is-sticky");
     }
     else {
-        nav.classList.remove("sticky_nav");
+        nav.classList.remove("is-sticky");
     }
 })
 
@@ -38,11 +38,11 @@ const startCounter = document.addEventListener("scroll", () => {
 
 // SLIDER FN
 
-const firtsImg = document.querySelector(".default_img");
-const slider = [...document.querySelectorAll(".slider .slider_slide")];
+const firtsImg = document.querySelector(".main-slider__default");
+const slider = [...document.querySelectorAll(".main-slider__item")];
 const slideH2 = document.querySelector("header h2");
-const slidePosition = document.querySelector(".title");
-const sliderBtns = [...document.querySelectorAll(".slider_btn")];
+const slidePosition = document.querySelector(".main-header__title");
+const sliderBtns = [...document.querySelectorAll(".main-slider__btn")];
 
 const time = 8000;
 
@@ -88,13 +88,13 @@ const changeSlideByBtn = (e) => {
 sliderBtns.forEach(btn => btn.addEventListener("click", changeSlideByBtn))
 
 const changeBtn = () => {
-    sliderBtns.forEach(btn => btn.classList.remove("active"));
-    sliderBtns[i].classList.add("active");
+    sliderBtns.forEach(btn => btn.classList.remove("is-btn-filled"));
+    sliderBtns[i].classList.add("is-btn-filled");
 }
 
 const changeSlide = () => {
     i++;
-    firtsImg.classList.add("hide_default_img");
+    firtsImg.classList.add("main-slider__hide-default");
     if (i >= slide.length) {
         i = 0;
     }
