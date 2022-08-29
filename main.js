@@ -37,12 +37,12 @@ const startCounter = document.addEventListener("scroll", () => {
 });
 
 // SLIDER FN
-
-const firtsImg = document.querySelector(".main-slider__default");
-const slider = [...document.querySelectorAll(".main-slider__item")];
+// WYMAGANA ZMIANA NAZW NA BARDZIEJ PRECISE 
+const firtsImg = document.querySelector(".slide--is-default");
+const slider = [...document.querySelectorAll(".slide")];
 const slideH2 = document.querySelector("header h2");
-const slidePosition = document.querySelector(".main-header__title");
-const sliderBtns = [...document.querySelectorAll(".main-slider__btn")];
+const h2Position = document.querySelector(".main-header__title");
+const sliderBtns = [...document.querySelectorAll(".btns-wrap__btn")];
 
 const time = 8000;
 
@@ -94,15 +94,15 @@ const changeBtn = () => {
 
 const changeSlide = () => {
     i++;
-    firtsImg.classList.add("main-slider__hide-default");
+    firtsImg.classList.add("slide--hide-default");
     if (i >= slide.length) {
         i = 0;
     }
-    slider.forEach(slide => slide.classList.remove("active_slide"))
-    slider[i].classList.add("active_slide");
+    slider.forEach(slide => slide.classList.remove("slide--is-active"))
+    slider[i].classList.add("slide--is-active");
     slider[i].style.backgroundImage = `url(${slide[i].image}`;
-    slidePosition.style.top = `${slide[i].top}%`;
-    slidePosition.style.left = `${slide[i].left}%`;
+    h2Position.style.top = `${slide[i].top}%`;
+    h2Position.style.left = `${slide[i].left}%`;
     slideH2.textContent = slide[i].h2;
     changeBtn();
 }

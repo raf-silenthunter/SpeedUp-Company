@@ -16,8 +16,8 @@
 </head>
 <body class="page">
     <!-- MAIN HEADER STYLE  -->
-        <nav class="main-nav">
-            <div class="brandlogo gradient-txt">!SpeedUp</div>
+        <nav class="main-nav page__main-nav">
+            <div class="brandlogo gradient-txt"><a href="#" class="brandlogo__link">!SpeedUp</a></div>
             <ul class="main-nav__list">
                 <li class="main-nav__item gradient-txt">
                     <a href="#" class="main-nav__link">Oferta</a>
@@ -36,17 +36,17 @@
         </nav>
         <header class="main-header page-item">
             <h2 class="title title--large gradient-txt main-header__title">Luksusowe samochody w Twoim zasięgu</h2>
-            <div class="main-slider page-item">
-                <div class="main-slider__default main-slider__item"></div>
-                <div class="main-slider__item"></div>
-                <div class="main-slider__item"></div>
-                <div class="main-slider__item"></div>
-                <div class="main-slider__item"></div>
+            <div class="main-slider">
+                <div class="slide main-slider__slide slide--is-default"></div>
+                <div class="slide main-slider__slide"></div>
+                <div class="slide main-slider__slide"></div>
+                <div class="slide main-slider__slide"></div>
+                <div class="slide main-slider__slide"></div>
                 <nav class="btns-wrap main-slider__btns-wrap">
-                    <button type="button" class="main-slider__btn is-btn-filled"></button>
-                    <button type="button" class="main-slider__btn"></button>
-                    <button type="button" class="main-slider__btn"></button>
-                    <button type="button" class="main-slider__btn"></button>
+                    <button type="button" class="btns-wrap__btn is-btn-filled"></button>
+                    <button type="button" class="btns-wrap__btn"></button>
+                    <button type="button" class="btns-wrap__btn"></button>
+                    <button type="button" class="btns-wrap__btn"></button>
                 </nav>
             </div>
         </header>
@@ -117,7 +117,7 @@
             <section class="clients page-item page-item--pad gradient-bgcolor">
                 <div class="biz_wrap clients_bgc">
                             <div class="biz_info">                                
-                                    <h2 class="card_subtitle gradient-txt">Personalizowana oferta dla <span class="important_word">biznesu</span></h2>
+                                    <h2 class="card_subtitle gradient-txt">Personalizowana oferta dla <span class="important-word">biznesu</span></h2>
                                         <div class="txt-intro">
                                             <span class="extra-border gradient-bgcolor"></span>
                                             <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel
@@ -126,11 +126,11 @@
                                                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                                 nulla pariatur.</p>
                                         </div>
-                                <button class="action_btn speedup-txt">Dowiedz się więcej!</button>
+                                <button class="action-btn speedup-txt">Dowiedz się więcej!</button>
                             </div>
                             <div class="biz_slider">
                                 <div>
-                                    <button class="biz_slider_btn circle_btn_overlay">
+                                    <button class="biz_slider_btn circle-btn-overlay">
                                         <span class="icon-left-open-big"></span>
                                     </button>
                                 </div>
@@ -183,7 +183,7 @@
                                 </div>
                                 </div>                           
                                 <div>
-                                    <button class="biz_slider_btn circle_btn_overlay">
+                                    <button class="biz_slider_btn circle-btn-overlay">
                                     <span class="icon-right-open-big"></span>
                                 </button>
                             </div>
@@ -191,34 +191,34 @@
                     </div>
             </section>
             <!-- VALUES STYLE  -->
-            <section class="values_wrap page-item page-item--pad">
-                    <div class="values_content">
-                        <h3 class="card_subtitle gradient-txt">Szukasz korzyści?</h3>
-                            <div class="txt-intro">
-                                <span class="extra-border gradient-bgcolor"></span>
-                                <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel
-                                    humain et croyons en son pouvoir de façonner le changement stratégique,
-                                    organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
-                                    ex ea commodo consequat.
-                                    </p>
-                            </div>
+            <section class="values-wrap page-item page-item--pad">
+                    <div class="values-wrap__txt">
+                        <h3 class="title title--align-l gradient-txt">Szukasz korzyści?</h3>
+                        <div class="txt-intro">
+                            <span class="extra-border gradient-bgcolor"></span>
+                            <p class="speedup-txt speedup-txt--justify txt-intro__speedup-txt">Nous excellons dans le domaine du potentiel
+                                humain et croyons en son pouvoir de façonner le changement stratégique,
+                                organisationnel. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip
+                                ex ea commodo consequat.
+                            </p>
+                        </div>
                     </div>
-                    <div class="values_imgs_wrap">
-                            <figure class="value">
-                                <div class="circle_btn_overlay">
-                                    <img src="images/money.png" alt="" class="value_img">
+                    <div class="values-wrap__values">
+                            <figure class="values-wrap__value">
+                                <div class="values-wrap__icon-panel circle-btn-overlay">
+                                    <img src="images/money.png" alt="" class="values-wrap__icon">
                                 </div>
                                 <figcaption class="caption">Pieniądze w kieszeni</figcaption>
                             </figure>
-                            <figure class="value">
-                                <div class="circle_btn_overlay">
-                                    <img src="images/time.png" alt="" class="value_img">
+                            <figure class="values-wrap__value">
+                                <div class="values-wrap__icon-panel circle-btn-overlay">
+                                    <img src="images/time.png" alt="" class="values-wrap__icon">
                                 </div>
                                 <figcaption class="caption">Więcej czasu</figcaption>
                             </figure>
-                            <figure class="value">
-                                <div class="circle_btn_overlay">
-                                    <img src="images/scopeok.png" alt="" class="value_img">
+                            <figure class="values-wrap__value">
+                                <div class="values-wrap__icon-panel circle-btn-overlay">
+                                    <img src="images/scopeok.png" alt="" class="values-wrap__icon">
                                 </div>
                                 <figcaption class="caption">Naprawy na miejscu</figcaption>
                             </figure>
@@ -235,13 +235,13 @@
                         <img src="images/biz-img-5.png" alt="" class="border_l">
                     </div>
                     <div class="priv_info">
-                        <h2 class="card_subtitle gradient-txt">Oferta dla <span class="important_word">klientów prywatnych</span>
+                        <h2 class="card_subtitle gradient-txt">Oferta dla <span class="important-word">klientów prywatnych</span>
                         </h2>
                         <span class="extra-border gradient-bgcolor"></span>
                         <p class="speedup-txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                             Consequuntur aspernatur quae, totam culpa earum odio distinctio quia deserunt similique laborum dolorum,
                             soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
-                        <button class="action_btn speedup-txt">Dowiedz się więcej!</button>
+                        <button class="action-btn speedup-txt">Dowiedz się więcej!</button>
                     </div>
                 </div>
             </section>
@@ -250,7 +250,7 @@
                 <h2 class="card_subtitle gradient-txt">Jakie marki samochodów znajdziesz w naszej flocie?</h2>
                 <div class="brands_slider">
                     <div class="btn_wrap">
-                        <button class="circle_btn_overlay brands_btn">
+                        <button class="circle-btn-overlay brands_btn">
                             <i class="icon-left-open-big"></i>
                         </button>
                     </div>
@@ -289,7 +289,7 @@
                         </div>
                     </div>
                     <div class="btn_wrap">
-                        <button class="circle_btn_overlay brands_btn">
+                        <button class="circle-btn-overlay brands_btn">
                             <i class="icon-right-open-big"></i>
                         </button>
                     </div>
@@ -297,26 +297,26 @@
             </aside>
             <!-- FLEET SECTION  -->
             <section class="fleet page-item">
-                <div class="fleet_grid fleet_info caption">
-                    <h3 class="card_subtitle gradient-txt">Nasza flota liczy aż 50 niesamowitych wehikułów</h3>
+                <div class="fleet__grid fleet__txt caption">
+                    <h3 class="title gradient-txt">Nasza flota liczy aż 50 niesamowitych wehikułów</h3>
                 </div>
-                <div class="fleet_grid fleet_img"></div>
-                <div class="fleet_grid fleet_img"></div>
-                <div class="fleet_grid fleet_info">
+                <div class="fleet__grid fleet__img"></div>
+                <div class="fleet__grid fleet__img"></div>
+                <div class="fleet__grid fleet__txt">
                     <p class="speedup-txt caption">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Natus magni repellendus amet aperiam, voluptatem reprehenderit quasi optio.
                     </p>
                 </div>
-                <div class="fleet_grid">
-                        <img src="images/fleet-img-1.jpg" alt="" class="fleet_overlay">
-                        <button class="action_btn btn_center speedup-txt">Poznaj je wszystkie!</button>
+                <div class="fleet-underlay fleet__fleet-underlay">
+                        <img src="images/fleet-img-1.jpg" alt="" class="fleet-underlay__big-img">
+                        <button class="action-btn fleet-underlay__action-btn speedup-txt">Poznaj je wszystkie!</button>
                 </div>
             </section>
         </article>
     </main>
     <!-- BLOG INTRO SECTION STYLE  -->
     <section class="blog-intro page-item page-item--pad">
-        <p class="title title--medium gradient-txt">Najnowsze publikacje na naszym blogu</p>
+        <p class="title gradient-txt">Najnowsze publikacje na naszym blogu</p>
         <div class="blog-intro__wrap">
             <a class="post-intro" href="#">
                 <img src="images/post_lexus_img.webp" alt="" class="post-intro__cover">
@@ -352,7 +352,7 @@
                 </div>
             </a>
         </div>
-        <button class="action_btn speedup-txt">Zobacz o czym piszemy</button>
+        <button class="action-btn speedup-txt">Zobacz o czym piszemy</button>
     </section>
     <!-- RECOMMENDATION STYLE  -->
     <aside class="recommend page__recommend page-item">
@@ -377,28 +377,28 @@
         </div>
     </aside>
     <!-- NEWSLETTER SECTION  -->
-    <section class="page-item page-item--pad nl_wrap">
-        <p class="card_subtitle gradient-txt">Bądź zawsze na bieżąco</p>
-        <form action="" class="nl_form">
-            <label for="submit_mail" class="nl_label">
-                <input class="nl_input caption" type="email" id="submit_mail" value="Wpisz swój e-mail">
+    <section class="nl-wrap page-item page-item--pad">
+        <p class="title gradient-txt">Bądź zawsze na bieżąco</p>
+        <form action="" class="form">
+            <label for="submit_mail" class="form__label">
+                <input class="form__input caption" type="email" id="submit_mail" value="Wpisz swój e-mail">
             </label>
-            <button class="action_btn speedup-txt">Zapisz się!</button>
+            <button class="form__action-btn action-btn action-btn--animation speedup-txt">Zapisz się!</button>
         </form>
         <p class="caption">Nie zarzucamy Cię spamem. Informujemy jedynie o nowych autach w naszej ofercie, hellkitach, a
             także opisujemy ciekawe funkcjonalności naszych aut. Od czasu do czasu możesz spodziewać się również <span
-                class="important_word">dużych rabatów</span>. Warto!</p>
-        <div class="socials_wrap">
-            <a href="https://www.facebook.com/" class="circle_btn_overlay social_btn" target="_blank">
+                class="important-word">dużych rabatów</span>. Warto!</p>
+        <div class="nl-wrap__socials-wrap">
+            <a href="https://www.facebook.com/" class="nl-wrap__btn circle-btn-overlay circle-btn-overlay--small" target="_blank">
                 <i class="icon-facebook"></i>
             </a>
-            <a href="https://www.instagram.com/" class="circle_btn_overlay social_btn" target="_blank">
+            <a href="https://www.instagram.com/" class="nl-wrap__btn circle-btn-overlay circle-btn-overlay--small" target="_blank">
                 <i class="icon-instagram-filled"></i>
             </a>
-            <a href="https://linkedin.com/" class="circle_btn_overlay social_btn" target="_blank">
+            <a href="https://linkedin.com/" class="nl-wrap__btn circle-btn-overlay circle-btn-overlay--small" target="_blank">
                 <i class="icon-linkedin"></i>
             </a>
-            <a href="https://twitter.com/" class="circle_btn_overlay social_btn" target="_blank">
+            <a href="https://twitter.com/" class="nl-wrap__btn circle-btn-overlay circle-btn-overlay--small" target="_blank">
                 <i class="icon-twitter"></i>
             </a>
         </div>

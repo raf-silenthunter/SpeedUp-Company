@@ -30,7 +30,7 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  /* margin-right: .2em; */
   text-align: center;
   /* opacity: .8; */
 
@@ -43,7 +43,7 @@
 
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .2em;
+  /* margin-left: .2em; */
 
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
@@ -70,7 +70,7 @@
 /* '' */
 .icon-right-open-big:before {
   content: '\e802';
-  margin-right: 0;
+  margin-left: .2em;
   font-size: 3em;
 }
 
@@ -79,7 +79,6 @@
   content: '\e803';
   font-size: 3em;
   margin-right: .2em;
-  margin-left: 0;
 }
 
 /* '' */
