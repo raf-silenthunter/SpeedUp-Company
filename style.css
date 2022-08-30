@@ -365,26 +365,23 @@ body {
 
 /* COUNTERS STYLE  */
 
-.counter_content {
+.counter {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* COUNTERS STYLE  */
-.numbers {
+.counter__numbers {
   width: 100%;
   max-width: 100%;
   height: 30vh;
   position: relative;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
 }
 
-.numbers:after {
+.counter__numbers:after {
   content: '';
   position: absolute;
   left: 0;
@@ -394,13 +391,13 @@ body {
   background: -webkit-linear-gradient(#acacac, #5f5f5f);
 }
 
-.number_wrap {
+.counter__number-wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.big_number {
+.counter__number {
   font-size: 9vh;
   font-weight: 700;
   align-self: center;
@@ -409,7 +406,7 @@ body {
   padding: 10px 0;
 }
 
-.number_caption {
+.counter__number-txt {
   text-align: center;
   font-size: var(--main-font-size);
   color: #000205;
@@ -418,21 +415,20 @@ body {
 }
 
 /* GRID STYLE  */
-.onimg_grid {
+.counter__onimg-grid {
   position: relative;
   height: 55vh;
-  margin-top: calc(20vh - 2.5em);
 }
 
-.grid_wrap,
-.grid_img {
+.counter__onimg-grid>* {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: 55vh;
 }
 
-.grid_wrap {
+.counter__grid-wrap {
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -440,25 +436,15 @@ body {
   border-top: 1em solid black;
 }
 
-.grid_row {
+.counter__grid-item {
   width: 20%;
-  position: relative;
-  border: 20px solid #000205;
-  border-top: none;
+  border-width: 0 20px 40px 20px;
+  border-color: #000205;
+  border-style: solid;
   background-color: transparent;
 }
 
-.row_limiter {
-  height: 10%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #000205;
-}
-
-.grid_img {
-  height: 55vh;
+.counter__grid-img {
   background-image: url("images/race.jpg");
   background-attachment: fixed;
   background-position: center;
@@ -510,13 +496,14 @@ body {
 
 /* CLIENTS STYLE  */
 
-.clients {
+.biz,
+.priv {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.clients_bgc {
+.clients-bgc {
   background-color: #000205;
 }
 
@@ -697,21 +684,21 @@ body {
 
 /* BRANDS ASIDE STYLE  */
 
-.brands_wrap {
+.brands {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-.brands_slider {
+.brands__slider {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.btn_wrap {
+.brands__btn-wrap {
   width: 10%;
   height: 100%;
   display: flex;
@@ -720,69 +707,75 @@ body {
   align-items: center;
 }
 
-.brands_btn {
+.brands__btn {
   width: 15vh;
   height: 15vh;
   background-color: transparent;
-  box-shadow: inset 0px 0px 15px 9px rgba(255, 255, 0, 0.81);
 }
 
-.brands_slides {
+.brands__slides {
   flex-basis: 70%;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
 }
 
-.brand_slide {
+.brands__slide {
   margin: 20px;
   width: calc(100% / 8);
-  height: auto;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.brand_slide>* {
+.brands__slide>* {
   width: 100%;
-  height: 200px;
+  height: 50%;
   background-image: url(images/Mercedes_new_logo.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.brand_slide:nth-child(2n) {
+/* WSZYSTKIE TE STYLE BĘDĄ USUNIETE */
+
+.brands__slide:nth-child(2n) {
   transform: translateY(20%);
 }
 
-.brand_slide:nth-child(2)>* {
+.brands__slide:nth-child(2)>* {
   background-image: url(images/renault-logo-vector.png);
 }
 
-.brand_slide:nth-child(3)>* {
+.brands__slide:nth-child(3)>* {
   background-image: url(images/mazda-2.svg);
 }
 
-.brand_slide:nth-child(4)>* {
+.brands__slide:nth-child(4)>* {
   background-image: url(images/alfa-romeo.svg);
 }
 
-.brand_slide:nth-child(5)>* {
+.brands__slide:nth-child(5)>* {
   background-image: url(images/honda-logo-freelogovectors.net_.svg);
 }
 
-.brand_slide:nth-child(6)>* {
+.brands__slide:nth-child(6)>* {
   background-image: url(images/toyota.svg);
 }
 
-.brand_slide:nth-child(7)>* {
+.brands__slide:nth-child(7)>* {
   background-image: url(images/nissan-126.svg);
 }
 
-.brand_slide:nth-child(8)>* {
+.brands__slide:nth-child(8)>* {
   background-image: url(images/bmv-1.svg);
 }
 
-.brand_slide> :last-child {
-  transform: rotateX(180deg) translateY(70px);
+/* WSZYSTKIE TE STYLE BĘDĄ USUNIETE */
+
+.brands__slide-item:last-child {
+  transform: rotateX(180deg) translateY(25%);
   mask-image: linear-gradient(transparent 50%, white 90%);
 }
 
