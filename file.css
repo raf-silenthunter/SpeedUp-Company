@@ -1,6 +1,6 @@
 /* Remember you have to attribute Andy Horvath */
 * {
-  /* DEFAULT SETTINGS FOR BASE FILE*/
+  /* DEFAULT SETTINGS FOR GLOBAL FILE*/
   --main-font-family: 'Work Sans', sans-serif;
   --main-font-color: #f3f3f3;
   --main-font-size: 26px;
@@ -17,6 +17,39 @@
   font-family: var(--main-font-family);
   letter-spacing: 2px;
   line-height: 150%;
+}
+
+.speedup-txt--subtitle {
+  font-size: 3.5vh;
+}
+
+.speedup-txt--title {
+  font-size: 4.5vh;
+  text-align: center;
+}
+
+.speedup-txt--justify {
+  text-align: justify;
+}
+
+.speedup-txt--align-l {
+  text-align: left;
+}
+
+.speedup-txt--align-r {
+  text-align: right;
+}
+
+.speedup-txt--uppercased {
+  text-transform: uppercase;
+}
+
+.speedup-txt--italics {
+  font-style: italic;
+}
+
+.speedup-txt--padding {
+  padding: 2em;
 }
 
 .gradient-txt {
@@ -36,16 +69,6 @@
 
 .page-item--pad {
   padding: 4em;
-}
-
-.caption {
-  font-size: 2.5vh;
-  letter-spacing: 2px;
-  line-height: 150%;
-}
-
-.caption--italics {
-  font-style: italic;
 }
 
 .ongradient_txt {
@@ -134,38 +157,9 @@ body {
   -webkit-text-fill-color: yellow;
 }
 
-.speedup-txt--justify {
-  text-align: justify;
-}
-
-.title {
-  font-size: 3.5vh;
-  letter-spacing: 3px;
-  text-align: center;
-  line-height: 150%;
-}
-
-.title--large {
-  font-size: 4.5vh;
-}
-
-.title--padding {
-  padding: 2em;
-}
-
-.title--align-l {
-  text-align: left;
-}
-
-.title--align-r {
-  text-align: right;
-}
-
 /* MAIN HEADER STYLE  */
 
-
-
-.main-header__title {
+.main-header__speedup-txt {
   position: absolute;
   top: 50%;
   left: 0;
@@ -625,6 +619,10 @@ body {
   border-bottom: 2px solid #acacac;
 }
 
+.option__item:last-child {
+  border: none;
+}
+
 .option__txt {
   font-size: 2vh;
   text-align: center;
@@ -632,7 +630,7 @@ body {
   line-height: 250%;
 }
 
-.option__title {
+.option__speedup-txt {
   flex-basis: 10%;
   padding: .5em;
   color: #000205;
@@ -734,47 +732,15 @@ body {
 .brands__slide>* {
   width: 100%;
   height: 50%;
-  background-image: url(images/Mercedes_new_logo.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
-/* WSZYSTKIE TE STYLE BĘDĄ USUNIETE */
+.brands__slide-item {
+  object-fit: contain;
+}
 
 .brands__slide:nth-child(2n) {
   transform: translateY(20%);
 }
-
-.brands__slide:nth-child(2)>* {
-  background-image: url(images/renault-logo-vector.png);
-}
-
-.brands__slide:nth-child(3)>* {
-  background-image: url(images/mazda-2.svg);
-}
-
-.brands__slide:nth-child(4)>* {
-  background-image: url(images/alfa-romeo.svg);
-}
-
-.brands__slide:nth-child(5)>* {
-  background-image: url(images/honda-logo-freelogovectors.net_.svg);
-}
-
-.brands__slide:nth-child(6)>* {
-  background-image: url(images/toyota.svg);
-}
-
-.brands__slide:nth-child(7)>* {
-  background-image: url(images/nissan-126.svg);
-}
-
-.brands__slide:nth-child(8)>* {
-  background-image: url(images/bmv-1.svg);
-}
-
-/* WSZYSTKIE TE STYLE BĘDĄ USUNIETE */
 
 .brands__slide-item:last-child {
   transform: rotateX(180deg) translateY(25%);
@@ -793,6 +759,7 @@ body {
 .fleet__grid {
   flex-basis: 50%;
   width: 25%;
+  overflow: hidden;
 }
 
 .fleet__txt {
@@ -803,13 +770,9 @@ body {
 }
 
 .fleet__img {
-  background-position: center;
-  background-size: cover;
-  background-image: url(images/fleet-img-3.jpg);
-}
-
-.fleet__img:nth-of-type(2) {
-  background-image: url(images/fleet-img-2.jpg);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .fleet-underlay {
@@ -981,7 +944,6 @@ body {
   box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
 }
 
-
 .blog-intro__action-btn,
 .form__action-btn,
 .clients__action-btn {
@@ -1024,10 +986,6 @@ body {
   padding: .5em 0;
 }
 
-.speedup-txt--uppercased {
-  text-transform: uppercase;
-}
-
 .sitemap__list {
   height: 20vh;
   list-style: none;
@@ -1049,11 +1007,19 @@ body {
 
 @media only screen and (max-width: 1600px) {
 
-  .caption {
-    font-size: 2.2vh;
+  .speedup-txt {
+    font-size: 2.4vh;
   }
 
   .action-btn {
     padding: .85em;
+  }
+
+  .speedup-txt--subtitle {
+    font-size: 3.5vh;
+  }
+
+  .speedup-txt--title {
+    font-size: 4.5vh;
   }
 }

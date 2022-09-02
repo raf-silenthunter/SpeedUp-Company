@@ -41,7 +41,7 @@ const startCounter = document.addEventListener("scroll", () => {
 const firtsImg = document.querySelector(".slide--is-default");
 const slider = [...document.querySelectorAll(".slide")];
 const slideH2 = document.querySelector("header h2");
-const h2Position = document.querySelector(".main-header__title");
+const h2Position = document.querySelector(".main-header__speedup-txt");
 const sliderBtns = [...document.querySelectorAll(".btns-wrap__btn")];
 
 const time = 8000;

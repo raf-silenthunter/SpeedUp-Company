@@ -1,0 +1,9 @@
+div {
+  font-size: 20px;
+}
+div ul {
+  font-size: 400px;
+  padding: 20px;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}/*# sourceMappingURL=style.css.map */
