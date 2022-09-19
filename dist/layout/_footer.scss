@@ -1,0 +1,46 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+/* FOOTER STYLE  */
+
+.sitemap {
+    width: 100%;
+    @include m.display-flex(flex, column);
+    @include m.flex-center(space-between, space-between, auto);
+    padding: 4rem;
+    text-align: center;
+
+    &__column {
+        flex-basis: 33.3333%;
+
+        &>* {
+            color: v.$pale-black;
+            padding: .5em 0;
+        }
+    }
+
+    &__list {
+        height: 20vh;
+    }
+
+    &__item {
+        padding: .5em 0;
+    }
+
+    &__link {
+        transition: all .4s ease;
+
+        &:hover {
+            color: #f3f3f3;
+        }
+    }
+}
+
+.sitemap__link {
+    color: v.$pale-black;
+    transition: all .4s ease;
+
+    &:hover {
+        color: v.$pale-white;
+    }
+}

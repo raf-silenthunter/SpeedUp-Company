@@ -1,0 +1,56 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+/* MAIN HEADER STYLE  */
+
+.main-header{
+//additional styles in future
+&__speedup-txt {
+        @include m.position(absolute, 50%, 0);
+        width: max(30rem, 40vw);
+        z-index: v.$z-main;
+        text-align: left;
+        padding: 1em;
+    }
+}
+
+.main-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+
+    &__slide{
+        height: 100vh;
+        @include m.position(absolute, 0, 0);
+    }
+}
+
+.slide {
+    width: 100%;
+    background: center;
+    background-size: cover;
+    transition: transform 1s linear, opacity 1s linear;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+
+    &--is-default{
+        @include m.breakpoint(medium) {
+                background-image: url('../images/slide-1.jpg')
+        };
+        background-image: url('../images/slide-1-mobile.jpg');
+        opacity: 0.4;
+        transform: translateY(0%);
+    }
+
+    &--hide-default {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    &--is-active {
+        opacity: 0.4;
+        transform: translateY(0%);
+    }
+}

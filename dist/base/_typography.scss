@@ -1,0 +1,13 @@
+@use "../utils/variables" as v;
+
+h1, h2, h2, h4, p,
+span, a, figcaption, blockquote, div, button {
+    font-family: v.$font-family;
+    font-weight: v.$font-weight-base;
+    line-height: v.$line-height;
+    letter-spacing: v.$letter-spacing;
+}
+
+a, a:visited, a:active, a:focus {
+    text-decoration: none;
+}

@@ -1,0 +1,27 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.txt-intro {
+    @include m.breakpoint(large) {
+        text-align: justify;
+    }
+
+    &__speedup-txt {
+        margin-top: 6rem;
+    }
+
+    &__border {
+        display: block;
+        width: 100%;
+        @include m.breakpoint(large) {
+            width: 25%;
+        }
+        height: 1vh;
+        border-radius: 3px;
+
+            &--right {
+                align-self: flex-end;
+            }
+    }
+}
+

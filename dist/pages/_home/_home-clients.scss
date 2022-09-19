@@ -1,0 +1,148 @@
+/* CLIENTS STYLE  */
+
+.clients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clients__wrap--bgc-black {
+    background-color: #000205;
+}
+
+.clients__wrap {
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.clients__wrap>* {
+    width: 50%;
+    padding: 2em;
+}
+
+.clients__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.clients__info--align-r {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.clients__extra-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cutted-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cutted-imgs__img {
+    filter: grayscale(1);
+    transition: all .8s ease;
+}
+
+.cutted-imgs:hover .cutted-imgs__img {
+    filter: grayscale(0);
+}
+
+.cutted-imgs__img--border-l {
+    border-left: 5px ridge yellow;
+}
+
+.biz-slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.biz-slider__btn {
+    width: 10vh;
+    height: 10vh;
+    background-color: transparent;
+}
+
+.biz-slider__options {
+    flex-grow: .9;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.biz-slider__option {
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.option--premium-position {
+    transform: translateX(-50%) scale(100%);
+}
+
+.option--medium-position {
+    left: -15%;
+    transform: translateX(-50%) scale(90%);
+}
+
+.option--basic-position {
+    left: 115%;
+    transform: translateX(-50%) scale(90%);
+}
+
+.option {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #acacac;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 15px 9px rgba(172, 172, 172, 0.81);
+    background: #000205;
+}
+
+.option__img {
+    height: 40%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.option__list {
+    flex-basis: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    overflow: hidden;
+}
+
+.option__item {
+    border-bottom: 2px solid #acacac;
+}
+
+.option__item:last-child {
+    border: none;
+}
+
+.option__txt {
+    font-size: 2vh;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 250%;
+}
+
+.option__speedup-txt {
+    flex-basis: 10%;
+    padding: .5em;
+    color: #000205;
+    text-align: center;
+}

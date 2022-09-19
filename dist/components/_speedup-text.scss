@@ -1,0 +1,43 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.speedup-txt {
+    font-size: 2.5vh;
+}
+
+.speedup-txt--subtitle {
+    font-size: v.$font-size-big;
+}
+
+.speedup-txt--title {
+    font-size: v.$font-size-xl;
+    text-align: center;
+}
+
+.speedup-txt--align-l {
+    text-align: left;
+}
+
+.speedup-txt--align-r {
+    text-align: right;
+}
+
+.speedup-txt--uppercased {
+    text-transform: uppercase;
+}
+
+.speedup-txt--italics {
+    font-style: italic;
+}
+
+.speedup-txt--padding {
+    // padding: 6rem 4rem;
+    @include m.breakpoint(medium){
+        padding: 2em;
+    }
+}
+
+.speedup-txt--yellow {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: yellow;
+}

@@ -1,0 +1,32 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+/* ABOUT STYLE  */
+
+.about, .about__columns-wrap, .txt-intro {
+    @include m.display-flex(flex, column);
+}
+
+.about {
+    min-height: 100vh;
+    justify-content: space-around;
+    padding: 6rem 4rem;
+    @include m.breakpoint(large) {
+        padding: 8rem;
+    }
+
+    &__columns-wrap {
+        @include m.breakpoint(large) {
+            flex-direction: row;
+        }
+    
+        justify-content: space-between;
+        gap: 6rem;
+    }
+
+    &__column {
+        @include m.breakpoint(large) {
+            width: 50%;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+/* NEWSLETTER STYLE  */
+
+.nl-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.form__label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input {
+    width: 50%;
+    padding: 1em;
+    text-align: center;
+    background-color: #000205;
+    color: #acacac;
+    border-radius: 3px;
+    border: none;
+    box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
+}
+
+.blog-intro__action-btn,
+.form__action-btn,
+.clients__action-btn {
+    width: 25vw;
+}
+
+.nl-wrap__socials-wrap {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.nl-wrap__btn {
+    width: 12vh;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

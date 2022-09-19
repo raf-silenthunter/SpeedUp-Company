@@ -1,0 +1,37 @@
+// FONT SIZE
+$font-size-base: 62.5%; //so base font-size is 10px now
+$font-size-main: clamp(1.6rem, 1rem + .5vw, 3rem);
+$font-size-big: clamp(2rem, 1rem + 1vw, 3.5rem);
+$font-size-xl: clamp(3.5rem, 1rem + 3.5vw, 4rem);
+
+// FONT STYLE 
+$font-family: 'Work Sans', sans-serif;
+
+$font-weight-base: 400;
+$font-weight-bold: bold;
+$font-weight-xl: 700;
+
+$line-height: 150%;
+$line-height-xl: 250%;
+
+$letter-spacing: 2px;
+
+// COLORS
+$pale-white: #f3f3f3;
+$pale-black: #000205;
+$silver: #acacac;
+$yellow: yellow;
+
+// PADDINGS 
+$padding-xl: 2rem;
+$padding-main: 1rem;
+$padding-small: 0.5rem;
+$padding-xs: 0.25rem;
+
+// Z-INDEX VARIABLES 
+
+$z-under-large: -100;
+$z-under-small: -10;
+$z-main : 10;
+$z-big : 100;
+$z-xl : 1000;

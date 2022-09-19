@@ -1,0 +1,39 @@
+/* RECOMMENDATION STYLE  */
+
+.recommend {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 4em;
+}
+
+.page__recommend {
+    position: relative;
+}
+
+.recommend::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('images/slide-3-blur.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -100;
+}
+
+.recommend__txt-wrap {
+    width: 70%;
+    padding: 4em;
+    align-self: center;
+}
+
+.recommend__photo {
+    height: 90vh;
+    flex-basis: 50%;
+    z-index: -10;
+}

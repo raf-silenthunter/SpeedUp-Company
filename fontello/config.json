@@ -53,6 +53,24 @@
       "css": "twitter",
       "code": 59393,
       "src": "typicons"
+    },
+    {
+      "uid": "7b16b22168e762c88333f465da862098",
+      "css": "ok",
+      "code": 59396,
+      "src": "websymbols"
+    },
+    {
+      "uid": "0a3192de65a73ca1501b073ad601f87d",
+      "css": "arrow-combo",
+      "code": 59397,
+      "src": "entypo"
+    },
+    {
+      "uid": "e4dde1992f787163e2e2b534b8c8067d",
+      "css": "angle-down",
+      "code": 61703,
+      "src": "fontawesome"
     }
   ]
 }

@@ -1,0 +1,70 @@
+@use "variables" as v;
+@use "../utils/breakpoints" as b;
+
+// used only with flex-direction: column. Np needed when row
+@mixin display-flex ($display, $direction) {
+    display: $display;
+    flex-direction: $direction;
+}
+
+@mixin flex-center ($justify-content, $align-items, $align-content: "auto") {
+    justify-content: $justify-content;
+    align-items: $align-items;
+    align-content: $align-content;
+}
+
+@mixin position ($position, $top, $left) {
+    position: $position;
+    top: $top;
+    left: $left;
+}
+
+@mixin border-properties ($width, $style, $color, $radius: 0px) {
+    border: $width $style $color;
+    border-radius: $radius;
+}
+
+@mixin post-intro-hover {
+    filter: grayscale(1);
+    opacity: .2;
+    transition: all .8s ease;
+    &:hover .post-intro__cover {
+        transform: scale(1.2);
+        filter: grayscale(0);
+        opacity: .3;
+    }
+}
+
+@mixin action-btn-hover {
+    background: v.$yellow;
+    color: v.$pale-black;
+    &:hover {
+        background: transparent;
+        color: v.$pale-white;
+    }
+}
+
+@mixin box-shadow($h, $v, $b, $s, $c, $inset: inset) {
+    -webkit-box-shadow: $inset $h $v $b $s $c;
+    -moz-box-shadow: $inset $h $v $b $s $c;
+    box-shadow: $inset $h $v $b $s $c;
+}
+
+@mixin circle-btn-overlay {
+    @include border-properties(4px, solid, yellow, 50%);
+    @include box-shadow(inset 0px 0px 15px 9px rgba(255, 255, 0, 0.81));
+    transition: box-shadow .4s ease;
+    &:hover{
+        @include box-shadow(none);
+    }
+}
+
+@mixin gradient-bgcolor {
+    background: -webkit-linear-gradient(#acacac, #5f5f5f);
+}
+
+@mixin breakpoint($size) {
+    @media (min-width: map-get(b.$brakepoints-up, $size)) {
+        @content;
+    }
+}

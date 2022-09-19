@@ -1,0 +1,64 @@
+/* BRANDS ASIDE STYLE  */
+
+.brands {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.brands__slider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brands__btn-wrap {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brands__btn {
+    width: 15vh;
+    height: 15vh;
+    background-color: transparent;
+}
+
+.brands__slides {
+    flex-basis: 70%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.brands__slide {
+    margin: 20px;
+    width: calc(100% / 8);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.brands__slide>* {
+    width: 100%;
+    height: 50%;
+}
+
+.brands__slide-item {
+    object-fit: contain;
+}
+
+.brands__slide:nth-child(2n) {
+    transform: translateY(20%);
+}
+
+.brands__slide-item:last-child {
+    transform: rotateX(180deg) translateY(25%);
+    mask-image: linear-gradient(transparent 50%, white 90%);
+}
