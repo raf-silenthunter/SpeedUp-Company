@@ -31,7 +31,7 @@
 }
 
 .speedup-txt--padding {
-    // padding: 6rem 4rem;
+    padding: 6rem 4rem;
     @include m.breakpoint(medium){
         padding: 2em;
     }

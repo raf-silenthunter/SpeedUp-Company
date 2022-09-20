@@ -47,47 +47,45 @@
             background: -webkit-linear-gradient(#acacac, #5f5f5f);          
         }
     }
-}
 
-/* GRID STYLE  */
-.counter__onimg-grid {
-    position: relative;
-}
+    &__onimg-grid {
+        position: relative;
+    }
+    &__onimg-grid,
+    &__onimg-grid>* {
+        height: 30vh;
+    
+        @include m.breakpoint(large) {
+            height: 55vh;
+        }
+    }
+    
+    &__onimg-grid>* {
+        @include m.position(absolute, 0, 0);
+        width: 100%;
+    }
+    
+    &__grid-wrap {
+        display: flex;
+        justify-content: space-around;
+        z-index: v.$z-big;
+    }
 
-        .counter__onimg-grid,
-                .counter__onimg-grid>* {
-            height: 30vh;
+    &__grid-item {
+        width: 30%;
+        border-width: 0 10px 20px 10px;
+        border-color: v.$pale-black;
+        border-style: solid;
     
-            @include m.breakpoint(large) {
-                height: 55vh;
-            }
+        @include m.breakpoint(medium) {
+            width: 20%;
+            border-width: 0 20px 40px 20px;
         }
-    
-        .counter__onimg-grid>* {
-            @include m.position(absolute, 0, 0);
-            width: 100%;
-        }
-    
-        .counter__grid-wrap {
-            display: flex;
-            justify-content: space-around;
-            z-index: v.$z-big;
-        }
-    
-        .counter__grid-item {
-            width: 30%;
-            border-width: 0 10px 20px 10px;
-            border-color: v.$pale-black;
-            border-style: solid;
-    
-            @include m.breakpoint(medium) {
-                width: 20%;
-                border-width: 0 20px 40px 20px;
-            }
-        }
-    
-        .counter__grid-img {
-            background: url("../images/race.jpg") no-repeat fixed center;
-            background-size: cover;
-            filter: grayscale(1);
-        }
+    }
+
+    &__grid-img {
+        background: url("../images/race.jpg") no-repeat fixed center;
+        background-size: cover;
+        filter: grayscale(1);
+    }
+}
