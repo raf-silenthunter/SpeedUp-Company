@@ -817,15 +817,7 @@ a, a:visited, a:active, a:focus {
   }
 }
 .clients__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-@media (min-width: 900px) {
-  .clients__info {
-    align-items: flex-start;
-  }
+  align-self: center;
 }
 @media (min-width: 900px) {
   .clients__extra-content {
@@ -835,7 +827,14 @@ a, a:visited, a:active, a:focus {
   }
 }
 .clients__action-btn {
-  margin-top: 6rem;
+  display: block;
+  margin: 6rem auto 0 auto;
+}
+@media (min-width: 900px) {
+  .clients__action-btn {
+    display: block;
+    margin: 6rem 0 0 0;
+  }
 }
 
 .biz-slider {
@@ -843,6 +842,7 @@ a, a:visited, a:active, a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: auto;
   flex-wrap: wrap;
 }
 .biz-slider__btn {
@@ -869,15 +869,16 @@ a, a:visited, a:active, a:focus {
   }
 }
 .biz-slider__options {
-  width: 100%;
   order: 1;
-  height: 65vh;
+  width: 100%;
+  height: 55vh;
   overflow: hidden;
   position: relative;
 }
 @media (min-width: 900px) {
   .biz-slider__options {
     width: 70%;
+    height: 65vh;
   }
 }
 .biz-slider__option {
@@ -903,7 +904,7 @@ a, a:visited, a:active, a:focus {
   background: #000205;
 }
 .option__img {
-  height: 40%;
+  flex-basis: 40%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
@@ -913,7 +914,6 @@ a, a:visited, a:active, a:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  list-style: none;
   overflow: hidden;
 }
 .option__item {
@@ -923,9 +923,8 @@ a, a:visited, a:active, a:focus {
   border: none;
 }
 .option__txt {
-  font-size: 2vh;
+  font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
   text-align: center;
-  letter-spacing: 2px;
   line-height: 250%;
 }
 .option__speedup-txt {
