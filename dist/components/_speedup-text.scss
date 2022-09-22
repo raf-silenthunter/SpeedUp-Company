@@ -2,17 +2,21 @@
 @use "../utils/mixins" as m;
 
 .speedup-txt {
-    font-size: 2.5vh;
+    font-size: v.$font-size-big;
 }
 
 .speedup-txt--title {
     font-size: v.$font-size-xl;
     text-align: center;
+    padding: 6rem 4rem;    
+    @include m.breakpoint(medium) {
+        padding: 2em;
+    }
 }
 
 .speedup-txt--subtitle {
     font-size: v.$font-size-large;
-    text-align: center;
+    padding-bottom: 6rem;
 }
 
 .speedup-txt--align-l {
@@ -29,13 +33,6 @@
 
 .speedup-txt--italics {
     font-style: italic;
-}
-
-.speedup-txt--padding {
-    padding: 6rem 4rem;
-    @include m.breakpoint(medium){
-        padding: 2em;
-    }
 }
 
 .speedup-txt--yellow {

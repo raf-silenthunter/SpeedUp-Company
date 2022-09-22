@@ -4,43 +4,54 @@
 
 .clients {
     padding: 6rem 1rem;
-    min-height: 100vh;
+    @include m.breakpoint(large) {
+            padding: 5rem;
+        }
 
     &__wrap {
+        min-height: 80vh;
         @include m.display-flex(flex, column);
-
+        @include m.breakpoint(large) {
+                flex-direction: row;
+            }
             &--bgc-black {
                     background-color: v.$pale-black;
                 }
         }
 
     &__wrap>*{
-    // width: 50%;
     padding: 3rem;
+    @include m.breakpoint(large) {
+            width: 50%;
+        }
     }
 
     &__info {
-        // @include m.display-flex(flex, column);
-        // justify-content: space-between;
+        @include m.display-flex(flex, column);
+        align-items: center;
+        justify-content: space-between;
+        @include m.breakpoint(large) {
+                align-items: flex-start;
+            }
     }
 
     &__extra-content {
-        // @include m.display-flex(flex, column);
-        // justify-content: center;
+        @include m.breakpoint(large) {
+                @include m.display-flex(flex, column);
+                    justify-content: center;
+            }
     }
 
     &__action-btn{
-        margin: 6rem 0;
-        width: 100%;
+        margin-top: 6rem;
     }
 }
 
 .biz-slider {
     position: relative;
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
-    // height: 100%;
     flex-wrap: wrap;
 
     &__btn {
@@ -49,29 +60,39 @@
         height: 10vh;
         background-color: transparent;
         margin-top: 3rem;
+        @include m.breakpoint(large) {
+                order: 1;
+                margin-top: 0;
+            }
 
         &:last-child{
             position: absolute;
             bottom: 0;
             right: 0;
+            @include m.breakpoint(large) {
+                    position: static;
+                }
         }
         }
 
     &__options {
         width: 100%;
         order: 1;
-        // flex-grow: .9;
-        height: 60vh;
+        height: 65vh;
         overflow: hidden;
         position: relative;
+        @include m.breakpoint(large) {
+                width: 70%;
+            }
     }
 
     &__option {
-        // width: 60%;
         width: 90%;
         @include m.position(absolute, 0, 50%);
+        @include m.breakpoint(medium) {
+                width: 60%;
+            }
     }
-
 }
 
 .option {
@@ -99,7 +120,6 @@
 
     &__item {
         border-bottom: 2px solid v.$silver;
-
         &:last-child{
             border: none;
         }

@@ -30,9 +30,10 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  /* margin-right: .2em; */
   text-align: center;
   /* opacity: .8; */
+  font-size: clamp(2.5rem, 1rem + 1.5vw, 4rem);
 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
@@ -43,7 +44,7 @@
 
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .2em;
+  /* margin-left: .2em; */
 
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
@@ -67,11 +68,13 @@
 
 /* '' */
 .icon-right-open-big:before {
+  margin-left: .2em;
   content: '\e802';
 }
 
 /* '' */
 .icon-left-open-big:before {
+  margin-right: .2em;
   content: '\e803';
 }
 
