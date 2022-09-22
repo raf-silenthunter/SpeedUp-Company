@@ -7,20 +7,23 @@
     width: 100%;
     @include m.display-flex(flex, column);
     @include m.flex-center(space-between, space-between, auto);
-    padding: 4rem;
+//  POWODUJE SCROLLA - DLACZEGO  
+    // padding: 4rem;
     text-align: center;
 
     &__column {
         flex-basis: 33.3333%;
 
         &>* {
+            //  POWODUJE SCROLLA - DLACZEGO  
             color: v.$pale-black;
-            padding: .5em 0;
+            padding: .5rem 0;
         }
     }
 
     &__list {
-        height: 20vh;
+        //  20vh POWODUJE SCROLLA - DLACZEGO  
+        height: 10vh;
     }
 
     &__item {

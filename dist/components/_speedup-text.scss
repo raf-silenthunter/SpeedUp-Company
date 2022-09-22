@@ -5,12 +5,13 @@
     font-size: 2.5vh;
 }
 
-.speedup-txt--subtitle {
-    font-size: v.$font-size-big;
-}
-
 .speedup-txt--title {
     font-size: v.$font-size-xl;
+    text-align: center;
+}
+
+.speedup-txt--subtitle {
+    font-size: v.$font-size-large;
     text-align: center;
 }
 
