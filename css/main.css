@@ -17,7 +17,7 @@ ol,
 ul,
 li,
 a,
-div, nav, footer, p, aside, h1, h2, h3, h4, section, blockquote, span, button {
+div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, blockquote, span, button {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -33,7 +33,7 @@ button {
   color: #f3f3f3;
 }
 
-h1, h2, h2, h4, p,
+h1, h2, h3, h4, p,
 span, a, figcaption, blockquote, div, button {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
@@ -63,6 +63,10 @@ a, a:visited, a:active, a:focus {
   font-size: clamp(2rem, 1rem + 0.5vw, 2.5rem);
 }
 
+.speedup-txt--medium {
+  font-size: clamp(1.75rem, 1rem + 0.5vh, 2rem);
+}
+
 .speedup-txt--title {
   font-size: clamp(2.75rem, 1rem + 3.5vw, 4rem);
   text-align: center;
@@ -76,7 +80,13 @@ a, a:visited, a:active, a:focus {
 
 .speedup-txt--subtitle {
   font-size: clamp(2.5rem, 1rem + 1.5vw, 3.5rem);
+  text-align: center;
   padding-bottom: 6rem;
+}
+@media (min-width: 900px) {
+  .speedup-txt--subtitle {
+    text-align: left;
+  }
 }
 
 .speedup-txt--align-l {
@@ -828,6 +838,9 @@ a, a:visited, a:active, a:focus {
 }
 .clients__action-btn {
   display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   margin: 6rem auto 0 auto;
 }
 @media (min-width: 900px) {
@@ -953,7 +966,6 @@ a, a:visited, a:active, a:focus {
   display: flex;
   flex-direction: column;
   padding: 6rem 4rem;
-  min-height: 100vh;
 }
 .brands__slider {
   display: flex;
@@ -1052,53 +1064,80 @@ a, a:visited, a:active, a:focus {
 /* FLEET SECTION STYLE  */
 .fleet {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  padding: 4em 0;
 }
-
+@media (min-width: 900px) {
+  .fleet {
+    flex-direction: column;
+    height: 80vh;
+    margin-bottom: 20rem;
+  }
+}
 .fleet__grid {
-  flex-basis: 50%;
-  width: 25%;
   overflow: hidden;
 }
-
-.fleet__txt {
+@media (min-width: 900px) {
+  .fleet__grid {
+    width: 25%;
+    height: 50%;
+  }
+}
+.fleet__grid:nth-child(2), .fleet__grid:nth-child(3) {
+  width: 50%;
+}
+@media (min-width: 900px) {
+  .fleet__grid:nth-child(2), .fleet__grid:nth-child(3) {
+    width: 25%;
+  }
+}
+.fleet__grid--center-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2em;
+  align-content: auto;
 }
-
+.fleet__txt {
+  padding: 6rem 4rem;
+}
+@media (min-width: 900px) {
+  .fleet__txt {
+    padding: 4rem;
+  }
+}
 .fleet__img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+@media (min-width: 700px) {
+  .fleet__img {
+    height: 100%;
+  }
+}
+.fleet__fleet-underlay {
+  position: relative;
+}
+@media (min-width: 900px) {
+  .fleet__fleet-underlay {
+    width: 50%;
+  }
 }
 
 .fleet-underlay {
   height: 100%;
 }
-
-.fleet__fleet-underlay {
-  position: relative;
-  width: 50%;
-}
-
 .fleet-underlay__big-img {
   width: 100%;
   height: 100%;
   opacity: 0.2;
   filter: grayscale(1);
 }
-
 .fleet-underlay__action-btn {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   transform: translate(-50%, -50%);
-  width: 25vw;
 }
 
 /* Remember you have to attribute Andy Horvath *//*# sourceMappingURL=main.css.map */

@@ -1,6 +1,6 @@
 @use "../utils/variables" as v;
 
-h1, h2, h2, h4, p,
+h1, h2, h3, h4, p,
 span, a, figcaption, blockquote, div, button {
     font-family: v.$font-family;
     font-weight: v.$font-weight-base;

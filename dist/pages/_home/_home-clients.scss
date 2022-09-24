@@ -39,6 +39,7 @@
 
     &__action-btn{
         display: block;
+        width: max-content;
         margin: 6rem auto 0 auto;
         @include m.breakpoint(large) {
         display: block;
