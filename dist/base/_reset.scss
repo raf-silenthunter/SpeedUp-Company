@@ -7,7 +7,7 @@
     font-size: v.$font-size-base;
 }
 
-body, html {
+body {
     background: v.$pale-black;
     color: v.$pale-white;
     overflow-x: hidden;
@@ -19,7 +19,7 @@ ol,
 ul,
 li,
 a,
-div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, blockquote, span, button {
+div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, blockquote, span, button, figure, figcaption {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
