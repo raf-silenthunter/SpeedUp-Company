@@ -10,7 +10,6 @@
     @include m.breakpoint(large) {
             flex-direction: column;
             height: 80vh;
-            margin-bottom: 20rem;
     }
 
     &__grid {

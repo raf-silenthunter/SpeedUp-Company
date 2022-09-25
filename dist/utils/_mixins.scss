@@ -24,17 +24,6 @@
     border-radius: $radius;
 }
 
-@mixin post-intro-hover {
-    filter: grayscale(1);
-    opacity: .2;
-    transition: all .8s ease;
-    &:hover .post-intro__cover {
-        transform: scale(1.2);
-        filter: grayscale(0);
-        opacity: .3;
-    }
-}
-
 @mixin action-btn-hover {
     background: v.$yellow;
     color: v.$pale-black;
@@ -42,12 +31,6 @@
         background: transparent;
         color: v.$pale-white;
     }
-}
-
-@mixin box-shadow($h, $v, $b, $s, $c, $inset: inset) {
-    -webkit-box-shadow: $inset $h $v $b $s $c;
-    -moz-box-shadow: $inset $h $v $b $s $c;
-    box-shadow: $inset $h $v $b $s $c;
 }
 
 @mixin circle-btn-overlay {

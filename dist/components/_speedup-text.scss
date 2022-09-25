@@ -5,25 +5,31 @@
     font-size: v.$font-size-big;
 }
 
-.speedup-txt--medium{
-    font-size: v.$font-size-medium;
+.speedup-txt--small{
+    font-size: v.$font-size-small;
 }
 
-.speedup-txt--title {
-    font-size: v.$font-size-xl;
-    text-align: center;
-    padding: 6rem 4rem;    
-    @include m.breakpoint(medium) {
-        padding: 2em;
-    }
+
+.speedup-txt--medium{
+    font-size: v.$font-size-medium;
 }
 
 .speedup-txt--subtitle {
     font-size: v.$font-size-large;
     text-align: center;
-    padding-bottom: 6rem;
+    padding: 6rem 4rem;
     @include m.breakpoint(large) {
         text-align: left;
+    }
+}
+
+.speedup-txt--title {
+    font-size: v.$font-size-xl;
+    text-align: center;
+    padding: 6rem 4rem;
+
+    @include m.breakpoint(medium) {
+        padding: 2em;
     }
 }
 
