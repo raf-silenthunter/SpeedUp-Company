@@ -1,0 +1,38 @@
+/* GRID STYLE  */
+.counter__onimg-grid {
+    position: relative;
+    height: 55vh;
+}
+
+.counter__onimg-grid>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55vh;
+}
+
+.counter__grid-wrap {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 100;
+    border-top: 1em solid black;
+}
+
+.counter__grid-item {
+    width: 20%;
+    border-width: 0 20px 40px 20px;
+    border-color: #000205;
+    border-style: solid;
+    background-color: transparent;
+}
+
+.counter__grid-img {
+    background-image: url("images/race.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(1);
+}
