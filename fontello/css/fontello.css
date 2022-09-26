@@ -61,6 +61,8 @@
 }
 
 .icon-phone:before {
+  margin-right: 5px;
+  color: #000205;
   content: '\e800';
 }
 
@@ -93,6 +95,8 @@
 
 /* '' */
 .icon-mail-alt:before {
+  margin-right: 5px;
+  color: #000205;
   content: '\f0e0';
 }
 

@@ -1,45 +1,51 @@
+/* FOOTER STYLE  */
+
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
 
-/* FOOTER STYLE  */
+.footer{
+    // place for future classes
+}
 
 .sitemap {
-    width: 100%;
     @include m.display-flex(flex, column);
-    @include m.flex-center(space-between, space-between, auto);
-//  POWODUJE SCROLLA - DLACZEGO  
-    // padding: 4rem;
+    width: 100%;
+    min-height: calc(100vh - 10vh);
+    padding: 6rem 4rem;
     text-align: center;
+    
+    @include m.breakpoint(medium){
+        flex-direction: row;
+        @include m.flex-center(space-between, space-between);
+    }
 
     &__column {
-        flex-basis: 33.3333%;
+        @include m.breakpoint(medium) {
+            flex-basis: 33.3333%;
+        }
+        margin-bottom: 6rem;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
 
         &>* {
-            //  POWODUJE SCROLLA - DLACZEGO  
             color: v.$pale-black;
-            padding: .5rem 0;
+            padding: 1.5rem 0;
         }
     }
 
     &__list {
-        //  20vh POWODUJE SCROLLA - DLACZEGO  
-        height: 10vh;
+        // height: 20vh;
     }
 
     &__item {
-        padding: .5em 0;
-    }
-
-    &__link {
-        transition: all .4s ease;
-
-        &:hover {
-            color: #f3f3f3;
-        }
+        padding: .5rem 0;
     }
 }
 
 .sitemap__link {
+    display: block;
     color: v.$pale-black;
     transition: all .4s ease;
 
