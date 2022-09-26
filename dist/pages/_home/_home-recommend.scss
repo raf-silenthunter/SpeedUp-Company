@@ -3,61 +3,59 @@
 @use "../../utils/mixins" as m;
 
 
-.recommend {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 6rem 4rem;
-}
-
 .page__recommend {
     position: relative;
     width: 100%;
     height: calc(130vh - 10vh);
+
     @include m.breakpoint(medium) {
         height: calc(100vh - 10vh);
     }
 }
 
-.recommend::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url('../../../images/slide-3-blur.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.4;
-    z-index: -100;
-}
+.recommend {
+    @include m.display-flex(flex, column);
+    justify-content: space-between;
+    padding: 6rem 4rem;
 
-.recommend__txt-wrap {
-    @include m.breakpoint(large) {
-        width: 60%;
-        padding: 4rem;
+    &::before {
+            content: '';
+            @include m.position(absolute, 0, 0);
+            bottom: 0;
+            right: 0;
+            background: url('../../../images/slide-3-blur.jpg') fixed center;
+            background-size: cover;
+            opacity: 0.4;
+            z-index: v.$z-under-large;
         }
-}
-
-.recommend__photo {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 37.5vh;
-    @include m.breakpoint(medium){
-        height: 55vh;
-    }    
-    @include m.breakpoint(large) {
-        height: 80vh;
+    
+    &__txt-wrap {
+        @include m.breakpoint(large) {
+            width: 60%;
+            padding: 4rem;
+        }
     }
-    z-index: -10;
-}
 
-.recommend__speedup-txt{
-    font-size: v.$font-size-big;
-    @media (max-width: 380px) and (max-height: 810px)  {
-        font-size: v.$font-size-small;
+    &__photo {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 37.5vh;
+        z-index: v.$z-under-small;
+
+        @include m.breakpoint(medium) {
+            height: 55vh;
+        } 
+        @include m.breakpoint(large) {
+            height: 80vh;
+        }
+    }
+
+    &__speedup-txt {
+        font-size: v.$font-size-big;
+    
+        @media (max-width: 380px) and (max-height: 810px) {
+            font-size: v.$font-size-small;
+        }
     }
 }
