@@ -1,53 +1,77 @@
 /* NEWSLETTER STYLE  */
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
 
 .nl-wrap {
-    display: flex;
-    flex-direction: column;
+    @include m.display-flex(flex, column);
     align-items: center;
-    gap: 2em;
+    padding: 6rem 4rem;
+    
+    @include m.breakpoint(large){
+        padding-inline: 8rem;
+    }
+
+    &__speedup-txt {
+        padding: 6rem 0;
+    }
+
+    &__socials-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        @include m.breakpoint(medium) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        @include m.flex-center(center, center);
+        width: calc(50vw - 8rem);
+        height: calc(50vw - 8rem);
+        margin: 1rem;
+    
+        @include m.breakpoint(small) {
+            width: 12vh;
+            height: 12vh;
+        }
+    }
+
 }
 
 .form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    @include m.display-flex(flex, column);
+    width: calc(100vw - 8rem);
     align-items: center;
-    gap: 2em;
-}
+    gap: 3rem;
 
-.form__label {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    &__label {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
 
-.form__input {
-    width: 50%;
-    padding: 1em;
-    text-align: center;
-    background-color: #000205;
-    color: #acacac;
-    border-radius: 3px;
-    border: none;
-    box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
-}
+    &__input {
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        background-color: v.$pale-black;
+        color: v.$silver;
+        border-radius: 3px;
+        border: none;
+        box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
+    
+        @include m.breakpoint(medium) {
+            width: 50%;
+        }
+    }
 
-.form__action-btn {
-    width: fit-content;
-}
-
-.nl-wrap__socials-wrap {
-    width: 35%;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.nl-wrap__btn {
-    width: 12vh;
-    height: 12vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &__action-btn {
+        width: 100%;
+    
+        @include m.breakpoint(medium) {
+            width: 25vw;
+        }
+    }
 }

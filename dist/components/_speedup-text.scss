@@ -17,7 +17,7 @@
 .speedup-txt--subtitle {
     font-size: v.$font-size-large;
     text-align: center;
-    padding: 6rem 4rem;
+    padding-bottom: 6rem;
     @include m.breakpoint(large) {
         text-align: left;
     }
@@ -26,7 +26,7 @@
 .speedup-txt--title {
     font-size: v.$font-size-xl;
     text-align: center;
-    padding: 6rem 4rem;
+    padding-bottom: 6rem;
 
     @include m.breakpoint(medium) {
         padding: 2em;
