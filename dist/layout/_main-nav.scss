@@ -158,7 +158,7 @@
 
     @include m.breakpoint("large") {
         display: block;
-        padding: 0.5em 1.5rem;
+        padding: 1.5rem;
         border: 2px solid #acacac;
         border-radius: 3px;
         font-size: v.$font-size-big;
