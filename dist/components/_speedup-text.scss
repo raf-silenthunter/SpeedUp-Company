@@ -4,14 +4,6 @@
 .speedup-txt {
     font-size: v.$font-size-big;
 
-    &--align-l {
-        text-align: left;
-    }
-
-    &--align-r {
-        text-align: right;
-    }
-
     &--uppercased {
         text-transform: uppercase;
     }
@@ -23,10 +15,6 @@
     &--yellow {
         -webkit-background-clip: text;
         -webkit-text-fill-color: yellow;
-    }
-
-    &--small {
-        font-size: v.$font-size-small;
     }
 
     &--medium {

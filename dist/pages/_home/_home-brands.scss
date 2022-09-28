@@ -5,7 +5,6 @@
 
 .brands {
     @include m.display-flex(flex, column);
-    padding: 6rem 4rem;
 
     &__slider {
             display: flex;
