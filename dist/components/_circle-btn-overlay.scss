@@ -2,12 +2,7 @@
 @use "../utils/mixins" as m;
 
 .circle-btn-overlay {
-    border-radius: 50%;
-    border: 2px solid v.$yellow;
     transition: box-shadow .4s ease;
-    box-shadow: inset 0px 0px 10px 6px rgba(255, 255, 0, 0.81);
-
-    &:hover{
-        box-shadow: none;
-    }
+    @include m.border-properties(2px, solid, v.$yellow, 50%);
+    @include m.circle-btn-overlay;
 }

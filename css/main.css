@@ -1,7 +1,4 @@
 :root {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   font-size: 62.5%;
 }
 
@@ -62,15 +59,28 @@ a, a:visited, a:active, a:focus {
 .speedup-txt {
   font-size: clamp(2rem, 1rem + 0.5vw, 2.5rem);
 }
-
+.speedup-txt--align-l {
+  text-align: left;
+}
+.speedup-txt--align-r {
+  text-align: right;
+}
+.speedup-txt--uppercased {
+  text-transform: uppercase;
+}
+.speedup-txt--italics {
+  font-style: italic;
+}
+.speedup-txt--yellow {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: yellow;
+}
 .speedup-txt--small {
   font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
 }
-
 .speedup-txt--medium {
   font-size: clamp(1.75rem, 1rem + 0.5vh, 2rem);
 }
-
 .speedup-txt--subtitle {
   font-size: clamp(2.5rem, 1rem + 1.5vw, 3.5rem);
   text-align: center;
@@ -81,7 +91,6 @@ a, a:visited, a:active, a:focus {
     text-align: left;
   }
 }
-
 .speedup-txt--title {
   font-size: clamp(2.75rem, 1rem + 3.5vw, 4rem);
   text-align: center;
@@ -91,27 +100,6 @@ a, a:visited, a:active, a:focus {
   .speedup-txt--title {
     padding: 2em;
   }
-}
-
-.speedup-txt--align-l {
-  text-align: left;
-}
-
-.speedup-txt--align-r {
-  text-align: right;
-}
-
-.speedup-txt--uppercased {
-  text-transform: uppercase;
-}
-
-.speedup-txt--italics {
-  font-style: italic;
-}
-
-.speedup-txt--yellow {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: yellow;
 }
 
 @media (min-width: 900px) {
@@ -138,27 +126,24 @@ a, a:visited, a:active, a:focus {
 }
 
 .action-btn {
-  padding: 1em;
-  border: 2px solid yellow;
-  border-radius: 3px;
-  background: yellow;
-  color: #000205;
+  padding: 1.5rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.4s ease;
   overflow: hidden;
+  border: 2px solid yellow;
+  border-radius: 3px;
+  background: yellow;
+  color: #000205;
 }
-
 .action-btn:hover {
   background: transparent;
-  color: white;
+  color: #f3f3f3;
 }
-
 .action-btn--animation {
   -webkit-animation: action linear 1.5s infinite;
           animation: action linear 1.5s infinite;
 }
-
 .action-btn--animation:hover {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
@@ -200,10 +185,13 @@ a, a:visited, a:active, a:focus {
   }
 }
 .circle-btn-overlay {
-  border-radius: 50%;
-  border: 2px solid yellow;
   transition: box-shadow 0.4s ease;
+  border: 2px solid yellow;
+  border-radius: 50%;
+  border: 4px solid yellow;
+  border-radius: 50%;
   box-shadow: inset 0px 0px 10px 6px rgba(255, 255, 0, 0.81);
+  transition: box-shadow 0.4s ease;
 }
 .circle-btn-overlay:hover {
   box-shadow: none;

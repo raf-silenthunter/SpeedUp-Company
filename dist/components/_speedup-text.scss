@@ -3,53 +3,53 @@
 
 .speedup-txt {
     font-size: v.$font-size-big;
-}
 
-.speedup-txt--small{
-    font-size: v.$font-size-small;
-}
-
-
-.speedup-txt--medium{
-    font-size: v.$font-size-medium;
-}
-
-.speedup-txt--subtitle {
-    font-size: v.$font-size-large;
-    text-align: center;
-    padding-bottom: 6rem;
-    @include m.breakpoint(large) {
+    &--align-l {
         text-align: left;
     }
-}
 
-.speedup-txt--title {
-    font-size: v.$font-size-xl;
-    text-align: center;
-    padding-bottom: 6rem;
-
-    @include m.breakpoint(medium) {
-        padding: 2em;
+    &--align-r {
+        text-align: right;
     }
-}
 
-.speedup-txt--align-l {
-    text-align: left;
-}
+    &--uppercased {
+        text-transform: uppercase;
+    }
 
-.speedup-txt--align-r {
-    text-align: right;
-}
+    &--italics {
+        font-style: italic;
+    }
 
-.speedup-txt--uppercased {
-    text-transform: uppercase;
-}
+    &--yellow {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: yellow;
+    }
 
-.speedup-txt--italics {
-    font-style: italic;
-}
+    &--small {
+        font-size: v.$font-size-small;
+    }
 
-.speedup-txt--yellow {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: yellow;
+    &--medium {
+        font-size: v.$font-size-medium;
+    }
+
+    &--subtitle {
+        font-size: v.$font-size-large;
+        text-align: center;
+        padding-bottom: 6rem;
+    
+        @include m.breakpoint(large) {
+            text-align: left;
+        }
+    }
+
+    &--title {
+        font-size: v.$font-size-xl;
+        text-align: center;
+        padding-bottom: 6rem;
+    
+        @include m.breakpoint(medium) {
+            padding: 2em;
+        }
+    }
 }

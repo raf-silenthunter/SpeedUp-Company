@@ -1,26 +1,22 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
 .action-btn {
-    padding: 1em;
-    border: 2px solid yellow;
-    border-radius: 3px;
-    background: yellow;
-    color: #000205;
+    padding: 1.5rem;
     font-weight: 700;
     cursor: pointer;
     transition: all .4s ease;
     overflow: hidden;
-}
+    @include m.border-properties(2px, solid, v.$yellow, 3px);
+    @include m.action-btn-hover;
 
-.action-btn:hover {
-    background: transparent;
-    color: white;
-}
+    &--animation {
+            animation: action linear 1.5s infinite;
 
-.action-btn--animation {
-    animation: action linear 1.5s infinite;
-}
-
-.action-btn--animation:hover {
-    animation-play-state: paused;
+            &:hover {
+                    animation-play-state: paused;
+                }
+        }
 }
 
 @keyframes action {

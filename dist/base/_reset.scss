@@ -1,9 +1,6 @@
 @use "../utils/variables" as v; 
 
 :root {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     font-size: v.$font-size-base;
 }
 

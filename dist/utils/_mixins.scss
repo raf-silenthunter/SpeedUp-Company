@@ -1,7 +1,7 @@
 @use "variables" as v;
 @use "../utils/breakpoints" as b;
 
-// used only with flex-direction: column. Np needed when row
+// used only with flex-direction: column. No needed when row
 @mixin display-flex ($display, $direction) {
     display: $display;
     flex-direction: $direction;
@@ -24,7 +24,7 @@
     border-radius: $radius;
 }
 
-@mixin action-btn-hover {
+@mixin action-btn-hover  {
     background: v.$yellow;
     color: v.$pale-black;
     &:hover {
@@ -33,12 +33,16 @@
     }
 }
 
+@mixin box-shadow {
+    box-shadow: inset 0px 0px 10px 6px rgba(255, 255, 0, 0.81);
+}
+
 @mixin circle-btn-overlay {
     @include border-properties(4px, solid, yellow, 50%);
-    @include box-shadow(inset 0px 0px 15px 9px rgba(255, 255, 0, 0.81));
+    @include box-shadow;
     transition: box-shadow .4s ease;
     &:hover{
-        @include box-shadow(none);
+        box-shadow: none;
     }
 }
 
