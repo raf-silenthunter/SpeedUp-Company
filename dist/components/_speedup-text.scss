@@ -24,7 +24,7 @@
     &--subtitle {
         font-size: v.$font-size-large;
         text-align: center;
-        padding-bottom: 6rem;
+        padding: 6rem 4rem;
     
         @include m.breakpoint(large) {
             text-align: left;

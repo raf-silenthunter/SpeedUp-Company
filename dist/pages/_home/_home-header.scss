@@ -8,6 +8,9 @@
 &__speedup-txt {
         @include m.position(absolute, 50%, 0);
         width: max(30rem, 40vw);
+        @media (min-width: 700px) and (max-width: 1200px) {
+            width: max(30rem, 75vw);
+        };
         z-index: v.$z-main;
         text-align: left;
         padding: 1em;

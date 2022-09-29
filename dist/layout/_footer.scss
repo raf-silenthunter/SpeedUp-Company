@@ -13,7 +13,7 @@
     min-height: calc(100vh - 10vh);
     text-align: center;
     
-    @include m.breakpoint(medium){
+    @include m.breakpoint(large){
         flex-direction: row;
         @include m.flex-center(space-between, space-between);
     }
