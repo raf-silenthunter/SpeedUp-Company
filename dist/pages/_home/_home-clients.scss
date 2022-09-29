@@ -126,6 +126,9 @@
 
     &__txt {
         font-size: v.$font-size-small;
+        @media (max-width: 400px) {
+            font-size: 14px;
+        }
         text-align: center;
         line-height: 250%;
     }

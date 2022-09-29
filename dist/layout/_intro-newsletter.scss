@@ -44,7 +44,6 @@
     @include m.display-flex(flex, column);
     width: calc(100vw - 8rem);
     align-items: center;
-    gap: 3rem;
 
     &__label {
             width: 100%;
@@ -68,6 +67,7 @@
     }
 
     &__action-btn {
+        margin-top: 3rem;
         width: 100%;
     
         @include m.breakpoint(medium) {

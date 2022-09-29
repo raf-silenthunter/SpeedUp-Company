@@ -19,10 +19,17 @@
         @include m.breakpoint(large) {
             flex-direction: row;
         }
-    
         justify-content: space-between;
-        gap: 6rem;
     }
+
+    // IOS and SAFARI GAP workaround
+    &__columns-wrap > * + * {
+        margin: 6rem 0 0 0;
+        @include m.breakpoint(large){
+            margin: 0 0 0 6rem;
+        }
+    }
+    // IOS and SAFARI GAP workaround
 
     &__column {
         @include m.breakpoint(large) {
