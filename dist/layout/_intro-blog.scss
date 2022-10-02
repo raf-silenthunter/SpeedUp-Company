@@ -27,9 +27,7 @@
     }
 
     &__post-intro {
-        height: 45vh;
         margin-bottom: 2rem;
-    
         @include m.breakpoint(large) {
             width: 30%;
         }
@@ -62,8 +60,15 @@
 
     &__post-content {
         @include m.position(absolute, 0, 0);
-        height: 45vh;
     }
+}
+
+.post-intro__post-content, .blog-intro__post-intro{
+    @media (max-height: 650px) {
+            height: 60vh;
+        }
+        
+    height: 45vh;
 }
 
 .post-content {
@@ -89,5 +94,4 @@
             font-size: v.$font-size-medium;
         }
     }
-
 }
