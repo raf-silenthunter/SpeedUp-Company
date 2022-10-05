@@ -7,7 +7,7 @@
 }
 
 .main-nav {
-    height: 11vh;
+    height: 100px;
     width: 100%;
     max-width: 100vw;
     display: flex;
@@ -17,6 +17,9 @@
     position: relative;
     @include m.breakpoint("large") {
         padding: 1rem 2rem;
+    }
+    @include m.breakpoint("xxl") {
+            height: 200px;
     }
 
     &--is-dropdown{
@@ -53,8 +56,8 @@
     
     &__list {
 
-        @include m.position (absolute, 11vh, 0);
-        height: calc(100vh - 11vh);
+        @include m.position (absolute, 100px, 0);
+        height: calc(100vh - 100px);
         width: 100%;
 
         @include m.breakpoint("large"){
@@ -119,6 +122,12 @@
             -webkit-text-fill-color: transparent;
         }
     }
+
+    &__link, &__icon::before {
+        @include m.breakpoint(xxl){
+            font-size: v.$xl-font-size-big;
+        }
+    }
 }
 
 .language-picker {
@@ -144,12 +153,15 @@
     width: 45%;
     text-align: center;
     font-weight: v.$font-weight-xl;
-    font-size: clamp(2.5rem, 3rem, 3rem);
+    font-size: clamp(2.5rem, 3rem, 5rem);
     &__link{
         cursor: pointer;
     }
     @include m.breakpoint("large"){
         width: auto;
+    }
+    @include m.breakpoint("xxl") {
+        font-size: v.$xl-font-size-large;
     }
 }
 
@@ -167,6 +179,11 @@
         cursor: pointer;
         line-height: 100%;
         transition: all 0.4s linear;
+    }
+    @include m.breakpoint("xxl") {
+        padding: 3rem;
+        border-radius: 6px;
+        font-size: v.$xl-font-size-big;
     }
 
     &:hover{
