@@ -4,6 +4,10 @@
 .speedup-txt {
     font-size: v.$font-size-big;
 
+    @include m.breakpoint(xxl){
+        font-size: v.$xl-font-size-big;
+    }
+
     &--uppercased {
         text-transform: uppercase;
     }
@@ -19,6 +23,10 @@
 
     &--medium {
         font-size: v.$font-size-medium;
+
+        @include m.breakpoint(xxl) {
+            font-size: v.$xl-font-size-medium;
+        }
     }
 
     &--subtitle {
@@ -29,6 +37,10 @@
         @include m.breakpoint(large) {
             text-align: left;
         }
+
+        @include m.breakpoint(xxl) {
+            font-size: v.$xl-font-size-large;
+        }
     }
 
     &--title {
@@ -38,6 +50,10 @@
     
         @include m.breakpoint(medium) {
             padding: 2em;
+        }
+
+        @include m.breakpoint(xxl) {
+            font-size: v.$xl-font-size-xl;
         }
     }
 }
