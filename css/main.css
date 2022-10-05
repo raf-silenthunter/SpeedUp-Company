@@ -774,6 +774,13 @@ a, a:visited, a:active, a:focus {
   font-size: 60px;
   align-self: center;
 }
+@media (min-width: 2000px) {
+  .counter__number {
+    height: auto;
+    font-size: clamp(4rem, 1rem + 5.5vw, 10rem);
+    line-height: 80%;
+  }
+}
 .counter__number-txt {
   position: relative;
   height: 12vh;
@@ -781,6 +788,11 @@ a, a:visited, a:active, a:focus {
   font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
   color: #000205;
   z-index: 100;
+}
+@media (min-width: 2000px) {
+  .counter__number-txt {
+    font-size: clamp(3rem, 1rem + 1.75vh, 5rem);
+  }
 }
 .counter__number-txt::before {
   content: "";

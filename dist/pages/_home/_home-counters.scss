@@ -26,6 +26,12 @@
         height: 70px;
         font-size: 60px;
         align-self: center;
+
+    @include m.breakpoint(xxl) {
+            height: auto;
+            font-size: clamp(4rem, 1rem + 5.5vw, 10rem);
+            line-height: 80%;
+        }
     }
 
     &__number-txt {
@@ -35,6 +41,10 @@
         font-size: v.$font-size-big;
         color: v.$pale-black;
         z-index: v.$z-big;
+
+        @include m.breakpoint(xxl){
+            font-size: v.$xl-font-size-big;
+        }
 
         &::before{
             content: '';
