@@ -135,6 +135,9 @@
         }
         text-align: center;
         line-height: 250%;
+        @include m.breakpoint(xxl){
+            font-size: v.$xl-font-size-medium;
+        }
     }
 
     &__speedup-txt {

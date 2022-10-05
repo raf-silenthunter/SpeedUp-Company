@@ -93,5 +93,9 @@
         @include m.breakpoint(medium) {
             font-size: v.$font-size-medium;
         }
+
+        @include m.breakpoint(xxl){
+            font-size: v.$xl-font-size-big;
+        }
     }
 }
