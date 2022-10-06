@@ -494,7 +494,6 @@ a, a:visited, a:active, a:focus {
   align-items: center;
   align-content: "auto";
   padding: 0 2rem;
-  min-height: 100vh;
 }
 @media (min-width: 900px) {
   .blog-intro {
@@ -952,6 +951,7 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 900px) {
   .clients__wrap > * {
     width: 50%;
+    padding: 5rem;
   }
 }
 .clients__info {

@@ -6,7 +6,6 @@
     @include m.display-flex(flex, column);
     @include m.flex-center(space-between, center);
     padding: 0 2rem;
-    min-height: 100vh;
 
     @include m.breakpoint(large) {
             padding: 8rem;

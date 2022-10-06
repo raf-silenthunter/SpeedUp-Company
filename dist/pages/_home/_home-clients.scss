@@ -23,6 +23,7 @@
     padding: 3rem;
     @include m.breakpoint(large) {
             width: 50%;
+            padding: 5rem;
         }
     }
 
