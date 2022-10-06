@@ -10,7 +10,6 @@
 .sitemap {
     @include m.display-flex(flex, column);
     width: 100%;
-    min-height: calc(100vh - 10vh);
     text-align: center;
     
     @include m.breakpoint(large){

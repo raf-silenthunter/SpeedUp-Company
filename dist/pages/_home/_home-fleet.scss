@@ -11,6 +11,9 @@
             flex-direction: column;
             height: 80vh;
     }
+    @include m.breakpoint(xxl) {
+        height: 60vh;
+    }
 
     &__grid {
         overflow: hidden;
@@ -35,8 +38,7 @@
     }
 
     &__txt {
-        padding: 6rem 4rem;
-    
+        padding: 6rem 4rem;   
         @include m.breakpoint(large) {
             padding: 4rem;
         }
@@ -52,6 +54,7 @@
 
     &__fleet-underlay {
         position: relative;
+        
         @include m.breakpoint(large) {
             width: 50%;
         }

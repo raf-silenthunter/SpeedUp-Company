@@ -8,8 +8,6 @@
 }
 
 .about {
-    min-height: 100vh;
-    justify-content: space-around;
     padding: 6rem 4rem;
     @include m.breakpoint(large) {
         padding: 8rem;

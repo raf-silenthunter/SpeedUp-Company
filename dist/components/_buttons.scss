@@ -10,6 +10,11 @@
     @include m.border-properties(2px, solid, v.$yellow, 3px);
     @include m.action-btn-hover;
 
+    @include m.breakpoint(xxl){
+        padding: 2rem 4rem;
+        @include m.border-properties(4px, solid, v.$yellow, 10px);
+    }
+
     &--animation {
             animation: action linear 1.5s infinite;
 

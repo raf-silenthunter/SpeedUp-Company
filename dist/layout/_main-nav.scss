@@ -171,8 +171,7 @@
     @include m.breakpoint("large") {
         display: block;
         padding: 1.5rem;
-        border: 2px solid #acacac;
-        border-radius: 3px;
+        @include m.border-properties(2px, solid, v.$silver, 3px);
         font-size: v.$font-size-big;
         background: transparent;
         overflow: hidden;
@@ -181,8 +180,8 @@
         transition: all 0.4s linear;
     }
     @include m.breakpoint("xxl") {
-        padding: 3rem;
-        border-radius: 6px;
+        padding: 3rem 4rem;
+        @include m.border-properties(4px, solid, v.$silver, 10px);
         font-size: v.$xl-font-size-big;
     }
 

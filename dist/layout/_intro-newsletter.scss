@@ -26,16 +26,20 @@
     }
 
     &__btn {
+        @include m.breakpoint(small) {
+                width: 12vh;
+                height: 12vh;
+            }
+
         display: flex;
         @include m.flex-center(center, center);
         width: calc(50vw - 8rem);
         height: calc(50vw - 8rem);
         margin: 1rem;
-    
-        @include m.breakpoint(small) {
-            width: 12vh;
-            height: 12vh;
-        }
+
+        @include m.breakpoint(xxl) {
+                margin: 3rem;
+            }
     }
 
 }
@@ -64,6 +68,10 @@
         @include m.breakpoint(medium) {
             width: 50%;
         }
+        @include m.breakpoint(xxl) {
+            padding: 4rem;
+            border-radius: 10px;
+        }
     }
 
     &__action-btn {
@@ -72,6 +80,9 @@
     
         @include m.breakpoint(medium) {
             width: 25vw;
+        }
+        @include m.breakpoint(xxl) {
+                margin-top: 6rem;
         }
     }
 }

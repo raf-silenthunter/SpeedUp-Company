@@ -91,6 +91,9 @@
             width: 20%;
             border-width: 0 20px 40px 20px;
         }
+        @include m.breakpoint(xxl){
+            border-width: 0 40px 80px 40px;
+        }
     }
 
     &__grid-img {
