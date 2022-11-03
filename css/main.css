@@ -200,6 +200,7 @@ a, a:visited, a:active, a:focus {
   }
 }
 .circle-btn-overlay {
+  cursor: pointer;
   transition: box-shadow 0.4s ease;
   border: 2px solid yellow;
   border-radius: 50%;
@@ -1002,16 +1003,6 @@ a, a:visited, a:active, a:focus {
     margin-top: 0;
   }
 }
-.biz-slider__btn:last-child {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-@media (min-width: 900px) {
-  .biz-slider__btn:last-child {
-    position: static;
-  }
-}
 .biz-slider__options {
   order: 1;
   width: 100%;
@@ -1052,6 +1043,7 @@ a, a:visited, a:active, a:focus {
   border-radius: 5px;
   box-shadow: inset 0px 0px 15px 9px rgba(172, 172, 172, 0.81);
   background: #000205;
+  transition: all linear 0.4s;
 }
 .option__img {
   height: 40%;
@@ -1093,16 +1085,16 @@ a, a:visited, a:active, a:focus {
   color: #000205;
   text-align: center;
 }
-.option--premium-position {
-  transform: translateX(-50%);
-  z-index: 100;
-}
-.option--medium-position {
+.option--basic-position {
   left: -20%;
   transform: scale(0.9) translateX(-50%);
   filter: blur(4px);
 }
-.option--basic-position {
+.option--medium-position {
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.option--premium-position {
   left: auto;
   right: -20%;
   transform: scale(0.9) translateX(50%);

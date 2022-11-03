@@ -2,6 +2,7 @@
 @use "../utils/mixins" as m;
 
 .circle-btn-overlay {
+    cursor: pointer;
     transition: box-shadow .4s ease;
     @include m.border-properties(2px, solid, v.$yellow, 50%);
     @include m.circle-btn-overlay;

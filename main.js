@@ -47,7 +47,7 @@ const startCounter = document.addEventListener("scroll", () => {
     }
 });
 
-// SLIDER FN
+// MAIN SLIDER FN
 // WYMAGANA ZMIANA NAZW NA BARDZIEJ PRECISE 
 const firtsImg = document.querySelector(".slide--is-default");
 const slider = [...document.querySelectorAll(".slide")];
@@ -113,7 +113,6 @@ const changeSlide = () => {
     }
     slider.forEach(slide => slide.classList.remove("slide--is-active"))
     slider[i].classList.add("slide--is-active");
-    console.log(screenWidth);
     if(screenWidth >= tabletWidth) {
         slide[i].mobileImg = slide[i].desktopImg;
     }
@@ -125,3 +124,68 @@ const changeSlide = () => {
 }
 
 let autoSlide = setInterval(changeSlide, time);
+
+// CHANGE SLIDE FN
+
+const basicPosition = document.querySelector(".option--basic-position");
+const mediumPosition = document.querySelector(".option--medium-position");
+const premiumPosition = document.querySelector(".option--premium-position");
+
+const optionsPositions = [basicPosition, mediumPosition, premiumPosition];
+
+const optionsClasses = ["option--basic-position", "option--medium-position", "option--premium-position"];
+
+const optionBtns = [...document.querySelectorAll(".biz-slider__btn")];
+
+const checkClickedBtn = (e) => {
+    if (e.target.classList.contains("biz-slider__btn--right")){
+        return true;
+    } else if (e.target.classList.contains("biz-slider__btn--left")) {
+        return false; 
+    }
+    else {
+        throw alert("błąd!")
+    }
+}
+
+let clickNum = 0;
+
+let basicNum;
+let mediumNum;
+let premiumNum;
+
+const changeOption = (e) => {
+    optionsPositions.forEach((option) => {
+        option.classList = "option biz-slider__option";
+    })
+    
+    let nextBtnClicked = checkClickedBtn(e);
+
+    if(nextBtnClicked){
+        clickNum++;
+        if(clickNum >= optionsClasses.length){
+            clickNum = 0;
+        }
+    } else {    
+        clickNum--;
+        if(clickNum < 0){
+            clickNum = optionsClasses.length - 1;
+        }
+    }
+
+    basicNum = clickNum;
+    mediumNum = clickNum + 1;
+    premiumNum = clickNum + 2;
+
+    basicNum >= optionsClasses.length ? basicNum = clickNum - 1 : basicNum;
+    mediumNum >= optionsClasses.length ? mediumNum = clickNum - 2 : mediumNum;
+    premiumNum >= optionsClasses.length ? premiumNum = clickNum - 1 : premiumNum;
+    
+    optionsPositions[0].classList.add(`${optionsClasses[basicNum]}`);
+    optionsPositions[1].classList.add(`${optionsClasses[mediumNum]}`);
+    optionsPositions[2].classList.add(`${optionsClasses[premiumNum]}`);
+}
+
+optionBtns.forEach((btn)=> {
+    btn.addEventListener("click", changeOption);
+});
