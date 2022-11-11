@@ -125,65 +125,71 @@ const changeSlide = () => {
 
 let autoSlide = setInterval(changeSlide, time);
 
-// CHANGE SLIDE FN
+// ABONAMENTS OPTIONS SLIDER FN
 
-const basicPosition = document.querySelector(".option--basic-position");
-const mediumPosition = document.querySelector(".option--medium-position");
-const premiumPosition = document.querySelector(".option--premium-position");
-
-const optionsPositions = [basicPosition, mediumPosition, premiumPosition];
+const basic = document.querySelector(".option--basic-position");
+const medium = document.querySelector(".option--medium-position");
+const premium = document.querySelector(".option--premium-position");
+const options = [basic, medium, premium];
 
 const optionsClasses = ["option--basic-position", "option--medium-position", "option--premium-position"];
-
 const optionBtns = [...document.querySelectorAll(".biz-slider__btn")];
+
+let defaultPosition = 0;
 
 const checkClickedBtn = (e) => {
     if (e.target.classList.contains("biz-slider__btn--right")){
-        return true;
+        return "right";
     } else if (e.target.classList.contains("biz-slider__btn--left")) {
-        return false; 
+        return "left"; 
     }
     else {
-        throw alert("błąd!")
+        throw alert("btn does not contain proper class!")
     }
 }
 
-let clickNum = 0;
-
-let basicNum;
-let mediumNum;
-let premiumNum;
-
-const changeOption = (e) => {
-    optionsPositions.forEach((option) => {
+const setBaseOptionsClasses = () => {
+    options.forEach((option) => {
         option.classList = "option biz-slider__option";
     })
-    
-    let nextBtnClicked = checkClickedBtn(e);
+}
 
-    if(nextBtnClicked){
-        clickNum++;
-        if(clickNum >= optionsClasses.length){
-            clickNum = 0;
-        }
-    } else {    
-        clickNum--;
-        if(clickNum < 0){
-            clickNum = optionsClasses.length - 1;
-        }
+const setOptionsPositions = () => {
+    // HOW CAN I MAKE THIS MORE UNIVERSAL???
+        let basicPosition = defaultPosition;
+        let mediumPosition = defaultPosition + 1;
+        let premiumPosition = defaultPosition + 2;
+
+        basicPosition >= optionsClasses.length ? basicPosition = defaultPosition - 1 : basicPosition;
+        mediumPosition >= optionsClasses.length ? mediumPosition = defaultPosition - 2 : mediumPosition;
+        premiumPosition >= optionsClasses.length ? premiumPosition = defaultPosition - 1 : premiumPosition;
+
+        basic.classList.add(`${optionsClasses[basicPosition]}`);
+        medium.classList.add(`${optionsClasses[mediumPosition]}`);
+        premium.classList.add(`${optionsClasses[premiumPosition]}`);   
     }
 
-    basicNum = clickNum;
-    mediumNum = clickNum + 1;
-    premiumNum = clickNum + 2;
+const changeOption = (e) => {
+    setBaseOptionsClasses();
 
-    basicNum >= optionsClasses.length ? basicNum = clickNum - 1 : basicNum;
-    mediumNum >= optionsClasses.length ? mediumNum = clickNum - 2 : mediumNum;
-    premiumNum >= optionsClasses.length ? premiumNum = clickNum - 1 : premiumNum;
-    
-    optionsPositions[0].classList.add(`${optionsClasses[basicNum]}`);
-    optionsPositions[1].classList.add(`${optionsClasses[mediumNum]}`);
-    optionsPositions[2].classList.add(`${optionsClasses[premiumNum]}`);
+    let clickedBtn = checkClickedBtn(e);
+    switch(clickedBtn){
+        case "right": 
+            defaultPosition++;
+            if(defaultPosition >= optionsClasses.length){
+                defaultPosition = 0;
+            } 
+                break;
+        case "left":     
+            defaultPosition--;
+            if(defaultPosition < 0){
+                defaultPosition = optionsClasses.length - 1;
+            }
+                break;
+        default: throw alert("wrong value!")
+    }
+
+    setOptionsPositions(); 
 }
 
 optionBtns.forEach((btn)=> {
