@@ -195,3 +195,56 @@ const changeOption = (e) => {
 optionBtns.forEach((btn)=> {
     btn.addEventListener("click", changeOption);
 });
+
+// BRANDS SLIDER FN 
+
+const brandsColumnsWrap = document.querySelector(".brands__slides");
+// brandsColumns should be updated when added new column-is it? 
+const brandsColumns = [...document.getElementsByClassName("brands__col")];
+const brandsBtns = document.querySelectorAll(".brands__btn");
+// let shiftWidth = document.querySelector(".brands__col").offsetWidth;
+
+const checkBtn = (e) => {
+    if (e.target.classList.contains("brands__btn--right")){
+        return "right";
+    } else if (e.target.classList.contains("brands__btn--left")) {
+        return "left"; 
+    }
+    else {
+        throw alert("btn does not contain proper class!")
+    }
+}
+
+let currShift = 0;
+
+const setShift = () => {
+    brandsColumns.forEach((col)=>{
+        col.style.transform = "translateX(" + `${currShift}` + "px)";
+    })
+}
+
+    const shiftSlider = (e) => {
+
+    let shiftWidth = document.querySelector(".brands__col").offsetWidth;
+    console.log(shiftWidth);
+
+    let clickedBtn = checkBtn(e);
+
+        switch(clickedBtn){
+        case "right": 
+            currShift -= shiftWidth;
+            setShift();
+                break;
+        case "left":     
+            currShift += shiftWidth;
+            setShift();
+                break;
+        default: throw alert("wrong value!")
+    }
+}
+
+brandsBtns.forEach((btn)=> {
+    btn.addEventListener("click", shiftSlider);
+});
+
+
