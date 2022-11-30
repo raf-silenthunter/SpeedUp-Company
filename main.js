@@ -199,11 +199,37 @@ optionBtns.forEach((btn)=> {
 // BRANDS SLIDER FN 
 
 const brandsColumnsWrap = document.querySelector(".brands__slides");
-// brandsColumns should be updated when added new column-is it? 
-const brandsColumns = [...document.getElementsByClassName("brands__col")];
+const brandsColumns = document.getElementsByClassName("brands__col");
 const brandsBtns = document.querySelectorAll(".brands__btn");
-// let shiftWidth = document.querySelector(".brands__col").offsetWidth;
 
+const columnTemplate =
+`<div class="brands__slide">
+        <img src="" class="brands__slide-item" />
+        <img src="" class="brands__slide-item" />
+    </div>
+    <div class="brands__slide">
+        <img src="" class="brands__slide-item" />
+        <img src="" class="brands__slide-item" />
+    </div>
+    <div class="brands__slide">
+        <img src="" class="brands__slide-item" />
+        <img src="" class="brands__slide-item" />
+    </div>` ;
+
+
+const setLogos = () => {
+    const brandSlides = document.getElementsByClassName("brands__slide");
+    const brandSlidesArray = Array.from(brandSlides);
+
+    brandSlidesArray.forEach((brandSlide, num) => {
+    const number = num;
+    brandSlide.childNodes.forEach((slideChild) => {
+        slideChild.src = "images/logos/logo-" + `${number}` + ".svg"
+    })
+})
+}
+
+    
 const checkBtn = (e) => {
     if (e.target.classList.contains("brands__btn--right")){
         return "right";
@@ -218,7 +244,8 @@ const checkBtn = (e) => {
 let currShift = 0;
 
 const setShift = () => {
-    brandsColumns.forEach((col)=>{
+    let cols = Array.from(brandsColumns);
+    cols.forEach((col)=>{
         col.style.transform = "translateX(" + `${currShift}` + "px)";
     })
 }
@@ -226,19 +253,26 @@ const setShift = () => {
     const shiftSlider = (e) => {
 
     let shiftWidth = document.querySelector(".brands__col").offsetWidth;
-    console.log(shiftWidth);
-
     let clickedBtn = checkBtn(e);
 
         switch(clickedBtn){
-        case "right": 
+        case "right": {
+            const column = document.createElement("div"); 
+            column.classList.add("brands__col");            
+            brandsColumnsWrap.append(column);
+            column.innerHTML = columnTemplate;
+            console.log(column.childNodes)
+            setLogos();
+
             currShift -= shiftWidth;
             setShift();
                 break;
-        case "left":     
+        }
+        case "left":  {
             currShift += shiftWidth;
             setShift();
                 break;
+        }   
         default: throw alert("wrong value!")
     }
 }
@@ -246,5 +280,3 @@ const setShift = () => {
 brandsBtns.forEach((btn)=> {
     btn.addEventListener("click", shiftSlider);
 });
-
-
