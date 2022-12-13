@@ -198,38 +198,8 @@ optionBtns.forEach((btn)=> {
 
 // BRANDS SLIDER FN 
 
-const brandsColumnsWrap = document.querySelector(".brands__slides");
-const brandsColumns = document.getElementsByClassName("brands__col");
 const brandsBtns = document.querySelectorAll(".brands__btn");
 
-const columnTemplate =
-`<div class="brands__slide">
-        <img src="" class="brands__slide-item" />
-        <img src="" class="brands__slide-item" />
-    </div>
-    <div class="brands__slide">
-        <img src="" class="brands__slide-item" />
-        <img src="" class="brands__slide-item" />
-    </div>
-    <div class="brands__slide">
-        <img src="" class="brands__slide-item" />
-        <img src="" class="brands__slide-item" />
-    </div>` ;
-
-
-const setLogos = () => {
-    const brandSlides = document.getElementsByClassName("brands__slide");
-    const brandSlidesArray = Array.from(brandSlides);
-
-    brandSlidesArray.forEach((brandSlide, num) => {
-    const number = num;
-    brandSlide.childNodes.forEach((slideChild) => {
-        slideChild.src = "images/logos/logo-" + `${number}` + ".svg"
-    })
-})
-}
-
-    
 const checkBtn = (e) => {
     if (e.target.classList.contains("brands__btn--right")){
         return "right";
@@ -237,39 +207,53 @@ const checkBtn = (e) => {
         return "left"; 
     }
     else {
-        throw alert("btn does not contain proper class!")
+        throw alert("wront element clicked or does not contain proper class!")
     }
 }
 
 let currShift = 0;
+const brandsColumns = document.getElementsByClassName("brands__col");
 
 const setShift = () => {
     let cols = Array.from(brandsColumns);
-    cols.forEach((col)=>{
-        col.style.transform = "translateX(" + `${currShift}` + "px)";
+    cols.forEach((col)=> {
+        col.style.transition = `transform .6s linear`;
+        col.style.transform = `translateX(${currShift}px)`;
     })
 }
 
     const shiftSlider = (e) => {
 
-    let shiftWidth = document.querySelector(".brands__col").offsetWidth;
+    const singleShiftWidth = document.querySelector(".brands__col").offsetWidth;
+    const excludedShiftWidth = singleShiftWidth * 2; //we have 2 columns which are always visible
+    let fullShiftArea = (singleShiftWidth * brandsColumns.length) - excludedShiftWidth;
+
     let clickedBtn = checkBtn(e);
 
         switch(clickedBtn){
         case "right": {
-            const column = document.createElement("div"); 
-            column.classList.add("brands__col");            
-            brandsColumnsWrap.append(column);
-            column.innerHTML = columnTemplate;
-            console.log(column.childNodes)
-            setLogos();
 
-            currShift -= shiftWidth;
-            setShift();
+                if((currShift  === fullShiftArea * -1)){
+                    currShift = 0;
+                    console.log(currShift);
+                    return setShift();
+                    // setShift();
+                }
+
+                currShift -= singleShiftWidth;
+                setShift();
+                console.log(currShift);
                 break;
         }
         case "left":  {
-            currShift += shiftWidth;
+
+            if(currShift === 0){
+                    currShift = fullShiftArea * -1;
+                    return setShift();
+                }
+
+            currShift += singleShiftWidth;
+            console.log(currShift);
             setShift();
                 break;
         }   
