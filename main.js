@@ -226,29 +226,19 @@ const shiftSlider = (e) => {
 
         switch(clickedBtn){
         case "right": {
-
-                if((currShift === maxShiftArea * -1)){
-                    currShift = 0;
-                    return setShift();
-                }
-            currShift -= brandColumnWidth;
-            setShift();
-            console.log(currShift);
-            break;
+            if(currShift === maxShiftArea * -1) currShift = 0;
+            else currShift -= brandColumnWidth;
+        break;
         }
         
         case "left":  {
-
-            if(currShift === 0){
-                    currShift = maxShiftArea * -1;
-                    return setShift();
-                }
-            currShift += brandColumnWidth;
-            setShift();
-            break;
+            if(currShift === 0) currShift = maxShiftArea * -1;
+            else currShift += brandColumnWidth;
+        break;
         }   
         default: throw alert("wrong value!")
     }
+    setShift();
 }
 
 brandsBtns.forEach((btn)=> {
