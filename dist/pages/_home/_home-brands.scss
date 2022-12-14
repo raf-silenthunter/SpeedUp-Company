@@ -60,6 +60,8 @@
         width: 50%;
         height: 65vh;
         flex-shrink: 0;
+        // transform is declared via JavaScript
+        transition: transform .45s linear;
     
         @include m.breakpoint(large) {
             flex-direction: row;

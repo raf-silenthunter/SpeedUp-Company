@@ -1167,6 +1167,7 @@ a, a:visited, a:active, a:focus {
   width: 50%;
   height: 65vh;
   flex-shrink: 0;
+  transition: transform 0.45s linear;
 }
 @media (min-width: 900px) {
   .brands__col {

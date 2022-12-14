@@ -200,62 +200,52 @@ optionBtns.forEach((btn)=> {
 
 const brandsBtns = document.querySelectorAll(".brands__btn");
 
+let currShift = 0;
+const brandsColumns = [...document.getElementsByClassName("brands__col")];
+
+
 const checkBtn = (e) => {
-    if (e.target.classList.contains("brands__btn--right")){
-        return "right";
-    } else if (e.target.classList.contains("brands__btn--left")) {
-        return "left"; 
-    }
-    else {
-        throw alert("wront element clicked or does not contain proper class!")
-    }
+    if (e.target.classList.contains("brands__btn--right")) return "right";
+    else if (e.target.classList.contains("brands__btn--left")) return "left";
+    else throw alert("wrong element clicked or does not contain proper class!");
 }
 
-let currShift = 0;
-const brandsColumns = document.getElementsByClassName("brands__col");
-
 const setShift = () => {
-    let cols = Array.from(brandsColumns);
-    cols.forEach((col)=> {
-        col.style.transition = `transform .6s linear`;
+    brandsColumns.forEach((col)=> {
         col.style.transform = `translateX(${currShift}px)`;
     })
 }
 
-    const shiftSlider = (e) => {
+const shiftSlider = (e) => {
 
-    const singleShiftWidth = document.querySelector(".brands__col").offsetWidth;
-    const excludedShiftWidth = singleShiftWidth * 2; //we have 2 columns which are always visible
-    let fullShiftArea = (singleShiftWidth * brandsColumns.length) - excludedShiftWidth;
+    const brandColumnWidth = document.querySelector(".brands__col").offsetWidth;
+    const excludedShiftArea = brandColumnWidth * 2; //2 columns are always visible. Their area is excluded from shift
+    let maxShiftArea = (brandColumnWidth * brandsColumns.length) - excludedShiftArea;
 
     let clickedBtn = checkBtn(e);
 
         switch(clickedBtn){
         case "right": {
 
-                if((currShift  === fullShiftArea * -1)){
+                if((currShift === maxShiftArea * -1)){
                     currShift = 0;
-                    console.log(currShift);
                     return setShift();
-                    // setShift();
                 }
-
-                currShift -= singleShiftWidth;
-                setShift();
-                console.log(currShift);
-                break;
+            currShift -= brandColumnWidth;
+            setShift();
+            console.log(currShift);
+            break;
         }
+        
         case "left":  {
 
             if(currShift === 0){
-                    currShift = fullShiftArea * -1;
+                    currShift = maxShiftArea * -1;
                     return setShift();
                 }
-
-            currShift += singleShiftWidth;
-            console.log(currShift);
+            currShift += brandColumnWidth;
             setShift();
-                break;
+            break;
         }   
         default: throw alert("wrong value!")
     }
