@@ -214,6 +214,7 @@ a, a:visited, a:active, a:focus {
 }
 
 /* MAIN NAV STYLE  */
+/*<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>*/
 .is-sticky {
   background-color: #000205;
 }
@@ -285,6 +286,81 @@ a, a:visited, a:active, a:focus {
     width: 60%;
   }
 }
+.main-nav__sign-btn {
+  width: 15%;
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  visibility: hidden;
+}
+@media (min-width: 900px) {
+  .main-nav__sign-btn {
+    width: auto;
+    height: auto;
+    visibility: visible;
+    padding: 1.5rem;
+    border: 2px solid #acacac;
+    border-radius: 3px;
+    background: transparent;
+    overflow: hidden;
+    transition: all 0.4s linear;
+  }
+}
+@media (min-width: 2000px) {
+  .main-nav__sign-btn {
+    padding: 3rem 4rem;
+    border: 4px solid #acacac;
+    border-radius: 10px;
+  }
+}
+.main-nav__sign-btn:hover {
+  border-color: #5f5f5f;
+}
+.main-nav__sign-btn--lash {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.main-nav__sign-btn--lash::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  height: 150px;
+  width: 30px;
+  transform: rotate(35deg);
+  transition: left 0.4s linear;
+  opacity: 0.6;
+  background: -webkit-linear-gradient(#acacac, #5f5f5f);
+}
+.main-nav__sign-btn--lash:hover::after {
+  left: 120%;
+}
+.main-nav__sign-icon {
+  display: block;
+  height: 100%;
+  visibility: visible;
+}
+@media (min-width: 900px) {
+  .main-nav__sign-icon {
+    display: none;
+  }
+}
+.main-nav__call-to-action {
+  display: none;
+  font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
+}
+@media (min-width: 900px) {
+  .main-nav__call-to-action {
+    display: block;
+  }
+}
+@media (min-width: 2000px) {
+  .main-nav__call-to-action {
+    font-size: clamp(3rem, 1rem + 1.75vh, 5rem);
+  }
+}
 
 .list {
   display: flex;
@@ -331,8 +407,6 @@ a, a:visited, a:active, a:focus {
 }
 .list__link {
   display: block;
-  width: 100%;
-  height: 100%;
   font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
   text-transform: uppercase;
   background: -webkit-linear-gradient(#f3f3f3, #acacac);
@@ -350,94 +424,18 @@ a, a:visited, a:active, a:focus {
   }
 }
 
-.language-picker {
-  width: min(15%, 80px);
-}
-.language-picker__selection-panel {
-  border: 2px solid #acacac;
-  border-radius: 5px;
-}
-.language-picker__button {
-  display: block;
-  text-align: center;
-  font-size: clamp(1.6rem, 1rem + 0.5vw, 3rem);
-}
-.language-picker__list {
-  display: none;
-}
-@media (min-width: 900px) {
-  .language-picker {
-    display: none;
-  }
-}
-
 .brandlogo {
-  width: 45%;
   text-align: center;
   font-weight: 700;
   font-size: 3rem;
-}
-.brandlogo__link {
-  cursor: pointer;
-}
-@media (min-width: 900px) {
-  .brandlogo {
-    width: auto;
-  }
 }
 @media (min-width: 2000px) {
   .brandlogo {
     font-size: clamp(3.5rem, 1rem + 2.5vh, 6rem);
   }
 }
-
-.sign-btn {
-  display: none;
-}
-@media (min-width: 900px) {
-  .sign-btn {
-    display: block;
-    padding: 1.5rem;
-    border: 2px solid #acacac;
-    border-radius: 3px;
-    font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
-    background: transparent;
-    overflow: hidden;
-    cursor: pointer;
-    line-height: 100%;
-    transition: all 0.4s linear;
-  }
-}
-@media (min-width: 2000px) {
-  .sign-btn {
-    padding: 3rem 4rem;
-    border: 4px solid #acacac;
-    border-radius: 10px;
-    font-size: clamp(3rem, 1rem + 1.75vh, 5rem);
-  }
-}
-.sign-btn:hover {
-  border-color: #5f5f5f;
-}
-.sign-btn--lash {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-.sign-btn--lash::after {
-  content: "";
-  position: absolute;
-  top: -40%;
-  left: -120%;
-  height: 150px;
-  width: 30px;
-  transform: rotate(35deg);
-  transition: left 0.4s linear;
-  opacity: 0.6;
-  background: -webkit-linear-gradient(#acacac, #5f5f5f);
-}
-.sign-btn--lash:hover::after {
-  left: 120%;
+.brandlogo__link {
+  cursor: pointer;
 }
 
 .page__main-nav {

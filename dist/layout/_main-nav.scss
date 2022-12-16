@@ -1,4 +1,6 @@
 /* MAIN NAV STYLE  */
+/*<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>*/
+
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
 
@@ -55,7 +57,6 @@
     }
     
     &__list {
-
         @include m.position (absolute, 100px, 0);
         height: calc(100vh - 100px);
         width: 100%;
@@ -64,6 +65,79 @@
             @include m.position (static, 0, 0);
             height: 100%;
             width: 60%;
+        }
+    }
+
+    &__sign-btn {
+        width: 15%;
+        height: 35px;
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+        visibility: hidden;
+
+        @include m.breakpoint("large") {
+            width: auto;
+            height: auto;
+            visibility: visible;
+            padding: 1.5rem;
+            @include m.border-properties(2px, solid, v.$silver, 3px);
+            background: transparent;
+            overflow: hidden;
+            transition: all 0.4s linear;
+        }
+    
+        @include m.breakpoint("xxl") {
+            padding: 3rem 4rem;
+            @include m.border-properties(4px, solid, v.$silver, 10px);
+        }
+    
+        &:hover {
+            border-color: #5f5f5f;
+        }
+    
+        &--lash {
+            position: relative;
+            top: 0;
+            left: 0;
+    
+            &::after {
+                content: '';
+                position: absolute;
+                top: -40%;
+                left: -120%;
+                height: 150px;
+                width: 30px;
+                transform: rotate(35deg);
+                transition: left 0.4s linear;
+                opacity: 0.6;
+                background: -webkit-linear-gradient(#acacac, #5f5f5f);
+            }
+    
+            &:hover::after {
+                left: 120%;
+            }
+        }
+    }
+
+    &__sign-icon {
+        display: block;
+        height: 100%;
+        visibility: visible;
+
+        @include m.breakpoint("large") {
+            display: none;
+        }
+    }
+
+    &__call-to-action{
+        display: none;
+        font-size: v.$font-size-big;
+        @include m.breakpoint("large") {
+            display: block;
+        }
+        @include m.breakpoint("xxl") {
+            font-size: v.$xl-font-size-big;
         }
     }
 }
@@ -84,7 +158,6 @@
 
     &--is-visible {
         transform: translateX(0);
-        // background: v.$pale-black;
     }
 
     &__item {
@@ -108,8 +181,6 @@
 
     &__link {
         display: block;
-        width: 100%;
-        height: 100%;
         font-size: v.$font-size-big;
         text-transform: uppercase;
         background: -webkit-linear-gradient(#f3f3f3, #acacac);
@@ -124,91 +195,21 @@
     }
 
     &__link, &__icon::before {
-        @include m.breakpoint(xxl){
+        @include m.breakpoint("xxl"){
             font-size: v.$xl-font-size-big;
         }
     }
 }
 
-.language-picker {
-    width: min(15%, 80px);
-    &__selection-panel{
-        @include m.border-properties (2px, solid, v.$silver, 5px);
-    }
-    &__button{
-        display: block;
-        text-align: center;
-        font-size: v.$font-size-main;
-    }
-    &__list{
-        display: none;
-    }
-    @include m.breakpoint("large")
-    {
-        display: none;
-    }
-}
-
 .brandlogo {
-    width: 45%;
     text-align: center;
     font-weight: v.$font-weight-xl;
     font-size: clamp(2.5rem, 3rem, 5rem);
-    &__link{
-        cursor: pointer;
-    }
-    @include m.breakpoint("large"){
-        width: auto;
-    }
     @include m.breakpoint("xxl") {
         font-size: v.$xl-font-size-large;
     }
-}
-
-.sign-btn {
-    display: none;
-
-    @include m.breakpoint("large") {
-        display: block;
-        padding: 1.5rem;
-        @include m.border-properties(2px, solid, v.$silver, 3px);
-        font-size: v.$font-size-big;
-        background: transparent;
-        overflow: hidden;
+    &__link {
         cursor: pointer;
-        line-height: 100%;
-        transition: all 0.4s linear;
-    }
-    @include m.breakpoint("xxl") {
-        padding: 3rem 4rem;
-        @include m.border-properties(4px, solid, v.$silver, 10px);
-        font-size: v.$xl-font-size-big;
-    }
-
-    &:hover{
-        border-color: #5f5f5f;
-    }
-
-    &--lash{
-        position: relative;
-        top: 0;
-        left: 0;
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: -120%;
-            height: 150px;
-            width: 30px;
-            transform: rotate(35deg);
-            transition: left 0.4s linear;
-            opacity: 0.6;
-            background: -webkit-linear-gradient(#acacac, #5f5f5f);
-        }
-        &:hover::after {
-            left: 120%;
-        }
     }
 }
 
