@@ -551,6 +551,9 @@ a, a:visited, a:active, a:focus {
   top: 0;
   left: 0;
 }
+.post-intro__link {
+  color: #f3f3f3;
+}
 
 .post-intro__post-content, .blog-intro__post-intro {
   height: 45vh;

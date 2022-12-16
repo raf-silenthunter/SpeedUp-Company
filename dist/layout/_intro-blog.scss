@@ -60,6 +60,10 @@
     &__post-content {
         @include m.position(absolute, 0, 0);
     }
+
+    &__link{
+        color: v.$pale-white;
+    }
 }
 
 .post-intro__post-content, .blog-intro__post-intro{
