@@ -97,12 +97,6 @@ a, a:visited, a:active, a:focus {
 .speedup-txt--title {
   font-size: clamp(2.75rem, 1rem + 3.5vw, 4rem);
   text-align: center;
-  padding-bottom: 6rem;
-}
-@media (min-width: 700px) {
-  .speedup-txt--title {
-    padding: 2em;
-  }
 }
 @media (min-width: 2000px) {
   .speedup-txt--title {
@@ -214,7 +208,11 @@ a, a:visited, a:active, a:focus {
 }
 
 /* MAIN NAV STYLE  */
-/*<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>*/
+/*
+<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols-premium" title="Prosymbols Premium">Prosymbols Premium </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/sebastian-belalcazar" title="Sebastian Belalcazar">Sebastian Belalcazar </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+*/
 .is-sticky {
   background-color: #000205;
 }
@@ -441,6 +439,78 @@ a, a:visited, a:active, a:focus {
 .page__main-nav {
   position: fixed;
   width: 100%;
+}
+
+.sign-in-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: "auto";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  transform: translate(-50%, -50%);
+  width: max(30rem, 70vw);
+  height: clamp(45rem, 70vh, 75vh);
+  padding: 1rem;
+  background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, 0.5) 100%);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  z-index: 1100;
+}
+.sign-in-modal__title {
+  flex-basis: 20%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.sign-in-modal__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
+  margin-bottom: 20px;
+}
+.sign-in-modal__input-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-color: #000205;
+  border-radius: 3px;
+  padding: 2rem;
+  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+}
+.sign-in-modal__label:first-child {
+  margin-bottom: 10px;
+}
+.sign-in-modal__input {
+  width: 100%;
+  text-align: left;
+  background-color: #000205;
+  color: #f3f3f3;
+  border: none;
+  outline: none;
+  letter-spacing: 3px;
+}
+.sign-in-modal__icon-wrap {
+  flex-shrink: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: "auto";
+}
+.sign-in-modal__icon {
+  width: 50px;
+  height: 50px;
+}
+.sign-in-modal__action-btn {
+  width: 100%;
+}
+.sign-in-modal__links {
+  text-align: center;
 }
 
 /* SLIDER STYLE  */
@@ -901,6 +971,14 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 900px) {
   .about {
     padding: 8rem;
+  }
+}
+.about__speedup-txt {
+  margin-bottom: 6rem;
+}
+@media (min-width: 700px) {
+  .about__speedup-txt {
+    margin: 2em 0;
   }
 }
 .about__columns-wrap {

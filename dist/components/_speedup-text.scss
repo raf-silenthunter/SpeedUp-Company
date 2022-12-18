@@ -50,11 +50,6 @@
     &--title {
         font-size: v.$font-size-xl;
         text-align: center;
-        padding-bottom: 6rem;
-    
-        @include m.breakpoint(medium) {
-            padding: 2em;
-        }
 
         @include m.breakpoint(xxl) {
             font-size: v.$xl-font-size-xl;
