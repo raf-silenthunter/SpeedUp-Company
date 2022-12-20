@@ -32,7 +32,7 @@
         background-color: v.$pale-black;
     }
 
-    &__hamburger-lines {
+    &__hamburger-btn {
             width: 15%;
             height: 35px;
             @include m.display-flex(flex, column);
@@ -229,7 +229,7 @@
     @include m.border-properties(1px, solid, v.$silver, 3px);
     transform: translate(-50%, -50%);
     width: max(30rem, 70vw);
-    height: clamp(45rem, 70vh, 75vh);
+    min-height: clamp(55rem, 70vh, 75vh);
     padding: v.$padding-main;
     background-image: linear-gradient(-45deg, rgba(243, 243, 243, .5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, .5) 100%);
     backdrop-filter: blur(20px);
@@ -258,7 +258,10 @@
         justify-content: space-between;
         background-color: v.$pale-black;
         border-radius: 3px;
-        padding: 2rem;
+        padding: v.$padding-main;
+        @include m.breakpoint("small"){
+            padding: v.$padding-xl;
+        }
         box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
     }
 
@@ -279,7 +282,6 @@
     }
 
     &__icon-wrap{
-        flex-shrink: 1;
         display: flex;
         @include m.flex-center(flex-end, center);
     }
@@ -293,7 +295,54 @@
         width: 100%;
     }
 
-    &__links{
+    &__links, &__password-info{
         text-align: center;
+    }
+
+    &__call-to-action{
+        margin-bottom: 20px;
+    }
+
+    &__password-info {
+        display: none;
+        // password info will be added in future
+    }
+
+    &__btn-close{
+        $btn-close-size: 30px;
+        // @include m.breakpoint("big") {
+        //     $btn-close-size: 50px;
+        // }
+        width: $btn-close-size;
+        height: $btn-close-size;
+        transform: translateX(-$btn-close-size) rotate(-45deg);
+        @include m.position(absolute, 15px, calc(100% - 15px));
+    }
+}
+
+.btn-close{
+    position: absolute;
+    background-color: v.$pale-black;
+    padding: v.$padding-main;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px v.$yellow;
+    transition: all .2s linear;
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: 0px 0px 5px 2px v.$yellow;
+    }
+
+    &__icon{
+        @include m.position(absolute, 50%, 50%);
+        transform: translate(-50%, -50%);
+        border-radius: 15%;
+        width: 25px;
+        height: 3px;
+        background-color: v.$pale-white;
+
+        &--is-rotated{
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
     }
 }

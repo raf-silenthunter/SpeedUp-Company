@@ -242,7 +242,7 @@ a, a:visited, a:active, a:focus {
 .main-nav--is-dropdown {
   background-color: #000205;
 }
-.main-nav__hamburger-lines {
+.main-nav__hamburger-btn {
   width: 15%;
   height: 35px;
   display: flex;
@@ -251,7 +251,7 @@ a, a:visited, a:active, a:focus {
   cursor: pointer;
 }
 @media (min-width: 900px) {
-  .main-nav__hamburger-lines {
+  .main-nav__hamburger-btn {
     display: none;
   }
 }
@@ -454,7 +454,7 @@ a, a:visited, a:active, a:focus {
   border-radius: 3px;
   transform: translate(-50%, -50%);
   width: max(30rem, 70vw);
-  height: clamp(45rem, 70vh, 75vh);
+  min-height: clamp(55rem, 70vh, 75vh);
   padding: 1rem;
   background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, 0.5) 100%);
   -webkit-backdrop-filter: blur(20px);
@@ -480,8 +480,13 @@ a, a:visited, a:active, a:focus {
   justify-content: space-between;
   background-color: #000205;
   border-radius: 3px;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+}
+@media (min-width: 450px) {
+  .sign-in-modal__input-wrap {
+    padding: 2rem;
+  }
 }
 .sign-in-modal__label:first-child {
   margin-bottom: 10px;
@@ -496,7 +501,6 @@ a, a:visited, a:active, a:focus {
   letter-spacing: 3px;
 }
 .sign-in-modal__icon-wrap {
-  flex-shrink: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -509,8 +513,48 @@ a, a:visited, a:active, a:focus {
 .sign-in-modal__action-btn {
   width: 100%;
 }
-.sign-in-modal__links {
+.sign-in-modal__links, .sign-in-modal__password-info {
   text-align: center;
+}
+.sign-in-modal__call-to-action {
+  margin-bottom: 20px;
+}
+.sign-in-modal__password-info {
+  display: none;
+}
+.sign-in-modal__btn-close {
+  width: 30px;
+  height: 30px;
+  transform: translateX(-30px) rotate(-45deg);
+  position: absolute;
+  top: 15px;
+  left: calc(100% - 15px);
+}
+
+.btn-close {
+  position: absolute;
+  background-color: #000205;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 5px yellow;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+.btn-close:hover {
+  box-shadow: 0px 0px 5px 2px yellow;
+}
+.btn-close__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15%;
+  width: 25px;
+  height: 3px;
+  background-color: #f3f3f3;
+}
+.btn-close__icon--is-rotated {
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 /* SLIDER STYLE  */

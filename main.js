@@ -1,5 +1,5 @@
 // DROPDOWN MENU FN 
-const dropDownBtn = document.querySelector(".main-nav__hamburger-lines");
+const dropDownBtn = document.querySelector(".main-nav__hamburger-btn");
 const dropDownMenu = document.querySelector(".list");
 const mainNav = document.querySelector(".main-nav");
 

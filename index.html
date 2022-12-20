@@ -19,7 +19,7 @@
 <body class="page">
     <!-- MAIN HEADER STYLE  -->
     <nav class="main-nav page__main-nav">
-        <div class="main-nav__hamburger-lines">
+        <div class="main-nav__hamburger-btn">
             <span class="main-nav__hamburger-line"></span>
             <span class="main-nav__hamburger-line"></span>
             <span class="main-nav__hamburger-line"></span>
@@ -51,6 +51,8 @@
             <p class="sign-in-modal__title speedup-txt speedup-txt--title gradient-txt">Log in</p>
         </header>
         <section class="sign-in-modal__form-wrap">
+            <p class="sign-in-modal__password-info speedup-txt">Password incorrect!</p>
+            <p class="sign-in-modal__password-info sign-in__password-change speedup-txt">Change password.</p>
             <form action="#" class="sign-in-modal__form">
                 <label for="" class="sign-in-modal__label">
                     <div class="sign-in-modal__input-wrap">
@@ -73,8 +75,12 @@
         </section>
         <section class="sign-in-modal__links">
             <p class="sign-in-modal__call-to-action speedup-txt gradient-txt">You don't have an accont yet?</p>            
-            <a href="#" class="speedup-txt speedup-txt--yellow">Register now</a>
+            <a href="#" class="speedup-txt speedup-txt--uppercased speedup-txt--yellow">Register now</a>
         </section>
+        <button class="sign-in-modal__btn-close btn-close">
+            <span class="btn-close__icon"></span>
+            <span class="btn-close__icon btn-close__icon--is-rotated"></span>
+        </button>
     </div>
     <header class="main-header">
         <h2 class="speedup-txt speedup-txt--title main-header__speedup-txt gradient-txt">Luksusowe samochody w Twoim
