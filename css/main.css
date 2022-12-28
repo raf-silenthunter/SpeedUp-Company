@@ -193,6 +193,32 @@ a, a:visited, a:active, a:focus {
     box-shadow: 0px 0px 0px 0px rgba(255, 255, 52, 0.902);
   }
 }
+.btn-close {
+  position: absolute;
+  background-color: #000205;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 5px yellow;
+  transition: box-shadow 0.2s linear;
+  cursor: pointer;
+}
+.btn-close:hover {
+  box-shadow: 0px 0px 5px 2px yellow;
+}
+.btn-close__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15%;
+  width: 25px;
+  height: 3px;
+  background-color: #f3f3f3;
+}
+.btn-close__icon--is-rotated {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
 .circle-btn-overlay {
   cursor: pointer;
   transition: box-shadow 0.4s ease;
@@ -208,11 +234,6 @@ a, a:visited, a:active, a:focus {
 }
 
 /* MAIN NAV STYLE  */
-/*
-<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
-<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols-premium" title="Prosymbols Premium">Prosymbols Premium </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
-<div>Icons made by <a href="https://www.flaticon.com/authors/sebastian-belalcazar" title="Sebastian Belalcazar">Sebastian Belalcazar </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
-*/
 .is-sticky {
   background-color: #000205;
 }
@@ -439,139 +460,6 @@ a, a:visited, a:active, a:focus {
 .page__main-nav {
   position: fixed;
   width: 100%;
-}
-
-.login-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 2, 5, 0.9);
-  z-index: 1100;
-}
-.login-modal__panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-content: "auto";
-  border: 1px solid #acacac;
-  border-radius: 3px;
-  width: max(30rem, 70vw);
-  min-height: clamp(55rem, 70vh, 75vh);
-  margin: auto;
-  padding: 1rem;
-  background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, 0.5) 100%);
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-}
-.login-modal__title {
-  flex-basis: 20%;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.login-modal__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: "auto";
-  margin-bottom: 20px;
-}
-.login-modal__input-wrap {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  background-color: #000205;
-  border-radius: 3px;
-  padding: 1rem;
-  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
-}
-@media (min-width: 450px) {
-  .login-modal__input-wrap {
-    padding: 2rem;
-  }
-}
-.login-modal__label:first-child {
-  margin-bottom: 10px;
-}
-.login-modal__input {
-  width: 100%;
-  text-align: left;
-  background-color: #000205;
-  color: #f3f3f3;
-  border: none;
-  outline: none;
-  letter-spacing: 3px;
-}
-.login-modal__icon-wrap {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: "auto";
-}
-.login-modal__icon {
-  width: 50px;
-  height: 50px;
-}
-.login-modal__action-btn {
-  width: 100%;
-}
-.login-modal__links, .login-modal__password-info {
-  text-align: center;
-}
-.login-modal__call-to-action {
-  margin-bottom: 20px;
-}
-.login-modal__password-info {
-  display: none;
-}
-.login-modal__btn-close {
-  width: 30px;
-  height: 30px;
-  transform: translateX(-30px) rotate(-45deg);
-  position: absolute;
-  top: 15px;
-  left: calc(100% - 15px);
-}
-@media (min-width: 1400px) {
-  .login-modal__btn-close {
-    width: 50px;
-    height: 50px;
-    transform: translateX(-50px) rotate(-45deg);
-  }
-}
-
-.btn-close {
-  position: absolute;
-  background-color: #000205;
-  padding: 1rem;
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px 5px yellow;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-.btn-close:hover {
-  box-shadow: 0px 0px 5px 2px yellow;
-}
-.btn-close__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 15%;
-  width: 25px;
-  height: 3px;
-  background-color: #f3f3f3;
-}
-.btn-close__icon--is-rotated {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.visible {
-  display: flex;
 }
 
 /* SLIDER STYLE  */
@@ -815,6 +703,108 @@ a, a:visited, a:active, a:focus {
   .form__action-btn {
     margin-top: 6rem;
   }
+}
+
+/* LOGIN MODAL STYLE  */
+/*
+<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols-premium" title="Prosymbols Premium">Prosymbols Premium </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/sebastian-belalcazar" title="Sebastian Belalcazar">Sebastian Belalcazar </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+*/
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 2, 5, 0.9);
+  z-index: 1100;
+}
+.login-modal__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: "auto";
+  width: max(30rem, 70vw);
+  min-height: clamp(55rem, 70vh, 75vh);
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, 0.5) 100%);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+.login-modal__title {
+  flex-basis: 20%;
+  font-weight: bold;
+}
+.login-modal__input-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-color: #000205;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-bottom: 10px;
+  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+}
+@media (min-width: 450px) {
+  .login-modal__input-wrap {
+    padding: 2rem;
+  }
+}
+.login-modal__input {
+  width: 100%;
+  text-align: left;
+  background-color: #000205;
+  color: #f3f3f3;
+  border: none;
+  outline: none;
+  letter-spacing: 3px;
+}
+.login-modal__icon-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: "auto";
+}
+.login-modal__icon {
+  width: 50px;
+  height: 50px;
+}
+.login-modal__action-btn {
+  width: 100%;
+}
+.login-modal__links, .login-modal__password-info {
+  text-align: center;
+}
+.login-modal__call-to-action {
+  margin-bottom: 20px;
+}
+.login-modal__password-info {
+  display: none;
+}
+.login-modal__btn-close {
+  position: absolute;
+  top: 15px;
+  left: calc(100% - 15px);
+  width: 30px;
+  height: 30px;
+  transform: translateX(-30px) rotate(-45deg);
+}
+@media (min-width: 1400px) {
+  .login-modal__btn-close {
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50px) rotate(-45deg);
+  }
+}
+
+.visible {
+  display: flex;
 }
 
 /* FOOTER STYLE  */

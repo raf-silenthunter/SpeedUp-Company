@@ -45,3 +45,30 @@
         box-shadow: 0px 0px 0px 0px rgba(255, 255, 52, 0.902);
     }
 }
+
+.btn-close {
+    position: absolute;
+    background-color: v.$pale-black;
+    padding: v.$padding-main;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px v.$yellow;
+    transition: box-shadow .2s linear;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0px 0px 5px 2px v.$yellow;
+    }
+
+    &__icon {
+        @include m.position(absolute, 50%, 50%);
+        transform: translate(-50%, -50%);
+        border-radius: 15%;
+        width: 25px;
+        height: 3px;
+        background-color: v.$pale-white;
+
+        &--is-rotated {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+    }
+}
