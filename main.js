@@ -127,26 +127,15 @@ let autoSlide = setInterval(changeSlide, time);
 
 // ABONAMENTS OPTIONS SLIDER FN
 
+const bizSlider = document.querySelector(".biz-slider");
+
 const basic = document.querySelector(".option--basic-position");
 const medium = document.querySelector(".option--medium-position");
 const premium = document.querySelector(".option--premium-position");
 const options = [basic, medium, premium];
 
 const optionsClasses = ["option--basic-position", "option--medium-position", "option--premium-position"];
-const optionBtns = [...document.querySelectorAll(".biz-slider__btn")];
-
 let defaultPosition = 0;
-
-const checkClickedBtn = (e) => {
-    if (e.target.classList.contains("biz-slider__btn--right")){
-        return "right";
-    } else if (e.target.classList.contains("biz-slider__btn--left")) {
-        return "left"; 
-    }
-    else {
-        throw alert("btn does not contain proper class!")
-    }
-}
 
 const setBaseOptionsClasses = () => {
     options.forEach((option) => {
@@ -155,7 +144,7 @@ const setBaseOptionsClasses = () => {
 }
 
 const setOptionsPositions = () => {
-    // HOW CAN I MAKE THIS MORE UNIVERSAL???
+
         let basicPosition = defaultPosition;
         let mediumPosition = defaultPosition + 1;
         let premiumPosition = defaultPosition + 2;
@@ -169,10 +158,9 @@ const setOptionsPositions = () => {
         premium.classList.add(`${optionsClasses[premiumPosition]}`);   
     }
 
-const changeOption = (e) => {
+const changeOption = (clickedBtn) => {
     setBaseOptionsClasses();
 
-    let clickedBtn = checkClickedBtn(e);
     switch(clickedBtn){
         case "right": 
             defaultPosition++;
@@ -192,23 +180,21 @@ const changeOption = (e) => {
     setOptionsPositions(); 
 }
 
-optionBtns.forEach((btn)=> {
-    btn.addEventListener("click", changeOption);
+bizSlider.addEventListener("click", (e) => {
+
+    if (e.target.classList.contains('biz-slider__btn')) {
+    const clickedBtn = e.target.classList.contains('biz-slider__btn--right') ? 'right' : 'left';
+    changeOption(clickedBtn);
+    }
+
 });
 
 // BRANDS SLIDER FN 
 
-const brandsBtns = document.querySelectorAll(".brands__btn");
+const brandsSlider = document.querySelector(".brands__slider");
 
 let currShift = 0;
 const brandsColumns = [...document.getElementsByClassName("brands__col")];
-
-
-const checkBtn = (e) => {
-    if (e.target.classList.contains("brands__btn--right")) return "right";
-    else if (e.target.classList.contains("brands__btn--left")) return "left";
-    else throw alert("wrong element clicked or does not contain proper class!");
-}
 
 const setShift = () => {
     brandsColumns.forEach((col)=> {
@@ -216,13 +202,11 @@ const setShift = () => {
     })
 }
 
-const shiftSlider = (e) => {
-
+const shiftSlider = (clickedBtn) => {
+// INTERFACE FOR shiftSlider Fn
     const brandColumnWidth = document.querySelector(".brands__col").offsetWidth;
     const excludedShiftArea = brandColumnWidth * 2; //2 columns are always visible. Their area is excluded from shift
     let maxShiftArea = (brandColumnWidth * brandsColumns.length) - excludedShiftArea;
-
-    let clickedBtn = checkBtn(e);
 
         switch(clickedBtn){
         case "right": {
@@ -232,7 +216,7 @@ const shiftSlider = (e) => {
         }
         
         case "left":  {
-            if(currShift === 0) currShift = maxShiftArea * -1;
+            if(!currShift) currShift = maxShiftArea * -1;
             else currShift += brandColumnWidth;
         break;
         }   
@@ -241,10 +225,14 @@ const shiftSlider = (e) => {
     setShift();
 }
 
-brandsBtns.forEach((btn)=> {
-    btn.addEventListener("click", shiftSlider);
-});
+brandsSlider.addEventListener("click", (e) => {
 
+    if (e.target.classList.contains('brands__btn')) {
+    const clickedBtn = e.target.classList.contains('brands__btn--right') ? 'right' : 'left';
+    shiftSlider(clickedBtn);
+    }
+
+});
 
 // OPEN/CLOSE LOGIN MODAL FNs 
 
