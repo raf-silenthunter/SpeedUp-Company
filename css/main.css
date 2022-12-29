@@ -744,11 +744,10 @@ a, a:visited, a:active, a:focus {
 .login-modal__input-wrap {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  background-color: #000205;
-  border-radius: 3px;
   padding: 1rem;
   margin-bottom: 10px;
+  background-color: #000205;
+  border-radius: 3px;
   box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
 }
 @media (min-width: 450px) {
@@ -756,27 +755,19 @@ a, a:visited, a:active, a:focus {
     padding: 2rem;
   }
 }
-.login-modal__input {
+.login-modal__input, .login-modal__action-btn {
   width: 100%;
-  text-align: left;
-  background-color: #000205;
-  color: #f3f3f3;
+}
+.login-modal__input {
   border: none;
   outline: none;
+  background-color: #000205;
+  color: #f3f3f3;
   letter-spacing: 3px;
-}
-.login-modal__icon-wrap {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: "auto";
 }
 .login-modal__icon {
   width: 50px;
   height: 50px;
-}
-.login-modal__action-btn {
-  width: 100%;
 }
 .login-modal__links, .login-modal__password-info {
   text-align: center;

@@ -33,45 +33,35 @@
         flex-basis: 20%;
         font-weight: v.$font-weight-bold;
     }
-    // TU SKOŃCZYŁEM 
+    
     &__input-wrap {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-between;
-        background-color: v.$pale-black;
-        border-radius: 3px;
         padding: v.$padding-main;
         margin-bottom: clamp(5px, 10px, 50px);
-
+        background-color: v.$pale-black;
+        border-radius: 3px;
+        box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
         @include m.breakpoint("small") {
             padding: v.$padding-xl;
         }
+    }
 
-        box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+    &__input, &__action-btn{
+        width: 100%;
     }
 
     &__input {
-        width: 100%;
-        text-align: left;
-        background-color: v.$pale-black;
-        color: v.$pale-white;
         border: none;
         outline: none;
+        background-color: v.$pale-black;
+        color: v.$pale-white;
         letter-spacing: 3px;
-    }
-
-    &__icon-wrap {
-        display: flex;
-        @include m.flex-center(flex-end, center);
     }
 
     &__icon {
         width: 50px;
         height: 50px;
-    }
-
-    &__action-btn {
-        width: 100%;
     }
 
     &__links,
