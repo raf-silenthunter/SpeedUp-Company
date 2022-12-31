@@ -5,22 +5,17 @@ const mainNav = document.querySelector(".main-nav");
 
 dropDownBtn.addEventListener("click", () => {
     dropDownMenu.classList.toggle("list--is-visible");
-    mainNav.classList.toggle("main-nav--is-dropdown")
+    mainNav.classList.toggle("main-nav--is-dropdown");
 })
 
 
 // STICKY MENU FN
 const nav = document.querySelector(".main-nav");
+const scrollVAlue = 300;  
+
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
-    const scrollVAlue = 300;
-
-    if (scrollPosition >= scrollVAlue) {
-        nav.classList.add("is-sticky");
-    }
-    else {
-        nav.classList.remove("is-sticky");
-    }
+    nav.classList.toggle("is-sticky", scrollPosition >= scrollVAlue);
 })
 
 // COUNTER FN 
@@ -128,12 +123,7 @@ let autoSlide = setInterval(changeSlide, time);
 // ABONAMENTS OPTIONS SLIDER FN
 
 const bizSlider = document.querySelector(".biz-slider");
-
-const basic = document.querySelector(".option--basic-position");
-const medium = document.querySelector(".option--medium-position");
-const premium = document.querySelector(".option--premium-position");
-const options = [basic, medium, premium];
-
+const options = [...document.querySelectorAll(".biz-slider__option")];
 const optionsClasses = ["option--basic-position", "option--medium-position", "option--premium-position"];
 let defaultPosition = 0;
 
@@ -144,18 +134,14 @@ const setBaseOptionsClasses = () => {
 }
 
 const setOptionsPositions = () => {
-
-        let basicPosition = defaultPosition;
-        let mediumPosition = defaultPosition + 1;
-        let premiumPosition = defaultPosition + 2;
-
-        basicPosition >= optionsClasses.length ? basicPosition = defaultPosition - 1 : basicPosition;
-        mediumPosition >= optionsClasses.length ? mediumPosition = defaultPosition - 2 : mediumPosition;
-        premiumPosition >= optionsClasses.length ? premiumPosition = defaultPosition - 1 : premiumPosition;
-
-        basic.classList.add(`${optionsClasses[basicPosition]}`);
-        medium.classList.add(`${optionsClasses[mediumPosition]}`);
-        premium.classList.add(`${optionsClasses[premiumPosition]}`);   
+    // Compute the position of each option based on the default position
+    const basicPosition = (defaultPosition) % optionsClasses.length;
+    const mediumPosition = (defaultPosition + 1) % optionsClasses.length;
+    const premiumPosition = (defaultPosition + 2) % optionsClasses.length;
+  // Add the new position class to each option
+    options[0].classList.add(`${optionsClasses[basicPosition]}`);
+    options[1].classList.add(`${optionsClasses[mediumPosition]}`);
+    options[2].classList.add(`${optionsClasses[premiumPosition]}`);
     }
 
 const changeOption = (clickedBtn) => {
@@ -163,16 +149,16 @@ const changeOption = (clickedBtn) => {
 
     switch(clickedBtn){
         case "right": 
-            defaultPosition++;
-            if(defaultPosition >= optionsClasses.length){
-                defaultPosition = 0;
-            } 
-                break;
-        case "left":     
             defaultPosition--;
             if(defaultPosition < 0){
                 defaultPosition = optionsClasses.length - 1;
             }
+                break;
+        case "left":     
+            defaultPosition++;
+            if(defaultPosition >= optionsClasses.length){
+                defaultPosition = 0;
+            } 
                 break;
         default: throw alert("wrong value!")
     }
@@ -190,9 +176,8 @@ bizSlider.addEventListener("click", (e) => {
 });
 
 // BRANDS SLIDER FN 
-
+// INTERFACE FOR SHIFTSLIDER FUNCTION 
 const brandsSlider = document.querySelector(".brands__slider");
-
 let currShift = 0;
 const brandsColumns = [...document.getElementsByClassName("brands__col")];
 
@@ -203,7 +188,7 @@ const setShift = () => {
 }
 
 const shiftSlider = (clickedBtn) => {
-// INTERFACE FOR shiftSlider Fn
+// INTERFACE FOR SHIFTSLIDER STATEMENTS 
     const brandColumnWidth = document.querySelector(".brands__col").offsetWidth;
     const excludedShiftArea = brandColumnWidth * 2; //2 columns are always visible. Their area is excluded from shift
     let maxShiftArea = (brandColumnWidth * brandsColumns.length) - excludedShiftArea;
