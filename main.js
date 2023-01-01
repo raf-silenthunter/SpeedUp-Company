@@ -24,38 +24,37 @@ const carNumber = document.querySelector(".cars-num");
 const clientNumber = document.querySelector(".clients-num");
 const lendNumber = document.querySelector(".lends-num");
 
-let cartStart = 0;
-let clientStart = 0;
-let lendStart = 0;
+let carStart = 0, clientStart = 0, lendStart = 0;
+
+const counterStartValue = 300;
+
+const changeNumbers = () => {
+    carNumber.textContent = `${carStart >= 120 ? carStart : carStart++}`
+    clientNumber.textContent = `${clientStart >= 300 ? clientStart : clientStart++}`
+    lendNumber.textContent = `${lendStart >= 1500 ? lendStart : lendStart++}`
+}
 
 const startCounter = document.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
-    const counter = () => {
-        carNumber.textContent = `${cartStart >= 120 ? cartStart : cartStart++}`
-        clientNumber.textContent = `${clientStart >= 300 ? clientStart : clientStart++}`
-        lendNumber.textContent = `${lendStart >= 1500 ? lendStart : lendStart++}`
-    }
-    if (scrollPosition >= 300) {
-        setInterval(counter, 10);
-        // if (cartStart === 80) {clearInterval(interval)};
-        // DO PONOWNEGO PRZEJRZENIA - SPORO BŁĘDÓW 
+    if (scrollPosition >= counterStartValue) {
+        const interval = setInterval(changeNumbers, 10);
+        // value with the biggest number needs to stop interval 
+        if (lendStart === 1500) clearInterval(interval);
     }
 });
 
+document.addEventListener("scroll", startCounter);
+
 // MAIN SLIDER FN
 // WYMAGANA ZMIANA NAZW NA BARDZIEJ PRECISE 
-const firtsImg = document.querySelector(".slide--is-default");
-const slider = [...document.querySelectorAll(".slide")];
+const firstImg = document.querySelector(".slide--is-default");
+const slides = [...document.querySelectorAll(".slide")];
 const slideH2 = document.querySelector("header h2");
 const h2Position = document.querySelector(".main-header__speedup-txt");
-const sliderBtns = [...document.querySelectorAll(".btns-wrap__btn")];
 
-const time = 8000;
+const slideChangeTime = 8000;
 
-let screenWidth = window.innerWidth;
-const tabletWidth = 700;
-
-const slide = [{
+const slidesStyles = [{
     h2: "Luksusowe samochody w Twoim zasięgu",
     top: 40,
     left: 0,
@@ -83,16 +82,20 @@ const slide = [{
 
 let i = 0;
 
+//Here you can change slide only with buttons
+const btnElements = document.querySelectorAll(".btns-wrap__btn");
+// I want to send DOM request only once for this btns elements 
+const sliderBtns = [...btnElements];
+
 sliderBtns.forEach((btn, i) => btn.dataset.key = `${i}`);
 
 const changeSlideByBtn = (e) => {
-    let activeBtn = e.target.dataset.key;
+    const activeBtn = e.target.dataset.key;
     i = activeBtn - 1;
     clearInterval(autoSlide);
     changeSlide();
-    autoSlide = setInterval(changeSlide, time);
+    autoSlide = setInterval(changeSlide, slideChangeTime);
 }
-
 sliderBtns.forEach(btn => btn.addEventListener("click", changeSlideByBtn))
 
 const changeBtn = () => {
@@ -100,30 +103,40 @@ const changeBtn = () => {
     sliderBtns[i].classList.add("is-btn-filled");
 }
 
+const setSlideImg = () => {
+    const screenWidth = window.innerWidth;
+    const tabletWidth = 700;
+
+    if(screenWidth >= tabletWidth) {
+        slidesStyles[i].mobileImg = slidesStyles[i].desktopImg;
+    }
+    slides[i].style.backgroundImage = `url(${slidesStyles[i].mobileImg}`;
+}
+
+const setSlideInterior = () =>{
+    setSlideImg();
+    h2Position.style.top = `${slidesStyles[i].top}%`;
+    h2Position.style.left = `${slidesStyles[i].left}%`;
+    slideH2.textContent = slidesStyles[i].h2;
+}
+
 const changeSlide = () => {
     i++;
-    firtsImg.classList.add("slide--hide-default");
-    if (i >= slide.length) {
-        i = 0;
-    }
-    slider.forEach(slide => slide.classList.remove("slide--is-active"))
-    slider[i].classList.add("slide--is-active");
-    if(screenWidth >= tabletWidth) {
-        slide[i].mobileImg = slide[i].desktopImg;
-    }
-    slider[i].style.backgroundImage = `url(${slide[i].mobileImg}`;
-    h2Position.style.top = `${slide[i].top}%`;
-    h2Position.style.left = `${slide[i].left}%`;
-    slideH2.textContent = slide[i].h2;
+    firstImg.classList.add("slide--hide-default");
+    if (i >= slidesStyles.length) i = 0;
+    slides.forEach(slide => slide.classList.remove("slide--is-active"))
+    slides[i].classList.add("slide--is-active");
+    setSlideInterior();
     changeBtn();
 }
 
-let autoSlide = setInterval(changeSlide, time);
+let autoSlide = setInterval(changeSlide, slideChangeTime);
 
 // ABONAMENTS OPTIONS SLIDER FN
 
 const bizSlider = document.querySelector(".biz-slider");
-const options = [...document.querySelectorAll(".biz-slider__option")];
+const optionsElements = document.querySelectorAll(".biz-slider__option");
+const options = [...optionsElements];
 const optionsClasses = ["option--basic-position", "option--medium-position", "option--premium-position"];
 let defaultPosition = 0;
 
@@ -221,7 +234,8 @@ brandsSlider.addEventListener("click", (e) => {
 
 // OPEN/CLOSE LOGIN MODAL FNs 
 
-const modalBtns = [...document.querySelectorAll(".main-nav__sign-btn, .btn-close")];
+const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
+const modalBtns = [...modalBtnsElements];
 const loginModal = document.querySelector(".login-modal");
 
 const checkModalBtn = (e) => {

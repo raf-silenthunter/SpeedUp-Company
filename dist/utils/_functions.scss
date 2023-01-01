@@ -1,0 +1,5 @@
+@use "../utils/variables" as v;
+
+@function set-biggest-z-index($declared, $biggest: v.$z-xl) {
+    @return $declared + $biggest;
+}
