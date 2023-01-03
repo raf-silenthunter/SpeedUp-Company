@@ -11,7 +11,7 @@
         @media (min-width: 700px) and (max-width: 1200px) {
             width: max(30rem, 75vw);
         };
-        z-index: v.$z-main;
+        z-index: map-get(v.$z-index, "small");
         text-align: left;
         padding: 1em;
     }

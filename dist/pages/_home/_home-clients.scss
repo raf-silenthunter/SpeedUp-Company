@@ -155,7 +155,7 @@
     &--medium-position {
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-        z-index: v.$z-big;
+        z-index: map-get(v.$z-index, "large");
     }
 
     &--premium-position {

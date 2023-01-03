@@ -25,7 +25,7 @@
             background: url('../../../images/slide-3-blur.jpg') fixed center;
             background-size: cover;
             opacity: 0.4;
-            z-index: v.$z-under-large;
+            z-index: map-get(v.$z-index, "minus-large");
         }
     
     &__txt-wrap {
@@ -40,7 +40,7 @@
         bottom: 0;
         right: 0;
         height: 37.5vh;
-        z-index: v.$z-under-small;
+        z-index: map-get(v.$z-index,"minus-small");
 
         @include m.breakpoint(medium) {
             height: 55vh;

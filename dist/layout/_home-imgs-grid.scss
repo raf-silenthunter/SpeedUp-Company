@@ -16,7 +16,7 @@
     height: 100%;
     display: flex;
     justify-content: space-around;
-    z-index: 100;
+    z-index: map-get(v.$z-index, "xl");
     border-top: 1em solid black;
 }
 

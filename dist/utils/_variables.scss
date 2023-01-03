@@ -30,10 +30,28 @@ $line-height-xl: 250%;
 $letter-spacing: 2px;
 
 // COLORS
+
 $pale-white: #f3f3f3;
 $pale-black: #000205;
 $silver: #acacac;
 $yellow: yellow;
+
+// $colors: (
+//     "pale-white": #f3f3f3,
+//     "pale-black": #000205,
+//     "silver": #acacac,
+//     "yellow": yellow
+// );
+
+// @each $key, $val in $colors {
+//     .txt-#{$key} {
+//         color: $val
+//     }
+
+//     .bgc-#{$key}{
+//         background-color: $val
+//     }
+// }
 
 // PADDINGS 
 $padding-xl: 2rem;
@@ -43,9 +61,5 @@ $padding-xs: 0.25rem;
 
 // Z-INDEX VARIABLES 
 
-$z-under-xl: -1000;
-$z-under-large: -100;
-$z-under-small: -10;
-$z-main : 10;
-$z-big : 100;
-$z-xl : 1000;
+$z-index: ("minus-xl": -1000, "minus-large": -100, 
+"minus-small": -10, "small": 10, "large": 100, "xl": 1000);

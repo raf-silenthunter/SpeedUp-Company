@@ -1,5 +1,5 @@
 @use "../utils/variables" as v;
 
-@function set-biggest-z-index($declared, $biggest: v.$z-xl) {
+@function set-biggest-z-index($declared, $biggest: map-get(v.$z-index, "xl")) {
     @return $declared + $biggest;
 }
