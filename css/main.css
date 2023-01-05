@@ -1,3 +1,43 @@
+.bgc-pale-white {
+  background-color: #f3f3f3;
+}
+
+.bgc-pale-white-inverted {
+  background-color: #0c0c0c;
+}
+
+.bgc-pale-black {
+  background-color: #000205;
+}
+
+.bgc-pale-black-inverted {
+  background-color: #fffdfa;
+}
+
+.bgc-silver {
+  background-color: #acacac;
+}
+
+.bgc-silver-inverted {
+  background-color: #535353;
+}
+
+.bgc-yellow {
+  background-color: yellow;
+}
+
+.bgc-yellow-complement {
+  background-color: blue;
+}
+
+.bgc-lighten-yellow {
+  background-color: #ffff33;
+}
+
+.bgc-darken-yellow {
+  background-color: #cccc00;
+}
+
 :root {
   font-size: 62.5%;
 }

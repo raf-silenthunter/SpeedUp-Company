@@ -36,22 +36,44 @@ $pale-black: #000205;
 $silver: #acacac;
 $yellow: yellow;
 
-// $colors: (
-//     "pale-white": #f3f3f3,
-//     "pale-black": #000205,
-//     "silver": #acacac,
-//     "yellow": yellow
-// );
+// GENERATE COLORS CLASSES TO USE IN THE FUTURE FOR LIGH MODE
+$colors: (
+    "pale-white": #f3f3f3,
+    "pale-black": #000205,
+    "silver": #acacac,
+    "yellow": yellow
+);
 
-// @each $key, $val in $colors {
-//     .txt-#{$key} {
-//         color: $val
-//     }
+@each $color, $val in $colors {
 
-//     .bgc-#{$key}{
-//         background-color: $val
-//     }
-// }
+    .bgc-#{$color} {
+            background-color: $val;
+    }
+    // create inverted colors 
+    @if($color != "yellow") {
+        .bgc-#{$color}-inverted {
+            background-color: invert($val);
+        }
+    }
+
+    @if($color == "yellow") {
+        // create complement, darken, lighten yellow
+            @for $i from 1 through 1 {
+                    
+                .bgc-#{$color}-complement {
+                    background-color: complement($val);
+                }
+
+                .bgc-lighten-#{$color} {
+                    background-color: lighten($val, $i *10);
+                }
+        
+                .bgc-darken-#{$color} {
+                    background-color: darken($val, $i * 10);
+                }
+            }
+    }
+}
 
 // PADDINGS 
 $padding-xl: 2rem;
