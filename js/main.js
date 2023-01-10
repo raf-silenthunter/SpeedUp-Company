@@ -18,6 +18,27 @@ window.addEventListener("scroll", () => {
     nav.classList.toggle("is-sticky", scrollPosition >= scrollVAlue);
 })
 
+// OPEN/CLOSE LOGIN MODAL FNs 
+
+const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
+const modalBtns = [...modalBtnsElements];
+const loginModal = document.querySelector(".login-modal");
+
+const checkModalBtn = (e) => {
+    if (e.target.matches('.main-nav__sign-icon, .main-nav__sign-btn, .main-nav__sign-btn--lash, .main-nav__call-to-action')) return "open";
+    else if (e.target.matches(".btn-close__icon, .login-modal__btn-close, .btn-close, .btn-close__icon--is-rotated")) return "close";
+    else console.error("wrong element clicked or does not contain proper class!");
+}
+
+const changeModalState = (e) => {
+    let clickedBtn = checkModalBtn(e);
+    loginModal.classList.toggle("visible", clickedBtn === "open");
+}
+
+modalBtns.forEach((btn)=> {
+    btn.addEventListener("click", changeModalState);
+});
+
 // COUNTER FN 
 
 const carNumber = document.querySelector(".cars-num");
@@ -58,26 +79,26 @@ const slidesStyles = [{
     h2: "Luksusowe samochody w Twoim zasięgu",
     top: 40,
     left: 0,
-    mobileImg: 'images/slide-1-mobile.jpg',
-    desktopImg: 'images/slide-1.jpg'
+    mobileImg: '../images/slide-1-mobile.jpg',
+    desktopImg: '../images/slide-1.jpg'
 }, {
     h2: 'Poczuj się jak James Bond',
     top: 25,
     left: 0,
-    mobileImg: 'images/slide-2-mobile.jpg',
-    desktopImg: 'images/slide-2.jpg'
+    mobileImg: '../images/slide-2-mobile.jpg',
+    desktopImg: '../images/slide-2.jpg'
 }, {
     h2: "Szalej beztrosko po bezdrożach",
     top: 45,
     left: 0,
-    mobileImg: "images/slide-3-mobile.jpg",
-    desktopImg: "images/slide-3.jpg"
+    mobileImg: "../images/slide-3-mobile.jpg",
+    desktopImg: "../images/slide-3.jpg"
 }, {
     h2: "Poczuj wyjątkową moc",
     top: 30,
     left: 0,
-    mobileImg: "images/slide-4-mobile.jpg",
-    desktopImg: "images/slide-4.jpg"
+    mobileImg: "../images/slide-4-mobile.jpg",
+    desktopImg: "../images/slide-4.jpg"
 }]
 
 let i = 0;
@@ -230,25 +251,4 @@ brandsSlider.addEventListener("click", (e) => {
     shiftSlider(clickedBtn);
     }
 
-});
-
-// OPEN/CLOSE LOGIN MODAL FNs 
-
-const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
-const modalBtns = [...modalBtnsElements];
-const loginModal = document.querySelector(".login-modal");
-
-const checkModalBtn = (e) => {
-    if (e.target.matches('.main-nav__sign-icon, .main-nav__sign-btn, .main-nav__sign-btn--lash, .main-nav__call-to-action')) return "open";
-    else if (e.target.matches(".btn-close__icon, .login-modal__btn-close, .btn-close, .btn-close__icon--is-rotated")) return "close";
-    else console.error("wrong element clicked or does not contain proper class!");
-}
-
-const changeModalState = (e) => {
-    let clickedBtn = checkModalBtn(e);
-    loginModal.classList.toggle("visible", clickedBtn === "open");
-}
-
-modalBtns.forEach((btn)=> {
-    btn.addEventListener("click", changeModalState);
 });

@@ -15,26 +15,26 @@ const slide = [{
     h2: "Luksusowe samochody w Twoim zasięgu",
     top: 40,
     left: 0,
-    mobileImg: 'images/slide-1-mobile.jpg',
-    desktopImg: 'images/slide-1.jpg'
+    mobileImg: '../images/slide-1-mobile.jpg',
+    desktopImg: '../images/slide-1.jpg'
 }, {
     h2: 'Poczuj się jak James Bond',
     top: 25,
     left: 0,
-    mobileImg: 'images/slide-2-mobile.jpg',
-    desktopImg: 'images/slide-2.jpg'
+    mobileImg: '../images/slide-2-mobile.jpg',
+    desktopImg: '../images/slide-2.jpg'
 }, {
     h2: "Szalej beztrosko po bezdrożach",
     top: 45,
     left: 0,
-    mobileImg: "images/slide-3-mobile.jpg",
-    desktopImg: "images/slide-3.jpg"
+    mobileImg: "../images/slide-3-mobile.jpg",
+    desktopImg: "../images/slide-3.jpg"
 }, {
     h2: "Poczuj wyjątkową moc",
     top: 30,
     left: 0,
-    mobileImg: "images/slide-4-mobile.jpg",
-    desktopImg: "images/slide-4.jpg"
+    mobileImg: "../images/slide-4-mobile.jpg",
+    desktopImg: "../images/slide-4.jpg"
 }]
 
 let i = 0;

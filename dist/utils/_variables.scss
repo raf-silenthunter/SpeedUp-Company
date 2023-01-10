@@ -36,7 +36,7 @@ $pale-black: #000205;
 $silver: #acacac;
 $yellow: yellow;
 
-// GENERATE COLORS CLASSES TO USE IN THE FUTURE FOR LIGH MODE
+// COLORS MAP TO USE IN THE FUTURE FOR LIGH MODE
 $colors: (
     "pale-white": #f3f3f3,
     "pale-black": #000205,
@@ -44,6 +44,8 @@ $colors: (
     "yellow": yellow
 );
 
+
+// GENERATE COLORS CLASSES TO USE IN THE FUTURE FOR LIGH MODE
 @each $color, $val in $colors {
 
     .bgc-#{$color} {

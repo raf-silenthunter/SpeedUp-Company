@@ -22,7 +22,7 @@ $main-nav-height-desktop: 200px;
         padding: 1rem 2rem;
     }
     @include m.breakpoint("xxl") {
-            height: $main-nav-height-desktop;
+        height: $main-nav-height-desktop;
     }
 
     &--is-dropdown{
