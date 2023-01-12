@@ -79,6 +79,7 @@ $colors: (
 
 // PADDINGS 
 $padding-xl: 2rem;
+$padding-large: 1.5rem;
 $padding-main: 1rem;
 $padding-small: 0.5rem;
 $padding-xs: 0.25rem;
@@ -87,3 +88,9 @@ $padding-xs: 0.25rem;
 
 $z-index: ("minus-xl": -1000, "minus-large": -100, 
 "minus-small": -10, "small": 10, "large": 100, "xl": 1000);
+
+// MAIN NAV HEIGHT 
+// All filed need acces to these values 
+
+$main-nav-height: 100px;
+$main-nav-height-desktop: 200px;

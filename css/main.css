@@ -1557,4 +1557,39 @@ a, a:visited, a:active, a:focus {
   }
 }
 
+.gallery {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 100px 4rem 6rem 4rem;
+}
+@media (min-width: 900px) {
+  .gallery {
+    padding: 100px 8rem 8rem 8rem;
+  }
+}
+
+.filter {
+  display: grid;
+  grid-template: auto/repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+.filter__btn {
+  background-color: #000205;
+  border: 2px solid #acacac;
+  border-radius: 5px;
+  padding: 1rem 0;
+  transition: all linear 0.2s;
+  cursor: pointer;
+}
+.filter__btn:hover {
+  box-shadow: 0 0 20px 5px #686868;
+}
+.filter__title {
+  color: #acacac;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 /* Remember you have to attribute Andy Horvath *//*# sourceMappingURL=main.css.map */

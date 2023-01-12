@@ -2,15 +2,13 @@
 
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
-$main-nav-height: 100px;
-$main-nav-height-desktop: 200px;
 
 .is-sticky {
     background-color: v.$pale-black;
 }
 
 .main-nav {
-    height: $main-nav-height;
+    height: v.$main-nav-height;
     width: 100%;
     max-width: 100vw;
     display: flex;
@@ -22,7 +20,7 @@ $main-nav-height-desktop: 200px;
         padding: 1rem 2rem;
     }
     @include m.breakpoint("xxl") {
-        height: $main-nav-height-desktop;
+        height: v.$main-nav-height-desktop;
     }
 
     &--is-dropdown{

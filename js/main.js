@@ -11,7 +11,7 @@ dropDownBtn.addEventListener("click", () => {
 
 // STICKY MENU FN
 const nav = document.querySelector(".main-nav");
-const scrollVAlue = 300;  
+const scrollVAlue = 200;  
 
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
