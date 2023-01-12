@@ -547,6 +547,89 @@ a, a:visited, a:active, a:focus {
   background-color: rgb(172, 172, 172);
 }
 
+/* IMGS GRID STYLE  */
+.counter__onimg-grid {
+  position: relative;
+  height: 55vh;
+}
+
+.counter__onimg-grid > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55vh;
+}
+
+.counter__grid-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 1000;
+  border-top: 1em solid black;
+}
+
+.counter__grid-item {
+  width: 20%;
+  border-width: 0 20px 40px 20px;
+  border-color: #000205;
+  border-style: solid;
+  background-color: transparent;
+}
+
+.counter__grid-img {
+  background-image: url("images/race.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(1);
+}
+
+/* ABOUT STYLE  */
+.about, .about__columns-wrap, .txt-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.about {
+  padding: 6rem 4rem;
+}
+@media (min-width: 900px) {
+  .about {
+    padding: 8rem;
+  }
+}
+.about__speedup-txt {
+  margin-bottom: 6rem;
+}
+@media (min-width: 700px) {
+  .about__speedup-txt {
+    margin: 2em 0;
+  }
+}
+.about__columns-wrap {
+  justify-content: space-between;
+}
+@media (min-width: 900px) {
+  .about__columns-wrap {
+    flex-direction: row;
+  }
+}
+.about__columns-wrap > * + * {
+  margin: 6rem 0 0 0;
+}
+@media (min-width: 900px) {
+  .about__columns-wrap > * + * {
+    margin: 0 0 0 6rem;
+  }
+}
+@media (min-width: 900px) {
+  .about__column {
+    width: 50%;
+  }
+}
+
 /* BLOG STYLE  */
 .blog-intro {
   display: flex;
@@ -1042,50 +1125,6 @@ a, a:visited, a:active, a:focus {
   background: url("../images/race.jpg") no-repeat fixed center;
   background-size: cover;
   filter: grayscale(1);
-}
-
-/* ABOUT STYLE  */
-.about, .about__columns-wrap, .txt-intro {
-  display: flex;
-  flex-direction: column;
-}
-
-.about {
-  padding: 6rem 4rem;
-}
-@media (min-width: 900px) {
-  .about {
-    padding: 8rem;
-  }
-}
-.about__speedup-txt {
-  margin-bottom: 6rem;
-}
-@media (min-width: 700px) {
-  .about__speedup-txt {
-    margin: 2em 0;
-  }
-}
-.about__columns-wrap {
-  justify-content: space-between;
-}
-@media (min-width: 900px) {
-  .about__columns-wrap {
-    flex-direction: row;
-  }
-}
-.about__columns-wrap > * + * {
-  margin: 6rem 0 0 0;
-}
-@media (min-width: 900px) {
-  .about__columns-wrap > * + * {
-    margin: 0 0 0 6rem;
-  }
-}
-@media (min-width: 900px) {
-  .about__column {
-    width: 50%;
-  }
 }
 
 /* CLIENTS STYLE  */
