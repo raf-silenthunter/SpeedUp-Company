@@ -98,6 +98,7 @@
 }
 
 .option {
+    max-width: 400px;
     height: 100%;
     @include m.display-flex(flex, column);
     justify-content: space-between;
@@ -113,7 +114,6 @@
         }
 
     &__list {
-        flex-basis: 45%;
         @include m.display-flex(flex, column);
         justify-content: center;
         overflow: hidden;
@@ -136,10 +136,15 @@
         @include m.breakpoint(xxl){
             font-size: v.$xl-font-size-medium;
         }
+
+        &--title{
+            text-transform: uppercase;
+            color: yellow;
+            font-weight: bold;
+        }
     }
 
     &__speedup-txt {
-        flex-basis: 10%;
         padding: .5em;
         color: v.$pale-black;
         text-align: center;
