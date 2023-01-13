@@ -1585,6 +1585,28 @@ a, a:visited, a:active, a:focus {
     height: 750px;
   }
 }
+.gallery__info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+}
+.gallery__title {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+}
+.gallery__btn-wrap {
+  grid-row: 3/auto;
+  place-self: center;
+}
+.gallery__txt-wrap {
+  grid-column: 1/-1;
+  grid-row: 2/auto;
+}
+.gallery__txt-wrap:nth-of-type(2n) {
+  grid-row: -1/auto;
+}
 
 .filter {
   display: grid;

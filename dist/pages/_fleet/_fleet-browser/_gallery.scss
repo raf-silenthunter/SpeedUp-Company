@@ -6,7 +6,7 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.gallery{
+.gallery {
     display: flex;
     flex-direction: column;
     // min-height: 100vh;
@@ -27,6 +27,32 @@
         height: 450px;
         @include m.breakpoint(xxl){
             height: 750px;
+        }
+    }
+
+    &__info{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, auto);
+        column-gap: 4rem;
+    }
+
+    &__title{
+        grid-column: 1/-1;
+        grid-row: 1/2
+    }
+
+    &__btn-wrap{
+        grid-row: 3/ auto;
+        place-self: center;
+    }
+
+    &__txt-wrap{
+        grid-column: 1/ -1;
+        grid-row: 2/ auto;
+
+        &:nth-of-type(2n){
+            grid-row: -1/ auto;
         }
     }
 }
