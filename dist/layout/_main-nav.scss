@@ -8,14 +8,14 @@
 }
 
 .main-nav {
+    position: relative;
+    display: flex;
+    @include m.flex-center(space-around, center);
     height: v.$main-nav-height;
     width: 100%;
     max-width: 100vw;
-    display: flex;
-    @include m.flex-center(space-around, center);
     z-index: map-get(v.$z-index, "xl");
     transition: background-color .4s linear;
-    position: relative;
     @include m.breakpoint("large") {
         padding: 1rem 2rem;
     }
@@ -72,7 +72,6 @@
         height: 35px;
         display: flex;
         justify-content: flex-end;
-        cursor: pointer;
         visibility: hidden;
 
         @include m.breakpoint("large") {

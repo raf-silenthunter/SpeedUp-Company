@@ -11,7 +11,7 @@ dropDownBtn.addEventListener("click", () => {
 
 // STICKY MENU FN
 const nav = document.querySelector(".main-nav");
-const scrollVAlue = 200;  
+const scrollVAlue = 100;  
 
 window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
@@ -250,5 +250,5 @@ brandsSlider.addEventListener("click", (e) => {
     const clickedBtn = e.target.classList.contains('brands__btn--right') ? 'right' : 'left';
     shiftSlider(clickedBtn);
     }
-
+    
 });

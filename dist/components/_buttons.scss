@@ -4,7 +4,6 @@
 .action-btn {
     padding: 1.5rem 2rem;
     font-weight: 700;
-    cursor: pointer;
     transition: all .4s ease;
     overflow: hidden;
     @include m.border-properties(2px, solid, v.$yellow, 3px);

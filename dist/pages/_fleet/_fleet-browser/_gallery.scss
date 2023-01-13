@@ -12,23 +12,24 @@
     min-height: 100vh;
     padding: v.$main-nav-height 4rem 6rem 4rem;
     @include m.breakpoint(large) {
-        padding: v.$main-nav-height 8rem 8rem 8rem;
+        padding: v.$main-nav-height-desktop 8rem 8rem 8rem;
     }
 }
 
 .filter{
     display: grid;
-    grid-template: auto/ repeat(auto-fit, minmax(150px, 1fr));
+    grid-template: auto/ repeat(auto-fit, minmax(130px, 1fr));
     gap: 2rem;
-    margin: 4rem 0;
+    margin-bottom: 4rem;
 
     &__btn{ 
         background-color: map-get(v.$colors, "pale-black");
         @include m.border-properties(2px, solid, map-get(v.$colors, "silver"), 5px);
         padding: v.$padding-main 0;
         transition: all linear .2s;
-        cursor: pointer;
-        &:hover{
+        line-height: 100%;
+        
+        &:hover, &:focus {
             box-shadow: 0 0 20px 5px #686868;
         }
     }
@@ -37,5 +38,9 @@
         color: v.$silver;
         text-transform: uppercase;
         text-align: center;
+        font-size: v.$font-size-small;
+        @include m.breakpoint(big){
+            font-size: v.$font-size-medium;
+        }
     }
 }
