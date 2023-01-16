@@ -21,8 +21,11 @@ ul, li, a {
     list-style: none;
 }
 
+button, a {
+    cursor: pointer;
+}
+
 button{
     border: none;
     color: v.$pale-white;
-    cursor: pointer;
 }

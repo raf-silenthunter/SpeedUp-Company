@@ -9,7 +9,6 @@
 .gallery {
     display: flex;
     flex-direction: column;
-    // min-height: 100vh;
     padding: v.$main-nav-height 4rem 6rem 4rem;
     @include m.breakpoint(large) {
         padding: v.$main-nav-height-desktop 8rem 8rem 8rem;
@@ -32,28 +31,23 @@
 
     &__info{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, auto);
-        column-gap: 4rem;
-    }
-
-    &__title{
-        grid-column: 1/-1;
-        grid-row: 1/2
-    }
-
-    &__btn-wrap{
-        grid-row: 3/ auto;
-        place-self: center;
-    }
-
-    &__txt-wrap{
-        grid-column: 1/ -1;
-        grid-row: 2/ auto;
-
-        &:nth-of-type(2n){
-            grid-row: -1/ auto;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        @include m.breakpoint(large){
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
         }
+        gap: 2rem;
+    }
+
+    &__title, &__txt-wrap{
+        grid-column: 1/-1;
+    }
+
+    &__link{
+        padding-block: 2rem;
+        text-align: center;
+        background: linear-gradient(
+        #acacac, transparent);
+        border-radius: 10px;
     }
 }
 

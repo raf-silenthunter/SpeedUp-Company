@@ -28,8 +28,8 @@
     background: v.$yellow;
     color: v.$pale-black;
     &:hover {
-        background: transparent;
         color: v.$pale-white;
+        background: v.$pale-black;
     }
 }
 
