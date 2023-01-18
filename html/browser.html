@@ -41,7 +41,7 @@
             </li>
         </ul>
         <button type="button" class="main-nav__sign-btn main-nav__sign-btn--lash">
-            <img src="../images/log-in.png" alt="" class="main-nav__sign-icon">
+            <img src="../images/Icons/log-in.png" alt="" class="main-nav__sign-icon">
             <p class="main-nav__call-to-action">Zaloguj się</p>
         </button>
     </nav>
@@ -57,11 +57,11 @@
                 <form action="#" class="login-modal__form">
                     <label for="" class="login-modal__input-wrap">
                         <input type="text" placeholder="Login" class="login-modal__input speedup-txt">
-                        <img src="../images/user.png" alt="" class="login-modal__icon">
+                        <img src="../images/Icons/user.png" alt="" class="login-modal__icon">
                     </label>
                     <label for="" class="login-modal__input-wrap">
                         <input type="password" placeholder="Password" class="login-modal__input speedup-txt">
-                        <img src="../images/padlock.png" alt="" class="login-modal__icon">
+                        <img src="../images/Icons/padlock.png" alt="" class="login-modal__icon">
                     </label>
                 </form>
                 <button class="action-btn speedup-txt login-modal__action-btn">Log in</button>
@@ -79,29 +79,29 @@
     <main>
         <section class="gallery">
             <section class="filter">
-                <button class="filter__btn">
-                    <picture>
-                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-luxcar-128.png">
+                <button class="filter__btn" data-key="luxury">
+                    <picture class="gallery__picture">
+                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-luxcar-128.png" class="filter__icon">
                         <img src="../images/Icons/icon-luxcar-64.png" srcset="../images/Icons/icon-luxcar-64.png, ..\images\Icons\icon-luxcar-128.png 2x" alt="" class="filter__icon">
                     </picture>
                     <p class="filter__title">Luksusowe</p>
                 </button>
-                <button class="filter__btn">
-                    <picture>
-                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-oldtimer-128.png">
+                <button class="filter__btn" data-key="oldtimer">
+                    <picture class="gallery__picture">
+                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-oldtimer-128.png" class="filter__icon">
                         <img src="../images/Icons/icon-oldtimer-64.png" srcset="../images/Icons/icon-oldtimer-64.png, ..\images\Icons\icon-oldtimer-128.png 2x" alt="" class="filter__icon">
                     </picture>
                     <p class="filter__title">Zabytkowe</p>
                 </button>
-                <button class="filter__btn">
-                    <picture>
-                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-sportcar-128.png">
+                <button class="filter__btn" data-key="sport">
+                    <picture class="gallery__picture">
+                        <source media="(min-width: 2048px)" srcset="../images/Icons/icon-sportcar-128.png" class="filter__icon">
                         <img src="../images/Icons/icon-sportcar-64.png" srcset="../images/Icons/icon-sportcar-64.png, ..\images\Icons\icon-sportcar-128.png 2x" alt="" class="filter__icon">
                     </picture>
                     <p class="filter__title">Sportowe</p>
                 </button>
-                <button class="filter__btn">
-                    <picture>
+                <button class="filter__btn" data-key="terrain">
+                    <picture class="gallery__picture">
                         <source media="(min-width: 2048px)" srcset="../images/Icons/icon-terrain-128.png">
                         <img src="../images/Icons/icon-terrain-64.png" srcset="../images/Icons/icon-terrain-64.png, ..\images\Icons\icon-terrain-128.png 2x" alt="" class="filter__icon">
                     </picture>
@@ -109,7 +109,7 @@
                 </button>
             </section>
             <section class="gallery__options">
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="luxury">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-luxury-1.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -124,7 +124,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="luxury">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-luxury-2.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -139,7 +139,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="luxury">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-luxury-3.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -154,7 +154,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="sport">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-sport-1.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -169,7 +169,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="sport">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-sport-2.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -184,7 +184,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="terrain">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-terrain-1.jpeg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -199,7 +199,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="terrain">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-terrain-2.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -214,7 +214,7 @@
                     </ul>
                     <button class="action-btn speedup-txt speedup-txt--uppercased">expand</button>
                 </div>
-                <div class="option gallery__option">
+                <div class="option gallery__option" data-option="oldtimer">
                     <img class="option__img" src="../images/browser-fleet-images/fleet-oldtimer-1.jpg">
                     <ul class="option__list">
                         <li class="option__item">
@@ -311,7 +311,7 @@
     </main>
     <!-- BLOG INTRO SECTION STYLE  -->
     <section class="blog-intro">
-        <p class="blog-intro__speedup-txt speedup-txt--subtitle gradient-txt">Najnowsze publikacje na naszym blogu</p>
+        <p class="speedup-txt speedup-txt--subtitle gradient-txt">Najnowsze publikacje na naszym blogu</p>
         <div class="blog-intro__wrap">
             <article class="blog-intro__post-intro post-intro">
                 <a class="post-intro__link" href="#">
@@ -446,7 +446,7 @@
             </div>
         </nav>
     </footer>
-    <!-- <script src="../js/main.js"></script> -->
+    <script src="../js/browser.js"></script>
 </body>
 
 </html>

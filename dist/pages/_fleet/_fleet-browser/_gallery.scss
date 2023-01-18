@@ -9,9 +9,9 @@
 .gallery {
     display: flex;
     flex-direction: column;
-    padding: v.$main-nav-height 4rem 6rem 4rem;
+    padding: v.$main-nav-height 4rem 0 4rem;
     @include m.breakpoint(large) {
-        padding: v.$main-nav-height-desktop 8rem 8rem 8rem;
+        padding: v.$main-nav-height-desktop 8rem 0 8rem;
     }
 
     &__options{
@@ -19,6 +19,11 @@
         gap: 2rem;
         grid-template: auto /repeat(auto-fit, minmax(300px, 1fr));
         justify-items: center;
+
+        &--is-filtered{
+            grid-template: auto /repeat(auto-fit, minmax(300px, 330px));
+            justify-items: left;
+        }
     }
 
     &__option{
