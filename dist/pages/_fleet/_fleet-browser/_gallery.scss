@@ -9,21 +9,21 @@
 .gallery {
     display: flex;
     flex-direction: column;
-    padding: v.$main-nav-height 4rem 0 4rem;
-    @include m.breakpoint(large) {
-        padding: v.$main-nav-height-desktop 8rem 0 8rem;
+    
+    &__filter {
+        margin-bottom: 4rem;
+    }
+
+    &__options, &__info{
+        gap: 2rem;
     }
 
     &__options{
         display: grid;
-        gap: 2rem;
-        grid-template: auto /repeat(auto-fit, minmax(300px, 1fr));
+        grid-template: auto /repeat(auto-fit, 300px);
         justify-content: center;
-        @include m.breakpoint("large") {
-            justify-content: left;
-        }
-        &--is-filtered{
-            grid-template: auto /repeat(auto-fit, minmax(300px, 330px));
+        @include m.breakpoint(xxl) {
+            grid-template: auto /repeat(auto-fit, 500px);
         }
     }
 
@@ -41,7 +41,6 @@
         @include m.breakpoint(large){
             grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
         }
-        gap: 2rem;
     }
 
     &__title, &__txt-wrap{
@@ -49,26 +48,25 @@
     }
 
     &__link{
-        padding-block: 2rem;
-        text-align: center;
+        padding-block: v.$padding-xl;
+        border-radius: 10px;
         background: linear-gradient(
         #acacac, transparent);
-        border-radius: 10px;
+        text-align: center;
     }
 }
 
 .filter{
     display: grid;
     grid-template: auto/ repeat(auto-fit, minmax(130px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: v.$padding-xl;
 
     &__btn{ 
         background-color: map-get(v.$colors, "pale-black");
         @include m.border-properties(2px, solid, map-get(v.$colors, "silver"), 5px);
         padding: v.$padding-main 0;
-        transition: all linear .2s;
         line-height: 100%;
+        transition: all linear .2s;
         
         &:hover, &:focus {
             box-shadow: 0 0 20px 5px #686868;
@@ -76,9 +74,7 @@
     }
 
     &__title{
-        color: v.$pale-white;
         text-transform: uppercase;
-        text-align: center;
         font-size: v.$font-size-small;
         @include m.breakpoint(big){
             font-size: v.$font-size-medium;

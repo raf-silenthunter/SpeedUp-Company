@@ -98,7 +98,6 @@
 }
 
 .option {
-    max-width: 400px;
     height: 100%;
     @include m.display-flex(flex, column);
     justify-content: space-between;

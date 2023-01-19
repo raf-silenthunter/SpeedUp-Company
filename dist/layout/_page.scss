@@ -1,0 +1,22 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.page {
+    &__recommend {
+        position: relative;
+        width: 100%;
+        height: calc(130vh - 10vh);
+    
+        @include m.breakpoint(medium) {
+            height: calc(100vh - 10vh);
+        }
+    }
+
+    &__gallery {
+        padding: v.$main-nav-height 4rem 0 4rem;
+
+        @include m.breakpoint(large) {
+            padding: v.$main-nav-height-desktop 8rem 0 8rem;
+        }
+    }
+}

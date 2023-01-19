@@ -2,17 +2,6 @@
 @use "../../utils/variables" as v;
 @use "../../utils/mixins" as m;
 
-
-.page__recommend {
-    position: relative;
-    width: 100%;
-    height: calc(130vh - 10vh);
-
-    @include m.breakpoint(medium) {
-        height: calc(100vh - 10vh);
-    }
-}
-
 .recommend {
     @include m.display-flex(flex, column);
     justify-content: space-between;
