@@ -41,41 +41,34 @@ modalBtns.forEach((btn)=> {
 
 // FLEET OPTIONS FILTER 
 
-const filter = document.querySelector(".filter");
-
 const fleetWrap = document.querySelector(".gallery__options");
 const fleetElements = document.querySelectorAll(".gallery__option");
 const fleetOptions = [...fleetElements];
-
-const checkBtnKey = (e) => {
-
-    if(e.target.matches(".filter__btn, .filter__title, .filter__icon, .filter__picture")) {
-        let target = e.target;
-        while (target && !target.classList.contains("filter__btn")) target = target.parentElement;
-        const clickedBtnKey = target.dataset.key;
-        return clickedBtnKey;
-    }
-    
-}
 
 const setFleet = () => {
     fleetWrap.innerHTML = '';
     fleetWrap.classList.add("gallery__options--is-filtered");
 }
 
-const filterFleet = (e) => {
-    const btnKey = checkBtnKey(e); 
-    const filteredFleet = fleetOptions.filter(e => e.dataset.option === btnKey)
-    setFleet();
-    filteredFleet.forEach(fleetElement => fleetWrap.append(fleetElement))
-};
-
-const resetFilterFleet = (e) => {
-    if(!e.target.matches(".filter__btn, .filter__title, .filter__icon, .filter__picture")){
+const checkBtnKey = (e) => {
+    if(e.target.matches(".filter__btn, .filter__title, .filter__icon, .filter__picture")){
+        let target = e.target;
+        while (target && !target.classList.contains("filter__btn")) target = target.parentElement;
+        const clickedBtnKey = target.dataset.key;
+        setFleet();
+        return clickedBtnKey;
+    } else if (e.target.matches(".option, .option__img, .option__list, .option__item, .option__txt, .action-btn")) {
+        return console.log("option kliknięte");
+    } else {
         fleetWrap.classList.remove("gallery__options--is-filtered");
-        fleetOptions.forEach(fleetOption => fleetWrap.append(fleetOption))
+        fleetOptions.forEach(fleetOption => fleetWrap.append(fleetOption));
     }
 }
 
-filter.addEventListener("click", filterFleet)
-window.addEventListener("click", resetFilterFleet)
+const filterFleet = (e) => {
+    const btnKey = checkBtnKey(e); 
+    const filteredFleet = fleetOptions.filter(e => e.dataset.option === btnKey)
+    filteredFleet.forEach(fleetElement => fleetWrap.append(fleetElement))
+};
+
+document.addEventListener("click", filterFleet)

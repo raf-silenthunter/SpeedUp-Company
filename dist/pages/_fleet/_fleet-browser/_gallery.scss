@@ -18,11 +18,12 @@
         display: grid;
         gap: 2rem;
         grid-template: auto /repeat(auto-fit, minmax(300px, 1fr));
-        justify-items: center;
-
+        justify-content: center;
+        @include m.breakpoint("large") {
+            justify-content: left;
+        }
         &--is-filtered{
             grid-template: auto /repeat(auto-fit, minmax(300px, 330px));
-            justify-items: left;
         }
     }
 
