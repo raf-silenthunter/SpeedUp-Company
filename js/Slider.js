@@ -1,5 +1,5 @@
 class Slider {
-    constructor() {
+    constructor(time) {
 
         this.slidesArray = [...document.querySelectorAll(".slide")];
         this.slideTitle = document.querySelector("header h2");
@@ -36,10 +36,12 @@ class Slider {
         this.sliderBtns.forEach(btn => btn.addEventListener("click", this.changeSlideByBtn))
 
         this.currentSlide = 0;
-        this.slideChangeTime = 8000;
-        
+        this.slideChangeTime = this.getSlideChangeTime(time);
+
         this.autoSlide = setInterval(this.changeSlide, this.slideChangeTime);
     }
+
+    getSlideChangeTime = (time) => time;
 
     changeSlideByBtn = (e) => {
         const clickedBtn = e.target.dataset.key;
@@ -48,17 +50,16 @@ class Slider {
         clearInterval(this.autoSlide);
         this.currentSlide--;
         this.changeSlide();
-        this.changeBtn();
         this.autoSlide = setInterval(this.changeSlide, this.slideChangeTime);
     }
 
     changeSlide = () => {
         this.currentSlide++;
-
         this.currentSlide >= this.slidesStyles.length ? this.currentSlide = 0 : this.currentSlide;
         
         this.slidesArray.forEach(slide => slide.classList.remove("slide--is-active"))
         this.slidesArray[this.currentSlide].classList.add("slide--is-active");
+        
         this.setSlideInterior();
         this.changeBtn();
     }
@@ -88,5 +89,5 @@ class Slider {
     setDefaultImage = () => this.setSlideImg();
     }
 
-const mainSlider = new Slider();
+const mainSlider = new Slider(4000);
 document.addEventListener("DOMContentLoaded", mainSlider.setDefaultImage);
