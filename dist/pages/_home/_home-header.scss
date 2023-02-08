@@ -38,20 +38,6 @@
     opacity: 0;
     transform: translateY(-100%);
 
-    &--is-default{
-        @include m.breakpoint(medium) {
-                background-image: url('../images/slide-1.jpg')
-        };
-        background-image: url('../images/slide-1-mobile.jpg');
-        opacity: 0.4;
-        transform: translateY(0%);
-    }
-
-    &--hide-default {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-
     &--is-active {
         opacity: 0.4;
         transform: translateY(0%);

@@ -196,30 +196,10 @@ a, a:visited, a:active, a:focus {
   }
 }
 .action-btn--animation {
-  -webkit-animation: action linear 1.5s infinite;
-          animation: action linear 1.5s infinite;
+  animation: action linear 1.5s infinite;
 }
 .action-btn--animation:hover {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-
-@-webkit-keyframes action {
-  0% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 52, 0.902);
-  }
-  25% {
-    box-shadow: 0px 0px 7px 0px rgba(255, 255, 52, 0.902);
-  }
-  50% {
-    box-shadow: 0px 0px 7px 0px rgba(255, 255, 52, 0.902);
-  }
-  75% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 52, 0.902);
-  }
-  100% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 52, 0.902);
-  }
+  animation-play-state: paused;
 }
 
 @keyframes action {
@@ -668,7 +648,6 @@ a, a:visited, a:active, a:focus {
   }
 }
 .blog-intro__action-btn {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 6rem 0;
@@ -729,7 +708,6 @@ a, a:visited, a:active, a:focus {
   padding: 2rem;
 }
 .post-content__category {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1rem;
@@ -1018,20 +996,6 @@ a, a:visited, a:active, a:focus {
   opacity: 0;
   transform: translateY(-100%);
 }
-.slide--is-default {
-  background-image: url("../images/slide-1-mobile.jpg");
-  opacity: 0.4;
-  transform: translateY(0%);
-}
-@media (min-width: 700px) {
-  .slide--is-default {
-    background-image: url("../images/slide-1.jpg");
-  }
-}
-.slide--hide-default {
-  opacity: 0;
-  transform: translateY(-100%);
-}
 .slide--is-active {
   opacity: 0.4;
   transform: translateY(0%);
@@ -1183,7 +1147,6 @@ a, a:visited, a:active, a:focus {
 }
 .clients__action-btn {
   display: block;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: 6rem auto 0 auto;
@@ -1501,7 +1464,6 @@ a, a:visited, a:active, a:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   transform: translate(-50%, -50%);

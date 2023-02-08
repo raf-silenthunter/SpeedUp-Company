@@ -66,92 +66,94 @@ const startCounter = document.addEventListener("scroll", () => {
 
 document.addEventListener("scroll", startCounter);
 
+// const mainSlider = new Slider();
+
 // MAIN SLIDER FN
 // WYMAGANA ZMIANA NAZW NA BARDZIEJ PRECISE 
-const firstImg = document.querySelector(".slide--is-default");
-const slides = [...document.querySelectorAll(".slide")];
-const slideH2 = document.querySelector("header h2");
-const h2Position = document.querySelector(".main-header__speedup-txt");
+// const firstImg = document.querySelector(".slide--is-default");
+// const slides = [...document.querySelectorAll(".slide")];
+// const slideH2 = document.querySelector("header h2");
+// const h2Position = document.querySelector(".main-header__speedup-txt");
 
-const slideChangeTime = 8000;
+// const slideChangeTime = 8000;
 
-const slidesStyles = [{
-    h2: "Luksusowe samochody w Twoim zasięgu",
-    top: 40,
-    left: 0,
-    mobileImg: '../images/slide-1-mobile.jpg',
-    desktopImg: '../images/slide-1.jpg'
-}, {
-    h2: 'Poczuj się jak James Bond',
-    top: 25,
-    left: 0,
-    mobileImg: '../images/slide-2-mobile.jpg',
-    desktopImg: '../images/slide-2.jpg'
-}, {
-    h2: "Szalej beztrosko po bezdrożach",
-    top: 45,
-    left: 0,
-    mobileImg: "../images/slide-3-mobile.jpg",
-    desktopImg: "../images/slide-3.jpg"
-}, {
-    h2: "Poczuj wyjątkową moc",
-    top: 30,
-    left: 0,
-    mobileImg: "../images/slide-4-mobile.jpg",
-    desktopImg: "../images/slide-4.jpg"
-}]
+// const slidesStyles = [{
+//     h2: "Luksusowe samochody w Twoim zasięgu",
+//     top: 40,
+//     left: 0,
+//     mobileImg: '../images/slide-1-mobile.jpg',
+//     desktopImg: '../images/slide-1.jpg'
+// }, {
+//     h2: 'Poczuj się jak James Bond',
+//     top: 25,
+//     left: 0,
+//     mobileImg: '../images/slide-2-mobile.jpg',
+//     desktopImg: '../images/slide-2.jpg'
+// }, {
+//     h2: "Szalej beztrosko po bezdrożach",
+//     top: 45,
+//     left: 0,
+//     mobileImg: "../images/slide-3-mobile.jpg",
+//     desktopImg: "../images/slide-3.jpg"
+// }, {
+//     h2: "Poczuj wyjątkową moc",
+//     top: 30,
+//     left: 0,
+//     mobileImg: "../images/slide-4-mobile.jpg",
+//     desktopImg: "../images/slide-4.jpg"
+// }]
 
-let i = 0;
+// let i = 0;
 
-//Here you can change slide only with buttons
-const btnElements = document.querySelectorAll(".btns-wrap__btn");
-// I want to send DOM request only once for this btns elements 
-const sliderBtns = [...btnElements];
+// //Here you can change slide only with buttons
+// const btnElements = document.querySelectorAll(".btns-wrap__btn");
+// // I want to send DOM request only once for this btns elements 
+// const sliderBtns = [...btnElements];
 
-sliderBtns.forEach((btn, i) => btn.dataset.key = `${i}`);
+// sliderBtns.forEach((btn, i) => btn.dataset.key = `${i}`);
 
-const changeSlideByBtn = (e) => {
-    const activeBtn = e.target.dataset.key;
-    i = activeBtn - 1;
-    clearInterval(autoSlide);
-    changeSlide();
-    autoSlide = setInterval(changeSlide, slideChangeTime);
-}
-sliderBtns.forEach(btn => btn.addEventListener("click", changeSlideByBtn))
+// const changeSlideByBtn = (e) => {
+//     const activeBtn = e.target.dataset.key;
+//     i = activeBtn - 1;
+//     clearInterval(autoSlide);
+//     changeSlide();
+//     autoSlide = setInterval(changeSlide, slideChangeTime);
+// }
+// sliderBtns.forEach(btn => btn.addEventListener("click", changeSlideByBtn))
 
-const changeBtn = () => {
-    sliderBtns.forEach(btn => btn.classList.remove("is-btn-filled"));
-    sliderBtns[i].classList.add("is-btn-filled");
-}
+// const changeBtn = () => {
+//     sliderBtns.forEach(btn => btn.classList.remove("is-btn-filled"));
+//     sliderBtns[i].classList.add("is-btn-filled");
+// }
 
-const setSlideImg = () => {
-    const screenWidth = window.innerWidth;
-    const tabletWidth = 700;
+// const setSlideImg = () => {
+//     const screenWidth = window.innerWidth;
+//     const tabletWidth = 700;
 
-    if(screenWidth >= tabletWidth) {
-        slidesStyles[i].mobileImg = slidesStyles[i].desktopImg;
-    }
-    slides[i].style.backgroundImage = `url(${slidesStyles[i].mobileImg}`;
-}
+//     if(screenWidth >= tabletWidth) {
+//         slidesStyles[i].mobileImg = slidesStyles[i].desktopImg;
+//     }
+//     slides[i].style.backgroundImage = `url(${slidesStyles[i].mobileImg}`;
+// }
 
-const setSlideInterior = () =>{
-    setSlideImg();
-    h2Position.style.top = `${slidesStyles[i].top}%`;
-    h2Position.style.left = `${slidesStyles[i].left}%`;
-    slideH2.textContent = slidesStyles[i].h2;
-}
+// const setSlideInterior = () =>{
+//     setSlideImg();
+//     h2Position.style.top = `${slidesStyles[i].top}%`;
+//     h2Position.style.left = `${slidesStyles[i].left}%`;
+//     slideH2.textContent = slidesStyles[i].h2;
+// }
 
-const changeSlide = () => {
-    i++;
-    firstImg.classList.add("slide--hide-default");
-    if (i >= slidesStyles.length) i = 0;
-    slides.forEach(slide => slide.classList.remove("slide--is-active"))
-    slides[i].classList.add("slide--is-active");
-    setSlideInterior();
-    changeBtn();
-}
+// const changeSlide = () => {
+//     i++;
+//     firstImg.classList.add("slide--hide-default");
+//     if (i >= slidesStyles.length) i = 0;
+//     slides.forEach(slide => slide.classList.remove("slide--is-active"))
+//     slides[i].classList.add("slide--is-active");
+//     setSlideInterior();
+//     changeBtn();
+// }
 
-let autoSlide = setInterval(changeSlide, slideChangeTime);
+// let autoSlide = setInterval(changeSlide, slideChangeTime);
 
 // ABONAMENTS OPTIONS SLIDER FN
 
