@@ -1,0 +1,30 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+@use "../../../utils/breakpoints" as b;
+
+
+.swiper{
+    overflow: hidden;
+    height: 100vh;
+
+    &__element {
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.aside-nav{
+    @include m.position(fixed, 50%, calc(100% - 40px));
+    transform: translateY(-50%);
+
+    &__list{
+        height: 150px;
+        @include m.display-flex(flex, column);
+        justify-content: space-around;
+    }
+
+    &__item{
+        @include m.square(20px);
+        @include m.border-properties(2px, solid, v.$yellow, 50%);
+    }
+}

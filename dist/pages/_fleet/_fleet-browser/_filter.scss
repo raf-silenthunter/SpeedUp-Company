@@ -1,0 +1,30 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+
+.filter {
+    display: grid;
+    grid-template: auto/ repeat(auto-fit, minmax(130px, 1fr));
+    gap: v.$padding-xl;
+
+    &__btn {
+        background-color: map-get(v.$colors, "pale-black");
+        @include m.border-properties(2px, solid, map-get(v.$colors, "silver"), 5px);
+        padding: v.$padding-main 0;
+        line-height: 100%;
+        transition: all linear .2s;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 20px 5px #686868;
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: v.$font-size-small;
+
+        @include m.breakpoint(big) {
+            font-size: v.$font-size-medium;
+        }
+    }
+}
