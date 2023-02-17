@@ -26,5 +26,7 @@
     &__item{
         @include m.square(20px);
         @include m.border-properties(2px, solid, v.$yellow, 50%);
+        cursor: pointer;
+        background-color: v.$yellow;
     }
 }

@@ -1624,6 +1624,8 @@ a, a:visited, a:active, a:focus {
   height: 20px;
   border: 2px solid yellow;
   border-radius: 50%;
+  cursor: pointer;
+  background-color: yellow;
 }
 
 /* Remember you have to attribute Andy Horvath */

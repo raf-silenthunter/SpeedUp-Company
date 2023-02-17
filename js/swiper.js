@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = [...document.querySelectorAll(".swiper__element")];
 
     let isThrottled = false;    
-    let sectioninView  = sections.findIndex(checkSectionInView); 
+    let sectioninView = sections.findIndex(checkSectionInView); 
     let currSectionIndex = sectioninView;
 
     drawNavigation();
@@ -19,6 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const direction = event.deltaY > 0 ? 1 : -1;
         scroll(direction);
+    })
+
+    document.addEventListener("keydown", (event) => {
+        const arrow = event.key;
+        if(arrow && arrow !== "undefined"){
+            switch(arrow) {
+                case "ArrowUp": scroll(-1);
+                    break;
+                case "ArrowDown": scroll(1);
+                    break;
+                default:
+            }
+        }
     })
 
     const scroll = (direction) => {
@@ -42,11 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function checkSectionInView(section) {
-            const rect = section.getBoundingClientRect(); 
-            const sectionTop = rect.top;
-            const sectionBottom = Math.floor(rect.bottom);
+            const {top, bottom} = section.getBoundingClientRect();
 
-            const isVisible = (sectionTop >= 0) && (sectionBottom <= window.innerHeight);
+            const isVisible = (top >= 0) && (Math.floor(bottom) <= window.innerHeight);
             return isVisible;
     }
 
@@ -60,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const listItem = document.createElement("li");
             listItem.className = "aside-nav__item";
             asideList.append(listItem);
-
-                listItem.addEventListener("click", () => {
-                    currSectionIndex = index;
-                    scrollToCurrSection()
-                });
+            // przerobić listenery na parent element - zrób poza forEachem i pobierz tam itemy
+            listItem.addEventListener("click", () => {
+                currSectionIndex = index;
+                scrollToCurrSection();
+            });
         })
         
         swiper.append(aside);
