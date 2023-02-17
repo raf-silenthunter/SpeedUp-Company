@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Scroller {
     constructor() {
         this.swiper = document.querySelector(".swiper");
