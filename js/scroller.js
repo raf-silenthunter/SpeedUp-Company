@@ -1,8 +1,14 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 document.addEventListener("DOMContentLoaded", () => {
-    // eslint-disable-next-line no-undef
     const mainScroller = new Scroller();
+    const mainSwiper = new Swiper();
 
     document.addEventListener("wheel", (event) => mainScroller.listenScroll(event));
+
+    document.addEventListener("swipeUp", () => mainScroller.scroll(1))
+    document.addEventListener("swipeDown", () => mainScroller.scroll(-1))
+
     document.addEventListener("keydown", (event) => {
         const arrow = event.key;
         if(arrow && arrow !== "undefined"){
