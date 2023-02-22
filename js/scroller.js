@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainSwiper = new Swiper();
 
     document.addEventListener("wheel", (event) => mainScroller.listenScroll(event));
-
+    //custom events 
     document.addEventListener("swipeUp", () => mainScroller.scroll(1))
     document.addEventListener("swipeDown", () => mainScroller.scroll(-1))
-
+    //custom events
     document.addEventListener("keydown", (event) => {
         const arrow = event.key;
         if(arrow && arrow !== "undefined"){

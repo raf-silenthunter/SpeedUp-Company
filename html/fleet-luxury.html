@@ -16,8 +16,105 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="main-nav__hamburger-btn">
+            <span class="main-nav__hamburger-line"></span>
+            <span class="main-nav__hamburger-line"></span>
+            <span class="main-nav__hamburger-line"></span>
+        </div>
+        <div class="brandlogo gradient-txt">
+            <a href="index.html" class="brandlogo__link">!SpeedUp</a>
+        </div>
+        <ul class="main-nav__list list">
+            <li class="list__item">
+                <a href="#" class="list__link"><span class="list__icon icon-angle-down">Oferta</span></a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link"><span class="list__icon icon-angle-down">Flota</span></a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link">Blog</a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link">Kontakt</a>
+            </li>
+        </ul>
+        <button type="button" class="main-nav__sign-btn main-nav__sign-btn--lash">
+            <img src="../images/Icons/log-in.png" alt="" class="main-nav__sign-icon">
+            <p class="main-nav__call-to-action">Zaloguj się</p>
+        </button>
+    </nav>
+    <div class="login-modal">
+        <div class="login-modal__panel">
+            <header class="login-modal__header">
+                <p class="login-modal__title speedup-txt speedup-txt--title speedup-txt--uppercased gradient-txt">Log in
+                </p>
+            </header>
+            <section class="login-modal__form-wrap">
+                <p class="login-modal__password-info speedup-txt">Password incorrect!</p>
+                <p class="login-modal__password-info sign-in__password-change speedup-txt">Change password.</p>
+                <form action="#" class="login-modal__form">
+                    <label for="" class="login-modal__input-wrap">
+                        <input type="text" placeholder="Login" class="login-modal__input speedup-txt">
+                        <img src="../images/Icons/user.png" alt="" class="login-modal__icon">
+                    </label>
+                    <label for="" class="login-modal__input-wrap">
+                        <input type="password" placeholder="Password" class="login-modal__input speedup-txt">
+                        <img src="../images/Icons/padlock.png" alt="" class="login-modal__icon">
+                    </label>
+                </form>
+                <button class="action-btn speedup-txt login-modal__action-btn">Log in</button>
+            </section>
+            <section class="login-modal__links">
+                <p class="login-modal__call-to-action speedup-txt gradient-txt">You don't have an accont yet?</p>
+                <a href="#" class="speedup-txt speedup-txt--uppercased speedup-txt--yellow">Register now</a>
+            </section>
+            <button class="login-modal__btn-close btn-close">
+                <span class="btn-close__icon"></span>
+                <span class="btn-close__icon btn-close__icon--is-rotated"></span>
+            </button>
+        </div>
+    </div>
     <main class="swiper">
-        <section class="swiper__element">1</section>
+        <section class="swiper__element swiper__element--relative">
+            <h1 class="swiper__title speedup-txt speedup-txt--title gradient-txt">Terrain cars for offroad enthusiasts</h1>
+            <button class="action-btn swiper__btn speedup-txt">Book a car now</button>
+            <picture class="swiper__border">
+                <source media="(max-width: 550px)" srcset="../images/fleet-terrain/fleet-terrain-main-cover-mobile.jpg,
+                ../images/fleet-terrain/fleet-terrain-main-cover-mobile-2x.jpg 2x">
+                <source media="(max-width: 1280px)" srcset="../images/fleet-terrain/fleet-terrain-main-cover-medium.jpg">
+                <img class="swiper__cover" src="../images/fleet-terrain/fleet-terrain-main-cover-big.jpg">
+            </picture>
+            <div class="swiper__cards">
+                <article class="swiper__card card card--silver-border card--black-bg card--pad-small card--margin-l">
+                    <div class="card__head card__head--row">
+                        <picture>
+                            <source media="(min-width: 2560px)"
+                                srcset="../images/Icons/driver-64.png, ../images/Icons/driver-128.png 2x">
+                            <img srcset="../images/Icons/driver-32.png, ../images/Icons/driver-64.png 2x"
+                                src="../images/Icons/driver-32.png" alt="private driver free of charge for 2 days"
+                                class="card__category">
+                        </picture>
+                        <h4 class="card__title speedup-txt">Private driver</h4>
+                    </div>
+                    <div class="card__speedup-txt speedup-txt">We provide service of our offroad driver for 10 hours. It's free of
+                        charge.</div>
+                </article>
+                <article class="swiper__card card card--silver-border card--black-bg card--pad-small card--margin-l">
+                    <div class="card__head card__head--row">
+                        <picture>
+                            <source media="(min-width: 2560px)"
+                                srcset="../images/Icons/gasoline-pump-64.png, ../images/Icons/gasoline-pump-128.png 2x">
+                            <img srcset="../images/Icons/gasoline-pump-32.png, ../images/Icons/gasoline-pump-64.png 2x"
+                                src="../images/Icons/gasoline-pump-32.png" alt="free gasoline to 1000 km" class="card__category">
+                        </picture>
+                        <h4 class="card__title speedup-txt">Free gasoline</h4>
+                    </div>
+                    <div class="card__speedup-txt speedup-txt">We provide half of the tank of fuel, wchich is about 300 kilometers.
+                        Enjoy!</div>
+                </article>
+            </div>
+        </section>
         <section class="swiper__element">2</section>
         <section class="swiper__element">3</section>
         <article class="swiper__element">4</article>
@@ -25,5 +122,12 @@
     <script src="../js/Scroller-class.js"></script>
     <script src="../js/scroller.js"></script>
     <script src="../js/swiper.js"></script>
+    <script src="../js/fleet.js"></script>
 </body>
 </html>
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons </a>from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
