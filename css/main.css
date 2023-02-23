@@ -147,6 +147,9 @@ a, a:visited, a:active, a:focus {
     font-size: clamp(4rem, 1rem + 3.5vw, 7rem);
   }
 }
+.speedup-txt--title-l {
+  text-align: left;
+}
 .speedup-txt--title-padding {
   padding: 6rem 0;
 }
@@ -1699,6 +1702,17 @@ a, a:visited, a:active, a:focus {
 .swiper__card {
   max-width: 400px;
 }
+.swiper__txt-intro, .swiper__flip-cards {
+  width: 40vw;
+}
+.swiper__profits {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
+  gap: 5vw;
+}
 
 .aside-nav {
   position: fixed;
@@ -1719,6 +1733,60 @@ a, a:visited, a:active, a:focus {
   border-radius: 50%;
   cursor: pointer;
   background-color: yellow;
+}
+
+.flip-card {
+  width: 100%;
+  height: 180px;
+  background-color: transparent;
+  perspective: 1000px;
+}
+.flip-card:hover .flip-card__inner {
+  transform: rotateX(180deg);
+}
+.flip-card + .flip-card {
+  margin-top: 2rem;
+}
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: inset 0px 0px 10px 9px rgba(255, 247, 0, 0.81);
+  border: 3px solid #acacac;
+  border-radius: 10px;
+}
+.flip-card__front, .flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  line-height: 300px;
+}
+.flip-card__button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000205;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.flip-card__txt {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
+  color: #000205;
+}
+.flip-card__back {
+  transform: rotateX(180deg);
 }
 
 /* Remember you have to attribute Andy Horvath */

@@ -54,6 +54,10 @@
         @include m.breakpoint(xxl) {
             font-size: v.$xl-font-size-xl;
         }
+
+        &-l {
+            text-align: left;
+        }
     }
 
     &--title-padding {
