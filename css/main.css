@@ -1708,7 +1708,7 @@ a, a:visited, a:active, a:focus {
 .swiper__profits {
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   align-content: "auto";
   gap: 5vw;
@@ -1737,7 +1737,7 @@ a, a:visited, a:active, a:focus {
 
 .flip-card {
   width: 100%;
-  height: 180px;
+  height: 30vh;
   background-color: transparent;
   perspective: 1000px;
 }
@@ -1776,6 +1776,7 @@ a, a:visited, a:active, a:focus {
   display: flex;
   align-items: center;
   gap: 2rem;
+  z-index: 1000;
 }
 .flip-card__txt {
   height: 100%;
