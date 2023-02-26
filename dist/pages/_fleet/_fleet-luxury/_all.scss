@@ -116,23 +116,3 @@
         }
     }
 }
-
-//tu skończyłeś
-.icon-incentives{
-    @include m.display-flex(flex, column);
-    @include m.breakpoint("small"){
-        flex-direction: row;
-        gap: 3rem;
-    }
-
-    &__item {
-        width: 80%;
-        @include m.breakpoint("small") {
-            display: flex; 
-            width: 25%;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-        }
-    }
-}

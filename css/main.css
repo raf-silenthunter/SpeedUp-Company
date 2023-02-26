@@ -344,6 +344,28 @@ a, a:visited, a:active, a:focus {
   text-align: left;
 }
 
+.icon-incentives {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 450px) {
+  .icon-incentives {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.icon-incentives__item {
+  width: 80%;
+}
+@media (min-width: 450px) {
+  .icon-incentives__item {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
 .page__recommend {
   position: relative;
   width: 100%;
@@ -1845,29 +1867,6 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 450px) {
   .swiper-profits__info {
     display: block;
-  }
-}
-
-.icon-incentives {
-  display: flex;
-  flex-direction: column;
-}
-@media (min-width: 450px) {
-  .icon-incentives {
-    flex-direction: row;
-    gap: 3rem;
-  }
-}
-.icon-incentives__item {
-  width: 80%;
-}
-@media (min-width: 450px) {
-  .icon-incentives__item {
-    display: flex;
-    width: 25%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
   }
 }
 
