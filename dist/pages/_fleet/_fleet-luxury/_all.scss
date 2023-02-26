@@ -10,6 +10,7 @@
     &__element {
         width: 100%;
         height: 100vh;
+        overflow: hidden;
         &--relative{
             position: relative;
         }
@@ -114,5 +115,40 @@
         @include m.breakpoint("small") {
             display: block;
         }
+    }
+}
+
+.center-section{
+    @include m.display-flex(flex, column);
+    @include m.flex-center(space-around, center);
+    padding-inline: 4vw;
+}
+
+.accordeon{
+    border-radius: 10px;
+    padding-block: 2rem;
+    width: 70vw;
+    @include m.display-flex(flex, column);
+    align-items: center;
+
+    &__panel{
+        display: flex;
+        background: v.$pale-black;
+        justify-content: space-between;
+        align-items: center;
+        width: 700px;
+        height: 55px;
+        padding: 1rem;
+        cursor: pointer;
+        border-bottom: 2px solid v.$yellow;
+        border-radius: 10px;
+    }
+
+    &__info{
+        display: none;
+        background: rgb(21, 21, 21);
+        width: 700px;
+        padding: 1rem;
+        border-radius: 10px;
     }
 }
