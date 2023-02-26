@@ -154,6 +154,15 @@ a, a:visited, a:active, a:focus {
   padding: 6rem 0;
 }
 
+.speedup-txt-small {
+  font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+}
+@media (min-width: 900px) {
+  .speedup-txt-small {
+    font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
+  }
+}
+
 @media (min-width: 900px) {
   .txt-intro {
     text-align: justify;
@@ -176,7 +185,6 @@ a, a:visited, a:active, a:focus {
 .txt-intro__border--right {
   align-self: flex-end;
 }
-
 .action-btn {
   padding: 1.5rem 2rem;
   font-weight: 700;
@@ -1702,16 +1710,121 @@ a, a:visited, a:active, a:focus {
 .swiper__card {
   max-width: 400px;
 }
-.swiper__txt-intro, .swiper__flip-cards {
-  width: 40vw;
-}
-.swiper__profits {
-  height: 100vh;
+
+.swiper-profits {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  padding: 100px 5vw 0 5vw;
+}
+@media (min-width: 900px) {
+  .swiper-profits {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    grid-auto-flow: column;
+    -moz-column-gap: 5rem;
+         column-gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    align-content: "auto";
+  }
+}
+@media (min-width: 900px) {
+  .swiper-profits::after {
+    content: "";
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-image: url("../../../../images/slide-4.jpg");
+    background-size: contain;
+    z-index: -100;
+    -webkit-clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.3;
+  }
+}
+.swiper-profits__title {
+  font-size: clamp(2rem, 1rem + 1.25vh, 3rem);
+}
+@media (min-width: 900px) {
+  .swiper-profits__title {
+    font-size: clamp(2.75rem, 1rem + 3.5vw, 4rem);
+  }
+}
+@media (min-width: 900px) {
+  .swiper-profits__flip-cards {
+    width: 40vw;
+    grid-column: 2/span 1;
+    grid-row: 1/-1;
+  }
+}
+.swiper-profits__info {
+  display: none;
+}
+@media (min-width: 450px) {
+  .swiper-profits__info {
+    display: block;
+  }
+}
+
+.flip-card {
+  height: 12vh;
+  perspective: 1000px;
+}
+@media (min-width: 900px) {
+  .flip-card {
+    height: 190px;
+  }
+}
+.flip-card:hover .flip-card__inner {
+  transform: rotateX(180deg);
+}
+.flip-card + .flip-card {
+  margin-top: clamp(5px, 1rem, 2rem);
+}
+.flip-card__inner {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  background-color: #000205;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 10px 9px rgba(93, 93, 91, 0.81);
+}
+@media (min-width: 450px) {
+  .flip-card__inner {
+    box-shadow: inset 0px 0px 10px 9px rgba(255, 247, 0, 0.81);
+  }
+}
+.flip-card__front, .flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card__button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: flex;
   align-items: center;
-  align-content: "auto";
-  gap: 5vw;
+  gap: 2rem;
+}
+.flip-card__back {
+  transform: rotateX(180deg);
+  padding: 2rem;
+}
+.flip-card__txt {
+  color: #000205;
+  text-align: left;
 }
 
 .aside-nav {
@@ -1735,59 +1848,27 @@ a, a:visited, a:active, a:focus {
   background-color: yellow;
 }
 
-.flip-card {
-  width: 100%;
-  height: 30vh;
-  background-color: transparent;
-  perspective: 1000px;
+.icon-incentives {
+  display: flex;
+  flex-direction: column;
 }
-.flip-card:hover .flip-card__inner {
-  transform: rotateX(180deg);
+@media (min-width: 450px) {
+  .icon-incentives {
+    flex-direction: row;
+    gap: 3rem;
+  }
 }
-.flip-card + .flip-card {
-  margin-top: 2rem;
-}
-.flip-card__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: inset 0px 0px 10px 9px rgba(255, 247, 0, 0.81);
-  border: 3px solid #acacac;
-  border-radius: 10px;
-}
-.flip-card__front, .flip-card__back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  line-height: 300px;
-}
-.flip-card__button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #000205;
+.icon-incentives__item {
   width: 80%;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  z-index: 1000;
 }
-.flip-card__txt {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: "auto";
-  color: #000205;
-}
-.flip-card__back {
-  transform: rotateX(180deg);
+@media (min-width: 450px) {
+  .icon-incentives__item {
+    display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
 }
 
 /* Remember you have to attribute Andy Horvath */

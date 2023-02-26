@@ -38,7 +38,7 @@
         text-align: center;
         padding: 6rem 4rem;
     
-        @include m.breakpoint(large) {
+        @include m.breakpoint("large") {
             text-align: left;
         }
 
@@ -63,4 +63,12 @@
     &--title-padding {
         padding: 6rem 0;
     } 
+}
+
+.speedup-txt-small {
+    font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+    
+    @include m.breakpoint("large") {
+        font-size: v.$font-size-big;
+    }
 }

@@ -60,3 +60,9 @@
     width: $width;
     height: $width;
 }
+
+@mixin grid-parent($columns, $rows, $display: grid) {
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+    display: $display;
+}
