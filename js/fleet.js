@@ -12,12 +12,9 @@ dropDownBtn.addEventListener("click", () => {
 // STICKY MENU FN
 const nav = document.querySelector(".main-nav");
 const scrollVAlue = 100;  
-console.log(nav);
 window.addEventListener("wheel", () => {
     //to trzeba przerobić
     let scrollPosition = window.scrollY;
-    console.log(scrollPosition);
-    // console.log(scrollPosition);
     nav.classList.toggle("is-sticky", scrollPosition >= scrollVAlue);
 })
 
@@ -44,3 +41,33 @@ modalBtns.forEach((btn)=> {
 
 //ACCORDEON FUNCTION
 
+const accordeonContainer = document.querySelector(".accordeon");
+const accordeonPanels = [...document.querySelectorAll(".accordeon__panel")];
+const accordeonInfo = [...document.querySelectorAll(".accordeon__info")];
+let panelToCollapseIndex = null;
+
+const setAttrforArr = (arr, attr) => arr.forEach((arrElement, index) => arrElement.setAttribute(`${attr}`, index));
+
+const checkParentHasAttr = (target) => {
+    let checkedElem = target;
+    while(checkedElem && !checkedElem.hasAttribute("data-key")) checkedElem = checkedElem.parentElement;
+    return checkedElem.dataset.key;
+}
+
+accordeonContainer.addEventListener("click", (e) => {
+    const clickedElem = e.target;
+    if(!clickedElem.matches(".accordeon__panel, .accordeon__title, .accordeon__icon")) return;
+        
+    setAttrforArr(accordeonPanels, "data-key");
+
+    panelToCollapseIndex = checkParentHasAttr(clickedElem);
+    const currentInfoPanel = accordeonInfo[panelToCollapseIndex];
+    const isCollapsed = currentInfoPanel.classList.contains("accordeon__info--visible");
+
+    if(!isCollapsed){
+        accordeonInfo.forEach(info => info.classList.remove("accordeon__info--visible"));
+        currentInfoPanel.classList.add("accordeon__info--visible");
+    } else {
+        currentInfoPanel.classList.remove("accordeon__info--visible");
+    }
+});

@@ -1908,6 +1908,10 @@ a, a:visited, a:active, a:focus {
 }
 .accordeon__info {
   display: none;
+  transition: all 0.3s linear;
+}
+.accordeon__info--visible {
+  display: block;
   background: rgb(43, 43, 43);
 }
 
