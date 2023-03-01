@@ -1751,6 +1751,14 @@ a, a:visited, a:active, a:focus {
 .swiper__element--relative {
   position: relative;
 }
+.swiper__element--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: "auto";
+  padding-inline: 4vw;
+}
 .swiper__title, .swiper__btn {
   z-index: 10;
   text-transform: uppercase;
@@ -1809,6 +1817,9 @@ a, a:visited, a:active, a:focus {
 }
 .swiper__card {
   max-width: 400px;
+}
+.swiper__accordeon {
+  width: 70vw;
 }
 
 .swiper-profits {
@@ -1871,41 +1882,33 @@ a, a:visited, a:active, a:focus {
   }
 }
 
-.center-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-content: "auto";
-  padding-inline: 4vw;
-}
-
 .accordeon {
   border-radius: 10px;
   padding-block: 2rem;
-  width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.accordeon__item {
+  width: 700px;
+}
+.accordeon__panel, .accordeon__info {
+  padding: 1rem;
+  border-radius: 10px;
+}
 .accordeon__panel {
   display: flex;
-  background: #000205;
+  height: 55px;
   justify-content: space-between;
   align-items: center;
-  width: 700px;
-  height: 55px;
-  padding: 1rem;
-  cursor: pointer;
+  align-content: "auto";
   border-bottom: 2px solid yellow;
-  border-radius: 10px;
+  background: #000205;
+  cursor: pointer;
 }
 .accordeon__info {
   display: none;
-  background: rgb(21, 21, 21);
-  width: 700px;
-  padding: 1rem;
-  border-radius: 10px;
+  background: rgb(43, 43, 43);
 }
 
 /* Remember you have to attribute Andy Horvath */

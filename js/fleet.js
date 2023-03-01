@@ -41,3 +41,6 @@ const changeModalState = (e) => {
 modalBtns.forEach((btn)=> {
     btn.addEventListener("click", changeModalState);
 });
+
+//ACCORDEON FUNCTION
+

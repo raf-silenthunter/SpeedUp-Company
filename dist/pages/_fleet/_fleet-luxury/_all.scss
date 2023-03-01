@@ -14,6 +14,12 @@
         &--relative{
             position: relative;
         }
+
+        &--center{
+            @include m.display-flex(flex, column);
+            @include m.flex-center(space-around, center);
+            padding-inline: 4vw;
+        }
     }
 
     &__title, &__btn{
@@ -67,6 +73,10 @@
     &__card{
         max-width: 400px;
     }
+
+    &__accordeon{
+        width: 70vw;
+    }
 }
 
 .swiper-profits{
@@ -117,38 +127,34 @@
         }
     }
 }
-
-.center-section{
-    @include m.display-flex(flex, column);
-    @include m.flex-center(space-around, center);
-    padding-inline: 4vw;
-}
+//Przerobić
 
 .accordeon{
     border-radius: 10px;
     padding-block: 2rem;
-    width: 70vw;
     @include m.display-flex(flex, column);
     align-items: center;
 
+    &__item{
+        width: 700px;
+    }
+
+    &__panel, &__info{
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
     &__panel{
         display: flex;
-        background: v.$pale-black;
-        justify-content: space-between;
-        align-items: center;
-        width: 700px;
         height: 55px;
-        padding: 1rem;
-        cursor: pointer;
+        @include m.flex-center(space-between, center);
         border-bottom: 2px solid v.$yellow;
-        border-radius: 10px;
+        background: v.$pale-black;
+        cursor: pointer;
     }
 
     &__info{
         display: none;
-        background: rgb(21, 21, 21);
-        width: 700px;
-        padding: 1rem;
-        border-radius: 10px;
+        background: rgb(43, 43, 43);
     }
 }
