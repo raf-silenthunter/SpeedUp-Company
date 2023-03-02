@@ -2,8 +2,8 @@
 @use "../utils/mixins" as m;
 
 .aside-nav {
-    @include m.position(fixed, 50%, calc(100% - 40px));
-    transform: translateY(-50%);
+    @include m.position(fixed, 50%, calc(100% - 35px));
+    transform: translateY(-75%);
 
     &__list {
         height: 150px;

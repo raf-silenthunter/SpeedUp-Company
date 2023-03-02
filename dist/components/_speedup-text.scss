@@ -71,6 +71,6 @@
     font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
     
     @include m.breakpoint("large") {
-        font-size: v.$font-size-big;
+        font-size: v.$font-size-medium;
     }
 }

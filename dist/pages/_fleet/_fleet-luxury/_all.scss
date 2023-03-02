@@ -77,12 +77,7 @@
     }
 
     &__accordeon{
-        width: 100%;
-        height: 80vh;
-        @include m.breakpoint("medium"){
-            width: 60vw;
-            height: 60vh;
-        }
+        height: 100vh;
     }
 }
 
@@ -135,15 +130,28 @@
     }
 }
 
-.accordeon{
-    border-radius: 10px;
-    @include m.display-flex(flex, column);
-    @include m.flex-center(center, center);
+.accordeon{   
+    justify-content: space-around;
+    @include m.breakpoint("medium") {
+        width: 70vw;
+    }
+
+    &, &__wrap{ 
+        @include m.display-flex(flex, column);
+    }
+
+    &__wrap {
+        align-items: center;
+        height: 80vh;
+        @include m.breakpoint("medium") {
+            height: 50vh;
+        }
+    }
 
     &__item{
         width: 85%;
         @include m.breakpoint("medium"){
-            width: 700px;
+            width: 750px;
         }
     }
 
@@ -154,7 +162,6 @@
 
     &__panel{
         display: flex;
-        height: 60px;
         @include m.flex-center(space-between, center);
         border-bottom: 2px solid v.$yellow;
         background: v.$pale-black;
@@ -163,15 +170,24 @@
 
     &__info{
         display: none;
+        margin-top: 5px;
+        color: v.$pale-black;
+        font-size: clamp(1.2rem, 1rem + 0.5vh, 1.8rem);
         transition: all .3s linear;
+        @include m.breakpoint("large") {
+            font-size: v.$font-size-small;
+        }
 
         &--visible{
             display: block;
-            background: rgb(43, 43, 43);
         }
     }
 
-    &__title{
-        // color: v.$pale-black;
+    &__txt, &__maintitle{
+        display: none;
+        text-align: center;
+        @include m.breakpoint("medium") {
+            display: block;
+        }
     }
 }
