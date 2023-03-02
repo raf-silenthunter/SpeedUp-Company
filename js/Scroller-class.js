@@ -7,7 +7,11 @@ class Scroller {
         this.sectioninView = this.sections.findIndex(this.checkSectionInView.bind(this)); 
         this.currSectionIndex = this.sectioninView;
         this.isThrottled = false; 
+
         this.drawNavigation();
+        
+        this.navDots = [...document.querySelectorAll(".aside-nav__item")];
+        this.changeDot();
     }
 
     listenScroll(event) {
@@ -40,6 +44,12 @@ class Scroller {
             behavior: "smooth",
             block: "start"
         })
+        this.changeDot()
+    }
+
+    changeDot() {
+        this.navDots.forEach(dot => dot.style.backgroundColor = "yellow");
+        this.navDots[this.currSectionIndex].style.backgroundColor = "#000205";
     }
 
     checkSectionInView(section) {
