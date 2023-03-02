@@ -44,6 +44,7 @@ modalBtns.forEach((btn)=> {
 const accordeonContainer = document.querySelector(".accordeon");
 const accordeonPanels = [...document.querySelectorAll(".accordeon__panel")];
 const accordeonInfo = [...document.querySelectorAll(".accordeon__info")];
+const accordeonIcons = [...document.querySelectorAll(".accordeon__icon")];
 let panelToCollapseIndex = null;
 
 const setAttrforArr = (arr, attr) => arr.forEach((arrElement, index) => arrElement.setAttribute(`${attr}`, index));
@@ -66,8 +67,12 @@ accordeonContainer.addEventListener("click", (e) => {
 
     if(!isCollapsed){
         accordeonInfo.forEach(info => info.classList.remove("accordeon__info--visible"));
+        accordeonIcons.forEach(icon => icon.classList.remove("accordeon__icon--rotate"));
+        
         currentInfoPanel.classList.add("accordeon__info--visible");
+        accordeonIcons[panelToCollapseIndex].classList.add("accordeon__icon--rotate")
     } else {
         currentInfoPanel.classList.remove("accordeon__info--visible");
+        accordeonIcons[panelToCollapseIndex].classList.remove("accordeon__icon--rotate")
     }
 });

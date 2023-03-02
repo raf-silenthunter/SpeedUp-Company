@@ -1952,6 +1952,9 @@ a, a:visited, a:active, a:focus {
     display: block;
   }
 }
+.accordeon__icon--rotate {
+  transform: rotate(180deg);
+}
 
 /* Remember you have to attribute Andy Horvath */
 /*Here you can find all pages*//*# sourceMappingURL=main.css.map */
