@@ -368,6 +368,74 @@ a, a:visited, a:active, a:focus {
   }
 }
 
+.accordeon {
+  justify-content: space-around;
+}
+@media (min-width: 700px) {
+  .accordeon {
+    width: 70vw;
+  }
+}
+.accordeon, .accordeon__wrap {
+  display: flex;
+  flex-direction: column;
+}
+.accordeon__wrap {
+  align-items: center;
+  height: 80vh;
+}
+@media (min-width: 700px) {
+  .accordeon__wrap {
+    height: 50vh;
+  }
+}
+.accordeon__item {
+  width: 85%;
+}
+@media (min-width: 700px) {
+  .accordeon__item {
+    width: 750px;
+  }
+}
+.accordeon__panel, .accordeon__info {
+  padding: 1rem;
+  border-radius: 10px;
+}
+.accordeon__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: "auto";
+  border-bottom: 2px solid yellow;
+  cursor: pointer;
+}
+.accordeon__info {
+  display: none;
+  margin-top: 5px;
+  color: #000205;
+  font-size: clamp(1.2rem, 1rem + 0.5vh, 1.8rem);
+}
+@media (min-width: 900px) {
+  .accordeon__info {
+    font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+  }
+}
+.accordeon__info--visible {
+  display: block;
+}
+.accordeon__txt, .accordeon__maintitle {
+  display: none;
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .accordeon__txt, .accordeon__maintitle {
+    display: block;
+  }
+}
+.accordeon__icon--rotate {
+  transform: rotate(180deg);
+}
+
 .page__recommend {
   position: relative;
   width: 100%;
@@ -1884,76 +1952,6 @@ a, a:visited, a:active, a:focus {
   .swiper-profits__info {
     display: block;
   }
-}
-
-.accordeon {
-  justify-content: space-around;
-}
-@media (min-width: 700px) {
-  .accordeon {
-    width: 70vw;
-  }
-}
-.accordeon, .accordeon__wrap {
-  display: flex;
-  flex-direction: column;
-}
-.accordeon__wrap {
-  align-items: center;
-  height: 80vh;
-}
-@media (min-width: 700px) {
-  .accordeon__wrap {
-    height: 50vh;
-  }
-}
-.accordeon__item {
-  width: 85%;
-}
-@media (min-width: 700px) {
-  .accordeon__item {
-    width: 750px;
-  }
-}
-.accordeon__panel, .accordeon__info {
-  padding: 1rem;
-  border-radius: 10px;
-}
-.accordeon__panel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: "auto";
-  border-bottom: 2px solid yellow;
-  background: #000205;
-  cursor: pointer;
-}
-.accordeon__info {
-  display: none;
-  margin-top: 5px;
-  color: #000205;
-  font-size: clamp(1.2rem, 1rem + 0.5vh, 1.8rem);
-  transition: all 0.3s linear;
-}
-@media (min-width: 900px) {
-  .accordeon__info {
-    font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
-  }
-}
-.accordeon__info--visible {
-  display: block;
-}
-.accordeon__txt, .accordeon__maintitle {
-  display: none;
-  text-align: center;
-}
-@media (min-width: 700px) {
-  .accordeon__txt, .accordeon__maintitle {
-    display: block;
-  }
-}
-.accordeon__icon--rotate {
-  transform: rotate(180deg);
 }
 
 /* Remember you have to attribute Andy Horvath */

@@ -1,0 +1,77 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+@use "../utils/breakpoints" as b;
+
+.accordeon {
+    justify-content: space-around;
+
+    @include m.breakpoint("medium") {
+        width: 70vw;
+    }
+
+    &,
+    &__wrap {
+        @include m.display-flex(flex, column);
+    }
+
+    &__wrap {
+        align-items: center;
+        height: 80vh;
+
+        @include m.breakpoint("medium") {
+            height: 50vh;
+        }
+    }
+
+    &__item {
+        width: 85%;
+
+        @include m.breakpoint("medium") {
+            width: 750px;
+        }
+    }
+
+    &__panel,
+    &__info {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    &__panel {
+        display: flex;
+        @include m.flex-center(space-between, center);
+        border-bottom: 2px solid v.$yellow;
+        cursor: pointer;
+    }
+
+    &__info {
+        display: none;
+        margin-top: 5px;
+        color: v.$pale-black;
+        font-size: clamp(1.2rem, 1rem + 0.5vh, 1.8rem);
+
+        @include m.breakpoint("large") {
+            font-size: v.$font-size-small;
+        }
+
+        &--visible {
+            display: block;
+        }
+    }
+
+    &__txt,
+    &__maintitle {
+        display: none;
+        text-align: center;
+
+        @include m.breakpoint("medium") {
+            display: block;
+        }
+    }
+
+    &__icon {
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+}
