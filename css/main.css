@@ -48,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 
-body, html, ol, ul, li, a, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, blockquote, span, button, figure, figcaption {
+body, html, ol, ul, li, a, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -187,6 +187,7 @@ a, a:visited, a:active, a:focus {
 .txt-intro__border--right {
   align-self: flex-end;
 }
+
 .action-btn {
   padding: 1.5rem 2rem;
   font-weight: 700;
@@ -368,19 +369,9 @@ a, a:visited, a:active, a:focus {
   }
 }
 
-.accordeon {
-  justify-content: space-around;
-}
-@media (min-width: 700px) {
-  .accordeon {
-    width: 70vw;
-  }
-}
-.accordeon, .accordeon__wrap {
+.accordeon__wrap {
   display: flex;
   flex-direction: column;
-}
-.accordeon__wrap {
   align-items: center;
   height: 80vh;
 }
@@ -422,15 +413,6 @@ a, a:visited, a:active, a:focus {
 }
 .accordeon__info--visible {
   display: block;
-}
-.accordeon__txt, .accordeon__maintitle {
-  display: none;
-  text-align: center;
-}
-@media (min-width: 700px) {
-  .accordeon__txt, .accordeon__maintitle {
-    display: block;
-  }
 }
 .accordeon__icon--rotate {
   transform: rotate(180deg);
@@ -1813,24 +1795,6 @@ a, a:visited, a:active, a:focus {
   overflow: hidden;
   height: 100vh;
 }
-.swiper__element {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  padding-top: 100px;
-}
-.swiper__element--relative {
-  position: relative;
-  padding: 0;
-}
-.swiper__element--center {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-content: "auto";
-  padding-inline: 4vw;
-}
 .swiper__title, .swiper__btn {
   z-index: 10;
   text-transform: uppercase;
@@ -1890,8 +1854,45 @@ a, a:visited, a:active, a:focus {
 .swiper__card {
   max-width: 400px;
 }
-.swiper__accordeon {
+
+.swiper-section {
+  width: 100%;
   height: 100vh;
+  overflow: hidden;
+  padding-top: 100px;
+}
+.swiper-section--relative {
+  position: relative;
+  padding: 0;
+}
+.swiper-section--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: "auto";
+}
+.swiper-section--pad {
+  padding-inline: 4vw;
+}
+@media (min-width: 700px) {
+  .swiper-section--pad {
+    padding-inline: 10vw;
+  }
+}
+.swiper-section__txt {
+  display: none;
+}
+.swiper-section__txt--center {
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .swiper-section__txt {
+    display: block;
+  }
+}
+.swiper-section__maintitle {
+  text-align: center;
 }
 
 .swiper-profits {
@@ -1945,13 +1946,58 @@ a, a:visited, a:active, a:focus {
     grid-row: 1/-1;
   }
 }
-.swiper-profits__info {
-  display: none;
+
+.swiper-gallery__images {
+  width: 70vw;
+  height: 70vh;
+  display: grid;
+  align-content: space-around;
+  gap: 1rem;
 }
-@media (min-width: 450px) {
-  .swiper-profits__info {
-    display: block;
+@media (min-width: 700px) {
+  .swiper-gallery__images {
+    height: 50vh;
+    width: 85vw;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
+}
+@media (min-width: 900px) {
+  .swiper-gallery__images {
+    height: 60vh;
+    grid-auto-flow: column dense;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media (min-width: 900px) {
+  .swiper-gallery__image-row {
+    grid-column: 2/3;
+  }
+}
+@media (min-width: 900px) {
+  .swiper-gallery__image-col {
+    grid-row: 1/-1;
+  }
+}
+.swiper-gallery__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(0.5);
+  aspect-ratio: 2/1;
+  transition: filter 0.3s linear;
+}
+@media (max-width: 400px) {
+  .swiper-gallery__img {
+    aspect-ratio: 2.5/1;
+  }
+}
+.swiper-gallery__img:hover {
+  filter: grayscale(0);
 }
 
 /* Remember you have to attribute Andy Horvath */

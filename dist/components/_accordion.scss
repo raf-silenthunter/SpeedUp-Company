@@ -3,18 +3,8 @@
 @use "../utils/breakpoints" as b;
 
 .accordeon {
-    justify-content: space-around;
-
-    @include m.breakpoint("medium") {
-        width: 70vw;
-    }
-
-    &,
     &__wrap {
         @include m.display-flex(flex, column);
-    }
-
-    &__wrap {
         align-items: center;
         height: 80vh;
 
@@ -55,16 +45,6 @@
         }
 
         &--visible {
-            display: block;
-        }
-    }
-
-    &__txt,
-    &__maintitle {
-        display: none;
-        text-align: center;
-
-        @include m.breakpoint("medium") {
             display: block;
         }
     }

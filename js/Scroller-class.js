@@ -2,7 +2,7 @@
 class Scroller {
     constructor() {
         this.swiper = document.querySelector(".swiper");
-        this.sections = [...document.querySelectorAll(".swiper__element")];
+        this.sections = [...document.querySelectorAll(".swiper-section")];
 
         this.sectioninView = this.sections.findIndex(this.checkSectionInView.bind(this)); 
         this.currSectionIndex = this.sectioninView;
