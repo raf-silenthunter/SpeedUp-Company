@@ -358,12 +358,12 @@ a, a:visited, a:active, a:focus {
   }
 }
 .icon-incentives__item {
-  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 @media (min-width: 450px) {
   .icon-incentives__item {
-    width: 30%;
-    display: flex;
     align-items: center;
     gap: 1.5rem;
   }
@@ -1894,6 +1894,11 @@ a, a:visited, a:active, a:focus {
 .swiper-section__maintitle {
   text-align: center;
 }
+.swiper-section__icon-incentives {
+  height: 40%;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .swiper-profits {
   position: relative;
@@ -1969,6 +1974,7 @@ a, a:visited, a:active, a:focus {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 2rem;
+    padding-bottom: 2rem;
   }
 }
 @media (min-width: 900px) {
@@ -1987,7 +1993,7 @@ a, a:visited, a:active, a:focus {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
-  filter: grayscale(0.5);
+  filter: grayscale(0.7);
   aspect-ratio: 2/1;
   transition: filter 0.3s linear;
 }
@@ -1998,6 +2004,46 @@ a, a:visited, a:active, a:focus {
 }
 .swiper-gallery__img:hover {
   filter: grayscale(0);
+}
+
+.swiper-conversion {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.swiper-conversion::before {
+  content: "";
+  width: 60vw;
+  height: calc(100vh - 100px);
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  background-image: url("../../../../images/keys-to-car-big.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  z-index: -1;
+  opacity: 0.3;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+}
+.swiper-conversion__item {
+  width: 45%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.swiper-conversion__form {
+  width: 100%;
+}
+
+.list-2 {
+  list-style-type: circle;
+}
+.list-2__item {
+  list-style: url("../../../../images/Icons/tick-32.png");
 }
 
 /* Remember you have to attribute Andy Horvath */

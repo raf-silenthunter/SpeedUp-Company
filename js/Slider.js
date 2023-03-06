@@ -89,5 +89,5 @@ class Slider {
     setDefaultImage = () => this.setSlideImg();
     }
 
-const mainSlider = new Slider(4000);
+const mainSlider = new Slider(10000);
 document.addEventListener("DOMContentLoaded", mainSlider.setDefaultImage);

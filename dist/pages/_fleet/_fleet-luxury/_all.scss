@@ -98,6 +98,12 @@
     &__maintitle {
         text-align: center;
     }
+
+    &__icon-incentives{
+        height: 40%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 .swiper-profits{
@@ -162,6 +168,7 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
             gap: 2rem;
+            padding-bottom: 2rem;
         }
     }
 
@@ -184,7 +191,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: 10px;
-        filter: grayscale(.5);
+        filter: grayscale(.7);
         @media (max-width: 400px) {
             aspect-ratio: 2.5/1;
         }
@@ -193,5 +200,46 @@
         }
         aspect-ratio: 2/1;
         transition: filter .3s linear;
+    }
+}
+
+.swiper-conversion{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &::before{
+        content: "";
+        width: 60vw;
+        height: calc(100vh - v.$main-nav-height);
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+        background-image: url("../../../../images/keys-to-car-big.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+        z-index: -1;
+        opacity: .3;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+    }
+
+    &__item{
+        width: 45%;
+        height: 50vh;
+        @include m.display-flex(flex, column);
+        justify-content: space-around;
+    }
+
+    &__form{
+        width: 100%;
+    }
+}
+
+.list-2 {
+    list-style-type: circle;
+    &__item{
+        list-style: url("../../../../images/Icons/tick-32.png");
     }
 }
