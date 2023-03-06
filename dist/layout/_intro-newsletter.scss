@@ -42,47 +42,7 @@
             }
     }
 
-}
-
-.form {
-    @include m.display-flex(flex, column);
-    width: calc(100vw - 8rem);
-    align-items: center;
-
-    &__label {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-    &__input {
-        width: 100%;
-        padding: 2rem;
-        text-align: center;
-        background-color: v.$pale-black;
-        color: v.$silver;
-        border-radius: 3px;
-        border: none;
-        box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
-    
-        @include m.breakpoint(medium) {
-            width: 50%;
-        }
-        @include m.breakpoint(xxl) {
-            padding: 4rem;
-            border-radius: 10px;
-        }
-    }
-
-    &__action-btn {
-        margin-top: 3rem;
-        width: 100%;
-    
-        @include m.breakpoint(medium) {
-            width: 25vw;
-        }
-        @include m.breakpoint(xxl) {
-                margin-top: 6rem;
-        }
+    &__form{
+        width: calc(100vw - 8rem);
     }
 }

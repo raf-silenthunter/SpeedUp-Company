@@ -2,7 +2,7 @@
 @use "../utils/mixins" as m;
 
 .aside-nav {
-    @include m.position(fixed, 50%, calc(100% - 35px));
+    @include m.position(fixed, 50%, calc(100% - 40px));
     transform: translateY(-75%);
 
     &__list {
@@ -16,5 +16,6 @@
         @include m.border-properties(2px, solid, v.$yellow, 50%);
         cursor: pointer;
         background-color: v.$yellow;
+        z-index: 100;
     }
 }

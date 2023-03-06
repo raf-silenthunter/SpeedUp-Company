@@ -48,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 
-body, html, ol, ul, li, a, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
+body, html, ol, ul, li, a, input, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -270,10 +270,59 @@ a, a:visited, a:active, a:focus {
   box-shadow: none;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form__label + .form__label {
+  margin-top: 1vh;
+}
+.form__input {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background-color: #000205;
+  color: #acacac;
+  border-radius: 3px;
+  border: none;
+  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+}
+@media (min-width: 700px) {
+  .form__input {
+    width: 50%;
+  }
+}
+@media (min-width: 2000px) {
+  .form__input {
+    padding: 4rem;
+    border-radius: 10px;
+  }
+}
+.form__action-btn {
+  margin-top: 2rem;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .form__action-btn {
+    width: 25%;
+  }
+}
+@media (min-width: 2000px) {
+  .form__action-btn {
+    margin-top: 6rem;
+  }
+}
+
 .aside-nav {
   position: fixed;
   top: 50%;
-  left: calc(100% - 35px);
+  left: calc(100% - 40px);
   transform: translateY(-75%);
 }
 .aside-nav__list {
@@ -289,6 +338,7 @@ a, a:visited, a:active, a:focus {
   border-radius: 50%;
   cursor: pointer;
   background-color: yellow;
+  z-index: 100;
 }
 
 .flip-card {
@@ -366,7 +416,12 @@ a, a:visited, a:active, a:focus {
   .icon-incentives__item {
     align-items: center;
     gap: 1.5rem;
+    margin-block: 1rem;
   }
+}
+.icon-incentives__icon {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .accordeon__wrap {
@@ -967,52 +1022,8 @@ a, a:visited, a:active, a:focus {
     margin: 3rem;
   }
 }
-
-.form {
-  display: flex;
-  flex-direction: column;
+.nl-wrap__form {
   width: calc(100vw - 8rem);
-  align-items: center;
-}
-.form__label {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.form__input {
-  width: 100%;
-  padding: 2rem;
-  text-align: center;
-  background-color: #000205;
-  color: #acacac;
-  border-radius: 3px;
-  border: none;
-  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
-}
-@media (min-width: 700px) {
-  .form__input {
-    width: 50%;
-  }
-}
-@media (min-width: 2000px) {
-  .form__input {
-    padding: 4rem;
-    border-radius: 10px;
-  }
-}
-.form__action-btn {
-  margin-top: 3rem;
-  width: 100%;
-}
-@media (min-width: 700px) {
-  .form__action-btn {
-    width: 25vw;
-  }
-}
-@media (min-width: 2000px) {
-  .form__action-btn {
-    margin-top: 6rem;
-  }
 }
 
 /* LOGIN MODAL STYLE  */
@@ -1895,9 +1906,15 @@ a, a:visited, a:active, a:focus {
   text-align: center;
 }
 .swiper-section__icon-incentives {
+  display: none;
   height: 40%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+@media (min-width: 450px) {
+  .swiper-section__icon-incentives {
+    display: block;
+  }
 }
 
 .swiper-profits {
@@ -2009,39 +2026,54 @@ a, a:visited, a:active, a:focus {
 .swiper-conversion {
   position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-.swiper-conversion::before {
-  content: "";
-  width: 60vw;
-  height: calc(100vh - 100px);
-  position: absolute;
-  bottom: 0;
-  left: 40%;
-  background-image: url("../../../../images/keys-to-car-big.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right;
-  z-index: -1;
-  opacity: 0.3;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+@media (min-width: 700px) {
+  .swiper-conversion {
+    flex-direction: row;
+  }
+  .swiper-conversion::before {
+    content: "";
+    width: 60vw;
+    height: calc(100vh - 100px);
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    background-image: url("../../../../images/keys-to-car-big.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    z-index: -1;
+    opacity: 0.3;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
+  }
 }
 .swiper-conversion__item {
-  width: 45%;
-  height: 50vh;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 2rem;
+}
+@media (min-width: 700px) {
+  .swiper-conversion__item {
+    width: 40%;
+  }
 }
 .swiper-conversion__form {
   width: 100%;
 }
-
-.list-2 {
-  list-style-type: circle;
+.swiper-conversion__action-btn {
+  margin-top: 2rem;
+  width: 100%;
 }
+@media (min-width: 700px) {
+  .swiper-conversion__action-btn {
+    width: 50%;
+  }
+}
+
 .list-2__item {
   list-style: url("../../../../images/Icons/tick-32.png");
 }
