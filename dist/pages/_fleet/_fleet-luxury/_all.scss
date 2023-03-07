@@ -20,15 +20,10 @@
     }
 
     &__btn{
-        display: none;
-        @include m.breakpoint("medium"){
-            display: block;
-            @include m.position(absolute, 35%, 8vw);
-        }
+        @include m.position(absolute, 35%, 8vw);
     }
 
     &__border {
-        font-size: 10px;
         box-shadow: 0 0 10px 5px v.$yellow;
     }
 
@@ -40,11 +35,14 @@
     }
 
     &__cards {
-        @include m.position(absolute, 75vh, 0);
+        @include m.position(absolute, 80vh, 0);
         @include m.display-flex(flex, column);
         width: 82.5vw;
         padding-left: v.$padding-xl + v.$padding-main;
         transform: translateY(-60%);
+        @include m.breakpoint("small"){
+            top: 75vh;
+        }
         @include m.breakpoint("large"){
             width: 60vw;
             top: 80vh;
@@ -85,13 +83,11 @@
 
     &__txt {
         display: none;
-
+        @include m.breakpoint("medium") {
+                display: block;
+            }
         &--center {
             text-align: center;
-        }
-
-        @include m.breakpoint("medium") {
-            display: block;
         }
     }
 
@@ -110,14 +106,13 @@
     }
 }
 
-.swiper-profits{
+.swiper-profits {
     position: relative;
     @include m.display-flex(flex, column);
     justify-content: space-around;
     padding: v.$main-nav-height 5vw 0 5vw;
     @include m.breakpoint("large"){
         @include m.grid-parent(repeat(2, 1fr), repeat(3, 1fr));
-        grid-auto-flow: column;
         column-gap: 5rem;
         @include m.flex-center(center, center);
     }
@@ -125,7 +120,7 @@
     &::after{
         @include m.breakpoint("large") {
             content: "";
-            @include m.position(absolute, 100px, 50%);
+            @include m.position(absolute, v.$main-nav-height, 50%);
             width: 100%;
             height: calc(100vh - 100px);
             background-image: url("../../../../images/slide-4.jpg");
@@ -133,13 +128,6 @@
             z-index: map-get(v.$z-index, minus-large);
             clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
             opacity: .3;
-        }
-    }
-
-    &__title{
-        font-size: v.$font-size-big;
-        @include m.breakpoint("large"){
-            font-size: v.$font-size-xl;
         }
     }
 
@@ -152,7 +140,7 @@
     }
 }
 
-.swiper-gallery{
+.swiper-gallery {
     &__images{
         width: 70vw;
         height: 70vh;
@@ -170,20 +158,19 @@
             height: 60vh;
             grid-auto-flow: column dense;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             gap: 2rem;
             padding-bottom: 2rem;
         }
     }
 
     &__image{
-        &-row{
+        &--row{
             @include m.breakpoint("large") {
                 grid-column: 2/3;
             }
         }
 
-        &-col{
+        &--col{
             @include m.breakpoint("large") {
                 grid-row: 1/-1;
             }
@@ -210,7 +197,7 @@
 .swiper-conversion{
     position: relative;
     @include m.display-flex(flex, column);
-    @include m.breakpoint("medium"){
+    @include m.breakpoint("large"){
         flex-direction: row;
         &::before {
                 content: "";
@@ -232,7 +219,7 @@
 
     &__item{
         width: 80%;
-        @include m.breakpoint("medium") {
+        @include m.breakpoint("large") {
             width: 40%;
         }
         @include m.display-flex(flex, column);
@@ -246,7 +233,7 @@
     &__action-btn{
         margin-top: 2rem;
         width: 100%;
-        @include m.breakpoint("medium"){
+        @include m.breakpoint("large"){
             width: 50%;
         }
     }

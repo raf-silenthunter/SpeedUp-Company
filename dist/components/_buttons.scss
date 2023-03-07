@@ -2,8 +2,11 @@
 @use "../utils/mixins" as m;
 
 .action-btn {
-    padding: 1.5rem 2rem;
-    font-weight: 700;
+    padding: 1rem 2rem;
+    @include m.breakpoint("small"){
+        padding-block: 1.5rem;
+    }
+    font-weight: v.$font-weight-xl;
     transition: all .4s ease;
     overflow: hidden;
     @include m.border-properties(2px, solid, v.$yellow, 3px);

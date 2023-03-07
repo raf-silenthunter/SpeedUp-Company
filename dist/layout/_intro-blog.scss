@@ -69,8 +69,7 @@
 .post-intro__card, .blog-intro__post-intro{
     @media (max-height: 650px) {
             height: 60vh;
-        }
-        
+        }    
     height: 45vh;
 }
 
@@ -103,8 +102,10 @@
 
     &__head{
         // for future developpement
-        &--row {
-            display: flex;
+        display: flex;
+        gap: 1rem;
+        &--col {
+            flex-direction: column;
         }
     }
 
@@ -114,7 +115,9 @@
 
     &__category {
         width: fit-content;
+        @include m.breakpoint("small"){
         margin-bottom: 1rem;
+        }
         @include m.breakpoint("large"){
             margin-bottom: 2rem;
         }

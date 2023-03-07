@@ -23,7 +23,7 @@
         border: none;
         box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
 
-        @include m.breakpoint(medium) {
+        @include m.breakpoint("large") {
             width: 50%;
         }
 
@@ -37,7 +37,11 @@
         margin-top: 2rem;
         width: 100%;
 
-        @include m.breakpoint(medium) {
+        @include m.breakpoint("medium") {
+            width: 50%;
+        }
+
+        @include m.breakpoint("large") {
             width: 25%;
         }
 
