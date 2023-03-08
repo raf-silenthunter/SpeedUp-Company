@@ -12,10 +12,10 @@ class Scroller {
         
         this.navDots = [...document.querySelectorAll(".aside-nav__item")];
         this.changeDot();
+        this.toggleNav();
     }
 
     listenScroll(event) {
-
         if(this.isThrottled) return;
         this.isThrottled = true;
         setTimeout(() => {
@@ -24,6 +24,11 @@ class Scroller {
         
         const direction = event.deltaY > 0 ? 1 : -1;
         this.scroll(direction);
+    }
+
+    toggleNav() {
+        const nav = document.querySelector(".main-nav");
+        nav.classList.toggle("is-sticky", this.currSectionIndex > 0)
     }
     
     scroll(direction) {
@@ -34,7 +39,6 @@ class Scroller {
             const isFirstSection = this.currSectionIndex === 0 ? true : false;
             if(isFirstSection) return;
         }
-
         this.currSectionIndex += direction;
         this.scrollToCurrSection();
     }
@@ -44,7 +48,8 @@ class Scroller {
             behavior: "smooth",
             block: "start"
         })
-        this.changeDot()
+        this.changeDot();
+        this.toggleNav();
     }
 
     changeDot() {

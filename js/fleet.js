@@ -8,16 +8,6 @@ dropDownBtn.addEventListener("click", () => {
     mainNav.classList.toggle("main-nav--is-dropdown");
 })
 
-
-// STICKY MENU FN
-const nav = document.querySelector(".main-nav");
-const scrollVAlue = 100;  
-window.addEventListener("wheel", () => {
-    //to trzeba przerobić
-    let scrollPosition = window.scrollY;
-    nav.classList.toggle("is-sticky", scrollPosition >= scrollVAlue);
-})
-
 // OPEN/CLOSE LOGIN MODAL FNs 
 
 const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
