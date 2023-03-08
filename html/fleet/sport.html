@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Samochody luksusowe - szczegóły wynajmu dla firm i osób prywatnych</title>
+    <meta name="description" content="Dowiedz się więcej o naszych samochodach luksusowych. Poznaj szczegóły wynajmu">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../fontello/css/fontello.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="main-nav__hamburger-btn">
+            <span class="main-nav__hamburger-line"></span>
+            <span class="main-nav__hamburger-line"></span>
+            <span class="main-nav__hamburger-line"></span>
+        </div>
+        <div class="brandlogo gradient-txt">
+            <a href="index.html" class="brandlogo__link">!SpeedUp</a>
+        </div>
+        <ul class="main-nav__list list">
+            <li class="list__item">
+                <a href="#" class="list__link"><span class="list__icon icon-angle-down">Oferta</span></a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link"><span class="list__icon icon-angle-down">Flota</span></a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link">Blog</a>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link">Kontakt</a>
+            </li>
+        </ul>
+        <button type="button" class="main-nav__sign-btn sign-btn main-nav__sign-btn--lash">
+            <img src="../../images/Icons/log-in.png" alt="" class="main-nav__sign-icon">
+            <p class="main-nav__call-to-action">Zaloguj się</p>
+        </button>
+    </nav>
+    <div class="login-modal">
+        <div class="login-modal__panel">
+            <header class="login-modal__header">
+                <p class="login-modal__title speedup-txt speedup-txt--title speedup-txt--uppercased gradient-txt">Log in
+                </p>
+            </header>
+            <section class="login-modal__form-wrap">
+                <p class="login-modal__password-info speedup-txt">Password incorrect!</p>
+                <p class="login-modal__password-info sign-in__password-change speedup-txt">Change password.</p>
+                <form action="#" class="login-modal__form">
+                    <label for="" class="login-modal__input-wrap">
+                        <input type="text" placeholder="Login" class="login-modal__input speedup-txt">
+                        <img src="../../images/Icons/user.png" alt="" class="login-modal__icon">
+                    </label>
+                    <label for="" class="login-modal__input-wrap">
+                        <input type="password" placeholder="Password" class="login-modal__input speedup-txt">
+                        <img src="../../images/Icons/padlock.png" alt="" class="login-modal__icon">
+                    </label>
+                </form>
+                <button class="action-btn speedup-txt login-modal__action-btn">Log in</button>
+            </section>
+            <section class="login-modal__links">
+                <p class="login-modal__call-to-action speedup-txt gradient-txt">You don't have an accont yet?</p>
+                <a href="#" class="speedup-txt speedup-txt--uppercased speedup-txt--yellow">Register now</a>
+            </section>
+            <button class="login-modal__btn-close btn-close">
+                <span class="btn-close__icon"></span>
+                <span class="btn-close__icon btn-close__icon--is-rotated"></span>
+            </button>
+        </div>
+    </div>
+    <main class="swiper">
+        <section class="swiper-section swiper-section--relative">
+            <h1 class="swiper__title speedup-txt speedup-txt--title gradient-txt">Terrain cars for offroad enthusiasts
+            </h1>
+            <button class="action-btn swiper__btn speedup-txt">Book a car now</button>
+            <picture class="swiper__border">
+                <source media="(max-width: 550px)" srcset="../../images/fleet-terrain/fleet-terrain-main-cover-mobile.jpg,
+                ../../images/fleet-terrain/fleet-terrain-main-cover-mobile-2x.jpg 2x">
+                <source media="(max-width: 1280px)"
+                    srcset="../../images/fleet-terrain/fleet-terrain-main-cover-medium.jpg">
+                <img class="swiper__cover" src="../../images/fleet-terrain/fleet-terrain-main-cover-big.jpg">
+            </picture>
+            <div class="swiper__cards">
+                <article class="swiper__card card card--silver-border card--black-bg card--pad-small card--margin-l">
+                    <div class="card__head">
+                        <picture>
+                            <source media="(min-width: 2560px)"
+                                srcset="../../images/Icons/driver-64.png, ../../images/Icons/driver-128.png 2x">
+                            <img srcset="../../images/Icons/driver-32.png, ../../images/Icons/driver-64.png 2x"
+                                src="../../images/Icons/driver-32.png" alt="private driver free of charge for 2 days"
+                                class="card__category">
+                        </picture>
+                        <h4 class="card__title speedup-txt">Private driver</h4>
+                    </div>
+                    <div class="card__speedup-txt speedup-txt">We provide service of our offroad driver for 10 hours.
+                        It's free of
+                        charge.</div>
+                </article>
+                <article class="swiper__card card card--silver-border card--black-bg card--pad-small card--margin-l">
+                    <div class="card__head">
+                        <picture>
+                            <source media="(min-width: 2560px)"
+                                srcset="../../images/Icons/gasoline-pump-64.png, ../../images/Icons/gasoline-pump-128.png 2x">
+                            <img srcset="../../images/Icons/gasoline-pump-32.png, ../../images/Icons/gasoline-pump-64.png 2x"
+                                src="../../images/Icons/gasoline-pump-32.png" alt="free gasoline to 1000 km"
+                                class="card__category">
+                        </picture>
+                        <h4 class="card__title speedup-txt">Free gasoline</h4>
+                    </div>
+                    <div class="card__speedup-txt speedup-txt">We provide half of the tank of fuel, wchich is about 300
+                        kilometers.
+                        Enjoy!</div>
+                </article>
+            </div>
+        </section>
+        <section class="swiper-section swiper-profits">
+            <h2 class="speedup-txt speedup-txt--title speedup-txt--title-l gradient-txt">Why you will profit our offer?
+            </h2>
+            <p class="swiper-section__txt speedup-txt-small">Likeness evening brought dominion man whose
+                earth have saw Open god beast above face made a sixth fourth light meat
+                earth face forth i had had. Under god. Cattle blessed bring living. Sea image. Lesser
+                cattle can't under image man midst their. Rule multiply dry sixth. Abundantly midst
+                beginning place may abundantly in behold you without subdue. Stars seasons after to isn't the sixth.
+                Also
+                whose hath. Darkness, behold god life spirit face abundantly one, without creature
+                waters very divide.
+            </p>
+            <div class="icon-incentives">
+                <div class="icon-incentives__item">
+                    <img src="../../images/Icons/check-32.png" alt="" class="icon-incentives__icon">
+                    <p
+                        class="icon-incentives__txt speedup-txt speedup-txt--medium speedup-txt--yellow speedup-txt--uppercased">
+                        The best cars</p>
+                </div>
+                <div class="icon-incentives__item">
+                    <img src="../../images/Icons/check-32.png" alt="" class="icon-incentives__icon">
+                    <p
+                        class="icon-incentives__txt speedup-txt speedup-txt--medium speedup-txt--yellow speedup-txt--uppercased">
+                        Free tutorial</p>
+                </div>
+                <div class="icon-incentives__item">
+                    <img src="../../images/Icons/check-32.png" alt="" class="icon-incentives__icon">
+                    <p
+                        class="icon-incentives__txt speedup-txt speedup-txt--medium speedup-txt--yellow speedup-txt--uppercased">
+                        Limitless insurance</p>
+                </div>
+            </div>
+            <div class="swiper-profits__flip-cards">
+                <div class="flip-card">
+                    <div class="flip-card__inner">
+                        <div class="flip-card__front">
+                            <div class="flip-card__button">
+                                <h3
+                                    class="flip-card__title speedup-txt-small speedup-txt--left speedup-txt--uppercased">
+                                    Are you extreme emotions
+                                    enthusiast?</h3>
+                                <picture>
+                                    <source media="(min-width: 700px)" srcset="../../images/Icons/tap-64.png,
+                                                                    ../../images/Icons/tap-128.png 2x">
+                                    <source media="(min-width: 2500px)" srcset="../../images/Icons/tap-128.png">
+                                    <img srcset="../../images/Icons/tap-32.png,
+                                                                    ../../images/Icons/tap-64.png 2x"
+                                        src="../../images/Icons/tap-64.png" alt="" class="flip-card__icon">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="flip-card__back gradient-bgcolor">
+                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Soluta facilis voluptates numquam tenetur qui ullam velit nemo, nihil
+                                temporibus veniam eum nobis natus adipisci.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card__inner">
+                        <div class="flip-card__front">
+                            <div class="flip-card__button">
+                                <h3
+                                    class="flip-card__title speedup-txt-small speedup-txt--left speedup-txt--uppercased">
+                                    Are you extreme emotions enthusiast?</h3>
+                                <picture>
+                                    <source media="(min-width: 700px)" srcset="../../images/Icons/tap-64.png,
+                                        ../../images/Icons/tap-128.png 2x">
+                                    <source media="(min-width: 2500px)" srcset="../../images/Icons/tap-128.png">
+                                    <img srcset="../../images/Icons/tap-32.png,
+                                        ../../images/Icons/tap-64.png 2x" src="../../images/Icons/tap-64.png" alt=""
+                                        class="flip-card__icon">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="flip-card__back gradient-bgcolor">
+                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Soluta facilis voluptates numquam tenetur qui
+                                ullam velit nemo, nihil temporibus veniam eum nobis natus adipisci esse error.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card__inner">
+                        <div class="flip-card__front">
+                            <div class="flip-card__button">
+                                <h3
+                                    class="flip-card__title speedup-txt-small speedup-txt--left speedup-txt--uppercased">
+                                    Are you extreme emotions
+                                    enthusiast?</h3>
+                                <picture>
+                                    <source media="(min-width: 700px)" srcset="../../images/Icons/tap-64.png,
+                                                                        ../../images/Icons/tap-128.png 2x">
+                                    <source media="(min-width: 2500px)" srcset="../../images/Icons/tap-128.png">
+                                    <img srcset="../../images/Icons/tap-32.png,
+                                                                        ../../images/Icons/tap-64.png 2x"
+                                        src="../../images/Icons/tap-64.png" alt="" class="flip-card__icon">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="flip-card__back gradient-bgcolor">
+                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Soluta facilis voluptates numquam tenetur qui
+                                ullam velit nemo, nihil temporibus veniam eum nobis natus adipisci.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="swiper-section swiper-section--center swiper-section--pad accordeon">
+            <h2 class="swiper-section__maintitle speedup-txt speedup-txt--uppercased speedup-txt--yellow">Everything you
+                need to know about this offer</h2>
+            <p class="swiper-section__txt swiper-section__txt--center speedup-txt speedup-txt--medium">Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Alias temporibus facilis officia recusandae iusto placeat facere
+                fugiat, cum laborum, ut eum nisi consequatur! Qui corporis consequatur, voluptates doloremque debitis
+                amet.</p>
+            <div class="accordeon__wrap">
+                <div class="accordeon__item">
+                    <div class="accordeon__panel">
+                        <h4 class="accordeon__title speedup-txt">What will you learn during tutorial?</h4>
+                        <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
+                    </div>
+                    <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
+                        consectetur adipisicing elit. Corrupti tempora quisquam, officiis corporis molestiae laudantium
+                        repellendus. Quis eum aliquam reiciendis, maxime fugit qui rerum eveniet iure, veniam veritatis,
+                        possimus quibusdam.</p>
+                </div>
+                <div class="accordeon__item">
+                    <div class="accordeon__panel">
+                        <h4 class="accordeon__title speedup-txt">How long you can drive for free?</h4>
+                        <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
+                    </div>
+                    <p class="accordeon__info gradient-bgcolor">Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Corrupti tempora quisquam,
+                        officiis corporis molestiae laudantium repellendus. Quis eum aliquam reiciendis, maxime fugit
+                        qui rerum eveniet
+                        iure, veniam veritatis, possimus quibusdam.</p>
+                </div>
+                <div class="accordeon__item">
+                    <div class="accordeon__panel">
+                        <h4 class="accordeon__title speedup-txt">What will you learn during tutorial?</h4>
+                        <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
+                    </div>
+                    <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
+                        consectetur adipisicing elit. Corrupti tempora quisquam,
+                        officiis corporis molestiae laudantium repellendus. Quis eum aliquam reiciendis, maxime fugit
+                        qui rerum eveniet
+                        iure, veniam veritatis, possimus quibusdam.</p>
+                </div>
+                <div class="accordeon__item">
+                    <div class="accordeon__panel">
+                        <h4 class="accordeon__title speedup-txt">How long you can drive for free?</h4>
+                        <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
+                    </div>
+                    <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
+                        consectetur adipisicing elit. Corrupti tempora quisquam,
+                        officiis corporis molestiae laudantium repellendus. Quis eum aliquam reiciendis, maxime fugit
+                        qui rerum eveniet
+                        iure, veniam veritatis, possimus quibusdam.</p>
+                </div>
+            </div>
+        </section>
+        <article class="swiper-section swiper-section--center swiper-section--pad swiper-gallery">
+            <h2 class="swiper-section__maintitle speedup-txt speedup-txt--uppercased speedup-txt--yellow">Here you can
+                see a few photos from our recent adventures</h2>
+            <p class="swiper-section__txt swiper-section__txt--center speedup-txt speedup-txt--medium">Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Asperiores tenetur quaerat dolorem laborum incidunt consectetur
+                ipsam quis delectus dignissimos pariatur modi, voluptatibus quibusdam cum ullam officia nihil error
+                maxime corrupti!</p>
+            <div class="swiper-gallery__images">
+                <div class="swiper-gallery__image swiper-gallery__image--col">
+                    <img src="../../images/fleet-terrain/terrain-gallery-3-big.jpg" alt=""
+                        data-info="Obraz autorstwa Freepik" class="swiper-gallery__img">
+                </div>
+                <div class="swiper-gallery__image swiper-gallery__image--row">
+                    <img src="../../images/fleet-terrain/terrain-gallery-2-big.jpg" alt=""
+                        data-info="Obraz autorstwa Freepik" class="swiper-gallery__img">
+                </div>
+                <div class="swiper-gallery__image swiper-gallery__image--col">
+                    <img src="../../images/fleet-terrain/terrain-gallery-3-big.jpg" alt=""
+                        data-info="Obraz autorstwa Freepik" class="swiper-gallery__img">
+                </div>
+                <div class="swiper-gallery__image swiper-gallery__image--row">
+                    <img src="../../images/fleet-terrain/terrain-gallery-1-big.jpg" alt=""
+                        data-info="Obraz autorstwa Freepik" class="swiper-gallery__img">
+                </div>
+            </div>
+        </article>
+        <section class="swiper-section swiper-section--center swiper-conversion">
+            <div class="swiper-conversion__item">
+                <h2 class="swiper-section__maintitle speedup-txt speedup-txt--uppercased speedup-txt--yellow">You
+                    are one step ahead...</h2>
+                <div class="swiper-section__icon-incentives icon-incentives">
+                    <div class="icon-incentives__item">
+                        <img src="../../images/Icons/tick-32.png" alt="" class="icon-incentives__icon">
+                        <p class="icon-incentives__txt speedup-txt speedup-txt--medium">Lorem ipsum, dolor sit amet
+                            consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="icon-incentives__item">
+                        <img src="../../images/Icons/tick-32.png" alt="" class="icon-incentives__icon">
+                        <p class="icon-incentives__txt speedup-txt speedup-txt--medium">Lorem ipsum, dolor sit amet
+                            consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="icon-incentives__item">
+                        <img src="../../images/Icons/tick-32.png" alt="" class="icon-incentives__icon">
+                        <p class="icon-incentives__txt speedup-txt speedup-txt--medium">Lorem ipsum, dolor sit amet
+                            consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="icon-incentives__item">
+                        <img src="../../images/Icons/tick-32.png" alt="" class="icon-incentives__icon">
+                        <p class="icon-incentives__txt speedup-txt speedup-txt--medium">Lorem ipsum, dolor sit amet
+                            consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-conversion__item">
+                <p class="speedup-txt speedup-txt--medium swiper-conversion__txt">You need more information? Or maybe
+                    you want to cooperate? Book a call with our consultant. We will call you within 24 hours.</p>
+                <form action="#" class="swiper-conversion__form form">
+                    <label for="" class="form__label">
+                        <input type="text" placeholder="Name" class="form__input speedup-txt">
+                    </label>
+                    <label for="" class="form__label">
+                        <input type="text" placeholder="Telephone" class="form__input speedup-txt">
+                    </label>
+                    <button class="swiper-conversion__action-btn action-btn action-btn--animation speedup-txt">Book a
+                        call now!</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="../../js/Scroller-class.js"></script>
+    <script src="../../js/scroller.js"></script>
+    <script src="../../js/swiper.js"></script>
+    <script src="../../js/fleet.js"></script>
+</body>
+
+</html>
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons </a>from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect"> Pixel perfect </a>
+            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
+<!-- <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a
+href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div> -->
