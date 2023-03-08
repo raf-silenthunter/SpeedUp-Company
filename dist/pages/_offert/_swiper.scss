@@ -1,6 +1,6 @@
-@use "../../../utils/variables" as v;
-@use "../../../utils/mixins" as m;
-@use "../../../utils/breakpoints" as b;
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+@use "../../utils/breakpoints" as b;
 
 .swiper {
     overflow: hidden;
