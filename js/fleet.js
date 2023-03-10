@@ -66,3 +66,25 @@ accordeonContainer.addEventListener("click", (e) => {
         accordeonIcons[panelToCollapseIndex].classList.remove("accordeon__icon--rotate")
     }
 });
+
+//secondary image detector FN
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const detector = () => {
+        const img = document.querySelector(".swiper-profits__bg");
+        const imgData = img.dataset.info;
+        switch(imgData) {
+            case "sport": img.setAttribute("src", "../../images/sport/sport-secondary-big.jpg")
+                break;
+            case "oldtimer": img.setAttribute("src", "../../images/oldtimer/oldtimer-secondary-image.jpg")
+                break;
+            case "luxury": img.setAttribute("src", "../../images/luxury/luxury-secondary-image.jpg")
+                break;
+            case "terrain": img.setAttribute("src", "../../images/slide-4.jpg")
+                break;
+            default: img.setAttribute("src", "../../images/slide-4.jpg")
+        }
+    }
+    detector()
+})
