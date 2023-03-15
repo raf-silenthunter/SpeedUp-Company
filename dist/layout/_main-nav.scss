@@ -160,7 +160,6 @@
 
     &__item {
             width: 100%;
-            padding: clamp(.5rem, 1.5rem, 3rem);
             @include m.breakpoint("large") {
                 width: auto;
             }
@@ -179,13 +178,14 @@
 
     &__link {
         display: block;
+        padding: clamp(.5rem, 1.5rem, 3rem);
         font-size: v.$font-size-big;
         text-transform: uppercase;
         background: -webkit-linear-gradient(#f3f3f3, #acacac);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
-        &:hover {
+        &:hover, &--curr-page {
             background: white;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -208,5 +208,76 @@
     }
     &__link {
         cursor: pointer;
+    }
+}
+
+.dropdown{
+    width: 100%;
+    @include m.breakpoint("large"){
+        position: relative;
+        width: auto;
+    }
+    &--is-checked {
+        background-color: v.$pale-black;
+        @include m.breakpoint("medium") {
+            background-color: rgb(19, 19, 19);
+        }
+    }
+    
+    &__list{
+        width: 100%;
+        height: 0;
+        @include m.breakpoint("large") {
+                @include m.position(absolute, 100%, 0);
+                width: auto;
+            }
+        &--is-dropdown{
+            height: auto;
+        }
+        overflow: hidden;
+    }
+
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        transition: transform .4s linear;
+        @include m.breakpoint("large") {
+                width: 300px;
+            }
+        padding: clamp(.5rem, 1.5rem, 3rem);
+        border-bottom: 2px solid v.$silver;
+        background: rgb(19, 19, 19);
+        transform: translateX(-100%);
+        cursor: pointer;
+        &:hover .dropdown__link {
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &--is-dropdown{
+            transform: translateX(0);            
+        }
+    }
+
+    &__link{
+        font-size: v.$font-size-big;
+        text-align: left;
+        color: v.$pale-white;
+
+        &--highlited{
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__icon{
+        width: 32px;
+        height: 32px;
+        background-image: url("../../images/Icons/right-arrow-32.png");
     }
 }

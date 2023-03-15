@@ -1,13 +1,49 @@
-// DROPDOWN MENU FN 
-const dropDownBtn = document.querySelector(".main-nav__hamburger-btn");
-const dropDownMenu = document.querySelector(".list");
+// OPEN MOBILE MENU FN 
+const mobileMenuBtn = document.querySelector(".main-nav__hamburger-btn");
+const mobileMenuList = document.querySelector(".list");
 const mainNav = document.querySelector(".main-nav");
 
-dropDownBtn.addEventListener("click", () => {
-    dropDownMenu.classList.toggle("list--is-visible");
+mobileMenuBtn.addEventListener("click", () => {
+    mobileMenuList.classList.toggle("list--is-visible");
     mainNav.classList.toggle("main-nav--is-dropdown");
 })
 
+//DROPDOWN MENU ITEMS
+const dropdownBtn = document.querySelector(".dropdown");
+const dropdownList = document.querySelector(".dropdown__list");
+const dropdownItems = [...document.querySelectorAll(".dropdown__item")];
+const dropdownLinks = [...document.querySelectorAll(".dropdown__link")];
+
+const slowDropDownList = () => {
+    let showItemTime = 0;
+        dropdownItems.forEach(item => {
+            setTimeout(() => {
+            item.classList.add("dropdown__item--is-dropdown");
+        }, showItemTime)
+        showItemTime += 500;
+    })
+}
+
+dropdownLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.stopPropagation();
+    })
+})
+
+dropdownBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        dropdownBtn.classList.toggle("dropdown--is-checked");
+        const isListdropDown = dropdownList.classList.contains("dropdown__list--is-dropdown");
+        slowDropDownList();
+        if(!isListdropDown){
+            dropdownList.classList.add("dropdown__list--is-dropdown");
+        } else {
+            const dropDownItem = document.querySelector(".dropdown__item");
+            const isItemInView = dropDownItem.classList.contains("dropdown__item--is-dropdown");
+            if(isItemInView) dropdownList.classList.remove("dropdown__list--is-dropdown");
+            else return;
+        }
+})
 
 // STICKY MENU FN
 const nav = document.querySelector(".main-nav");

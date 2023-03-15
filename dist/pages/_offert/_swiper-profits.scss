@@ -15,6 +15,7 @@
     }
 
     &__bg {
+        display: none;
         @include m.breakpoint("large") {
             @include m.position(absolute, v.$main-nav-height, 50%);
             width: 100%;
