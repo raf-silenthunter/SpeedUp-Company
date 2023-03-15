@@ -238,25 +238,9 @@
     }
 
     &__item{
-        display: flex;
-        justify-content: space-between;
-        transition: transform .4s linear;
-        @include m.breakpoint("large") {
-                width: 300px;
-            }
-        padding: clamp(.5rem, 1.5rem, 3rem);
-        border-bottom: 2px solid v.$silver;
         background: rgb(19, 19, 19);
+        transition: transform .4s linear;
         transform: translateX(-100%);
-        cursor: pointer;
-        &:hover .dropdown__link {
-            background: white;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        &:last-child {
-            border-bottom: none;
-        }
 
         &--is-dropdown{
             transform: translateX(0);            
@@ -264,15 +248,30 @@
     }
 
     &__link{
-        font-size: v.$font-size-big;
-        text-align: left;
-        color: v.$pale-white;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        @include m.breakpoint("large") {
+            width: 300px;
+        }
+        border-bottom: 2px solid v.$silver;
+        padding: clamp(.5rem, 1.5rem, 3rem);
+        cursor: pointer;
 
-        &--highlited{
+        &--no-border{
+            border: none;
+        }
+
+        &:hover .dropdown__txt, .dropdown__txt--highlited {
             background: white;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+    }
+
+    &__txt {
+        font-size: v.$font-size-big;
+        color: v.$pale-white;
     }
 
     &__icon{
