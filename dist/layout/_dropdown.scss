@@ -1,0 +1,82 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+
+.dropdown {
+    width: 100%;
+
+    @include m.breakpoint("large") {
+        position: relative;
+        width: auto;
+    }
+
+    &--is-checked {
+        background-color: v.$pale-black;
+
+        @include m.breakpoint("medium") {
+            background-color: rgb(19, 19, 19);
+        }
+    }
+
+    &__list {
+        width: 100%;
+        height: 0;
+
+        @include m.breakpoint("large") {
+            @include m.position(absolute, 100%, 0);
+            width: auto;
+        }
+
+        &--is-dropdown {
+            height: auto;
+        }
+
+        overflow: hidden;
+    }
+
+    &__item {
+        background: rgb(19, 19, 19);
+        transition: transform .4s linear;
+        transform: translateX(-100%);
+
+        &--is-dropdown {
+            transform: translateX(0);
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        @include m.breakpoint("large") {
+            width: 300px;
+        }
+
+        border-bottom: 2px solid v.$silver;
+        padding: clamp(.5rem, 1.5rem, 3rem);
+        cursor: pointer;
+
+        &--no-border {
+            border-bottom: none;
+        }
+
+        &:hover .dropdown__txt,
+        .dropdown__txt--highlited {
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__txt {
+        font-size: v.$font-size-big;
+        color: v.$pale-white;
+    }
+
+    &__icon {
+        width: 32px;
+        height: 32px;
+        background-image: url("../../images/Icons/right-arrow-32.png");
+    }
+}

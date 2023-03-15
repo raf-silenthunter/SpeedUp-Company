@@ -780,9 +780,10 @@ a, a:visited, a:active, a:focus {
   }
 }
 .dropdown__link--no-border {
-  border: none;
+  border-bottom: none;
 }
-.dropdown__link:hover .dropdown__txt, .dropdown__link .dropdown__txt--highlited {
+.dropdown__link:hover .dropdown__txt,
+.dropdown__link .dropdown__txt--highlited {
   background: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
