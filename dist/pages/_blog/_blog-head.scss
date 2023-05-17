@@ -3,6 +3,7 @@
 
 .blog-head{
     height: 100vh;
+    min-height: 500px;
     padding-top: calc(v.$main-nav-height + 5vh);
 
     &__title-wrap{

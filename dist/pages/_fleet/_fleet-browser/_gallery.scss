@@ -14,25 +14,8 @@
         margin-bottom: 4rem;
     }
 
-    &__options, &__info{
+    &__info{
         gap: 2rem;
-    }
-
-    &__options{
-        display: grid;
-        grid-template: auto /repeat(auto-fit, 300px);
-        justify-content: center;
-        @include m.breakpoint(xxl) {
-            grid-template: auto /repeat(auto-fit, 500px);
-        }
-    }
-
-    &__option{
-        width: 100%;
-        height: 450px;
-        @include m.breakpoint(xxl){
-            height: 750px;
-        }
     }
 
     &__info{
@@ -56,3 +39,20 @@
     }
 }
 
+    .grid{
+        display: grid;
+        grid-template: auto /repeat(auto-fit, 300px);
+        justify-content: center;
+        @include m.breakpoint(xxl) {
+            grid-template: auto /repeat(auto-fit, 500px);
+        }
+        gap: 2rem;
+
+        &__element{
+            width: 100%;
+            height: 450px;
+            @include m.breakpoint(xxl){
+                height: 750px;
+            }
+        }
+    }

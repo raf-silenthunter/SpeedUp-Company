@@ -1,0 +1,14 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+.blog-content{
+    @include m.display-flex(flex, column);
+
+    &__filter{
+        margin-inline: 8rem;
+        padding: 2rem;
+        border-radius: 5px;
+        background: -webkit-linear-gradient(#acacac, #5f5f5f);
+    }
+}
+

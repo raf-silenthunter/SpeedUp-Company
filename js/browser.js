@@ -77,13 +77,12 @@ modalBtns.forEach((btn)=> {
 
 // FLEET OPTIONS FILTER 
 
-const fleetWrap = document.querySelector(".gallery__options");
-const fleetElements = document.querySelectorAll(".gallery__option");
+const fleetWrap = document.querySelector(".grid");
+const fleetElements = document.querySelectorAll(".grid__element");
 const fleetOptions = [...fleetElements];
 
-const setFleet = () => {
+const cleanFleet = () => {
     fleetWrap.innerHTML = '';
-    fleetWrap.classList.add("gallery__options--is-filtered");
 }
 
 const checkBtnKey = (e) => {
@@ -91,12 +90,11 @@ const checkBtnKey = (e) => {
         let target = e.target;
         while (target && !target.classList.contains("filter__btn")) target = target.parentElement;
         const clickedBtnKey = target.dataset.key;
-        setFleet();
+        cleanFleet();
         return clickedBtnKey;
     } else if (e.target.matches(".option, .option__img, .option__list, .option__item, .option__txt, .action-btn")) {
-        return console.log("option kliknięte");
+        return;
     } else {
-        fleetWrap.classList.remove("gallery__options--is-filtered");
         fleetOptions.forEach(fleetOption => fleetWrap.append(fleetOption));
     }
 }

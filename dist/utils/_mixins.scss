@@ -2,7 +2,7 @@
 @use "../utils/breakpoints" as b;
 
 // used only with flex-direction: column. No needed when row
-@mixin display-flex ($display, $direction) {
+@mixin display-flex ($display, $direction: "row") {
     display: $display;
     flex-direction: $direction;
 }
