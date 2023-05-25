@@ -61,8 +61,8 @@
     height: $width;
 }
 
-@mixin grid-parent($columns, $rows, $display: grid) {
-    grid-template-columns: $columns;
+@mixin grid-parent($rows, $columns, $display: grid) {
     grid-template-rows: $rows;
+    grid-template-columns: $columns;
     display: $display;
 }

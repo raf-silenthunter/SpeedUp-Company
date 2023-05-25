@@ -2,21 +2,22 @@
 @use "../utils/mixins" as m;
 
 .browser{
-    margin-block: 4rem;
     width: 100%;
+    border-block: 2px solid yellow;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
         &__wrap {
             width: 90%;
             margin: 0 auto;
             display: flex;
-            background: #acacac;
+            // background: #acacac;
             @include m.breakpoint("large"){
                 width: 50%;
             }
         }
 
     &__input{
-        padding: .5rem;
+        padding: 1rem;
         border: none;
         border-left: 2px solid yellow;
         flex-grow: 4;
@@ -35,8 +36,5 @@
     &__action-btn{
         flex-grow: 1;
         padding: clamp(.5rem, .5rem, 2rem);
-        // @include m.breakpoint("large"){
-        //     padding: .5rem;
-        // }
     }
 }

@@ -4,6 +4,7 @@
 .filter {
     display: grid;
     grid-template: auto/ repeat(auto-fit, minmax(130px, 1fr));
+    grid-auto-flow: row dense;
     gap: v.$padding-xl;
 
     &__btn {
@@ -27,6 +28,10 @@
 
         &--clean{
             border-color: yellow;
+            grid-column: 1/-1;
+            @include m.breakpoint("large"){
+                grid-column: auto;
+            }
         }
     }
 

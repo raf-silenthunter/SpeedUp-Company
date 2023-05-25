@@ -3,12 +3,28 @@
 
 .blog-content{
     @include m.display-flex(flex, column);
-
     &__filter{
-        margin-inline: 8rem;
+        margin-inline: 2rem;
         padding: 2rem;
         border-radius: 5px;
         background: -webkit-linear-gradient(#acacac, #5f5f5f);
+        @include m.breakpoint("medium") {
+                margin-inline: 8rem;
+            }
+    }
+
+    &__browser, &__grid{
+        margin-block: 4rem;
+    }
+
+    &__grid{
+        padding: 2rem;
+        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 850px));
+        justify-content: space-evenly;
+        @include m.breakpoint("medium"){
+            padding: 4rem 8rem;
+        }
     }
 }
 

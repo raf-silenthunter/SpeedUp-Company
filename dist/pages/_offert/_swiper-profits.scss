@@ -9,7 +9,7 @@
     padding: v.$main-nav-height 5vw 0 5vw;
 
     @include m.breakpoint("large") {
-        @include m.grid-parent(repeat(2, 1fr), repeat(3, 1fr));
+        @include m.grid-parent(repeat(3, 1fr), repeat(2, 1fr));
         column-gap: 5rem;
         @include m.flex-center(center, center);
     }
