@@ -11,6 +11,8 @@
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     position: relative;
+    color: v.$pale-white;
+    
     &:hover{
         box-shadow: 0px 0px 8px 3px yellow;
     }
@@ -75,27 +77,33 @@
         }
     }
 
-    &__tags{
+    &__info{
+        color: yellow;
+    }
+}
+
+
+.tags {
+
+    &--absolute{
         position: absolute;
         top: -2.5%;
         left: 5%;
-        @include m.breakpoint("medium"){
+
+        @include m.breakpoint("medium") {
             position: static;
-        }
+        }   
     }
 
-    &__tag{
-        padding: 1rem;
-        text-transform: uppercase;
-        background-color: v.$pale-black;
-        @include m.border-properties(2px, solid, yellow, 10px);
-        &--newest{
+    &__item {
+    padding: 1rem;
+    text-transform: uppercase;
+    background-color: v.$pale-black;
+    @include m.border-properties(2px, solid, yellow, 10px);
+
+        &--newest {
             background-color: yellow;
             color: v.$pale-black;
         }
-    }
-
-    &__info{
-        color: yellow;
     }
 }

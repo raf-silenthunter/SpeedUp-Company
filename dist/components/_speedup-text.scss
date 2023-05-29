@@ -39,6 +39,9 @@
         &-pad {
             padding: 6rem 4rem;
         }
+        &-l{
+            text-align: left;
+        }
     
         @include m.breakpoint("large") {
             text-align: left;

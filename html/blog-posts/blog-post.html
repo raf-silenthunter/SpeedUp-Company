@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../fontello/css/fontello.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../fontello/css/fontello.css">
+    <link rel="stylesheet" href="../../css/main.css">
 </head>
+
 <body class="page">
     <!-- MAIN HEADER STYLE  -->
     <header>
@@ -24,7 +25,7 @@
                 <span class="main-nav__hamburger-line"></span>
             </div>
             <div class="brandlogo gradient-txt">
-                <a href="index.html" class="brandlogo__link">!SpeedUp</a>
+                <a href="../index.html" class="brandlogo__link">!SpeedUp</a>
             </div>
             <ul class="main-nav__list list">
                 <li class="list__item dropdown">
@@ -68,7 +69,7 @@
                 </li>
             </ul>
             <button type="button" class="main-nav__sign-btn sign-btn main-nav__sign-btn--lash">
-                <img src="../images/Icons/log-in.png" alt="" class="main-nav__sign-icon">
+                <img src="../../images/Icons/log-in.png" alt="" class="main-nav__sign-icon">
                 <p class="main-nav__call-to-action">Zaloguj się</p>
             </button>
         </nav>
@@ -105,102 +106,84 @@
         </div>
     </div>
     <!-- PLACE FOR MAIN CONTENT  -->
-    <main>
-        <section class="blog-head">
-            <div class="blog-head__title-wrap">
-                <h1 class="blog-head__title speedup-txt--title speedup-txt--uppercased">Welcome to our blog</h1>
-            </div>
-            <article class="blog-head__content gradient-bgcolor">
-                <a class="blog-head__blog-article blog-article blog-article--newest">
-                    <picture class="blog-article__picture">
-                        <img src="../images/slide-1.jpg" alt="" class="blog-article__img">
-                    </picture>
-                    <div class="blog-article__content blog-article__content--newest">
-                        <div class="tags tags--absolute">
-                            <span class="tags__item tags__item--newest speedup-txt-small">Newest</span>
-                            <span class="tags__item speedup-txt-small">Test</span>
-                        </div>
-                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
-                        <p class="blog-article__snippet speedup-txt-small">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
-                            amet animi quidem tempore.</p>
-                        <p class="blog-article__info speedup-txt-small">3 min read</p>
-                    </div>
-                </a>
-            </article>
-        </section>
-        <section class="blog-content">
-            <div class="blog-content__browser browser">
-                <div class="browser__wrap">
-                    <input type="text" placeholder="What are you looking for?" class="browser__input speedup-txt-small">
-                    <button class="browser__action-btn action-btn action-btn--animation speedup-txt-small">Search</button>
+    <main class="post">
+        <header class="post-header">
+            <picture>
+                <source media="(min-width: 1000px)" 
+                    srcset="../../images/slide-1.jpg" 
+                    class="post-header__img"/>
+                <img src="../../images/slide-1-mobile.jpg" 
+                alt="" 
+                class="post-header__img">
+            </picture>
+            <div class="post-header__wrap">
+                <h1 class="post-header__title speedup-txt--title speedup-txt--title-l">New CUPRA Leon VZ CUP ultimate test!</h1>
+                <span class="separator"></span>
+                <p class="post-header__txt speedup-txt">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
+                    amet animi quidem tempore.</p>
+                <div class="tags">
+                    <span class="tags__item tags__item--newest speedup-txt-small">Newest</span>
+                    <span class="tags__item speedup-txt-small">Test</span>
                 </div>
             </div>
-            <section class="blog-content__filter filter">
-                <button class="filter__btn filter__btn--inset" data-key="luxury">
-                    <p class="filter__title">Testy</p>
-                </button>
-                <button class="filter__btn filter__btn--inset" data-key="oldtimer">
-                    <p class="filter__title">Wywiady</p>
-                </button>
-                <button class="filter__btn filter__btn--inset" data-key="sport">
-                    <p class="filter__title">Newsy</p>
-                </button>
-                <button class="filter__btn filter__btn--inset" data-key="terrain">
-                    <p class="filter__title">Eventy</p>
-                </button>
-                <button class="filter__btn filter__btn--clean filter__btn--inset" data-key="terrain">
-                    <p class="filter__title">Wyczyść</p>
-                </button>
-            </section>
-            <section class="blog-content__grid grid grid--left grid--white grid--blog">
-                <a class="blog-article" href="../html/blog-posts/blog-post.html">
-                    <picture class="blog-article__picture">
-                        <img src="../images/president_speedup.png" alt="" class="blog-article__img blog-article__img--dark">
-                    </picture>
-                    <div class="blog-article__content blog-article__content--positioned">
-                        <div class="tags tags--absolute">
-                            <span class="tags__item speedup-txt-small">Wywiad</span>
-                        </div>
-                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
-                        <p class="blog-article__snippet speedup-txt-small">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
-                            amet animi quidem tempore.</p>
-                        <p class="blog-article__info speedup-txt-small">3 min read</p>
-                    </div>
-                </a>
-                <a class="blog-article">
-                    <picture class="blog-article__picture">
-                        <img src="../images/slide-2.jpg" alt="" class="blog-article__img blog-article__img--dark">
-                    </picture>
-                    <div class="blog-article__content blog-article__content--positioned">
-                        <div class="tags tags--absolute">
-                            <span class="tags__item speedup-txt-small">Test</span>
-                        </div>
-                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
-                        <p class="blog-article__snippet speedup-txt-small">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
-                            amet animi quidem tempore.</p>
-                        <p class="blog-article__info speedup-txt-small">3 min read</p>
-                    </div>
-                </a>
-                <a class="blog-article">
-                    <picture class="blog-article__picture">
-                        <img src="../images/slide-3.jpg" alt="" class="blog-article__img blog-article__img--dark">
-                    </picture>
-                    <div class="blog-article__content blog-article__content--positioned">
-                        <div class="tags ">
-                            <span class="tags__item speedup-txt-small">Event</span>
-                        </div>
-                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
-                        <p class="blog-article__snippet speedup-txt-small">Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
-                            amet animi quidem tempore.</p>
-                        <p class="blog-article__info speedup-txt-small">3 min read</p>
-                    </div>
-                </a>
-            
-            </section>
+        </header>
+        <article class="post__post-content post-content">
+            <div class="post-content__wrap">
+                <p class="post-content__txt post-content__txt--lead speedup-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                    recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                    voluptates cum minus, laboriosam animi nam aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                    recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                    voluptates cum minus, laboriosam animi nam aperiam.</p>
+                <picture class="post-content__img-wrap">
+                    <source media="(min-width: 1000px)"
+                        srcset="../../images/fleet-terrain/fleet-terrain-main-cover-big.jpg"
+                        class="post-content__img"/>
+                    <img
+                        src="../../images/browser-fleet-images/fleet-luxury-3.jpg"
+                        alt=""
+                        class="post-content__img"/>
+                </picture>
+                <div class="post-content__quote-wrap">
+                    <q class="post-content__quote speedup-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</q>
+                    <p class="post-content__quote-caption speedup-txt-small"><i>- Samuel L. Jackson, Speedup Company CEO</i></p>
+                </div>
+                <p class="post-content__txt speedup-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis voluptates cum minus, laboriosam animi nam aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                voluptates cum minus, laboriosam animi nam aperiam.</p>
+                <p class="post-content__txt speedup-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <span class="speedup-txt--yellow">Dolorem perspiciatis</span> quaerat, quibusdam consequuntur sint ex earum, pariatur est repudiandae modi eligendi voluptas quam necessitatibus ut dolorum fuga nulla officiis maiores.</p>
+                <picture class="post-content__img-wrap">
+                    <source media="(min-width: 1000px)"
+                        srcset="../../images/luxury/luxury-main-desktop.jpg"
+                        class="post-content__img"/>
+                    <img
+                        src="../../images/browser-fleet-images/fleet-luxury-2.jpg"
+                        alt=""
+                        class="post-content__img"/>
+                </picture>
+                <h2 class="speedup-txt speedup-txt--subtitle speedup-txt--subtitle-l speedup-txt--uppercased">Test info for H2</h2>
+                <p class="post-content__txt speedup-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum laudantium ab, laborum quaerat quas ex nulla saepe laboriosam illo voluptatum labore pariatur vitae sequi voluptatem explicabo similique at corporis eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                voluptates cum minus, laboriosam animi nam aperiam.</p>
+                <picture class="post-content__img-wrap">
+                    <source media="(min-width: 1000px)" srcset="../../images/oldtimer/oldtimer-main-big.jpg"
+                        class="post-content__img" />
+                    <img src="../../images/browser-fleet-images/fleet-luxury-1.jpg" alt="" class="post-content__img" />
+                </picture>
+                <p class="post-content__txt speedup-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                    recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                    voluptates cum minus, laboriosam animi nam aperiam.</p>
+                <p class="post-content__txt speedup-txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <span
+                        class="speedup-txt--yellow">Dolorem perspiciatis</span> quaerat, quibusdam consequuntur sint ex earum, pariatur
+                    est repudiandae modi eligendi voluptas quam necessitatibus ut dolorum fuga nulla officiis maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem
+                    recusandae, nostrum quia repudiandae corrupti autem praesentium impedit repellat quisquam eum modi reiciendis
+                    voluptates cum minus, laboriosam animi nam aperiam.</p>
+            </div>
+            <aside class="add-panel">
+                <p>ADD</p>
+            </aside>           
+        </article>
+        <section class="posts-related">
         </section>
     </main>
     <!-- NEWSLETTER SECTION  -->
@@ -270,4 +253,5 @@
     <!-- <script src="../js/slider.js"></script> -->
     <!-- <script src="../js/main.js"></script> -->
 </body>
+
 </html>

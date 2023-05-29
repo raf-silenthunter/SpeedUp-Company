@@ -48,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 
-body, html, ol, ul, li, a, input, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
+body, html, ol, ul, li, q, a, input, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -68,7 +68,7 @@ button {
   color: #f3f3f3;
 }
 
-h1, h2, h3, h4, p,
+h1, h2, h3, h4, p, q,
 span, a, figcaption, blockquote, div, button {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
@@ -129,6 +129,9 @@ a, a:visited, a:active, a:focus {
 }
 .speedup-txt--subtitle-pad {
   padding: 6rem 4rem;
+}
+.speedup-txt--subtitle-l {
+  text-align: left;
 }
 @media (min-width: 900px) {
   .speedup-txt--subtitle {
@@ -493,6 +496,7 @@ a, a:visited, a:active, a:focus {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   position: relative;
+  color: #f3f3f3;
 }
 .blog-article:hover {
   box-shadow: 0px 0px 8px 3px yellow;
@@ -565,29 +569,30 @@ a, a:visited, a:active, a:focus {
     width: calc(100% - 6rem);
   }
 }
-.blog-article__tags {
+.blog-article__info {
+  color: yellow;
+}
+
+.tags--absolute {
   position: absolute;
   top: -2.5%;
   left: 5%;
 }
 @media (min-width: 700px) {
-  .blog-article__tags {
+  .tags--absolute {
     position: static;
   }
 }
-.blog-article__tag {
+.tags__item {
   padding: 1rem;
   text-transform: uppercase;
   background-color: #000205;
   border: 2px solid yellow;
   border-radius: 10px;
 }
-.blog-article__tag--newest {
+.tags__item--newest {
   background-color: yellow;
   color: #000205;
-}
-.blog-article__info {
-  color: yellow;
 }
 
 .browser {
@@ -2380,6 +2385,130 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 700px) {
   .blog-content__grid {
     padding: 4rem 8rem;
+  }
+}
+
+.post-header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
+}
+.post-header__img {
+  display: block;
+  height: 100%;
+  opacity: 0.3;
+}
+@media (min-width: 900px) {
+  .post-header__img {
+    width: 100%;
+  }
+}
+.post-header__wrap {
+  position: absolute;
+  bottom: 5vh;
+  left: 0;
+  padding: 2rem;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 900px) {
+  .post-header__wrap {
+    width: 70vw;
+    left: 4rem;
+  }
+}
+
+.separator {
+  width: 90%;
+  border-bottom: 2px solid yellow;
+}
+
+.post-content {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 900px) {
+  .post-content {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.post-content__wrap {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: clamp(20px, 5rem, 8rem);
+}
+@media (min-width: 900px) {
+  .post-content__wrap {
+    width: 60%;
+  }
+}
+.post-content__txt--lead {
+  font-weight: 600;
+  margin-block: 6rem;
+}
+.post-content__quote-wrap {
+  padding: 2rem;
+  -webkit-border-start: 2px solid;
+          border-inline-start: 2px solid;
+  -webkit-border-before: 2px solid;
+          border-block-start: 2px solid;
+  -webkit-border-end: 2px solid;
+          border-inline-end: 2px solid;
+  border-image-source: linear-gradient(yellow, transparent 70%);
+  border-image-slice: 1;
+}
+.post-content__quote {
+  display: block;
+}
+.post-content__quote-caption {
+  margin-top: 20px;
+  text-align: right;
+}
+.post-content__img-wrap {
+  max-height: 400px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+}
+.post-content__img-wrap:hover .post-content__img {
+  transform: scale(1.1);
+}
+@media (min-width: 900px) {
+  .post-content__img-wrap {
+    max-height: unset;
+  }
+}
+.post-content__img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: transform 0.3s linear;
+}
+
+.add-panel {
+  width: 100%;
+  height: 300px;
+  background: rgba(255, 0, 0, 0.365);
+}
+@media (min-width: 900px) {
+  .add-panel {
+    width: 300px;
+    height: 600px;
   }
 }
 
