@@ -19,7 +19,11 @@
     }
 
     &__aside{
-        width: 20%;
+        padding: 2rem;
+        @include m.breakpoint("large"){
+            width: 20%;
+            padding: unset;
+        }
     }
 
     &__txt{

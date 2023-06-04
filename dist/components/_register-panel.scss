@@ -5,9 +5,13 @@
 .register-panel{
     @include m.display-flex(flex, column);
     gap: 2rem;
-    width: 100%;
-    border-radius: 10px;
+    margin-block: 4rem;
     padding: 2rem;
+    border-radius: 10px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    hyphens: auto;
+
+    &__icon-incentives{
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
