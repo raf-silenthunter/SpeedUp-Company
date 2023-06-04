@@ -6,6 +6,9 @@
     @include m.display-flex(flex, column);
     @include m.flex-center(space-between, center);
     padding: 0 2rem;
+    &--shadow{
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
 
     @include m.breakpoint(large) {
             padding: 8rem;
@@ -41,6 +44,7 @@
     position: relative;
     color: white;
     overflow: hidden;
+    border-radius: 10px;
 
     &__cover {
             width: 100%;

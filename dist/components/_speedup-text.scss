@@ -25,6 +25,10 @@
         -webkit-text-fill-color: yellow;
     }
 
+    &--black{
+        color: v.$pale-black;
+    }
+
     &--medium {
         font-size: v.$font-size-medium;
 

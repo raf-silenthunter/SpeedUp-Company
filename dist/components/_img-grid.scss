@@ -1,0 +1,14 @@
+@use "../utils/mixins" as m;
+
+.img-grid {
+    display: grid;
+    @include m.breakpoint("large") {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    gap: 2rem;
+    &__item-wrap {
+        overflow: hidden;
+        border-radius: 10px;
+    }
+}
