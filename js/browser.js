@@ -1,3 +1,8 @@
+// FLEET OPTIONS FILTER 
+import {FleetFilter} from './Fleet-filer.js';
+const blogFilter = new FleetFilter();
+blogFilter.filterInit();
+
 // OPEN MOBILE MENU FN 
 const mobileMenuBtn = document.querySelector(".main-nav__hamburger-btn");
 const mobileMenuList = document.querySelector(".list");
@@ -74,35 +79,3 @@ const changeModalState = (e) => {
 modalBtns.forEach((btn)=> {
     btn.addEventListener("click", changeModalState);
 });
-
-// FLEET OPTIONS FILTER 
-
-const fleetWrap = document.querySelector(".grid");
-const fleetElements = document.querySelectorAll(".grid__element");
-const fleetOptions = [...fleetElements];
-
-const cleanFleet = () => {
-    fleetWrap.innerHTML = '';
-}
-
-const checkBtnKey = (e) => {
-    if(e.target.matches(".filter__btn, .filter__title, .filter__icon, .filter__picture")){
-        let target = e.target;
-        while (target && !target.classList.contains("filter__btn")) target = target.parentElement;
-        const clickedBtnKey = target.dataset.key;
-        cleanFleet();
-        return clickedBtnKey;
-    } else if (e.target.matches(".option, .option__img, .option__list, .option__item, .option__txt, .action-btn")) {
-        return;
-    } else {
-        fleetOptions.forEach(fleetOption => fleetWrap.append(fleetOption));
-    }
-}
-
-const filterFleet = (e) => {
-    const btnKey = checkBtnKey(e); 
-    const filteredFleet = fleetOptions.filter(e => e.dataset.option === btnKey)
-    filteredFleet.forEach(fleetElement => fleetWrap.append(fleetElement))
-};
-
-document.addEventListener("click", filterFleet)

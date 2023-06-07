@@ -111,7 +111,7 @@
                 <h1 class="blog-head__title speedup-txt--title speedup-txt--uppercased">Welcome to our blog</h1>
             </div>
             <article class="blog-head__content gradient-bgcolor">
-                <a class="blog-head__blog-article blog-article blog-article--newest">
+                <a href="../html/blog-posts/blog-post.html" class="blog-head__blog-article blog-article blog-article--newest">
                     <picture class="blog-article__picture">
                         <img src="../images/slide-1.jpg" alt="" class="blog-article__img">
                     </picture>
@@ -137,24 +137,24 @@
                 </div>
             </div>
             <section class="blog-content__filter filter">
-                <button class="filter__btn filter__btn--inset" data-key="luxury">
+                <button class="filter__btn filter__btn--inset" data-key="tests">
                     <p class="filter__title">Testy</p>
                 </button>
-                <button class="filter__btn filter__btn--inset" data-key="oldtimer">
+                <button class="filter__btn filter__btn--inset" data-key="interviews">
                     <p class="filter__title">Wywiady</p>
                 </button>
-                <button class="filter__btn filter__btn--inset" data-key="sport">
+                <button class="filter__btn filter__btn--inset" data-key="news">
                     <p class="filter__title">Newsy</p>
                 </button>
-                <button class="filter__btn filter__btn--inset" data-key="terrain">
+                <button class="filter__btn filter__btn--inset" data-key="events">
                     <p class="filter__title">Eventy</p>
                 </button>
-                <button class="filter__btn filter__btn--clean filter__btn--inset" data-key="terrain">
+                <button class="filter__btn filter__btn--clean filter__btn--inset" data-key="clean">
                     <p class="filter__title">Wyczyść</p>
                 </button>
             </section>
             <section class="blog-content__grid grid grid--left grid--white grid--blog">
-                <a class="blog-article" href="../html/blog-posts/blog-post.html">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="interviews">
                     <picture class="blog-article__picture">
                         <img src="../images/president_speedup.png" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
@@ -169,7 +169,7 @@
                         <p class="blog-article__info speedup-txt-small">3 min read</p>
                     </div>
                 </a>
-                <a class="blog-article">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="tests">
                     <picture class="blog-article__picture">
                         <img src="../images/slide-2.jpg" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
@@ -184,7 +184,7 @@
                         <p class="blog-article__info speedup-txt-small">3 min read</p>
                     </div>
                 </a>
-                <a class="blog-article">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="events">
                     <picture class="blog-article__picture">
                         <img src="../images/slide-3.jpg" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
@@ -269,5 +269,6 @@
     </footer>
     <!-- <script src="../js/slider.js"></script> -->
     <!-- <script src="../js/main.js"></script> -->
+    <script src="../js/blog-script.js" type="module"></script>
 </body>
 </html>

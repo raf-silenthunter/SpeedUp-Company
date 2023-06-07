@@ -1,6 +1,4 @@
-@use "../utils/breakpoints" as b;
 @use "../utils/mixins" as m;
-@use "../utils/variables" as v;
 
 .register-panel{
     @include m.display-flex(flex, column);
@@ -12,6 +10,7 @@
 
     &__icon-incentives{
         flex-direction: column;
+        align-items: center;
         gap: 2rem;
     }
 }
