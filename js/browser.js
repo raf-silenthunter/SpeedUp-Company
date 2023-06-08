@@ -1,6 +1,8 @@
 // FLEET OPTIONS FILTER 
-import {FleetFilter} from './Fleet-filer.js';
-const blogFilter = new FleetFilter();
+import {FleetFilter} from "./Fleet-filer.js";
+const grid = document.querySelector(".grid");
+const gridElements = document.querySelectorAll(".option");
+const blogFilter = new FleetFilter(grid, gridElements, true);
 blogFilter.filterInit();
 
 // OPEN MOBILE MENU FN 
