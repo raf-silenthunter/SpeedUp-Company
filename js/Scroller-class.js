@@ -59,7 +59,6 @@ class Scroller {
 
     checkSectionInView(section) {
             const {top, bottom} = section.getBoundingClientRect();
-
             const isVisible = (top >= 0) && (Math.floor(bottom) <= window.innerHeight);
             return isVisible;
     }

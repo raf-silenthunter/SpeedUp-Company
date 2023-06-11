@@ -1,14 +1,5 @@
-import {FleetFilter} from "./Fleet-filer.js";
-const grid = document.querySelector(".grid");
-const gridElements = document.querySelectorAll(".option");
-const blogFilter = new FleetFilter(grid, gridElements, true);
-blogFilter.filterInit();
-
-import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
-
-//StickyNav Class invoking
-const stickyMenu = new StickyNav();
-window.addEventListener("scroll", () => stickyMenu.toggleNav());
+import {ShowMobileNav, OpenModal, DropdownNav} from "./general/mainnav-scripts.js";
+import {Accordeon, secondaryImageDetector} from "./general/extras-scripts.js";
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();
@@ -24,3 +15,12 @@ const modalFn = new OpenModal();
 modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
+
+//Accordion Class invoking
+const accordion = new Accordeon();
+accordion.accordeonContainer.addEventListener("click", (e) => accordion.initAccordion(e));
+
+
+//secondaryImageDetector Function invoking
+const imageDetector = secondaryImageDetector();
+document.addEventListener("DOMContentLoaded", imageDetector);

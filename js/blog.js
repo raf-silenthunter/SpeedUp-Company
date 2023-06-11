@@ -1,7 +1,7 @@
 import {FleetFilter} from "./Fleet-filer.js";
 const grid = document.querySelector(".grid");
-const gridElements = document.querySelectorAll(".option");
-const blogFilter = new FleetFilter(grid, gridElements, true);
+const gridElements = document.querySelectorAll(".grid__blog-article");
+const blogFilter = new FleetFilter(grid, gridElements, false);
 blogFilter.filterInit();
 
 import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";

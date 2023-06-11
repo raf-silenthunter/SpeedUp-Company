@@ -2290,6 +2290,7 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 900px) {
   .swiper-profits__bg {
+    display: block;
     position: absolute;
     top: 100px;
     left: 50%;
@@ -2298,8 +2299,6 @@ a, a:visited, a:active, a:focus {
     background-size: contain;
     background-repeat: no-repeat;
     z-index: -100;
-    -webkit-clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
-            clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
     opacity: 0.3;
   }
 }
