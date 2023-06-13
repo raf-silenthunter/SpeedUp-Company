@@ -1,6 +1,6 @@
 import {ShowMobileNav, OpenModal, DropdownNav} from "./general/mainnav-scripts.js";
 import {Accordeon, secondaryImageDetector} from "./general/extras-scripts.js";
-import {Swiper} from "./general/swiper-scripts.js";
+import {Swiper, Scroller} from "./general/swiper-scripts.js";
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();
@@ -25,12 +25,9 @@ accordion.accordeonContainer.addEventListener("click", (e) => accordion.initAcco
 const imageDetector = secondaryImageDetector();
 document.addEventListener("DOMContentLoaded", imageDetector);
 
-//Swiper Class invoking
-
+//Scroller Class invoking
+const mainScroller = new Scroller();
 document.addEventListener("DOMContentLoaded", () => {
-    const mainScroller = new Scroller();
-    const mainSwiper = new Swiper();
-
     document.addEventListener("wheel", (event) => mainScroller.listenScroll(event));
     //custom events 
     document.addEventListener("swipeUp", () => mainScroller.scroll(1))
@@ -49,3 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 })
+
+//Swiper Class invoking
+const mainSwiper = new Swiper();
+document.addEventListener("touchstart", (event) => mainSwiper.touchStart(event));
+document.addEventListener("touchmove", (event) => mainSwiper.touchMove(event));
