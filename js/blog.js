@@ -1,4 +1,4 @@
-import {FleetFilter} from "./Fleet-filer.js";
+import {FleetFilter} from "./general/filter-scripts.js";
 const grid = document.querySelector(".grid");
 const gridElements = document.querySelectorAll(".grid__blog-article");
 const blogFilter = new FleetFilter(grid, gridElements, false);

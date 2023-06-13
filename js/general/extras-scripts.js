@@ -55,3 +55,30 @@ export function secondaryImageDetector() {
                 default: img.setAttribute("src", "../../images/slide-4.jpg")
     }
 }
+
+export function counter() {
+    const carNumber = document.querySelector(".cars-num");
+    const clientNumber = document.querySelector(".clients-num");
+    const lendNumber = document.querySelector(".lends-num");
+
+    let carStart = 0, clientStart = 0, lendStart = 0;
+
+    const counterStartValue = 300;
+
+    const changeNumbers = () => {
+        carNumber.textContent = `${carStart >= 120 ? carStart : carStart++}`
+        clientNumber.textContent = `${clientStart >= 300 ? clientStart : clientStart++}`
+        lendNumber.textContent = `${lendStart >= 1500 ? lendStart : lendStart++}`
+    }
+
+    const startCounter = document.addEventListener("scroll", () => {
+        let scrollPosition = window.scrollY;
+        if (scrollPosition >= counterStartValue) {
+            const interval = setInterval(changeNumbers, 10);
+            // value with the biggest number needs to stop interval 
+            if (lendStart === 1500) clearInterval(interval);
+        }
+    });
+
+    document.addEventListener("scroll", startCounter);
+}
