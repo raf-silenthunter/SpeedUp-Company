@@ -210,3 +210,10 @@
         cursor: pointer;
     }
 }
+
+.dynamic-border {
+    width: 0;
+    height: 3px;
+    background-color: v.$silver;
+    @include m.position(fixed, v.$main-nav-height, 0);
+}

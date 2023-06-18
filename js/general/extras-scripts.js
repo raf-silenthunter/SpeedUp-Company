@@ -82,3 +82,43 @@ export function counter() {
 
     document.addEventListener("scroll", startCounter);
 }
+
+export class DynamicBorder {
+    constructor(root, parent){
+        this.root = root;
+        this.borderParent = parent;
+
+        
+        
+        this.addBorder();
+    }
+
+    changeBorderLeft(value){
+        const border = document.querySelector(".dynamic-border");
+        border.style.width = value;
+    }
+
+    addBorder(){
+        const border = document.createElement("span");
+        border.classList.add("dynamic-border");
+        this.borderParent.append(border);
+    }
+
+    createBorder(){
+        const rootTopPosition = this.root.offsetTop;
+        const rootHeight = this.root.offsetHeight;
+        const navWidth = this.borderParent.offsetWidth;
+        const scrollPosition = window.scrollY;
+
+        if(scrollPosition >= rootTopPosition && scrollPosition <= (rootTopPosition + rootHeight)) {
+            const devider = rootHeight/navWidth;
+            const dynamicBorderWidth = Math.round(scrollPosition/devider);
+            this.changeBorderLeft(`${dynamicBorderWidth}px`);
+        } else if(scrollPosition > rootHeight) {
+            //extra condition needed in case of very fast scrolling
+            this.changeBorderLeft(`${navWidth}px`);
+        } else {
+            return;
+        }
+    }
+}
