@@ -88,7 +88,9 @@ export class DynamicBorder {
         this.root = root;
         this.borderParent = parent;
 
-        
+        // this.rootTopPosition = this.root.offsetTop;
+        // this.rootHeight = this.root.offsetHeight;
+        // this.borderParentWidth = this.borderParent.offsetWidth;
         
         this.addBorder();
     }
@@ -96,28 +98,35 @@ export class DynamicBorder {
     changeBorderLeft(value){
         const border = document.querySelector(".dynamic-border");
         border.style.width = value;
-    }
+    }   
 
     addBorder(){
         const border = document.createElement("span");
         border.classList.add("dynamic-border");
         this.borderParent.append(border);
+    }   
+
+    calcBorder(scrollPos){
+        const dynamicBorderWidth = scrollPos * 100 / this.rootHeight;
+        return dynamicBorderWidth;
     }
 
     createBorder(){
-        const rootTopPosition = this.root.offsetTop;
-        const rootHeight = this.root.offsetHeight;
-        const navWidth = this.borderParent.offsetWidth;
+        this.rootTopPosition = this.root.offsetTop;
+        this.rootHeight = this.root.offsetHeight;
+        this.borderParentWidth = this.borderParent.offsetWidth;
+        //I want this to be updated with scroll incase user changes desktop viewport 
         const scrollPosition = window.scrollY;
-
-        if(scrollPosition >= rootTopPosition && scrollPosition <= (rootTopPosition + rootHeight)) {
-            const devider = rootHeight/navWidth;
-            const dynamicBorderWidth = Math.round(scrollPosition/devider);
-            this.changeBorderLeft(`${dynamicBorderWidth}px`);
-        } else if(scrollPosition > rootHeight) {
+        
+        if(scrollPosition >= this.rootTopPosition && scrollPosition <= (this.rootTopPosition + this.rootHeight)) {
+            const dynamicBorderWidth = this.calcBorder(scrollPosition)
+            this.changeBorderLeft(`${dynamicBorderWidth}%`);
+        } 
+        else if(scrollPosition > this.rootHeight) {
             //extra condition needed in case of very fast scrolling
-            this.changeBorderLeft(`${navWidth}px`);
-        } else {
+            this.changeBorderLeft(`${100}%`);
+        } 
+        else {
             return;
         }
     }
