@@ -44,3 +44,18 @@
         }
     }
 }
+
+.scroll-btn{
+    position: fixed;
+    right: -200px;
+    bottom: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: v.$pale-black;
+    z-index: 1000;
+    transition: all .4s linear;
+    &--visible{
+        right: 20px;
+    }
+}

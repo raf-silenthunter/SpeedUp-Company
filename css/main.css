@@ -571,6 +571,9 @@ a, a:visited, a:active, a:focus {
     width: calc(100% - 6rem);
   }
 }
+.blog-article__snippet {
+  margin-block: 15px;
+}
 .blog-article__info {
   color: yellow;
 }
@@ -615,7 +618,7 @@ a, a:visited, a:active, a:focus {
 .browser__input {
   padding: 1rem;
   border: none;
-  border-left: 2px solid yellow;
+  border-inline: 2px solid yellow;
   flex-grow: 4;
   background: #000205;
   color: #acacac;
@@ -2161,6 +2164,21 @@ a, a:visited, a:active, a:focus {
   .filter__title {
     font-size: clamp(1.75rem, 1rem + 1.1vh, 2.25rem);
   }
+}
+
+.scroll-btn {
+  position: fixed;
+  right: -200px;
+  bottom: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: #000205;
+  z-index: 1000;
+  transition: all 0.4s linear;
+}
+.scroll-btn--visible {
+  right: 20px;
 }
 
 .swiper {

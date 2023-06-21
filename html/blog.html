@@ -133,7 +133,7 @@
             <div class="blog-content__browser browser">
                 <div class="browser__wrap">
                     <input type="text" placeholder="What are you looking for?" class="browser__input speedup-txt-small">
-                    <button class="browser__action-btn action-btn action-btn--animation speedup-txt-small">Search</button>
+                    <button class="browser__action-btn action-btn action-btn--animation speedup-txt-small">Clean</button>
                 </div>
             </div>
             <section class="blog-content__filter filter">
@@ -152,9 +152,12 @@
                 <button class="filter__btn filter__btn--clean filter__btn--inset" data-key="clean">
                     <p class="filter__title">Wyczyść</p>
                 </button>
+                <button class="filter__btn scroll-btn gradient-bgcolor">
+                    <p class="speedup-txt--uppercased">Filter</p>
+                </button>
             </section>
             <section class="blog-content__grid grid grid--left grid--white grid--blog">
-                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="interviews">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="interviews" data-filter="filter">
                     <picture class="blog-article__picture">
                         <img src="../images/president_speedup.png" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
@@ -162,14 +165,14 @@
                         <div class="tags tags--absolute">
                             <span class="tags__item speedup-txt-small">Wywiad</span>
                         </div>
-                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
+                        <h2 class="blog-article__title speedup-txt speedup-txt--medium">Samuel L. Jackson, !SpeedUp founder exclusive interview </h2>
                         <p class="blog-article__snippet speedup-txt-small">Lorem ipsum, dolor sit amet consectetur
                             adipisicing elit. Distinctio sed odit fugiat cum ut nisi quas, eius vitae
                             amet animi quidem tempore.</p>
                         <p class="blog-article__info speedup-txt-small">3 min read</p>
                     </div>
                 </a>
-                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="tests">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="tests" data-filter="filter">
                     <picture class="blog-article__picture">
                         <img src="../images/slide-2.jpg" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
@@ -184,12 +187,12 @@
                         <p class="blog-article__info speedup-txt-small">3 min read</p>
                     </div>
                 </a>
-                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="events">
+                <a href="../html/blog-posts/blog-post.html" class="grid__blog-article blog-article" data-option="events" data-filter="filter">
                     <picture class="blog-article__picture">
                         <img src="../images/slide-3.jpg" alt="" class="blog-article__img blog-article__img--dark">
                     </picture>
                     <div class="blog-article__content blog-article__content--positioned">
-                        <div class="tags ">
+                        <div class="tags tags--absolute">
                             <span class="tags__item speedup-txt-small">Event</span>
                         </div>
                         <h2 class="blog-article__title speedup-txt speedup-txt--medium">New CUPRA Leon VZ CUP ultimate test!</h2>
@@ -198,8 +201,7 @@
                             amet animi quidem tempore.</p>
                         <p class="blog-article__info speedup-txt-small">3 min read</p>
                     </div>
-                </a>
-            
+                </a>            
             </section>
         </section>
     </main>

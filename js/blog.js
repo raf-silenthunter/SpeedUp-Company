@@ -24,3 +24,8 @@ const modalFn = new OpenModal();
 modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
+
+import {ScrollBtn} from "./general/extras-scripts.js";
+const elemsWrap = document.querySelector(".grid");
+const scrollBtn = new ScrollBtn(elemsWrap);
+window.addEventListener("scroll", () => scrollBtn.showBtn());

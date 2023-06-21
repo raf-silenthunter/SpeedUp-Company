@@ -47,4 +47,4 @@ export class FleetFilter {
                 filteredFleet.forEach(fleetElement => this.fleetWrap.append(fleetElement))
             }
         }
-    }
+}

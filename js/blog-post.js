@@ -24,4 +24,4 @@ modalFn.modalBtns.forEach((btn)=> {
 const root = document.querySelector(".post");
 const mainnav = document.querySelector(".main-nav");
 const dynamicBorder = new DynamicBorder(root, mainnav);
-window.addEventListener("scroll", ()=> dynamicBorder.createBorder())
+window.addEventListener("scroll", ()=> dynamicBorder.createBorder());

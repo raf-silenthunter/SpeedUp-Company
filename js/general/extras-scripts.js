@@ -131,3 +131,30 @@ export class DynamicBorder {
         }
     }
 }
+
+export class ScrollBtn {
+    constructor(elemsWrap){
+        this.scrollBtn = document.querySelector(".scroll-btn");
+        this.scrolledElemsWrap = elemsWrap;
+
+        this.scrollBtn.addEventListener("click", this.scroll)
+    }
+
+    scroll(){
+        const target = document.querySelector(".filter");
+        const targetFromTop = target.offsetTop;
+        const mainNavHeight = 100;
+
+        const scrollPosition = targetFromTop - mainNavHeight;
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: scrollPosition,
+        });
+    }
+
+    showBtn(){
+        const scrollerWrapPos = this.scrolledElemsWrap.getBoundingClientRect().top;
+        scrollerWrapPos <= 0 ? this.scrollBtn.classList.add("scroll-btn--visible") : this.scrollBtn.classList.remove("scroll-btn--visible");
+    }
+}
