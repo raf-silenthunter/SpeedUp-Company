@@ -64,52 +64,38 @@ export class ExtraFilter extends FleetFilter{
         filterInput.addEventListener("input", (e) => this.filterOnInput(e));
     }
 
-    showPosts(arr){
+    showPosts(postsIndexes){
         this.cleanFleet();
-        if(arr.length === 0) {
+        if(postsIndexes.length === 0) {
             this.missigContentInfo();
         } else {
-            arr.forEach((arrindex) => {
-                this.fleetWrap.append(this.fleetOptions[arrindex]);         
+            postsIndexes.forEach((postIndex) => {
+                this.fleetWrap.append(this.fleetOptions[postIndex]);         
             })
         }
     }
 
     filterH2InFleet(fleet){
         return fleet.map((fleetEl) => {
-            const h2Arr = fleetEl.querySelector(".blog-article__title").textContent.split(" ");
-            if(h2Arr.includes('')) {
-                const indexOfSpace = h2Arr.indexOf('');
-                h2Arr.splice(indexOfSpace, 1);
-            }
-            const arr = h2Arr.concat().join(" ");
-            console.log(arr);
-            return h2Arr;
+            const h2FromPosts = fleetEl.querySelector(".blog-article__title").textContent;
+            return h2FromPosts;
         });
     }
 
-    findPostsToShow(insertedTxt, filterH2Arr){
-        let indexesOfPostsToShow = [];
-        for(let i = 0; i < filterH2Arr.length; i++){
-                const levelOne = filterH2Arr[i];
-                for(let x = 0; x < levelOne.length; x++){
-                    const levelTwo = levelOne[x];
-                    if(levelTwo.toUpperCase() === insertedTxt.toUpperCase()) {
-                        indexesOfPostsToShow.push(i);  
-                    }         
-                }           
+    findPostsToShow(insertedTxt, filteredH2s){
+        const indexesOfPostsToShow = [];
+            for(let i = 0; i < filteredH2s.length; i++){
+                if(filteredH2s[i].toUpperCase().includes(insertedTxt.toUpperCase())) {
+                    indexesOfPostsToShow.push(i);  
+                }         
             }
-        return indexesOfPostsToShow
+        return indexesOfPostsToShow;
     }
 
     filterOnInput(e){
-        let value = e.target.value;
-        const filterH2Arr = this.filterH2InFleet(this.fleetOptions);
-        const indexesOfPostsToShow = this.findPostsToShow(value, filterH2Arr);       
+        const inputTxt = e.target.value;
+        const filteredH2sArray = this.filterH2InFleet(this.fleetOptions);
+        const indexesOfPostsToShow = this.findPostsToShow(inputTxt, filteredH2sArray);       
         this.showPosts(indexesOfPostsToShow);
-    }
-
-    filterFleet(e){
-        super.filterFleet(e);
     }
 }
