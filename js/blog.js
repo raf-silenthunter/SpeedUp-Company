@@ -1,9 +1,3 @@
-import {FleetFilter} from "./general/filter-scripts.js";
-const grid = document.querySelector(".grid");
-const gridElements = document.querySelectorAll(".grid__blog-article");
-const blogFilter = new FleetFilter(grid, gridElements, false);
-blogFilter.filterInit();
-
 import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
 
 //StickyNav Class invoking
@@ -29,3 +23,12 @@ import {ScrollBtn} from "./general/extras-scripts.js";
 const elemsWrap = document.querySelector(".grid");
 const scrollBtn = new ScrollBtn(elemsWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
+
+import {ExtraFilter} from "./general/filter-scripts.js";
+
+const grid = document.querySelector(".grid");
+const gridElements = document.querySelectorAll(".grid__blog-article");
+
+const extraFilter = new ExtraFilter(grid, gridElements, false);
+extraFilter.filterInit();
+
