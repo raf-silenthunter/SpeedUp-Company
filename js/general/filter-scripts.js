@@ -58,10 +58,17 @@ export class FleetFilter {
 export class ExtraFilter extends FleetFilter{
     constructor(wrap, elements, unableClean = false){
         super(wrap, elements, unableClean);
+        this.filterInput = document.querySelector(".browser__input");
+        this.filterInput.value = "";
+        this.cleanBtn = document.querySelector(".browser__action-btn");
 
-        const filterInput = document.querySelector(".browser__input");
-        filterInput.value = "";
-        filterInput.addEventListener("input", (e) => this.filterOnInput(e));
+        this.filterInput.addEventListener("input", (e) => this.filterOnInput(e));
+        this.cleanBtn.addEventListener("click", () => this.cleanFilter())
+    }
+
+    cleanFilter(){
+        this.filterInput.value = "";
+        this.restoreOptions();
     }
 
     showPosts(postsIndexes){
