@@ -1,0 +1,111 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+@use "../../utils/breakpoints" as b;
+
+.contact{
+    @include m.grid-parent(repeat(2, auto), repeat(2, 1fr));   
+    width: 100%;
+    position: relative;
+
+    &__header{
+        padding-top: 100px;
+        height: 100vh;
+        grid-column: 1/-1;       
+        @include m.display-flex(flex, column);
+        @include m.flex-center(center, center);
+    }
+
+    &__map{
+        border: 2px solid aqua;
+    }
+
+    &__img{
+        @include m.position(absolute, 0, 0);
+        width: 100%;
+        height: 100vh;
+        opacity: .1;
+        z-index: -100;
+    }
+
+    &__form-wrap{
+        width: 800px;
+        margin-top: 4rem;
+    }
+
+    &__form{
+        @include m.grid-parent(repeat(3, 1fr), repeat(2, 1fr));
+        gap: 1rem 2rem; 
+        max-height: 500px;
+    }
+
+    &__form-item{
+        &:last-child {
+            grid-column: 1/-1;
+        }
+    }
+
+    &__form-input{
+        width: 100%;
+        border: 2px solid v.$silver;
+        background: transparent;
+        text-align: left;
+        height: 80px;
+        outline: none;
+    }
+
+    &__action-btn{
+        grid-column: 1/-1;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    &__info{
+        padding: 4rem;
+        background-color: v.$pale-black;
+        background-color: red;
+        height: 400px;
+        @include m.display-flex(flex, column);
+        justify-content: space-around;
+    }
+
+    &__data-icon{
+        width: 32px;
+    }
+
+    &__subtitle{
+        margin-bottom: 3rem;
+    }
+
+    &__data-wrap{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, 1fr);
+        justify-content: left;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.ongradient-txt{
+    color: v.$pale-black;
+}
+
+.input-control{
+    height: 110px;
+    &:last-of-type{
+        grid-column: 1/-1;
+    }
+
+    &--success{
+        border-color: #09c372;
+    }
+
+    &--error{
+        border-color: #ff3860;
+        &-info{
+            color: #ff3860;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+    }
+}
