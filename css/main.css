@@ -2688,7 +2688,8 @@ a, a:visited, a:active, a:focus {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(2, 1fr);
   display: grid;
-  gap: 1rem 2rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
   max-height: 500px;
 }
 .contact__form-item:last-child {
@@ -2736,7 +2737,7 @@ a, a:visited, a:active, a:focus {
 }
 
 .input-control {
-  height: 110px;
+  height: 115px;
 }
 .input-control:last-of-type {
   grid-column: 1/-1;
@@ -2751,6 +2752,12 @@ a, a:visited, a:active, a:focus {
   color: #ff3860;
   font-size: 15px;
   margin-top: 5px;
+}
+
+.success-msg {
+  grid-column: 1/-1;
+  color: #09c372;
+  text-align: center;
 }
 
 /* Remember you have to attribute Andy Horvath */

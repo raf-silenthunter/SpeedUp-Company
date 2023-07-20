@@ -17,8 +17,8 @@ export class FormValidation{
             inputPhone: null,
             inputMessage: null,
             inputEmail: null,
-            //TE INPUTY MUSISZ AKTUALIZOWAĆ PO KAŻDYM SUBMICIE
         }
+
         this.dataSuccess = false;
 
         this.cleanInputs();
@@ -59,9 +59,17 @@ export class FormValidation{
         for(const key in this.validationData){
                 if(this.validationData[key] === null) {
                     this.dataSuccess = false;
+                    break;
                 }
                 else this.dataSuccess = true;
             }
+    }
+
+    showSuccessMsg(){
+        const messageElement = document.querySelector(".success-msg");
+        const msgInfo = "Your query has been send. We will contact you within 48 hours!"
+        
+        messageElement.textContent = msgInfo;
     }
 
     validateInputs(){
@@ -70,6 +78,7 @@ export class FormValidation{
         const phoneValue = this.phoneInput.value.trim();
         const messageValue = this.messageInput.value.trim();
 
+        //username validation
         if(nameValue === ""){
             const errorMessage = "Provide your name";
             this.setError(this.nameInput, errorMessage);
@@ -77,7 +86,7 @@ export class FormValidation{
             this.validationData.inputName = "true";
             this.setSuccess(this.nameInput);   
         }
-        
+        //phone validation
         if(phoneValue){
             const phoneno = /^\d{9}$/;
             if(!phoneValue.match(phoneno)) {
@@ -87,8 +96,11 @@ export class FormValidation{
                 this.validationData.inputPhone = "true";
                 this.setSuccess(this.phoneInput);
             }
+        } else {
+            const errorMessage = "Insert phone number";
+            this.setError(this.phoneInput, errorMessage);
         }
-
+        //message validation
         if(messageValue === ""){
             const errorMessage = "Please, tell us what do you need";
             this.setError(this.messageInput, errorMessage);
@@ -96,7 +108,7 @@ export class FormValidation{
             this.validationData.inputMessage = "true";
             this.setSuccess(this.messageInput);   
         }
-
+        //email validation
         const validateEmail = (value) => {
         return String(value)
             .toLowerCase()
@@ -104,7 +116,6 @@ export class FormValidation{
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
         }
-
         const isEmailValid = validateEmail(emailValue);
 
         if(!isEmailValid){
@@ -114,11 +125,12 @@ export class FormValidation{
             this.validationData.inputEmail = "true";
             this.setSuccess(this.emailInput);
         }
-        
-        this.checkValidationData()
+        //data check and submit
+        this.checkValidationData();
+        this.cleanValidationData();
         if(this.dataSuccess) {
             this.cleanInputs();
-            this.cleanValidationData();
+            this.showSuccessMsg();
         }
         else return;
     }
