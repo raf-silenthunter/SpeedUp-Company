@@ -2585,12 +2585,9 @@ a, a:visited, a:active, a:focus {
 }
 .post-content__quote-wrap {
   padding: 2rem;
-  -webkit-border-start: 2px solid;
-          border-inline-start: 2px solid;
-  -webkit-border-before: 2px solid;
-          border-block-start: 2px solid;
-  -webkit-border-end: 2px solid;
-          border-inline-end: 2px solid;
+  border-inline-start: 2px solid;
+  border-block-start: 2px solid;
+  border-inline-end: 2px solid;
   border-image-source: linear-gradient(yellow, transparent 70%);
   border-image-slice: 1;
 }
@@ -2682,7 +2679,7 @@ a, a:visited, a:active, a:focus {
 }
 .contact__form-wrap {
   width: 800px;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 .contact__form {
   grid-template-rows: repeat(3, 1fr);
@@ -2702,6 +2699,18 @@ a, a:visited, a:active, a:focus {
   text-align: left;
   height: 80px;
   outline: none;
+  transition: all 0.4s linear;
+}
+.contact__form-input--success {
+  border: 2px solid #09c372;
+}
+.contact__form-input--error {
+  border-color: #ff3860;
+}
+.contact__form-input--error-info {
+  color: #ff3860;
+  font-size: 15px;
+  margin-top: 5px;
 }
 .contact__action-btn {
   grid-column: 1/-1;
@@ -2742,22 +2751,18 @@ a, a:visited, a:active, a:focus {
 .input-control:last-of-type {
   grid-column: 1/-1;
 }
-.input-control--success {
-  border-color: #09c372;
-}
-.input-control--error {
-  border-color: #ff3860;
-}
-.input-control--error-info {
-  color: #ff3860;
-  font-size: 15px;
-  margin-top: 5px;
-}
 
 .success-msg {
   grid-column: 1/-1;
   color: #09c372;
   text-align: center;
+  margin-block: 25px;
+  height: 30px;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+.success-msg--active {
+  opacity: 1;
 }
 
 /* Remember you have to attribute Andy Horvath */

@@ -10,7 +10,7 @@ export class FormValidation{
         allArguments.splice(0,1);
         //form is always first. Add inputs at the end as arguments
         this.allInputs = allArguments;
-
+        console.log(this.allInputs);
         //insert necessary inputs below
         this.validationData = {
             inputName: null,
@@ -34,19 +34,21 @@ export class FormValidation{
 
     setError(element, msg){
         const inputParent = element.parentElement;
-        const errorDisplay = inputParent.querySelector(".input-control--error-info");
+        const errorDisplay = inputParent.querySelector(".input-control__error-info");
 
         errorDisplay.innerHTML = msg;
-        element.classList.add("input-control--error")
+        errorDisplay.classList.add("contact__form-input--error-info");
+        element.classList.add("contact__form-input--error");
     }
 
     setSuccess(element){
         const inputParent = element.parentElement;
-        const errorDisplay = inputParent.querySelector(".input-control--error-info");
-
+        const errorDisplay = inputParent.querySelector(".input-control__error-info");
+        //dodać ifa - nie powinno zawsze resetować
         errorDisplay.innerHTML = "";
-        element.classList.remove("input-control--error");
-        element.classList.add("input-control--success");
+        element.classList.remove("contact__form-input--error");
+        element.classList.add("contact__form-input--success");
+        //sprawdzić czy toggle przyjmie 2 klasy i jak to działa
     }
 
     cleanValidationData(){
@@ -67,9 +69,13 @@ export class FormValidation{
 
     showSuccessMsg(){
         const messageElement = document.querySelector(".success-msg");
-        const msgInfo = "Your query has been send. We will contact you within 48 hours!"
-        
-        messageElement.textContent = msgInfo;
+        messageElement.classList.add("success-msg--active");
+        setTimeout(()=> {
+            messageElement.classList.remove("success-msg--active");
+            this.allInputs.forEach((input)=> {
+                input.classList.remove("contact__form-input--success");
+            })
+        }, 2000)
     }
 
     validateInputs(){
