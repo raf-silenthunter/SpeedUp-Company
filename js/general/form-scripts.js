@@ -70,6 +70,7 @@ export class FormValidation{
     showSuccessMsg(){
         const messageElement = document.querySelector(".success-msg");
         messageElement.classList.add("success-msg--active");
+        
         setTimeout(()=> {
             messageElement.classList.remove("success-msg--active");
             this.allInputs.forEach((input)=> {
