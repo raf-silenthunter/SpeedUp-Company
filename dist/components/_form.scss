@@ -4,6 +4,7 @@
 .form {
     @include m.display-flex(flex, column);
     align-items: center;
+    
     &__label {
         width: 100%;
         display: flex;
@@ -15,21 +16,20 @@
 
     &__input {
         width: 100%;
-        padding: 2rem;
-        text-align: center;
         background-color: v.$pale-black;
-        color: v.$silver;
-        border-radius: 3px;
+        text-align: center;
         border: none;
-        box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
 
         @include m.breakpoint("large") {
             width: 50%;
         }
+    }
 
-        @include m.breakpoint("xxl") {
-            padding: 4rem;
-            border-radius: 10px;
+    &__input-control {
+    height: 115px;
+
+        &:last-of-type {
+            grid-column: 1/-1;
         }
     }
 
@@ -49,4 +49,49 @@
             margin-top: 6rem;
         }
     }
+}
+
+//pododawać inputy
+// optymalizacja JS
+
+.success-msg {
+    grid-column: 1/-1;
+    margin-block: 25px;
+    color: #09c372;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .4s linear;
+
+    &--active {
+        opacity: 1;
+    }
+}
+
+.input{
+    padding: 2rem;               
+    color: v.$silver;        
+    border: 2px solid v.$silver;
+    border-radius: 3px;       
+    box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
+    outline: none;
+    transition: all .4s linear;
+
+    @include m.breakpoint("xxl") {
+            padding: 4rem;
+            border-radius: 10px;
+        }
+
+    &--success {
+        border: 2px solid #09c372;
+    }
+
+    &--error{
+        border-color: #ff3860;
+    }
+}
+
+.error-info{
+    color: #ff3860;
+    font-size: 15px;
+    margin-top: 5px;
 }

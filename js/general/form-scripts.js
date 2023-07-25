@@ -37,8 +37,8 @@ export class FormValidation{
         const errorDisplay = inputParent.querySelector(".input-control__error-info");
 
         errorDisplay.innerHTML = msg;
-        errorDisplay.classList.add("contact__form-input--error-info");
-        element.classList.add("contact__form-input--error");
+        errorDisplay.classList.add("error-info");
+        element.classList.add("input--error");
     }
 
     setSuccess(element){
@@ -46,8 +46,8 @@ export class FormValidation{
         const errorDisplay = inputParent.querySelector(".input-control__error-info");
         //dodać ifa - nie powinno zawsze resetować
         errorDisplay.innerHTML = "";
-        element.classList.remove("contact__form-input--error");
-        element.classList.add("contact__form-input--success");
+        element.classList.remove("input--error");
+        element.classList.add("input--success");
         //sprawdzić czy toggle przyjmie 2 klasy i jak to działa
     }
 
@@ -64,7 +64,7 @@ export class FormValidation{
                     break;
                 }
                 else this.dataSuccess = true;
-            }
+        }
     }
 
     showSuccessMsg(){
@@ -74,13 +74,14 @@ export class FormValidation{
         setTimeout(()=> {
             messageElement.classList.remove("success-msg--active");
             this.allInputs.forEach((input)=> {
-                input.classList.remove("contact__form-input--success");
+                input.classList.remove("input--success");
             })
         }, 2000)
     }
 
     validateInputs(){
         const nameValue = this.nameInput.value.trim();
+        console.log(this.nameInput);
         const emailValue = this.emailInput.value.trim();
         const phoneValue = this.phoneInput.value.trim();
         const messageValue = this.messageInput.value.trim();

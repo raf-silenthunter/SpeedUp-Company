@@ -3,20 +3,16 @@
 @use "../../utils/breakpoints" as b;
 
 .contact{
-    @include m.grid-parent(repeat(2, auto), repeat(2, 1fr));   
+    @include m.grid-parent(repeat(2, auto), repeat(2, 1fr));
     width: 100%;
     position: relative;
 
     &__header{
         padding-top: 100px;
-        height: 100vh;
+        min-height: 100vh;
         grid-column: 1/-1;       
         @include m.display-flex(flex, column);
         @include m.flex-center(center, center);
-    }
-
-    &__map{
-        border: 2px solid aqua;
     }
 
     &__img{
@@ -27,45 +23,11 @@
         z-index: -100;
     }
 
-    &__form-wrap{
-        width: 800px;
-        margin-top: 2rem;
-    }
-
     &__form{
+        margin-top: 4rem;
         @include m.grid-parent(repeat(3, 1fr), repeat(2, 1fr));
         column-gap: 2rem; 
         max-height: 500px;
-    }
-
-    &__form-item{
-        &:last-child {
-            grid-column: 1/-1;
-        }
-    }
-
-    &__form-input{
-        width: 100%;
-        border: 2px solid v.$silver;
-        background: transparent;
-        text-align: left;
-        height: 80px;
-        outline: none;
-        transition: all .4s linear;
-
-        &--success {
-            border: 2px solid #09c372;
-            }
-            
-            &--error {
-                border-color: #ff3860;
-            
-                &-info {
-                    color: #ff3860;
-                    font-size: 15px;
-                    margin-top: 5px;
-                }
-            }
     }
 
     &__action-btn{
@@ -74,55 +36,36 @@
         margin: 0 auto;
     }
 
+    &__data-wrap{
+        @include m.grid-parent(repeat(3, 1fr), repeat(2, auto));
+        justify-content: left;
+        gap: 2rem;
+    }
+
+    &__map{
+        // in future
+    }
+
     &__info{
         padding: 4rem;
-        background-color: v.$pale-black;
-        background-color: red;
         height: 400px;
         @include m.display-flex(flex, column);
         justify-content: space-around;
     }
-
-    &__data-icon{
-        width: 32px;
-    }
-
-    &__subtitle{
-        margin-bottom: 3rem;
-    }
-
-    &__data-wrap{
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(3, 1fr);
-        justify-content: left;
-        align-items: center;
-        gap: 2rem;
-    }
-}
-
-.ongradient-txt{
-    color: v.$pale-black;
 }
 
 .input-control{
-    height: 115px;
-
-    &:last-of-type{
-        grid-column: 1/-1;
+    &__label{
+        //in future
     }
-}
+    &__error-info{
+        //in future
+    }
 
-.success-msg{
-    grid-column: 1/-1;
-    color: #09c372;
-    text-align: center;
-    margin-block: 25px;
-    height: 30px;
-    opacity: 0;
-    transition: opacity .4s linear;
-
-    &--active{
-        opacity: 1;
+    &__input{
+        width: 100%;
+        background: transparent;
+        text-align: left;
+        height: 80px;
     }
 }

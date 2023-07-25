@@ -80,6 +80,10 @@ a, a:visited, a:active, a:focus {
   text-decoration: none;
 }
 
+.ongradient-txt {
+  color: #000205;
+}
+
 .gradient-txt {
   background: -webkit-linear-gradient(#f3f3f3, #acacac);
   -webkit-background-clip: text;
@@ -296,24 +300,20 @@ a, a:visited, a:active, a:focus {
 }
 .form__input {
   width: 100%;
-  padding: 2rem;
-  text-align: center;
   background-color: #000205;
-  color: #acacac;
-  border-radius: 3px;
+  text-align: center;
   border: none;
-  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
 }
 @media (min-width: 900px) {
   .form__input {
     width: 50%;
   }
 }
-@media (min-width: 2000px) {
-  .form__input {
-    padding: 4rem;
-    border-radius: 10px;
-  }
+.form__input-control {
+  height: 115px;
+}
+.form__input-control:last-of-type {
+  grid-column: 1/-1;
 }
 .form__action-btn {
   margin-top: 2rem;
@@ -333,6 +333,46 @@ a, a:visited, a:active, a:focus {
   .form__action-btn {
     margin-top: 6rem;
   }
+}
+
+.success-msg {
+  grid-column: 1/-1;
+  margin-block: 25px;
+  color: #09c372;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+.success-msg--active {
+  opacity: 1;
+}
+
+.input {
+  padding: 2rem;
+  color: #acacac;
+  border: 2px solid #acacac;
+  border-radius: 3px;
+  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+  outline: none;
+  transition: all 0.4s linear;
+}
+@media (min-width: 2000px) {
+  .input {
+    padding: 4rem;
+    border-radius: 10px;
+  }
+}
+.input--success {
+  border: 2px solid #09c372;
+}
+.input--error {
+  border-color: #ff3860;
+}
+
+.error-info {
+  color: #ff3860;
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 .aside-nav {
@@ -2657,16 +2697,13 @@ a, a:visited, a:active, a:focus {
 }
 .contact__header {
   padding-top: 100px;
-  height: 100vh;
+  min-height: 100vh;
   grid-column: 1/-1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: "auto";
-}
-.contact__map {
-  border: 2px solid aqua;
 }
 .contact__img {
   position: absolute;
@@ -2677,11 +2714,8 @@ a, a:visited, a:active, a:focus {
   opacity: 0.1;
   z-index: -100;
 }
-.contact__form-wrap {
-  width: 800px;
-  margin-top: 2rem;
-}
 .contact__form {
+  margin-top: 4rem;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(2, 1fr);
   display: grid;
@@ -2689,80 +2723,31 @@ a, a:visited, a:active, a:focus {
        column-gap: 2rem;
   max-height: 500px;
 }
-.contact__form-item:last-child {
-  grid-column: 1/-1;
-}
-.contact__form-input {
-  width: 100%;
-  border: 2px solid #acacac;
-  background: transparent;
-  text-align: left;
-  height: 80px;
-  outline: none;
-  transition: all 0.4s linear;
-}
-.contact__form-input--success {
-  border: 2px solid #09c372;
-}
-.contact__form-input--error {
-  border-color: #ff3860;
-}
-.contact__form-input--error-info {
-  color: #ff3860;
-  font-size: 15px;
-  margin-top: 5px;
-}
 .contact__action-btn {
   grid-column: 1/-1;
   width: 50%;
   margin: 0 auto;
 }
+.contact__data-wrap {
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, auto);
+  display: grid;
+  justify-content: left;
+  gap: 2rem;
+}
 .contact__info {
   padding: 4rem;
-  background-color: #000205;
-  background-color: red;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.contact__data-icon {
-  width: 32px;
-}
-.contact__subtitle {
-  margin-bottom: 3rem;
-}
-.contact__data-wrap {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(3, 1fr);
-  justify-content: left;
-  align-items: center;
-  gap: 2rem;
-}
 
-.ongradient-txt {
-  color: #000205;
-}
-
-.input-control {
-  height: 115px;
-}
-.input-control:last-of-type {
-  grid-column: 1/-1;
-}
-
-.success-msg {
-  grid-column: 1/-1;
-  color: #09c372;
-  text-align: center;
-  margin-block: 25px;
-  height: 30px;
-  opacity: 0;
-  transition: opacity 0.4s linear;
-}
-.success-msg--active {
-  opacity: 1;
+.input-control__input {
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  height: 80px;
 }
 
 /* Remember you have to attribute Andy Horvath */
