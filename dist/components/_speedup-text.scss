@@ -81,3 +81,10 @@
         font-size: v.$font-size-medium;
     }
 }
+
+.speedup-txt-dynamic{
+    font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+    @include m.breakpoint("medium") {
+            font-size: v.$font-size-big;
+        }
+}

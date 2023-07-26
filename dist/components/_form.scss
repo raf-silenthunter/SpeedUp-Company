@@ -26,7 +26,10 @@
     }
 
     &__input-control {
-    height: 115px;
+        height: 90px;
+        @include m.breakpoint("medium"){
+            height: 115px;
+        }
 
         &:last-of-type {
             grid-column: 1/-1;
@@ -50,9 +53,6 @@
         }
     }
 }
-
-//pododawać inputy
-// optymalizacja JS
 
 .success-msg {
     grid-column: 1/-1;
@@ -92,6 +92,8 @@
 
 .error-info{
     color: #ff3860;
-    font-size: 15px;
     margin-top: 5px;
+    @include m.breakpoint("medium"){
+        font-size: 15px;
+    }
 }
