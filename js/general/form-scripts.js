@@ -10,17 +10,81 @@ export class FormValidation{
             inputEmail: null,
         }
 
-        // this.dataSuccess = false;
+        this.form.reset();
+        this.allInputs.forEach((input) => {
+            input.addEventListener("change", (e) => {
+                e.preventDefault();
+                this.checkInput(e);
+                // this.validateInputs();
+            })
+        })
 
-        this.cleanInputs();
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             this.validateInputs();
         });
     }
 
-    cleanInputs(){
-        this.allInputs.forEach(input => input.value = "");
+    checkInput(e){
+        const inputId = e.target.id;
+        const inputValue = e.target.value.trim();
+        const validateEmail = (inputValue) => {
+                return String(inputValue)
+                    .toLowerCase()
+                    .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    );
+                }
+
+        const isEmailValid = validateEmail(inputValue);
+
+        switch(inputId){
+            case "name": 
+                if(inputValue === ""){
+                    const errorMessage = "Provide your name";
+                    this.setError(this.form.name, errorMessage);
+                } else {
+                    this.validationData.inputName = "true";
+                    this.setSuccess(this.form.name);   
+                }
+                break;
+            case "surname":
+                break;
+            case "phone":
+                if(inputValue){
+                    const phoneno = /^\d{9}$/;
+                    if(!inputValue.match(phoneno)) {
+                        const errorMessage = "Provide 9 numbers phone";
+                        this.setError(this.form.phone, errorMessage);
+                    } else {
+                        this.validationData.inputPhone = "true";
+                        this.setSuccess(this.form.phone);
+                    }
+                } else {
+                    const errorMessage = "Insert phone number";
+                    this.setError(this.form.phone, errorMessage);
+                }
+                break;
+            case "email":
+                if(!isEmailValid){
+                    const errorMessage = "Wrong e-mail adress";
+                    this.setError(this.form.email, errorMessage);
+                } else {
+                    this.validationData.inputEmail = "true";
+                    this.setSuccess(this.form.email);
+                }
+                break;  
+            case "message":
+                if(inputValue === ""){
+                    const errorMessage = "Please, tell us what do you need";
+                    this.setError(this.form.message, errorMessage);
+                } else {
+                    this.validationData.inputMessage = "true";
+                    this.setSuccess(this.form.message);   
+                }
+                break;
+        }
+                console.log(this.validationData);
     }
 
     setError(element, msg){
@@ -50,13 +114,6 @@ export class FormValidation{
 
     checkValidationData(){
         this.isDataCorrect = Object.values(this.validationData).every((info)=> info === "true");
-        // for(const key in this.validationData){
-        //         if(this.validationData[key] === null) {
-        //             this.dataSuccess = false;
-        //             break;
-        //         }
-        //         else this.dataSuccess = true;
-        // }
     }
 
     showSuccessMsg(){
@@ -72,64 +129,66 @@ export class FormValidation{
     }
 
     validateInputs(){
-        const nameValue = this.form.name.value.trim();
-        const emailValue = this.form.email.value.trim();
-        const phoneValue = this.form.phone.value.trim();
-        const messageValue = this.form.message.value.trim();
+        console.log(this.validationData);
+        // const nameValue = this.form.name.value.trim();
+        // const emailValue = this.form.email.value.trim();
+        // const phoneValue = this.form.phone.value.trim();
+        // const messageValue = this.form.message.value.trim();
 
         //username validation
-        if(nameValue === ""){
-            const errorMessage = "Provide your name";
-            this.setError(this.form.name, errorMessage);
-        } else {
-            this.validationData.inputName = "true";
-            this.setSuccess(this.form.name);   
-        }
+        // if(nameValue === ""){
+        //     const errorMessage = "Provide your name";
+        //     this.setError(this.form.name, errorMessage);
+        // } else {
+        //     this.validationData.inputName = "true";
+        //     this.setSuccess(this.form.name);   
+        // }
         //phone validation
-        if(phoneValue){
-            const phoneno = /^\d{9}$/;
-            if(!phoneValue.match(phoneno)) {
-                const errorMessage = "Provide 9 numbers phone";
-                this.setError(this.form.phone, errorMessage);
-            } else {
-                this.validationData.inputPhone = "true";
-                this.setSuccess(this.form.phone);
-            }
-        } else {
-            const errorMessage = "Insert phone number";
-            this.setError(this.form.phone, errorMessage);
-        }
+        // if(phoneValue){
+        //     const phoneno = /^\d{9}$/;
+        //     if(!phoneValue.match(phoneno)) {
+        //         const errorMessage = "Provide 9 numbers phone";
+        //         this.setError(this.form.phone, errorMessage);
+        //     } else {
+        //         this.validationData.inputPhone = "true";
+        //         this.setSuccess(this.form.phone);
+        //     }
+        // } else {
+        //     const errorMessage = "Insert phone number";
+        //     this.setError(this.form.phone, errorMessage);
+        // }
         //message validation
-        if(messageValue === ""){
-            const errorMessage = "Please, tell us what do you need";
-            this.setError(this.form.message, errorMessage);
-        } else {
-            this.validationData.inputMessage = "true";
-            this.setSuccess(this.form.message);   
-        }
+        // if(messageValue === ""){
+        //     const errorMessage = "Please, tell us what do you need";
+        //     this.setError(this.form.message, errorMessage);
+        // } else {
+        //     this.validationData.inputMessage = "true";
+        //     this.setSuccess(this.form.message);   
+        // }
         //email validation
-        const validateEmail = (value) => {
-        return String(value)
-            .toLowerCase()
-            .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-        }
-        const isEmailValid = validateEmail(emailValue);
+        // const validateEmail = (value) => {
+        // return String(value)
+        //     .toLowerCase()
+        //     .match(
+        //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        //     );
+        // }
+        // const isEmailValid = validateEmail(emailValue);
 
-        if(!isEmailValid){
-            const errorMessage = "Wrong e-mail adress";
-            this.setError(this.form.email, errorMessage);
-        } else {
-            this.validationData.inputEmail = "true";
-            this.setSuccess(this.form.email);
-        }
+        // if(!isEmailValid){
+        //     const errorMessage = "Wrong e-mail adress";
+        //     this.setError(this.form.email, errorMessage);
+        // } else {
+        //     this.validationData.inputEmail = "true";
+        //     this.setSuccess(this.form.email);
+        // }
         //data check and submit
         this.checkValidationData();
-        this.cleanValidationData();
         if(this.isDataCorrect) {
-            this.cleanInputs();
+            console.log('sprawdzam');
+            this.form.reset();
             this.showSuccessMsg();
+            this.cleanValidationData();
         }
         else return;
     }
