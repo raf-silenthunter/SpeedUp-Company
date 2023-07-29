@@ -11,11 +11,10 @@ export class FormValidation{
         }
 
         this.form.reset();
+        
         this.allInputs.forEach((input) => {
             input.addEventListener("change", (e) => {
-                e.preventDefault();
                 this.checkInput(e);
-                // this.validateInputs();
             })
         })
 
@@ -42,7 +41,7 @@ export class FormValidation{
             case "name": 
                 if(inputValue === ""){
                     const errorMessage = "Provide your name";
-                    this.setError(this.form.name, errorMessage);
+                    this.setError(this.form.name, errorMessage, true, "inputName");
                 } else {
                     this.validationData.inputName = "true";
                     this.setSuccess(this.form.name);   
@@ -55,41 +54,41 @@ export class FormValidation{
                     const phoneno = /^\d{9}$/;
                     if(!inputValue.match(phoneno)) {
                         const errorMessage = "Provide 9 numbers phone";
-                        this.setError(this.form.phone, errorMessage);
+                        this.setError(this.form.phone, errorMessage, true, "inputPhone");
                     } else {
                         this.validationData.inputPhone = "true";
                         this.setSuccess(this.form.phone);
                     }
                 } else {
                     const errorMessage = "Insert phone number";
-                    this.setError(this.form.phone, errorMessage);
+                    this.setError(this.form.phone, errorMessage, true, "inputPhone");
                 }
                 break;
             case "email":
-                if(!isEmailValid){
-                    const errorMessage = "Wrong e-mail adress";
-                    this.setError(this.form.email, errorMessage);
-                } else {
+                if(isEmailValid){
                     this.validationData.inputEmail = "true";
                     this.setSuccess(this.form.email);
+                } else {
+                    const errorMessage = "Wrong e-mail adress";                  
+                    this.setError(this.form.email, errorMessage, true,"inputEmail");
                 }
                 break;  
             case "message":
                 if(inputValue === ""){
                     const errorMessage = "Please, tell us what do you need";
-                    this.setError(this.form.message, errorMessage);
+                    this.setError(this.form.message, errorMessage, true, "inputMessage");
                 } else {
                     this.validationData.inputMessage = "true";
                     this.setSuccess(this.form.message);   
                 }
                 break;
         }
-                console.log(this.validationData);
     }
 
-    setError(element, msg){
+    setError(element, msg, use, inputStatus){
         const inputParent = element.parentElement;
         const errorDisplay = inputParent.querySelector(".input-control__error-info");
+        if(use) this.validationData[inputStatus] = null;  
 
         errorDisplay.innerHTML = msg;
         errorDisplay.classList.add("error-info");
@@ -129,67 +128,16 @@ export class FormValidation{
     }
 
     validateInputs(){
-        console.log(this.validationData);
-        // const nameValue = this.form.name.value.trim();
-        // const emailValue = this.form.email.value.trim();
-        // const phoneValue = this.form.phone.value.trim();
-        // const messageValue = this.form.message.value.trim();
-
-        //username validation
-        // if(nameValue === ""){
-        //     const errorMessage = "Provide your name";
-        //     this.setError(this.form.name, errorMessage);
-        // } else {
-        //     this.validationData.inputName = "true";
-        //     this.setSuccess(this.form.name);   
-        // }
-        //phone validation
-        // if(phoneValue){
-        //     const phoneno = /^\d{9}$/;
-        //     if(!phoneValue.match(phoneno)) {
-        //         const errorMessage = "Provide 9 numbers phone";
-        //         this.setError(this.form.phone, errorMessage);
-        //     } else {
-        //         this.validationData.inputPhone = "true";
-        //         this.setSuccess(this.form.phone);
-        //     }
-        // } else {
-        //     const errorMessage = "Insert phone number";
-        //     this.setError(this.form.phone, errorMessage);
-        // }
-        //message validation
-        // if(messageValue === ""){
-        //     const errorMessage = "Please, tell us what do you need";
-        //     this.setError(this.form.message, errorMessage);
-        // } else {
-        //     this.validationData.inputMessage = "true";
-        //     this.setSuccess(this.form.message);   
-        // }
-        //email validation
-        // const validateEmail = (value) => {
-        // return String(value)
-        //     .toLowerCase()
-        //     .match(
-        //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        //     );
-        // }
-        // const isEmailValid = validateEmail(emailValue);
-
-        // if(!isEmailValid){
-        //     const errorMessage = "Wrong e-mail adress";
-        //     this.setError(this.form.email, errorMessage);
-        // } else {
-        //     this.validationData.inputEmail = "true";
-        //     this.setSuccess(this.form.email);
-        // }
-        //data check and submit
-        this.checkValidationData();
+        this.checkValidationData()
         if(this.isDataCorrect) {
-            console.log('sprawdzam');
             this.form.reset();
             this.showSuccessMsg();
             this.cleanValidationData();
+        } else {
+            const emptyInputs = this.allInputs.filter((input) => input.value.trim() === "");
+            emptyInputs.forEach((input) => {
+                if(input.id !== "surname") this.setError(input, "insert value!", false);
+            })
         }
-        else return;
     }
 }
