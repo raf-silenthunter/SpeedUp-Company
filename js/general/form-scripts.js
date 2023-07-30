@@ -12,40 +12,44 @@ export class FormValidation{
 
         this.form.reset();
         
-        this.allInputs.forEach((input) => {
-            input.addEventListener("change", (e) => {
-                this.checkInput(e);
-            })
-        })
-
-        form.addEventListener("submit", (e) => {
+        this.form.addEventListener("change", (e) => this.handleInputChange(e));
+        
+        this.form.addEventListener("submit", (e) => {
             e.preventDefault();
             this.validateInputs();
         });
     }
 
-    checkInput(e){
+    baseValidation(value, message, placement, data){
+        if(value === ""){
+            const errorMessage = message;
+            this.setError(placement, errorMessage, true, "inputName");
+        } else {
+            this.validationData[data] = "true";
+            this.setSuccess(placement);   
+        }
+    }
+
+    validateEmail(inputValue) {
+        return String(inputValue)
+            .toLowerCase()
+            .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    }
+
+    checkValidationData(){
+        this.isDataCorrect = Object.values(this.validationData).every((info)=> info === "true");
+    }
+
+    handleInputChange(e){
+        console.log('ok');
         const inputId = e.target.id;
         const inputValue = e.target.value.trim();
-        const validateEmail = (inputValue) => {
-                return String(inputValue)
-                    .toLowerCase()
-                    .match(
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                    );
-                }
-
-        const isEmailValid = validateEmail(inputValue);
 
         switch(inputId){
             case "name": 
-                if(inputValue === ""){
-                    const errorMessage = "Provide your name";
-                    this.setError(this.form.name, errorMessage, true, "inputName");
-                } else {
-                    this.validationData.inputName = "true";
-                    this.setSuccess(this.form.name);   
-                }
+            this.baseValidation(inputValue, "Provide your name", this.form.name, "inputName");
                 break;
             case "surname":
                 break;
@@ -65,7 +69,7 @@ export class FormValidation{
                 }
                 break;
             case "email":
-                if(isEmailValid){
+                if(this.validateEmail(inputValue)){
                     this.validationData.inputEmail = "true";
                     this.setSuccess(this.form.email);
                 } else {
@@ -74,13 +78,7 @@ export class FormValidation{
                 }
                 break;  
             case "message":
-                if(inputValue === ""){
-                    const errorMessage = "Please, tell us what do you need";
-                    this.setError(this.form.message, errorMessage, true, "inputMessage");
-                } else {
-                    this.validationData.inputMessage = "true";
-                    this.setSuccess(this.form.message);   
-                }
+                this.baseValidation(inputValue, "Please, tell us what do you need", this.form.message, "inputMessage");
                 break;
         }
     }
@@ -93,6 +91,7 @@ export class FormValidation{
         errorDisplay.innerHTML = msg;
         errorDisplay.classList.add("error-info");
         element.classList.add("input--error");
+        element.classList.remove("input--success");
     }
 
     setSuccess(element){
@@ -102,7 +101,6 @@ export class FormValidation{
         errorDisplay.innerHTML = "";
         element.classList.remove("input--error");
         element.classList.add("input--success");
-        //sprawdzić czy toggle przyjmie 2 klasy i jak to działa
     }
 
     cleanValidationData(){
@@ -111,13 +109,9 @@ export class FormValidation{
         }
     }
 
-    checkValidationData(){
-        this.isDataCorrect = Object.values(this.validationData).every((info)=> info === "true");
-    }
-
     showSuccessMsg(){
-        const messageElement = document.querySelector(".success-msg");
-        messageElement.classList.add("success-msg--active");
+    const messageElement = document.querySelector(".success-msg");
+    messageElement.classList.add("success-msg--active");
         
         setTimeout(()=> {
             messageElement.classList.remove("success-msg--active");
