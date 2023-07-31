@@ -2800,6 +2800,10 @@ a, a:visited, a:active, a:focus {
   }
 }
 
+.contact__map {
+  filter: grayscale(0.3);
+}
+
 /* Remember you have to attribute Andy Horvath */
 /*Here you can find all pages*/
 /*style for fleet-browser*/
