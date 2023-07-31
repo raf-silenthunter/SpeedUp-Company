@@ -13,7 +13,7 @@ export class FormValidation{
         this.form.reset();
         
         this.form.addEventListener("change", (e) => this.handleInputChange(e));
-        
+
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
             this.validateInputs();
@@ -43,7 +43,6 @@ export class FormValidation{
     }
 
     handleInputChange(e){
-        console.log('ok');
         const inputId = e.target.id;
         const inputValue = e.target.value.trim();
 
@@ -55,8 +54,9 @@ export class FormValidation{
                 break;
             case "phone":
                 if(inputValue){
+                    const inputValueReduced = inputValue.split(/[ ;-]/).join("");
                     const phoneno = /^\d{9}$/;
-                    if(!inputValue.match(phoneno)) {
+                    if(!inputValueReduced.match(phoneno)) {
                         const errorMessage = "Provide 9 numbers phone";
                         this.setError(this.form.phone, errorMessage, true, "inputPhone");
                     } else {
@@ -97,7 +97,7 @@ export class FormValidation{
     setSuccess(element){
         const inputParent = element.parentElement;
         const errorDisplay = inputParent.querySelector(".input-control__error-info");
-        //dodać ifa - nie powinno zawsze resetować
+
         errorDisplay.innerHTML = "";
         element.classList.remove("input--error");
         element.classList.add("input--success");
