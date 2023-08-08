@@ -82,16 +82,16 @@
         }
 
     &--success {
-        border: 2px solid #09c372;
+        border: 2px solid v.$success;
     }
 
     &--error{
-        border-color: #ff3860;
+        border-color: v.$error;
     }
 }
 
 .error-info{
-    color: #ff3860;
+    color: v.$error;
     margin-top: 5px;
     @include m.breakpoint("medium"){
         font-size: 15px;

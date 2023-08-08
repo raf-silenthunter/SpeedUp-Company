@@ -49,13 +49,26 @@
 }
 
 .btn-close {
-    position: absolute;
     background-color: v.$pale-black;
     padding: v.$padding-main;
     border-radius: 50%;
     box-shadow: 0px 0px 5px 5px v.$yellow;
     transition: box-shadow .2s linear;
     cursor: pointer;
+
+    $btn-close-size: 30px;
+    $btn-close-size-xxl: 50px;
+
+    @include m.position(absolute, 15px, calc(100% - 30px));
+    width: $btn-close-size;
+    height: $btn-close-size;
+    transform: translateX(-$btn-close-size) rotate(-45deg);
+
+    @include m.breakpoint("big") {
+        width: $btn-close-size-xxl;
+        height: $btn-close-size-xxl;
+        transform: translateX(-$btn-close-size-xxl) rotate(-45deg);
+    }
 
     &:hover {
         box-shadow: 0px 0px 5px 2px v.$yellow;

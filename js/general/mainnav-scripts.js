@@ -69,12 +69,12 @@ export class OpenModal{
     constructor(){
         this.modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
         this.modalBtns = [...this.modalBtnsElements];
-        this.loginModal = document.querySelector(".login-modal");
+        this.loginModal = document.querySelector(".modal");
     }
 
     checkModalBtn = (e) => {
         if (e.target.matches('.main-nav__sign-icon, .main-nav__sign-btn, .main-nav__sign-btn--lash, .main-nav__call-to-action')) return "open";
-        else if (e.target.matches(".btn-close__icon, .login-modal__btn-close, .btn-close, .btn-close__icon--is-rotated")) return "close";
+        else if (e.target.matches(".btn-close__icon, .modal__btn-close, .btn-close, .btn-close__icon--is-rotated")) return "close";
         else console.error("wrong element clicked or does not contain proper class!");
     }
 

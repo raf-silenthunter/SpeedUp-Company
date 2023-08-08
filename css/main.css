@@ -48,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 
-body, html, ol, ul, li, q, a, input, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
+body, html, ol, ul, li, q, a, header, input, div, nav, footer, button, img, p, aside, h1, h2, h3, h4, section, article, blockquote, span, button, figure, figcaption {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -258,13 +258,25 @@ a, a:visited, a:active, a:focus {
   }
 }
 .btn-close {
-  position: absolute;
   background-color: #000205;
   padding: 1rem;
   border-radius: 50%;
   box-shadow: 0px 0px 5px 5px yellow;
   transition: box-shadow 0.2s linear;
   cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: calc(100% - 30px);
+  width: 30px;
+  height: 30px;
+  transform: translateX(-30px) rotate(-45deg);
+}
+@media (min-width: 1400px) {
+  .btn-close {
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50px) rotate(-45deg);
+  }
 }
 .btn-close:hover {
   box-shadow: 0px 0px 5px 2px yellow;
@@ -1432,37 +1444,41 @@ a, a:visited, a:active, a:focus {
 <div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols-premium" title="Prosymbols Premium">Prosymbols Premium </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
 <div>Icons made by <a href="https://www.flaticon.com/authors/sebastian-belalcazar" title="Sebastian Belalcazar">Sebastian Belalcazar </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
 */
-.login-modal {
+.modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
   background: rgba(0, 2, 5, 0.9);
   z-index: 1100;
 }
-.login-modal__panel {
+.modal--login {
+  height: 100vh;
+}
+.modal__panel {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   align-content: "auto";
-  width: max(30rem, 70vw);
-  min-height: clamp(55rem, 70vh, 75vh);
   margin: auto;
-  padding: 1rem;
   border: 1px solid #acacac;
   border-radius: 3px;
   background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, 0.5) 100%);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
 }
-.login-modal__title {
+.modal__panel--login {
+  width: max(30rem, 70vw);
+  min-height: clamp(55rem, 70vh, 75vh);
+  padding: 1rem;
+}
+.modal__title {
   flex-basis: 20%;
   font-weight: bold;
 }
-.login-modal__input-wrap {
+.modal__input-wrap {
   display: flex;
   flex-wrap: nowrap;
   padding: 1rem;
@@ -1472,51 +1488,158 @@ a, a:visited, a:active, a:focus {
   box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
 }
 @media (min-width: 450px) {
-  .login-modal__input-wrap {
+  .modal__input-wrap {
     padding: 2rem;
   }
 }
-.login-modal__input, .login-modal__action-btn {
+.modal__input, .modal__action-btn {
   width: 100%;
 }
-.login-modal__input {
+.modal__input {
   border: none;
   outline: none;
   background-color: #000205;
   color: #f3f3f3;
   letter-spacing: 3px;
 }
-.login-modal__icon {
+.modal__icon {
   width: 50px;
   height: 50px;
 }
-.login-modal__links, .login-modal__password-info {
+.modal__links, .modal__password-info {
   text-align: center;
 }
-.login-modal__call-to-action {
+.modal__call-to-action {
   margin-bottom: 20px;
 }
-.login-modal__password-info {
+.modal__password-info {
   display: none;
-}
-.login-modal__btn-close {
-  position: absolute;
-  top: 15px;
-  left: calc(100% - 15px);
-  width: 30px;
-  height: 30px;
-  transform: translateX(-30px) rotate(-45deg);
-}
-@media (min-width: 1400px) {
-  .login-modal__btn-close {
-    width: 50px;
-    height: 50px;
-    transform: translateX(-50px) rotate(-45deg);
-  }
 }
 
 .visible {
   display: flex;
+}
+
+body {
+  overflow: hidden;
+}
+
+.booking-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: scroll;
+}
+.booking-panel__header {
+  position: relative;
+  height: clamp(300px, 8vh, 500px);
+}
+.booking-panel__header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/road.jpg") top;
+  z-index: -10;
+  filter: brightness(0.8);
+}
+.booking-panel__content {
+  width: 85%;
+  border-radius: 10px;
+  background: #000205;
+  position: relative;
+  top: -125px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-content: "auto";
+  gap: 50px;
+}
+.booking-panel__btn-close {
+  top: 50px;
+  right: 50px;
+  z-index: 1000;
+}
+.booking-panel__car-summary {
+  display: flex;
+  justify-content: space-between;
+}
+.booking-panel__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, 1fr);
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  max-width: 800px;
+}
+.booking-panel__item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-content: "auto";
+  gap: 1rem;
+}
+.booking-panel__icon {
+  height: 16px;
+}
+
+.booking-section {
+  border: 2px solid yellow;
+  border-radius: 10px;
+  width: 100%;
+  padding: 2rem 4rem;
+  overflow: hidden;
+}
+.booking-section--silver {
+  border-color: #acacac;
+}
+.booking-section__header, .booking-section__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: "auto";
+}
+.booking-section__option {
+  position: relative;
+  margin-block: 2rem;
+  max-width: 350px;
+  height: auto;
+  cursor: pointer;
+}
+.booking-section__option::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 free";
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  opacity: 0;
+}
+.booking-section__checkbox {
+  display: none;
+}
+.booking-section__checkbox:checked + label > .booking-section__option::before {
+  opacity: 1;
+  background-color: #09c372;
+}
+.booking-section__checkbox:checked + label > .booking-section__option {
+  border: 2px solid #09c372;
+  box-shadow: inset 0px 0px 15px 9px rgba(9, 195, 114, 0.7254901961);
 }
 
 /* FOOTER STYLE  */
