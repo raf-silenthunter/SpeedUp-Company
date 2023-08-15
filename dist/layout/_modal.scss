@@ -10,6 +10,7 @@
 @use "../utils/mixins" as m;
 @use "../utils/functions" as f;
 
+
 .modal{
     display: none; //modal is hidden by default
     //change to none
@@ -171,12 +172,13 @@ body{
     &__header, &__content{
         display: flex;
         @include m.flex-center(space-between, center);
+        flex-wrap: wrap;
     }    
 
     &__option{
         position: relative;
         margin-block: 2rem;
-        max-width: 350px;
+        // max-width: 350px;
         height: auto;
         cursor: pointer;
 
@@ -208,4 +210,41 @@ body{
             box-shadow: inset 0px 0px 15px 9px #09c372b9;
         }
     }
+
+    &__label{
+        width: 30%;
+        max-width: 450px;
+        min-width: 200px;
+    }
+
+    &__location-panel{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-block: 2rem;
+    }
+}
+
+.calendar{
+    &__input{
+        width: 280px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: v.$pale-black;
+        color: v.$pale-white;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 18px 0px #2c2c2c;
+        border-radius: 5px;
+        margin-top: 1rem;
+    }
+
+    &__input, option{
+        letter-spacing: 1px;
+    }
+}
+
+.flatpickr-day.selected{
+    background-color: v.$success !important;
+    border-color: v.$success !important;
 }

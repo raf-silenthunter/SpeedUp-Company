@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../fontello/css/fontello.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/flatpickr/dist/themes/dark.css">
 </head>
 
 <body class="page">
@@ -539,8 +541,87 @@
                         <button class="action-btn" data-option="next">NEXT</button>
                     </div>
                 </header>
-                <section class="booking-section__content">
-
+                <section class="booking-section__content flex-col">
+                    <div class="booking-section__location-panel">
+                        <div class="calendar">
+                            <p class="calendar__info speedup-txt">Select a pickup date:</p>
+                            <label for="start-date"></label>
+                            <input 
+                                id="start-date"
+                                name="start-date"
+                                type="date" 
+                                class="calendar__input date-input"
+                                data-date-format="d-m-Y"
+                                data-min-date=today
+                                placeholder="Pick a pickup date"/>
+                            <p class="calendar__notification"></p>
+                        </div>
+                        <div class="booking-section__location">
+                            <p class="speedup-txt">Select a pickup location:</p>
+                            <label for="pickup-location"></label>
+                            <select name="pickup-location" id="pickup-location" class="calendar__input">
+                                <option value="Kraków ul. Hoyera 1">Kraków ul. Hoyera 1</option>
+                                <option value="Warszawa ul. Dewceny 23" selected>Warszawa ul. Dewceny 23</option>
+                                <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
+                                <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
+                            </select>
+                        </div>
+                        <div class="booing-section__time">
+                            <p class="speedup-txt">Select a pickup hour:</p>
+                            <label for="start-time"></label>
+                            <select name="start-time" id="start-time" class="calendar__input">
+                                <option value="09">09:00</option>
+                                <option value="10">10:00</option>
+                                <option value="11">11:00</option>
+                                <option value="12">12:00</option>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                                <option value="17">17:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="booking-section__location-panel">
+                        <div class="calendar">
+                            <p class="calendar__info speedup-txt">Select a delivery date:</p>
+                            <label for="end-date"></label>
+                            <input
+                                id="end-date"
+                                name="end-date"
+                                type="date"
+                                class="calendar__input date-input"
+                                data-min-date=today
+                                data-date-format="d-m-Y"
+                                placeholder="Pick a delivery date"/>
+                            <p class="calendar__notification"></p>
+                        </div>
+                        <div class="booking-section__location">
+                            <p class="speedup-txt">Select a delivery location:</p>
+                            <label for="delivery-location"></label>
+                            <select name="delivery-location" id="delivery-location" class="calendar__input">
+                                <option value="Kraków ul. Hoyera 1">Kraków ul. Hoyera 1</option>
+                                <option value="Warszawa ul. Dewceny 23" selected>Warszawa ul. Dewceny 23</option>
+                                <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
+                                <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
+                            </select>
+                        </div>
+                        <div class="booing-section__time">
+                            <p class="speedup-txt">Select a delivery hour:</p>
+                            <label for="end-time"></label>
+                            <select name="end-time" id="end-time" class="calendar__input">
+                                <option value="09">09:00</option>
+                                <option value="10">10:00</option>
+                                <option value="11">11:00</option>
+                                <option value="12">12:00</option>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                                <option value="17">17:00</option>
+                            </select>
+                        </div>
+                    </div>
                 </section>
             </section>
             <section class="booking-section booking-section--silver">
@@ -560,7 +641,7 @@
                 <section class="booking-section__content">
                     <input type="radio" name="option-group" id="basic-option" value="basic-option"
                         class="booking-section__checkbox" checked>
-                    <label for="basic-option">
+                    <label for="basic-option" class="booking-section__label">
                         <div class="option booking-section__option">
                             <img class="#" src="../images/item2.jpg">
                             <ul class="option__list">
@@ -582,7 +663,7 @@
                     </label>
                     <input type="radio" name="option-group" id="medium-option" value="medium-option"
                         class="booking-section__checkbox">
-                    <label for="medium-option">
+                    <label for="medium-option" class="booking-section__label">
                         <div class="option booking-section__option">
                             <img class="#" src="../images/item4.jpg">
                             <ul class="option__list">
@@ -604,7 +685,7 @@
                     </label>
                     <input type="radio" name="option-group" id="premium-option" value="premium-option"
                         class="booking-section__checkbox">
-                    <label for="premium-option">
+                    <label for="premium-option" class="booking-section__label">
                         <div class="option booking-section__option">
                             <img class="#" src="../images/item1.jpg">
                             <ul class="option__list">
@@ -645,7 +726,6 @@
                     </div>
                 </header>
                 <section class="booking-section__content">
-<!--  -->
                 </section>
                 <div class="booking-section__footer" data-option="option-price">
                     <span class="speedup-txt speedup-txt--uppercased">Price:</span>
@@ -667,7 +747,7 @@
                     </div>
                 </header>
                 <section class="booking-section__content">
-
+                    <input type="date" id="date-picker">
                 </section>
             </section>
         </div>
@@ -677,6 +757,19 @@
         </button>
     </div>
     <!-- <script src="../js/fleet-dev.js" type="module"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+            var dateInputs = document.querySelectorAll(".date-input");
+            flatpickr(dateInputs, {
+                    minDate: "today",
+                    maxDate: new Date().fp_incr(60), // 60 days from now
+                    locale: {
+                        firstDayOfWeek: 1
+                        }
+                });
+        </script>
 </body>
 
 </html>
+
+document.getElementById("end-date").flatpickr({minDate: new Date()});

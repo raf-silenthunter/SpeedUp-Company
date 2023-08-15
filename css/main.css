@@ -1,3 +1,4 @@
+/* Remember you have to attribute Andy Horvath */
 .bgc-pale-white {
   background-color: #f3f3f3;
 }
@@ -59,7 +60,7 @@ ul, li, a {
   list-style: none;
 }
 
-button, a {
+button, a, input, select {
   cursor: pointer;
 }
 
@@ -1607,11 +1608,11 @@ body {
   justify-content: space-between;
   align-items: center;
   align-content: "auto";
+  flex-wrap: wrap;
 }
 .booking-section__option {
   position: relative;
   margin-block: 2rem;
-  max-width: 350px;
   height: auto;
   cursor: pointer;
 }
@@ -1640,6 +1641,38 @@ body {
 .booking-section__checkbox:checked + label > .booking-section__option {
   border: 2px solid #09c372;
   box-shadow: inset 0px 0px 15px 9px rgba(9, 195, 114, 0.7254901961);
+}
+.booking-section__label {
+  width: 30%;
+  max-width: 450px;
+  min-width: 200px;
+}
+.booking-section__location-panel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+
+.calendar__input {
+  width: 280px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #000205;
+  color: #f3f3f3;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 18px 0px #2c2c2c;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.calendar__input, .calendar option {
+  letter-spacing: 1px;
+}
+
+.flatpickr-day.selected {
+  background-color: #09c372 !important;
+  border-color: #09c372 !important;
 }
 
 /* FOOTER STYLE  */
@@ -1685,6 +1718,7 @@ body {
   color: #f3f3f3;
 }
 
+/*Here you can find all pages*/
 /* MAIN HEADER STYLE  */
 .main-header__speedup-txt {
   position: absolute;
@@ -2252,6 +2286,7 @@ body {
   }
 }
 
+/*style for fleet-browser*/
 .gallery {
   display: flex;
   flex-direction: column;
@@ -2362,6 +2397,7 @@ body {
   right: 20px;
 }
 
+/*style for offert subpages*/
 .swiper {
   overflow: hidden;
   height: 100vh;
@@ -2627,6 +2663,7 @@ body {
   list-style: url("../../../../images/Icons/tick-32.png");
 }
 
+/*style for blog mainpage*/
 .blog-head {
   min-height: 100vh;
   padding-top: calc(100px + 5vh);
@@ -2829,6 +2866,7 @@ body {
   transform: scale(1.1);
 }
 
+/*style for contact subpage*/
 .contact {
   width: 100%;
   position: relative;
@@ -2925,11 +2963,4 @@ body {
 
 .contact__map {
   filter: grayscale(0.3);
-}
-
-/* Remember you have to attribute Andy Horvath */
-/*Here you can find all pages*/
-/*style for fleet-browser*/
-/*style for offert subpages*/
-/*style for blog mainpage*/
-/*style for contact subpage*//*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

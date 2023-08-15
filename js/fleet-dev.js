@@ -1,3 +1,7 @@
+import flatpickr from "./../node_modules/flatpickr";
+            const myInput = document.querySelector(".calendar__input");
+            flatpickr(myInput, {});  // flatpickr
+
 import {FleetFilter} from "./general/filter-scripts.js";
 const grid = document.querySelector(".grid");
 const gridElements = document.querySelectorAll(".option");
