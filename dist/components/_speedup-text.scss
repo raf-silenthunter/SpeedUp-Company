@@ -25,6 +25,14 @@
         -webkit-text-fill-color: yellow;
     }
 
+    &--green{
+        color: #09c372;
+    }
+
+    &--bold{
+        font-weight: 700;
+    }
+
     &--black{
         color: v.$pale-black;
     }

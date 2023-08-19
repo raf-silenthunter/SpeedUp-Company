@@ -62,7 +62,7 @@
 }
 
 @mixin grid-parent($rows, $columns, $display: grid) {
+    display: $display;
     grid-template-rows: $rows;
     grid-template-columns: $columns;
-    display: $display;
 }
