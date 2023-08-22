@@ -507,28 +507,28 @@
                 </div>
                 <ul class="booking-panel__list">
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                     <li class="booking-panel__item"><img src="../images/Icons/tick-32.png" alt=""
-                            class="booking-panel__icon"><span class="option__txt">Lorem ipsum</span></li>
+                            class="booking-panel__icon"><span class="speedup-txt-dynamic">Lorem ipsum</span></li>
                 </ul>
                 <div class="booking-panel__price-info">
                     <h3 class="speedup-txt speedup-txt--subtitle speedup-txt--uppercased gradient-txt">Basic car price:</h3>
                     <p class="booking-panel__car-price speedup-txt speedup-txt--yellow speedup-txt--uppercased">200pln / day</p>
                 </div>
             </header>
-            <section class="booking-section booking-section--silver-b">
+            <section class="booking-section">
                 <header class="booking-section__header">
                     <div class="booking-section__step">
                         <span
@@ -537,13 +537,9 @@
                         <span
                             class="booking-section__step-info speedup-txt speedup-txt--subtitle speedup-txt--yellow">Location</span>
                     </div>
-                    <div class="booking-section__btn-controls">
-                        <button class="action-btn" data-option="next">NEXT</button>
-                    </div>
                 </header>
-                <section class="booking-section__content flex-col">
-                    <div class="booking-section__location-panel">
-                        <div class="calendar">
+                <div class="booking-section__data-wrap">
+                    <div class="calendar">
                             <p class="calendar__info speedup-txt">Select a pickup date:</p>
                             <label for="start-date"></label>
                             <input 
@@ -555,8 +551,8 @@
                                 data-min-date=today
                                 placeholder="Pick a pickup date"/>
                             <p class="calendar__notification"></p>
-                        </div>
-                        <div class="booking-section__location">
+                    </div>
+                    <div class="booking-section__location">
                             <p class="speedup-txt">Select a pickup location:</p>
                             <label for="pickup-location"></label>
                             <select name="pickup-location" id="pickup-location" class="calendar__input">
@@ -565,8 +561,8 @@
                                 <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
                                 <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
                             </select>
-                        </div>
-                        <div class="booing-section__time">
+                    </div>
+                    <div class="booing-section__time">
                             <p class="speedup-txt">Select a pickup hour:</p>
                             <label for="start-time"></label>
                             <select name="start-time" id="start-time" class="calendar__input">
@@ -580,10 +576,8 @@
                                 <option value="16">16:00</option>
                                 <option value="17">17:00</option>
                             </select>
-                        </div>
                     </div>
-                    <div class="booking-section__location-panel">
-                        <div class="calendar">
+                    <div class="calendar">
                             <p class="calendar__info speedup-txt">Select a delivery date:</p>
                             <label for="end-date"></label>
                             <input
@@ -595,8 +589,8 @@
                                 data-date-format="d-m-Y"
                                 placeholder="Pick a delivery date"/>
                             <p class="calendar__notification"></p>
-                        </div>
-                        <div class="booking-section__location">
+                    </div>
+                    <div class="booking-section__location">
                             <p class="speedup-txt">Select a delivery location:</p>
                             <label for="delivery-location"></label>
                             <select name="delivery-location" id="delivery-location" class="calendar__input">
@@ -605,8 +599,8 @@
                                 <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
                                 <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
                             </select>
-                        </div>
-                        <div class="booing-section__time">
+                    </div>
+                    <div class="booing-section__time">
                             <p class="speedup-txt">Select a delivery hour:</p>
                             <label for="end-time"></label>
                             <select name="end-time" id="end-time" class="calendar__input">
@@ -620,11 +614,15 @@
                                 <option value="16">16:00</option>
                                 <option value="17">17:00</option>
                             </select>
-                        </div>
                     </div>
-                </section>
+                </div>
+                <div class="booking-section__footer">
+                    <div class="booking-section__btn-controls margin-l-auto">
+                        <button class="action-btn" data-option="next">NEXT</button>
+                    </div>
+                </div>
             </section>
-            <section class="booking-section booking-section--silver-b">
+            <section class="booking-section">
                 <header class="booking-section__header">
                     <div class="booking-section__step">
                         <span
@@ -632,10 +630,6 @@
                             2:</span>
                         <span
                             class="booking-section__step-info speedup-txt speedup-txt--subtitle speedup-txt--yellow">Option</span>
-                    </div>
-                    <div class="booking-section__btn-controls">
-                        <button class="action-btn" data-option="prev">PREV</button>
-                        <button class="action-btn" data-option="next">NEXT</button>
                     </div>
                 </header>
                 <section class="booking-section__content">
@@ -707,8 +701,12 @@
                     </label>
                 </section>
                 <div class="booking-section__footer" data-option="option-price">
-                    <span class="speedup-txt speedup-txt--uppercased">Price:</span>
-                    <span class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span>
+                    <p class="speedup-txt speedup-txt--uppercased">Price: <span
+                            class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span></p>
+                    <div class="booking-section__btn-controls">
+                        <button class="action-btn" data-option="prev">PREV</button>
+                        <button class="action-btn" data-option="next">NEXT</button>
+                    </div>
                 </div>
             </section>
             <section class="booking-section">
@@ -720,164 +718,171 @@
                         <span
                             class="booking-section__step-info speedup-txt speedup-txt--subtitle speedup-txt--yellow">Equipement</span>
                     </div>
-                    <div class="booking-section__btn-controls">
-                        <button class="action-btn" data-option="prev">PREV</button>
-                        <button class="action-btn" data-option="next">NEXT</button>
-                    </div>
                 </header>
                 <section class="booking-section__content">
                     <div class="extras">
                         <h3 class="extras__title speedup-txt">Choose add-ons:</h3>
                         <div class="extras__section">
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--trailer"></i>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-trailer" name="extra-trailer">
+                            <label for="extra-trailer" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Trailer up to 1000kg</h4>
-                                        <p class="speedup-txt-small">69pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--trailer"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Trailer up to 1000kg</h4>
+                                            <p class="speedup-txt-small">69pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--world"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-ins-eu" name="extra-ins-eu">
+                            <label for="extra-ins-eu" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (Europe)</h4>
-                                        <p class="speedup-txt-small">59pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--world"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (Europe)</h4>
+                                            <p class="speedup-txt-small">59pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--world"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-out-eu" name="extra-out-eu">
+                            <label for="extra-out-eu" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (outside Europe)</h4>
-                                        <p class="speedup-txt-small">109pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--world"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (outside Europe)</h4>
+                                            <p class="speedup-txt-small">109pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                            </label>
                         </div>
                         <h3 class="extras__title speedup-txt">Choose equipment:</h3>
                         <div class="extras__section">
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--seat"></i>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-seat-18" name="extra-seat-18">
+                            <label for="extra-seat-18" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 0-18kg</h4>
-                                        <p class="speedup-txt-small">19pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--seat"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 0-18kg</h4>
+                                            <p class="speedup-txt-small">19pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--seat"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-seat-36" name="extra-seat-36">
+                            <label for="extra-seat-36" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 18-36kg</h4>
-                                        <p class="speedup-txt-small">29pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--seat"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 18-36kg</h4>
+                                            <p class="speedup-txt-small">29pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--pillow"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-pillow" name="extra-pillow">
+                            <label for="extra-pillow" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Pillow set</h4>
-                                        <p class="speedup-txt-small">5pln/day</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--pillow"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Pillow set</h4>
+                                            <p class="speedup-txt-small">5pln/day</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--alco"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-bottle" name="extra-bottle">
+                            <label for="extra-bottle" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Representative set</h4>
-                                        <p class="speedup-txt-small">150pln</p>
-                                        <p class="speedup-txt-small">Total:
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--alco"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Representative set</h4>
+                                            <p class="speedup-txt-small">150pln</p>
+                                            <p class="speedup-txt-small">Total:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="extras__item addition">
-                                <div class="addition__ico-wrap addition__ico-wrap--success">
-                                    <i class="ico-32 ico-32--checked"></i>
-                                </div>
-                                <div class="addition__content">
-                                    <div class="addition__ico-wrap">
-                                        <i class="ico-32 ico-32--pet"></i>
+                            </label>
+                            <input type="checkbox" class="booking-section__checkbox" id="extra-pet" name="extra-pet">
+                            <label for="extra-pet" class="extras__item addition">
+                                    <div class="addition__ico-wrap addition__ico-wrap--success">
+                                        <i class="ico-32 ico-32--checked"></i>
                                     </div>
-                                    <div class="addition__content-wrap">
-                                        <h4 class="speedup-txt-small speedup-txt--uppercased">Pet transport seat</h4>
-                                        <p class="speedup-txt-small">15pln/day</p>
-                                        <p class="speedup-txt-small">Total: 
-                                            <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
-                                        </p>
+                                    <div class="addition__content">
+                                        <div class="addition__ico-wrap">
+                                            <i class="ico-32 ico-32--pet"></i>
+                                        </div>
+                                        <div class="addition__content-wrap">
+                                            <h4 class="speedup-txt-small speedup-txt--uppercased">Pet transport seat</h4>
+                                            <p class="speedup-txt-small">15pln/day</p>
+                                            <p class="speedup-txt-small">Total: 
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                            </label>
                         </div>
                     </div>
                 </section>
                 <div class="booking-section__footer" data-option="option-price">
-                    <span class="speedup-txt speedup-txt--uppercased">Price:</span>
-                    <span class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span>
+                    <p class="speedup-txt speedup-txt--uppercased">Price: <span class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span></p>
+                    <div class="booking-section__btn-controls">
+                        <button class="action-btn" data-option="prev">PREV</button>
+                        <button class="action-btn" data-option="next">NEXT</button>
+                    </div>
                 </div>
             </section>
             <section class="booking-section booking-section--yellow-b">
-                <header class="booking-section__footer">
+                <header class="booking-section__header">
                     <div class="booking-section__step">
                         <span
                             class="booking-section__step speedup-txt speedup-txt--subtitle speedup-txt--uppercased gradient-txt">Step
@@ -886,13 +891,60 @@
                             class="booking-section__step-info speedup-txt speedup-txt--subtitle speedup-txt--yellow">Order
                             summary</span>
                     </div>
-                    <div class="booking-section__btn-controls">
-                        <button class="action-btn" data-option="prev">PREV</button>
-                    </div>
                 </header>
                 <section class="booking-section__content">
-                    <input type="date" id="date-picker">
+                    <div class="booking-section__summary">
+                        <p class="speedup-txt speedup-txt--uppercased">Your order:</p>
+                        <div class="booking-section__order-data">
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Car: <span class="booking-section__order-info gradient-txt" data-order="car">Mercedes C 500 SL 2.5 Tdi</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Date range: <span class="booking-section__order-info gradient-txt" data-order="date-range">04-06-2023 to 10-06-23</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Days: <span class="booking-section__order-info gradient-txt" data-order="days">7</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Insurance: <span class="booking-section__order-info gradient-txt" data-order="option">Basic</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Pick-up location: <span class="booking-section__order-info gradient-txt" data-order="pickup-loc">Warszawa ul. Dewceny 23</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Return location: <span class="booking-section__order-info gradient-txt" data-order="return-loc">Warszawa ul. Dewceny 23</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Pick-up time: <span class="booking-section__order-info gradient-txt" data-order="pickup-tim">12:00</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Return time: <span class="booking-section__order-info gradient-txt" data-order="return-tim">16:00</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Extras: <span class="booking-section__order-info gradient-txt" data-order="extras">Representative set</span></p>
+                            <p class="booking-section__order-item option__txt option__txt--title txt">Price: <span class="booking-section__order-info gradient-txt" data-order="price-full">2090 pln</span></p>
+                        </div>
+                    </div>
+                    <div class="booking-section__form-wrap">
+                        <h3 class="speedup-txt speedup-txt--subtitle speedup-txt--subtitle-pad speedup-txt--uppercased gradient-txt">Insert your contact data:</h3>
+                        <form action="#" method="#" class="booking-section__form form">
+                            <div class="form__input-control input-control">
+                                <label for="name" class="input-control__label"></label>
+                                <input type="text" id="name" data-info="required" class="input-control__input input speedup-txt-small"
+                                    placeholder="Your name...">
+                                <div class="input-control__error-info"></div>
+                            </div>
+                            <div class="form__input-control input-control">
+                                <label for="surname" class="input-control__label"></label>
+                                <input type="text" id="surname" class="input-control__input input speedup-txt-small"
+                                    placeholder="Your surname..." required>
+                                <div class="input-control__error-info"></div>
+                            </div>
+                            <div class="form__input-control input-control">
+                                <label for="phone" class="input-control__label"></label>
+                                <input type="tel" id="phone" class="input-control__input input speedup-txt-small"
+                                    placeholder="Your phone number..." data-info="required">
+                                <div class="input-control__error-info"></div>
+                            </div>
+                            <div class="form__input-control input-control">
+                                <label for="email" class="input-control__label"></label>
+                                <input type="text" id="email" data-info="required" class="input-control__input input speedup-txt-small"
+                                    placeholder="Your email...">
+                                <div class="input-control__error-info"></div>
+                            </div>
+                            <button class="action-btn action-btn--in-grid action-btn--center speedup-txt speedup-txt--uppercased">Order a car</button>
+                            <p class="success-msg speedup-txt-small">Your query has been send. We will contact you within 48 hours!</p>
+                        </form>
+                    </div>
                 </section>
+                <div class="booking-section__footer">
+                    <div class="booking-section__btn-controls margin-l-auto">
+                        <button class="action-btn" data-option="prev">PREV</button>
+                    </div>
+                </div>
             </section>
         </div>
         <button class="booking-panel__btn-close btn-close">

@@ -20,6 +20,10 @@
         text-align: left;
     }
 
+    &--center{
+        text-align: center;
+    }
+
     &--yellow {
         -webkit-background-clip: text;
         -webkit-text-fill-color: yellow;
@@ -55,9 +59,9 @@
             text-align: left;
         }
     
-        @include m.breakpoint("large") {
-            text-align: left;
-        }
+        // @include m.breakpoint("large") {
+        //     text-align: left;
+        // }
 
         @include m.breakpoint(xxl) {
             font-size: v.$xl-font-size-large;

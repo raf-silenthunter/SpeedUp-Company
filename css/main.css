@@ -116,6 +116,9 @@ a, a:visited, a:active, a:focus {
 .speedup-txt--left {
   text-align: left;
 }
+.speedup-txt--center {
+  text-align: center;
+}
 .speedup-txt--yellow {
   -webkit-background-clip: text;
   -webkit-text-fill-color: yellow;
@@ -146,11 +149,6 @@ a, a:visited, a:active, a:focus {
 }
 .speedup-txt--subtitle-l {
   text-align: left;
-}
-@media (min-width: 900px) {
-  .speedup-txt--subtitle {
-    text-align: left;
-  }
 }
 @media (min-width: 2000px) {
   .speedup-txt--subtitle {
@@ -245,6 +243,11 @@ a, a:visited, a:active, a:focus {
 }
 .action-btn--animation:hover {
   animation-play-state: paused;
+}
+.action-btn--in-grid {
+  grid-column: 1/-1;
+  width: 50%;
+  margin: 0 auto;
 }
 
 @keyframes action {
@@ -345,9 +348,6 @@ a, a:visited, a:active, a:focus {
     height: 115px;
   }
 }
-.form__input-control:last-of-type {
-  grid-column: 1/-1;
-}
 .form__action-btn {
   margin-top: 2rem;
   width: 100%;
@@ -410,6 +410,10 @@ a, a:visited, a:active, a:focus {
   .error-info {
     font-size: 15px;
   }
+}
+
+.input-control--full-row {
+  grid-column: 1/-1;
 }
 
 .aside-nav {
@@ -1590,16 +1594,19 @@ body {
 }
 .booking-panel__item {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   align-content: "auto";
   gap: 1rem;
+  width: 250px;
+  max-height: 90px;
 }
 .booking-panel__icon {
   height: 16px;
 }
 
 .booking-section {
+  box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
   border: 2px solid transparent;
   border-radius: 10px;
   width: 100%;
@@ -1621,6 +1628,10 @@ body {
 }
 .booking-section__footer {
   margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: "auto";
 }
 .booking-section__option {
   position: relative;
@@ -1653,16 +1664,42 @@ body {
   border: 2px solid #09c372;
   box-shadow: 0px 0px 15px 9px rgba(9, 195, 114, 0.7254901961);
 }
+.booking-section__checkbox:checked + label.extras__item {
+  box-shadow: 0 0px 32px 0 #09c372;
+}
+.booking-section__checkbox:checked + label.extras__item > .addition__ico-wrap--success {
+  background-color: #09c372;
+}
 .booking-section__label {
   width: 30%;
   max-width: 450px;
   min-width: 200px;
 }
-.booking-section__location-panel {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding-block: 2rem;
+.booking-section__location {
+  width: 350px;
+}
+.booking-section__step {
+  margin-bottom: 2rem;
+}
+.booking-section__data-wrap {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  justify-items: center;
+  text-align: center;
+  row-gap: 3rem;
+}
+.booking-section__form {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+@media (min-width: 900px) {
+  .booking-section__summary, .booking-section__form-wrap {
+    width: 50%;
+  }
 }
 
 .calendar__input {
@@ -1673,7 +1710,7 @@ body {
   color: #f3f3f3;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 18px 0px #2c2c2c;
+  box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
   border-radius: 5px;
   margin-top: 1rem;
 }
@@ -1698,6 +1735,9 @@ body {
   grid-auto-rows: 140px;
   gap: 2rem;
 }
+.extras__item {
+  box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
+}
 
 .addition {
   display: flex;
@@ -1707,7 +1747,6 @@ body {
   min-height: 120px;
   padding-inline: clamp(15px, 2rem, 0.5em);
   border-radius: 10px;
-  box-shadow: 0 8px 32px 0 rgba(33, 40, 141, 0.676);
   cursor: pointer;
 }
 .addition__content {
@@ -1727,10 +1766,6 @@ body {
 .addition__ico-wrap--success {
   border: 2px solid #09c372;
   border-radius: 10px;
-  transition: all 0.4s linear;
-}
-.addition__ico-wrap--success:hover {
-  background-color: #09c372;
 }
 
 .ico-32 {
@@ -1758,6 +1793,10 @@ body {
 }
 .ico-32--alco {
   background: url("../../images/Icons/champagne-32.png");
+}
+
+.margin-l-auto {
+  margin-left: auto;
 }
 
 /* FOOTER STYLE  */
@@ -2070,6 +2109,7 @@ body {
   box-shadow: inset 0px 0px 15px 9px rgba(172, 172, 172, 0.81);
   background: #000205;
   transition: all linear 0.4s;
+  overflow: hidden;
 }
 .option__img {
   height: 40%;
@@ -2128,6 +2168,16 @@ body {
   right: -20%;
   transform: scale(0.9) translateX(50%);
   filter: blur(4px);
+}
+
+.txt {
+  text-align: left;
+}
+.txt-cen {
+  text-align: center;
+}
+.txt-rig {
+  text-align: right;
 }
 
 /* BRANDS ASIDE STYLE  */
@@ -3008,11 +3058,6 @@ body {
          column-gap: 2rem;
     max-height: 500px;
   }
-}
-.contact__action-btn {
-  grid-column: 1/-1;
-  width: 50%;
-  margin: 0 auto;
 }
 .contact__data-wrap {
   display: grid;

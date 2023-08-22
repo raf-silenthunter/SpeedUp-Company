@@ -30,10 +30,6 @@
         @include m.breakpoint("medium"){
             height: 115px;
         }
-
-        &:last-of-type {
-            grid-column: 1/-1;
-        }
     }
 
     &__action-btn {
@@ -95,5 +91,11 @@
     margin-top: 5px;
     @include m.breakpoint("medium"){
         font-size: 15px;
+    }
+}
+
+.input-control{
+    &--full-row {
+        grid-column: 1/-1;
     }
 }

@@ -151,8 +151,10 @@ body{
 
     &__item{
         display: flex;
-        @include m.flex-center(start, center);
+        @include m.flex-center(center, center);
         gap: 1rem;
+        width: 250px;
+        max-height: 90px;
     }
 
     &__icon{
@@ -161,6 +163,7 @@ body{
 }
 
 .booking-section{
+    box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
     @include m.border-properties(2px, solid, transparent, 10px);
     width: 100%;
     padding: 2rem 4rem;
@@ -181,6 +184,8 @@ body{
     
     &__footer{
         margin-top: 2rem;
+        display: flex;
+        @include m.flex-center(space-between, center);
     }
 
     &__option{
@@ -215,6 +220,12 @@ body{
             border: 2px solid v.$success;
             box-shadow: 0px 0px 15px 9px #09c372b9;
         }
+        &:checked+label.extras__item{
+            box-shadow: 0 0px 32px 0 v.$success;
+        }
+        &:checked+label.extras__item>.addition__ico-wrap--success {
+            background-color: v.$success;
+        }
     }
 
     &__label{
@@ -223,11 +234,30 @@ body{
         min-width: 200px;
     }
 
-    &__location-panel{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding-block: 2rem;
+    &__location{
+        width: 350px;
+    }
+
+    &__step {
+        margin-bottom: 2rem;
+    }
+
+    &__data-wrap {
+        @include m.grid-parent(1fr, repeat(auto-fill, minmax(400px, 1fr)));
+        justify-items: center;
+        text-align: center;
+        row-gap: 3rem;
+    }
+
+    &__form{
+        @include m.grid-parent(repeat(2, 1fr), repeat(auto-fill, minmax(250px, 1fr)));
+        column-gap: 2rem;
+    }
+
+    &__summary, &__form-wrap{
+        @include m.breakpoint("large"){
+            width: 50%;
+        }
     }
 }
 
@@ -240,7 +270,7 @@ body{
         color: v.$pale-white;
         border: none;
         outline: none;
-        box-shadow: 0px 0px 18px 0px #2c2c2c;
+        box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
         border-radius: 5px;
         margin-top: 1rem;
     }
@@ -265,6 +295,9 @@ body{
         grid-auto-rows: 140px;
         gap: 2rem;
     }
+    &__item{
+        box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
+    }
 }
 
 .addition{
@@ -275,7 +308,6 @@ body{
     min-height: 120px;
     padding-inline: clamp(15px, 2rem, .5em);
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(33, 40, 141, 0.676);
     cursor: pointer;
 
     &__content{
@@ -292,10 +324,6 @@ body{
         @include m.flex-center(center, center);
         &--success{
             @include m.border-properties(2px, solid, v.$success, 10px);
-            transition: all .4s linear;
-            &:hover{
-                background-color: v.$success;
-            }
         }
     }
 }
@@ -334,4 +362,8 @@ body{
             background: url("../../images/Icons/champagne-32.png");
         }
     }
+}
+
+.margin-l-auto{
+margin-left: auto;
 }

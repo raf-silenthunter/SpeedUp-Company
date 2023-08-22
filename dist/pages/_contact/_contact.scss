@@ -48,12 +48,6 @@
         }
     }
 
-    &__action-btn{
-        grid-column: 1/-1;
-        width: 50%;
-        margin: 0 auto;
-    }
-
     &__data-wrap{
         @include m.grid-parent(repeat(3, 1fr), repeat(2, auto));
         justify-content: left;
