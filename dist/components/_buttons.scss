@@ -80,6 +80,13 @@
         box-shadow: 0px 0px 5px 2px v.$yellow;
     }
 
+    &--sticky{
+        position: fixed;
+        top: 150px;
+        left: calc(100% - 3%);
+        z-index: 1000;
+    }
+
     &__icon {
         @include m.position(absolute, 50%, 50%);
         transform: translate(-50%, -50%);
