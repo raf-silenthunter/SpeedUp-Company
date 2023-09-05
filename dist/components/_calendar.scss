@@ -1,0 +1,24 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.calendar {
+    &__input {
+        width: 100%;
+        padding: 20px;
+        font-size: 18px;
+        background-color: v.$pale-black;
+        color: v.$pale-white;
+        border: none;
+        outline: none;
+        margin-top: 1rem;
+    }
+
+    &__input {
+        letter-spacing: 1px;
+    }
+}
+
+.flatpickr-day.selected {
+    background-color: v.$success !important;
+    border-color: v.$success !important;
+}

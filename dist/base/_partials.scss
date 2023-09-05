@@ -1,0 +1,82 @@
+// EXTRA CLASSES FOR LAYOUT MORE INTUITIVE STYLING
+
+@use "../utils/breakpoints" as b;
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+//icons base style
+.ico {
+    &-32 {
+        display: block;
+        width: 32px;
+        height: 32px;
+
+        &--checked {
+            background: url("../../images/Icons/simple-check-32.png");
+        }
+
+        &--seat {
+            background: url("../../images/Icons/baby-32.png");
+        }
+
+        &--pet {
+            background: url("../../images/Icons/pet-32.png");
+        }
+
+        &--trailer {
+            background: url("../../images/Icons/trailer-32.png");
+        }
+
+        &--world {
+            background: url("../../images/Icons/world-32.png");
+        }
+
+        &--pillow {
+            background: url("../../images/Icons/pillows-32.png");
+        }
+
+        &--alco {
+            background: url("../../images/Icons/champagne-32.png");
+        }
+    }
+}
+
+//margins
+.margin-l-auto {
+    margin-left: auto;
+}
+
+.margin-r-auto {
+    margin-right: auto;
+}
+
+//box-shadow in varius colours
+.box-shadow {
+    box-shadow: 0 0px 32px 0 rgba(33, 40, 141, 0.676);
+
+    &--yellow {
+        box-shadow: 0 0px 10px 5px rgba(255, 255, 0, 0.6);
+    }
+
+    &--success {
+        box-shadow: 0px 0px 15px 9px rgba(9, 195, 114, 0.6);
+    }
+}
+
+//all border sizes
+.border-r {
+    &-small {
+        border-radius: v.$border-r-small;
+    }
+
+    &-med {
+        border-radius: v.$border-r-medium;
+    }
+
+    &-big {
+        border-radius: v.$border-r-big;
+    }
+
+    &-round {
+        border-radius: v.$border-r-round;
+    }
+}

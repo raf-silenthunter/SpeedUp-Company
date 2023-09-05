@@ -96,3 +96,17 @@ $z-index: ("minus-xl": -1000, "minus-large": -100,
 
 $main-nav-height: 100px;
 $main-nav-height-desktop: 200px;
+
+//border-radius map
+
+$border-radius: (
+    "small": 3px,
+    "medium": 5px,
+    "big": 10px,
+    "round": 50%,
+);
+
+$border-r-small: map-get($border-radius , "small");
+$border-r-medium: map-get($border-radius , "medium");
+$border-r-big: map-get($border-radius , "big");
+$border-r-round: map-get($border-radius , "round");

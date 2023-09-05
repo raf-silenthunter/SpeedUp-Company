@@ -82,8 +82,12 @@
 
     &--sticky{
         position: fixed;
-        top: 150px;
-        left: calc(100% - 3%);
+        top: 120px;
+        left: calc(100% - 15px);
+        @include m.breakpoint("large"){
+            top: 130px;
+            left: calc(100% - 30px);
+        }
         z-index: 1000;
     }
 

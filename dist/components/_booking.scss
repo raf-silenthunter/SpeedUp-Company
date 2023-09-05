@@ -1,0 +1,140 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+@use "../utils/breakpoints" as b;
+
+.booking-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    &__content,
+    &__footer {
+        display: flex;
+        @include m.flex-center(space-between, center);
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    &__content {
+
+        // justify-content: center;
+        @media (max-width: 900px) {
+            gap: 3rem;
+        }
+    }
+
+    &__label {
+        width: 100%;
+        max-width: 450px;
+        min-width: 200px;
+
+        @media(max-width: 1200px) {
+            margin: 0 auto;
+        }
+
+        @include m.breakpoint("large") {
+            width: 30%;
+        }
+    }
+
+    &__option {
+        position: relative;
+        height: auto;
+        cursor: pointer;
+
+        &::before {
+            content: "\f00c";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 28px;
+            height: 28px;
+            font-family: 'Font Awesome\ 5 free';
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+    }
+
+    &__checkbox {
+        display: none;
+
+        &:checked+label>.booking-section__option::before {
+            opacity: 1;
+            background-color: v.$success;
+        }
+
+        &:checked+label>.booking-section__option {
+            border: 2px solid v.$success;
+            box-shadow: 0px 0px 15px 9px #09c372b9;
+        }
+
+        &:checked+label.extras__item {
+            box-shadow: 0 0px 32px 0 v.$success;
+        }
+
+        &:checked+label.extras__item>.addition__ico-wrap--success {
+            background-color: v.$success;
+        }
+    }
+
+    &__data-wrap {
+        display: grid;
+
+        @include m.breakpoint("medium") {
+            grid: auto / repeat(auto-fill, minmax(400px, 1fr));
+            justify-items: center;
+        }
+
+        text-align: center;
+        row-gap: 3rem;
+    }
+
+    &__data-item {
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+    }
+
+    &__summary,
+    &__form-wrap {
+        @include m.breakpoint("large") {
+            width: 45%;
+        }
+    }
+
+    &__form {
+        @include m.grid-parent(repeat(2, 1fr), repeat(auto-fill, minmax(250px, 1fr)));
+        column-gap: 2rem;
+    }
+
+    &__h3 {
+        margin-bottom: 4rem;
+    }
+
+    &__action-btn {
+        width: 100%;
+    }
+
+    &__form-wrap {
+        gap: 2rem;
+    }
+
+    &__order-info {
+        @media(max-width: 800px) {
+            display: block;
+        }
+    }
+}
+
+.booking-section,
+.booking-panel__cover {
+    padding: 1rem 2rem;
+
+    @include m.breakpoint("medium") {
+        padding: 2rem 4rem;
+    }
+}
