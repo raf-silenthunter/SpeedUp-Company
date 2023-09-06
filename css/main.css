@@ -960,10 +960,91 @@ a, a:visited, a:active, a:focus {
   }
 }
 
+.booking-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow: scroll;
+}
+.booking-panel__header {
+  position: relative;
+  padding-top: 100px;
+  height: clamp(400px, 8vh, 600px);
+}
+.booking-panel__header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/road.jpg") top;
+  z-index: -10;
+  filter: brightness(0.5);
+}
+.booking-panel__car {
+  text-align: center;
+  border-bottom: 1px solid #acacac;
+}
+@media (min-width: 700px) {
+  .booking-panel__car {
+    border-bottom: none;
+  }
+}
+.booking-panel__content {
+  width: 85%;
+  background-color: #000205;
+  position: relative;
+  top: -125px;
+  margin: 0 auto;
+}
+.booking-panel__cover {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 700px) {
+  .booking-panel__cover {
+    align-items: center;
+  }
+}
+@media (min-width: 900px) {
+  .booking-panel__cover {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.booking-panel__cover--yellow-border {
+  border: 2px solid yellow;
+}
+.booking-panel__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem 5rem;
+  max-width: 500px;
+  padding-block: 2rem;
+}
+.booking-panel__item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-content: "auto";
+  gap: 1rem;
+  max-width: 250px;
+  max-height: 90px;
+}
+.booking-panel__icon {
+  height: 16px;
+}
+
 .booking-section {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  margin-block: 50px;
 }
 .booking-section__content, .booking-section__footer {
   display: flex;
@@ -1813,91 +1894,6 @@ a, a:visited, a:active, a:focus {
 
 body {
   overflow: hidden;
-}
-
-.booking-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  overflow: scroll;
-}
-.booking-panel__header {
-  position: relative;
-  padding-top: 100px;
-  height: clamp(400px, 8vh, 600px);
-}
-.booking-panel__header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../../images/road.jpg") top;
-  z-index: -10;
-  filter: brightness(0.5);
-}
-.booking-panel__car {
-  text-align: center;
-  border-bottom: 1px solid #acacac;
-}
-@media (min-width: 700px) {
-  .booking-panel__car {
-    border-bottom: none;
-  }
-}
-.booking-panel__content {
-  width: 85%;
-  background-color: #000205;
-  position: relative;
-  top: -125px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 50px;
-}
-.booking-panel__cover {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-@media (min-width: 700px) {
-  .booking-panel__cover {
-    align-items: center;
-  }
-}
-@media (min-width: 900px) {
-  .booking-panel__cover {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-.booking-panel__cover--yellow-border {
-  border: 2px solid yellow;
-}
-.booking-panel__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 2rem 5rem;
-  max-width: 500px;
-  padding-block: 2rem;
-}
-.booking-panel__item {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  align-content: "auto";
-  gap: 1rem;
-  max-width: 250px;
-  max-height: 90px;
-}
-.booking-panel__icon {
-  height: 16px;
 }
 
 /* FOOTER STYLE  */
