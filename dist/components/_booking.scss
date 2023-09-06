@@ -3,9 +3,7 @@
 @use "../utils/breakpoints" as b;
 
 .booking-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    @include m.display-flex(flex, column);
     gap: 4rem;
 
     &__content,
@@ -17,15 +15,12 @@
     }
 
     &__content {
-
-        // justify-content: center;
         @media (max-width: 900px) {
             gap: 3rem;
         }
     }
 
     &__label {
-        width: 100%;
         max-width: 450px;
         min-width: 200px;
 
@@ -84,19 +79,16 @@
 
     &__data-wrap {
         display: grid;
-
+        row-gap: 3rem;
+        justify-items: center;
         @include m.breakpoint("medium") {
             grid: auto / repeat(auto-fill, minmax(400px, 1fr));
-            justify-items: center;
         }
-
-        text-align: center;
-        row-gap: 3rem;
     }
 
     &__data-item {
         width: calc(100% - 4rem);
-        margin: 0 auto;
+        text-align: center;
     }
 
     &__summary,
@@ -117,10 +109,6 @@
 
     &__action-btn {
         width: 100%;
-    }
-
-    &__form-wrap {
-        gap: 2rem;
     }
 
     &__order-info {
