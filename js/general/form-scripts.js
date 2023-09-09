@@ -11,7 +11,9 @@ export class FormValidation{
         }
 
         this.form.reset();
-        
+    }
+
+    init(){
         this.form.addEventListener("change", (e) => this.handleInputChange(e));
 
         this.form.addEventListener("submit", (e) => {

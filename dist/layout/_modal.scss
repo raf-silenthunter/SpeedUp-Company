@@ -16,7 +16,7 @@
     @include m.position(fixed, 0, 0);
     width: 100%;
     background: rgba(00, 02, 05, .9);
-    z-index: f.set-biggest-z-index(100);
+    z-index: f.set-biggest-z-index(1000);
 
     &--login {
         height: 100vh;
@@ -92,6 +92,10 @@
     display: flex;
 }
 
-body {
+.visible-block{
+    display: block;
+}
+
+.hidden-scroll {
     overflow: hidden;
 }

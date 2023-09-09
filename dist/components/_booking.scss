@@ -3,11 +3,12 @@
 @use "../utils/breakpoints" as b;
 
 .booking-panel {
+    display: none; //modal is hidden by default
     @include m.position(fixed, 0, 0);
     bottom: 0;
     right: 0;
     backdrop-filter: blur(10px);
-    overflow: scroll;
+    overflow: auto;
 
     &__header {
         position: relative;

@@ -153,6 +153,10 @@ export class ScrollBtn {
         });
     }
 
+    removeBtn(){
+        this.scrollBtn.classList.remove("scroll-btn--visible");
+    }
+
     showBtn(){
         const scrollerWrapPos = this.scrolledElemsWrap.getBoundingClientRect().top;
         scrollerWrapPos <= 0 ? this.scrollBtn.classList.add("scroll-btn--visible") : this.scrollBtn.classList.remove("scroll-btn--visible");

@@ -19,7 +19,7 @@ modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
 
-//
+//FormValidation Class invoking
 import {FormValidation} from "./general/form-scripts.js";
 
 const form = document.querySelector(".contact__form");
@@ -30,3 +30,4 @@ const phone = document.getElementById("phone");
 const message = document.getElementById("message");
 
 const contactForm = new FormValidation(form, name, surname, email, phone, message);
+contactForm.init();

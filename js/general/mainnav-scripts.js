@@ -1,12 +1,20 @@
 export class StickyNav {
     constructor(){
         this.nav = document.querySelector(".main-nav");
-        this.scrollVAlue = 100;  
+        this.scrollValue = 100;  
+    }
+
+    init(){
+        window.addEventListener("scroll", () => this.toggleNav());
+    }
+
+    addSticky(){
+        this.nav.classList.add("is-sticky");
     }
 
     toggleNav(){
-        let scrollPosition = window.scrollY;
-        this.nav.classList.toggle("is-sticky", scrollPosition >= this.scrollVAlue);
+        let scrollPosition = window.scrollY;      
+        this.nav.classList.toggle("is-sticky", scrollPosition >= this.scrollValue);
     }
 }
 

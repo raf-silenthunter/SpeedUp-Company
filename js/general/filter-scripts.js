@@ -1,4 +1,5 @@
 export class FleetFilter {
+    // unableClean is by default set to false because there is not interface for cleaining filter elems. True if there is interface
         constructor(wrap, elements, unableClean = false){
             this.fleetWrap = wrap;
             this.fleetElements = elements;

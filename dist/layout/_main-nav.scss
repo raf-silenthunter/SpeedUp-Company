@@ -12,9 +12,11 @@
     display: flex;
     @include m.flex-center(space-around, center);
     height: v.$main-nav-height;
-    width: 100%;
+    // width: 100%;
+    left: 0;
+    right: 0;
     max-width: 100vw;
-    z-index: map-get(v.$z-index, "xl");
+    z-index: map-get(v.$z-index, "xxl");
     transition: background-color .4s linear;
     @include m.breakpoint("large") {
         padding: 1rem 2rem;
