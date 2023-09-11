@@ -357,7 +357,7 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 900px) {
   .btn-close--sticky {
-    top: 130px;
+    top: 170px;
     left: calc(100% - 30px);
   }
 }
@@ -961,7 +961,7 @@ a, a:visited, a:active, a:focus {
 }
 
 .booking-panel {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -1894,12 +1894,19 @@ a, a:visited, a:active, a:focus {
   display: flex;
 }
 
-.visible-block {
-  display: block;
+.stop-scroll {
+  overflow: hidden;
 }
 
-.hidden-scroll {
+.hidden-scroll-wrap {
+  position: relative;
   overflow: hidden;
+  height: auto;
+  display: none;
+}
+
+.not-hidden-scroll-wrap {
+  display: block;
 }
 
 /* FOOTER STYLE  */

@@ -136,7 +136,7 @@ export class ScrollBtn {
     constructor(elemsWrap){
         this.scrollBtn = document.querySelector(".scroll-btn");
         this.scrolledElemsWrap = elemsWrap;
-
+        this.visible = true;
         this.scrollBtn.addEventListener("click", this.scroll)
     }
 
@@ -144,21 +144,23 @@ export class ScrollBtn {
         const target = document.querySelector(".filter");
         const targetFromTop = target.offsetTop;
         const mainNavHeight = 100;
-
         const scrollPosition = targetFromTop - mainNavHeight;
 
-        window.scrollTo({
-            behavior: "smooth",
-            top: scrollPosition,
-        });
+            window.scrollTo({
+                behavior: "smooth",
+                top: scrollPosition,
+            });
     }
 
     removeBtn(){
         this.scrollBtn.classList.remove("scroll-btn--visible");
+        this.visible = false;
     }
 
     showBtn(){
+        if(this.visible){
         const scrollerWrapPos = this.scrolledElemsWrap.getBoundingClientRect().top;
         scrollerWrapPos <= 0 ? this.scrollBtn.classList.add("scroll-btn--visible") : this.scrollBtn.classList.remove("scroll-btn--visible");
+        }
     }
 }

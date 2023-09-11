@@ -6,8 +6,8 @@ blogFilter.filterInit();
 
 import {StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
 //StickyNav Class invoking
-// const scrollableContent = document.querySelector(".booking-panel");
-const stickyMenu = new StickyNav();
+const scrollableContent = document.querySelector(".booking-panel");
+const stickyMenu = new StickyNav(scrollableContent);
 document.addEventListener("DOMContentLoaded", () => stickyMenu.init());
 
 // ShowMobileNav Class invoking
@@ -30,28 +30,30 @@ const elemsWrap = document.querySelector(".grid");
 const scrollBtn = new ScrollBtn(elemsWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
 
-const bookingPanel = document.querySelector(".booking-panel");
+const bookingPanel = document.querySelector(".hidden-scroll-wrap");
 const bookingBtns = [...document.querySelectorAll('[data-info="booking-btn"]')];
 const body = document.querySelector("body");
 const btnClose = document.querySelector(".btn-close--sticky");
 // const scrollableContent = document.querySelector(".booking-panel");
 
 const toggleModal = () =>{
-    bookingPanel.classList.toggle("visible-block");
-    body.classList.toggle("hidden-scroll");
+    bookingPanel.classList.toggle("not-hidden-scroll-wrap");
+    body.classList.toggle("stop-scroll");
 }
 
 bookingBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         e.stopPropagation();
         toggleModal();
-        stickyMenu.addSticky();
+        stickyMenu.init(scrollableContent);
         scrollBtn.removeBtn();
     })
 })
 
 btnClose.addEventListener("click", (e)=>{
     e.stopPropagation();
+    scrollBtn.visible = true;
+    stickyMenu.init(window);
     toggleModal();
 })
 

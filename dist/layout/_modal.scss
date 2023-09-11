@@ -92,10 +92,17 @@
     display: flex;
 }
 
-.visible-block{
-    display: block;
+.stop-scroll {
+    overflow: hidden;
 }
 
-.hidden-scroll {
+.hidden-scroll-wrap {
+    position: relative;
     overflow: hidden;
+    height: auto;
+    display: none;
+}
+
+.not-hidden-scroll-wrap{
+    display: block;
 }
