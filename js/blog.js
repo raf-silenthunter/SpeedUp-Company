@@ -1,8 +1,9 @@
 import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
 
 //StickyNav Class invoking
-const stickyMenu = new StickyNav();
-window.addEventListener("scroll", () => stickyMenu.toggleNav());
+const scrollableContent = window;
+const stickyMenu = new StickyNav(scrollableContent);
+document.addEventListener("DOMContentLoaded", () => stickyMenu.init());
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();

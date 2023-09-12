@@ -3,8 +3,9 @@ import {counter} from "../js/general/extras-scripts.js";
 import {MainSlider, OptionsSlider, BrandsSlider} from "../js/general/swiper-scripts.js";
 
 //StickyNav Class invoking
-const stickyMenu = new StickyNav();
-window.addEventListener("scroll", () => stickyMenu.toggleNav());
+const scrollableContent = window;
+const stickyMenu = new StickyNav(scrollableContent);
+document.addEventListener("DOMContentLoaded", () => stickyMenu.init());
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();

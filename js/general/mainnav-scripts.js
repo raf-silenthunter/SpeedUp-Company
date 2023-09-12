@@ -17,7 +17,6 @@ export class StickyNav {
     init(scrollContent = window){
         const initPosition = this.checkScrollState(scrollContent);
         initPosition <= this.scrollValue ? this.nav.classList.remove("is-sticky") : this.nav.classList.add("is-sticky");
-        console.log('ok');
         scrollContent.addEventListener("scroll", () => this.toggleStickyNav(scrollContent))
     }
 }
