@@ -1,6 +1,7 @@
 import {FleetFilter} from "./general/filter-scripts.js";
 const grid = document.querySelector('[data-elem="scroll-wrap"]');
 const gridElements = document.querySelectorAll('[data-elem="elem"]');
+//zmiana nazwy!!!
 const blogFilter = new FleetFilter(grid, gridElements, true);
 blogFilter.filterInit();
 

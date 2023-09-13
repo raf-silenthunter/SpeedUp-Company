@@ -1826,7 +1826,7 @@ a, a:visited, a:active, a:focus {
   left: 0;
   width: 100%;
   background: rgba(0, 2, 5, 0.9);
-  z-index: 2000;
+  z-index: 11000;
 }
 .modal--login {
   height: 100vh;
