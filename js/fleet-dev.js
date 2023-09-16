@@ -1,8 +1,7 @@
 import {FleetFilter} from "./general/filter-scripts.js";
-const grid = document.querySelector('[data-elem="scroll-wrap"]');
+const gridParent = document.querySelector('[data-elem="scroll-wrap"]');
 const gridElements = document.querySelectorAll('[data-elem="elem"]');
-//zmiana nazwy!!!
-const blogFilter = new FleetFilter(grid, gridElements, true);
+const blogFilter = new FleetFilter(gridParent, gridElements, true);
 blogFilter.filterInit();
 
 import {StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
@@ -26,37 +25,17 @@ modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
 
-import {ScrollBtn} from "./general/extras-scripts.js";
-const elemsWrap = document.querySelector(".grid");
-const scrollBtn = new ScrollBtn(elemsWrap);
+///// stepsHandler Class invoking
+const stepsHandler = new StepsHandler();
+/////
+
+import {ScrollBtn, BookingModal, StepsHandler} from "./general/extras-scripts.js";
+const bookingWrap = document.querySelector(".grid");
+const scrollBtn = new ScrollBtn(bookingWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
 
-const bookingPanel = document.querySelector(".hidden-scroll-wrap");
-const bookingBtns = [...document.querySelectorAll('[data-info="booking-btn"]')];
-const body = document.querySelector("body");
-const btnClose = document.querySelector(".btn-close--sticky");
-// const scrollableContent = document.querySelector(".booking-panel");
-
-const toggleModal = () =>{
-    bookingPanel.classList.toggle("not-hidden-scroll-wrap");
-    body.classList.toggle("stop-scroll");
-}
-
-bookingBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleModal();
-        stickyMenu.init(scrollableContent);
-        scrollBtn.removeBtn();
-    })
-})
-
-btnClose.addEventListener("click", (e)=>{
-    e.stopPropagation();
-    scrollBtn.visible = true;
-    stickyMenu.init(window);
-    toggleModal();
-})
+const bookingModal = new BookingModal(stickyMenu, scrollBtn, stepsHandler);
+bookingModal.init(bookingWrap);
 
 import {FormValidation} from "./general/form-scripts.js";
 

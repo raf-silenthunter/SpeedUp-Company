@@ -967,8 +967,11 @@ a, a:visited, a:active, a:focus {
   left: 0;
   bottom: 0;
   right: 0;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.52);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(20px);
   overflow: auto;
 }
 .booking-panel__header {
@@ -999,13 +1002,14 @@ a, a:visited, a:active, a:focus {
 .booking-panel__content {
   width: 85%;
   background-color: #000205;
-  position: relative;
-  top: -125px;
   margin: 0 auto;
 }
 .booking-panel__cover {
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: -125px;
+  background: #000205;
 }
 @media (min-width: 700px) {
   .booking-panel__cover {
@@ -1112,6 +1116,7 @@ a, a:visited, a:active, a:focus {
   background-color: #09c372;
 }
 .booking-section__data-wrap {
+  width: 100%;
   display: grid;
   row-gap: 3rem;
   justify-items: center;
@@ -1892,6 +1897,10 @@ a, a:visited, a:active, a:focus {
 
 .visible {
   display: flex;
+}
+
+.not-visible-section {
+  display: none;
 }
 
 .stop-scroll {

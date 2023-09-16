@@ -92,6 +92,10 @@
     display: flex;
 }
 
+.not-visible-section{
+    display: none;
+}
+
 .stop-scroll {
     overflow: hidden;
 }

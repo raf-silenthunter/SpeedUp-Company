@@ -164,3 +164,123 @@ export class ScrollBtn {
         }
     }
 }
+
+export class BookingModal{
+    constructor(stickyMenu, scrollBtn, stepsHandler){
+        this.bookingPanel = document.querySelector(".hidden-scroll-wrap");
+        this.body = document.querySelector("body");
+        this.btnClose = document.querySelector(".btn-close--sticky");
+        //komposition: pass here two external classes to use their methods
+        this.stickyMenu = stickyMenu;
+        this.scrollBtn = scrollBtn;
+        this.stepsHandler = stepsHandler;
+        //not adding btnClose to the same event handler
+        this.btnClose.addEventListener("click", (e) => this.closeModal(e));
+    }
+
+    init(bookingParent){
+        bookingParent.addEventListener("click", (e) => this.handleModal(e))
+    }
+
+    handleModal(e){
+        if(e.target.matches('[data-info="booking-btn"]')) {
+            this.openModal(e);
+            this.stepsHandler.init();
+        }
+        else return;
+    }
+
+    toggleModal = () =>{
+        this.bookingPanel.classList.toggle("not-hidden-scroll-wrap");
+        this.body.classList.toggle("stop-scroll");
+    }
+
+    openModal(e){
+        e.stopPropagation();
+        this.toggleModal();
+        const scrollableContent = document.querySelector(".booking-panel");
+        this.stickyMenu.init(scrollableContent);
+        this.scrollBtn.removeBtn();
+    }
+
+    closeModal(e){
+        e.stopPropagation();
+        this.scrollBtn.visible = true;
+        this.stickyMenu.init(window);
+        this.toggleModal();
+    }
+    
+}
+
+export class StepsHandler{
+    constructor(){
+        this.stepsWrap;
+        this.stepsElemsParent = document.querySelector(".booking-panel");
+        this.stepsElems = [...document.querySelectorAll(".booking-section")];
+        this.step = 0;
+
+        this.buttonControls = [...document.querySelectorAll(".booking-section__btn-controls")];
+        this.buttonControls.forEach(controls => {
+            controls.addEventListener("click", (e)=> this.changeSection(e))
+        }) 
+    }
+
+    setCarInfo(){
+        //
+    }
+
+    resetHandler(){
+        const textInputs = this.stepsElemsParent.querySelectorAll('input[type="text"]');
+        textInputs.forEach(input => input.value = '');
+
+        const selectElements = this.stepsElemsParent.querySelectorAll('select')
+        selectElements.forEach(select => select.selectedIndex = 0);
+
+        const radioInputs = this.stepsElemsParent.querySelectorAll('input[type="radio"]');
+        radioInputs[0].checked= 1;
+
+        const checkboxInputs = this.stepsElemsParent.querySelectorAll('input[type="checkbox"]');
+        checkboxInputs.forEach(box => box.checked = 0);
+    }
+
+    removeVisibleSections(){
+        this.stepsElems.forEach(step => step.classList.remove("visible", "not-visible-section"));
+    }
+
+    scrollToControls(stepSection){
+        const section = stepSection;
+        const sectionFromTop = section.getBoundingClientRect().top;
+        const offsetTop = sectionFromTop + section.offsetHeight;
+        this.stepsElemsParent.scrollTo({top: offsetTop})
+    }
+
+    changeStep(step){
+        this.removeVisibleSections();
+        this.stepsElems[step].classList.add("visible");
+        this.hideElems();
+        this.scrollToControls(this.stepsElems[step])
+    }
+
+    changeSection(e){
+        if(e.target.matches('[data-option="next"]')){
+            this.step = ++this.step;
+            this.changeStep(this.step);
+        }
+        else if(e.target.matches('[data-option="prev"]')){
+            this.step = --this.step;
+            this.changeStep(this.step);
+        }
+    }
+
+    hideElems(){
+        const elemsToHide = this.stepsElems.filter(element => !element.classList.contains("visible"))
+        elemsToHide.forEach(elem => elem.classList.add("not-visible-section"));
+    }
+
+    init(){
+        this.step = 0;
+        this.changeStep(this.step)
+        this.resetHandler();
+        this.setCarInfo();
+    }
+}
