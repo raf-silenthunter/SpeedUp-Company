@@ -1,0 +1,122 @@
+[
+    {
+        "carName": "Mercedes CL 500 AMG",
+        "carEngine": "5.0 TSI 4DRIVE",
+        "carPrice": "300",
+        "carEquipement": [
+                "Nawigacja satelitarna",
+                "Ogrzewane fotele",
+                "System audio Burmester",
+                "Asystent parkowania",
+                "Dach panoramiczny",
+                "System kontroli martwego pola",
+                "Adaptacyjne światła LED",
+                "System bezkluczykowego dostępu"
+            ]
+    },
+    {
+    "carName": "Bentley Continental GT",
+    "carEngine": "5.2 TDI Premium",
+    "carPrice": "750",
+    "carEquipement": [
+            "Skórzana tapicerka",
+            "System audio Bang & Olufsen",
+            "Ogrzewane i wentylowane fotele",
+            "Asystent pasa ruchu",
+            "Kamera cofania",
+            "System kontroli trakcji",
+            "Elektrycznie regulowane fotele",
+            "System rozpoznawania znaków drogowych"
+        ]
+    },
+    {
+    "carName": "BMW 750I",
+    "carEngine": "3.0 e-Hybrid",
+    "carPrice": "650",
+    "carEquipement": [
+            "System audio Harman Kardon",
+            "Head-up display",
+            "Ogrzewane tylne fotele",
+            "System kontroli odległości parkowania",
+            "Adaptacyjny tempomat",
+            "System kontroli martwego pola",
+            "Elektryczna klapa bagażnika",
+            "System nawigacji Professional"
+        ]
+    },
+    {
+    "carName": "Chevrolet Camaro",
+    "carEngine": "3.6 TDI",
+    "carPrice": "350",
+    "carEquipement": [
+            "System audio Bose",
+            "Ogrzewane i wentylowane fotele",
+            "Kamera cofania",
+            "System kontroli trakcji",
+            "Dach panoramiczny",
+            "Adaptacyjne światła LED",
+            "System bezkluczykowego dostępu",
+            "System kontroli martwego pola"
+        ]
+    },
+    {
+    "carName": "Lamborghini Aventador",
+    "carEngine": "6.0 TDI e-Hybrid",
+    "carPrice": "1050",
+    "carEquipement": [
+            "Skórzana tapicerka",
+            "System audio Bang & Olufsen",
+            "Ogrzewane fotele",
+            "System kontroli trakcji",
+            "Adaptacyjny tempomat",
+            "System kontroli martwego pola",
+            "Kamera cofania",
+            "System bezkluczykowego dostępu"
+        ]
+    },
+    {
+    "carName": "Jeep Wrangler",
+    "carEngine": "6.0 TDI 16V",
+    "carPrice": "200",
+    "carEquipement": [
+            "System audio Alpine",
+            "Ogrzewane fotele",
+            "System nawigacji satelitarnej",
+            "System kontroli trakcji",
+            "Kamera terenowa",
+            "Adaptacyjne światła LED",
+            "System bezkluczykowego dostępu",
+            "System kontroli martwego pola"
+        ]
+    },
+    {
+    "carName": "Audi Q8",
+    "carEngine": "6.0 TDI 16V",
+    "carPrice": "400",
+    "carEquipement": [
+            "System audio Bang & Olufsen",
+            "Ogrzewane i wentylowane fotele",
+            "System nawigacji MMI",
+            "Adaptacyjny tempomat",
+            "Head-up display",
+            "System kontroli martwego pola",
+            "Kamera 360 stopni",
+            "System bezkluczykowego dostępu"
+        ]
+    },
+    {
+    "carName": "Mercedes SL 500",
+    "carEngine": "4.9 VTI Turbo",
+    "carPrice": "800",
+    "carEquipement": [
+            "System audio Burmester",
+            "Ogrzewane i wentylowane fotele",
+            "System nawigacji satelitarnej",
+            "Adaptacyjny tempomat",
+            "System kontroli martwego pola",
+            "Dach panoramiczny",
+            "Kamera cofania",
+            "System bezkluczykowego dostępu"
+        ]
+    }
+]

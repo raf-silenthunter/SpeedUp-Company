@@ -248,17 +248,21 @@ export class StepsHandler{
     }
 
     scrollToControls(stepSection){
-        const section = stepSection;
-        const sectionFromTop = section.getBoundingClientRect().top;
-        const offsetTop = sectionFromTop + section.offsetHeight;
-        this.stepsElemsParent.scrollTo({top: offsetTop})
+        const wrapHeight = Math.floor(this.stepsElemsParent.scrollHeight);
+        const mainNavHeight = 150;
+        const sectionHeight = stepSection.offsetHeight;
+        const scrollValue = wrapHeight - sectionHeight - mainNavHeight;
+        this.stepsElemsParent.scrollTo({
+            top: scrollValue,
+            behavior: "smooth",
+        })
     }
 
     changeStep(step){
         this.removeVisibleSections();
         this.stepsElems[step].classList.add("visible");
         this.hideElems();
-        this.scrollToControls(this.stepsElems[step])
+        if(step !== 0) this.scrollToControls(this.stepsElems[step]);
     }
 
     changeSection(e){
