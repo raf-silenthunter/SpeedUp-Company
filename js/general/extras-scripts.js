@@ -166,7 +166,7 @@ export class ScrollBtn {
 }
 
 export class BookingModal{
-    constructor(stickyMenu, scrollBtn, stepsHandler){
+    constructor(stickyMenu, scrollBtn, stepsHandler, dataBase){
         this.bookingPanel = document.querySelector(".hidden-scroll-wrap");
         this.body = document.querySelector("body");
         this.btnClose = document.querySelector(".btn-close--sticky");
@@ -175,6 +175,7 @@ export class BookingModal{
         this.scrollBtn = scrollBtn;
         this.stepsHandler = stepsHandler;
         //not adding btnClose to the same event handler
+        this.dataBase = dataBase;
         this.btnClose.addEventListener("click", (e) => this.closeModal(e));
     }
 
@@ -182,8 +183,40 @@ export class BookingModal{
         bookingParent.addEventListener("click", (e) => this.handleModal(e))
     }
 
+    loadData(carDataObject){
+        const {
+            carName : model = "brak",
+            carEngine : engine = "brak",
+            carPrice : price = "brak",
+            carImg : img = "brak",
+            carEquipement : equipement = "brak"
+        } = carDataObject;
+
+        const modelLabel = document.querySelector('[data-info="car-model"]');
+        const engineLabel = document.querySelector('[data-info="engine"]');
+        const priceLabel = document.querySelector('[data-info="daily-car-price"]');
+        const imgLabel = document.querySelector('[data-info="car-img"]');
+        const equipementLabelArray = [...document.querySelectorAll('[data-info="equipement"]')];
+        
+        modelLabel.textContent = model;
+        engineLabel.textContent = engine;
+        priceLabel.textContent = price;
+        imgLabel.src = img;
+        equipementLabelArray.forEach((label, index) => label.textContent = equipement[index])
+    }
+
+    checkData(e){
+        if(e.target.matches('[data-car]')){
+            const data = this.dataBase;
+            const clientCarIndex = e.target.dataset.car; //index of a car chosen by a client
+            const findCarDataset = data.filter(dataItem => dataItem.carIndex === clientCarIndex);
+            this.loadData(...findCarDataset);
+        }
+    }
+
     handleModal(e){
         if(e.target.matches('[data-info="booking-btn"]')) {
+            this.checkData (e);
             this.openModal(e);
             this.stepsHandler.init();
         }

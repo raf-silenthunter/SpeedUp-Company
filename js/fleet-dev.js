@@ -29,12 +29,15 @@ modalFn.modalBtns.forEach((btn)=> {
 const stepsHandler = new StepsHandler();
 /////
 
+import {carsInfo} from '../../data/carsInfo.js'
+const carsInfoDatabase = carsInfo;
+
 import {ScrollBtn, BookingModal, StepsHandler} from "./general/extras-scripts.js";
 const bookingWrap = document.querySelector(".grid");
 const scrollBtn = new ScrollBtn(bookingWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
 
-const bookingModal = new BookingModal(stickyMenu, scrollBtn, stepsHandler);
+const bookingModal = new BookingModal(stickyMenu, scrollBtn, stepsHandler, carsInfoDatabase);
 bookingModal.init(bookingWrap);
 
 import {FormValidation} from "./general/form-scripts.js";

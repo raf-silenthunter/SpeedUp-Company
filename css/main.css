@@ -991,18 +991,23 @@ a, a:visited, a:active, a:focus {
   filter: brightness(0.5);
 }
 .booking-panel__car {
+  width: 100%;
   text-align: center;
   border-bottom: 1px solid #acacac;
 }
 @media (min-width: 700px) {
   .booking-panel__car {
     border-bottom: none;
+    width: 350px;
   }
 }
 .booking-panel__content {
   width: 85%;
   background-color: #000205;
   margin: 0 auto;
+}
+.booking-panel__car-img {
+  padding-block: 30px;
 }
 .booking-panel__cover {
   display: flex;
@@ -1027,9 +1032,10 @@ a, a:visited, a:active, a:focus {
 }
 .booking-panel__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem 5rem;
-  max-width: 500px;
+  gap: 2rem 3rem;
+  max-width: 800px;
   padding-block: 2rem;
 }
 .booking-panel__item {
@@ -1037,12 +1043,15 @@ a, a:visited, a:active, a:focus {
   justify-content: start;
   align-items: center;
   align-content: "auto";
-  gap: 1rem;
-  max-width: 250px;
-  max-height: 90px;
+  gap: 2rem;
+  min-height: 60px;
+  padding-bottom: 10px;
+  border-block-end: 1px solid;
+  border-image-slice: 1;
+  border-image-source: radial-gradient(circle at top left, #21288d, transparent);
 }
 .booking-panel__icon {
-  height: 16px;
+  height: 24px;
 }
 
 .booking-section {

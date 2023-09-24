@@ -31,10 +31,12 @@
     }
 
     &__car {
+        width: 100%;
         text-align: center;
         border-bottom: 1px solid v.$silver;
         @include m.breakpoint("medium") {
             border-bottom: none;
+            width: 350px;
         }
     }
 
@@ -42,6 +44,10 @@
         width: 85%;
         background-color: v.$pale-black;
         margin: 0 auto;
+    }
+
+    &__car-img{
+        padding-block: 30px;
     }
 
     &__cover {
@@ -65,22 +71,30 @@
 
     &__list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 2rem 5rem;
-        max-width: 500px;
+        gap: 2rem 3rem;
+        max-width: 800px;
         padding-block: 2rem;
     }
 
     &__item {
         display: flex;
         @include m.flex-center(start, center);
-        gap: 1rem;
-        max-width: 250px;
-        max-height: 90px;
+        gap: 2rem;
+        min-height: 60px;
+        padding-bottom: 10px;
+        border-block-end: 1px solid;
+        border-image-slice: 1;
+        border-image-source: radial-gradient(
+            circle at top left,
+            v.$business,
+            transparent,
+        );
     }
 
     &__icon {
-        height: 16px;
+        height: 24px;
     }
 }
 
