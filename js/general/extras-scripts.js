@@ -1,3 +1,5 @@
+import importedOrderData from '../../data/orderInfo.js'
+
 export class Accordeon {
     constructor(){
         this.accordeonContainer = document.querySelector(".accordeon");
@@ -171,12 +173,18 @@ export class BookingModal{
         this.body = document.querySelector("body");
         this.btnClose = document.querySelector(".btn-close--sticky");
         //komposition: pass here two external classes to use their methods
+
         this.stickyMenu = stickyMenu;
         this.scrollBtn = scrollBtn;
         this.stepsHandler = stepsHandler;
+        // this.bookingCalc = bookingModalInstance;
         //not adding btnClose to the same event handler
+
         this.dataBase = dataBase;
         this.btnClose.addEventListener("click", (e) => this.closeModal(e));
+
+        this.updatedDataBase = {};
+        //object desined to commit info to other Classes
     }
 
     init(bookingParent){
@@ -191,6 +199,7 @@ export class BookingModal{
             carImg : img = "brak",
             carEquipement : equipement = "brak"
         } = carDataObject;
+        this.updatedDataBase = carDataObject;
 
         const modelLabel = document.querySelector('[data-info="car-model"]');
         const engineLabel = document.querySelector('[data-info="engine"]');
@@ -216,11 +225,12 @@ export class BookingModal{
 
     handleModal(e){
         if(e.target.matches('[data-info="booking-btn"]')) {
-            this.checkData (e);
+            this.checkData(e);
             this.openModal(e);
-            this.stepsHandler.init();
+            this.stepsHandler.init(this.updatedDataBase.carPrice);
         }
         else return;
+        //tu wyżej wypadałoby dać jakieś zabezpieczenie
     }
 
     toggleModal = () =>{
@@ -238,7 +248,6 @@ export class BookingModal{
 
     closeModal(e){
         e.stopPropagation();
-        this.scrollBtn.visible = true;
         this.stickyMenu.init(window);
         this.toggleModal();
     }
@@ -252,14 +261,12 @@ export class StepsHandler{
         this.stepsElems = [...document.querySelectorAll(".booking-section")];
         this.step = 0;
 
+        this.bookingModalCalc = new BookingModalCalc(importedOrderData);
+
         this.buttonControls = [...document.querySelectorAll(".booking-section__btn-controls")];
         this.buttonControls.forEach(controls => {
             controls.addEventListener("click", (e)=> this.changeSection(e))
         }) 
-    }
-
-    setCarInfo(){
-        //
     }
 
     resetHandler(){
@@ -270,7 +277,7 @@ export class StepsHandler{
         selectElements.forEach(select => select.selectedIndex = 0);
 
         const radioInputs = this.stepsElemsParent.querySelectorAll('input[type="radio"]');
-        radioInputs[0].checked= 1;
+        radioInputs[0].checked = 1;
 
         const checkboxInputs = this.stepsElemsParent.querySelectorAll('input[type="checkbox"]');
         checkboxInputs.forEach(box => box.checked = 0);
@@ -301,10 +308,12 @@ export class StepsHandler{
     changeSection(e){
         if(e.target.matches('[data-option="next"]')){
             this.step = ++this.step;
+            this.bookingModalCalc.checkStep(this.step);
             this.changeStep(this.step);
         }
         else if(e.target.matches('[data-option="prev"]')){
             this.step = --this.step;
+            this.bookingModalCalc.checkStep(this.step);
             this.changeStep(this.step);
         }
     }
@@ -314,10 +323,88 @@ export class StepsHandler{
         elemsToHide.forEach(elem => elem.classList.add("not-visible-section"));
     }
 
-    init(){
+    init(carPrice){
         this.step = 0;
         this.changeStep(this.step)
+        this.bookingModalCalc.carPrice = carPrice;
+        this.bookingModalCalc.checkStep(this.step)
         this.resetHandler();
-        this.setCarInfo();
+    }
+}
+
+
+export class BookingModalCalc{
+    constructor(data){
+        this.carPrice = null;
+        const {options, equipement} = data; //how to do it async?
+        this.optionPrices = options;
+        this.equipementPrices = equipement;
+
+        this.bookingData = {
+            days: null,
+            optionPrice: 50, //basic option is set by default so if user will not change it he will have proce for basic option
+            equipementPrice: [], //user doesn't need to chose any add-on so we can have empty array here
+            carPrice : this.carPrice,
+        }
+    }
+
+    calcFinalPrice(updatedOrderData){
+//
+    }
+
+    stepZeroUpdate(){
+        // console.log('ok-0');
+    }
+
+    stepOneUpdate(){
+        const inputsParent = document.querySelector('[data-content="options"]');
+        inputsParent.addEventListener("change", (e) => {
+            const chosenOption = e.target.id;
+            if(e.target.type === "radio" && e.target.checked) {
+                this.bookingData.optionPrice = chosenOption;
+            } else console.log("no option in step one has been chosen");
+        })
+    }
+
+    stepTwoUpdate(){
+        const inputsParent = document.querySelector(".extras");
+        inputsParent.addEventListener("change", (e) => {
+            const chosenOption = e.target.id;
+            if(e.target.type === "checkbox" && e.target.checked){
+                this.bookingData.equipementPrice.push(chosenOption);
+            } else if(e.target.type === "checkbox" && !e.target.checked){
+                const newArray = this.bookingData.equipementPrice.filter((element)=> {
+                    return element !== chosenOption;
+                })
+                //we need to update an array while user delete chosen option. This is the simpliest way
+                this.bookingData.equipementPrice = newArray;
+            }
+            else console.log("no option in step two has been chosen");
+        })
+    }
+
+    stepThreeUpdate(){
+        // console.log('ok-3');
+    }
+
+    checkStep(step){
+        let actualStep = step;
+        this.bookingData.carPrice = this.carPrice;
+        
+        switch(actualStep){
+            case 0:
+                this.stepZeroUpdate();
+                break;
+            case 1:
+                this.stepOneUpdate();
+                break;
+            case 2:
+                this.stepTwoUpdate();
+                break;
+            case 3:
+                this.stepThreeUpdate();
+                break;
+        }
+        // console.log(this.bookingData);
     }
 }

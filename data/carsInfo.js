@@ -5,7 +5,7 @@ export const carsInfo =
         carIndex: "1",
         carName: "Mercedes CL500 AMG",
         carEngine: "5.0 TSI 4DRIVE",
-        carPrice: "300",
+        carPrice: 300,
         carImg: "../images/fleet-icons/fleet-icons-mercedes-cl00.png",
         carEquipement: [
                 "Nawigacja satelitarna",
@@ -22,7 +22,7 @@ export const carsInfo =
     carIndex: "2",
     carName: "Bentley Continental GT",
     carEngine: "5.2 TDI Premium",
-    carPrice: "750",
+    carPrice: 750,
     carImg: "../images/fleet-icons/fleet-icons-bentley-continental.png",
     carEquipement: [
             "Skórzana tapicerka",
@@ -39,7 +39,7 @@ export const carsInfo =
     carIndex: "3",
     carName: "BMW 750I",
     carEngine: "3.0 e-Hybrid",
-    carPrice: "650",
+    carPrice: 650,
     carImg: "../images/fleet-icons/fleet-icons-bmw-750i.png",
     carEquipement: [
             "System audio Harman Kardon",
@@ -56,7 +56,7 @@ export const carsInfo =
     carIndex: "4",
     carName: "Chevrolet Camaro",
     carEngine: "3.6 TDI",
-    carPrice: "350",
+    carPrice: 350,
     carImg: "../images/fleet-icons/fleet-icons-chevrolet-camaro.png",
     carEquipement: [
             "System audio Bose",
@@ -73,7 +73,7 @@ export const carsInfo =
     carIndex: "5",
     carName: "Lamborghini Aventador",
     carEngine: "6.0 TDI e-Hybrid",
-    carPrice: "1050",
+    carPrice: 1050,
     carImg: "../images/fleet-icons/fleet-icons-lamborghini-aventador.png",
     carEquipement: [
             "Skórzana tapicerka",
@@ -90,7 +90,7 @@ export const carsInfo =
     carIndex: "6",
     carName: "Jeep Wrangler",
     carEngine: "6.0 TDI 16V",
-    carPrice: "200",
+    carPrice: 200,
     carImg: "../images/fleet-icons/fleet-icons-jeep-wrangler.png",
     carEquipement: [
             "System audio Alpine",
@@ -107,7 +107,7 @@ export const carsInfo =
     carIndex: "7",        
     carName: "Audi Q8",
     carEngine: "6.0 TDI 16V",
-    carPrice: "400",
+    carPrice: 400,
     carImg: "../images/fleet-icons/fleet-icons-audi-q8.png",
     carEquipement: [
             "System audio Bang & Olufsen",
@@ -124,7 +124,7 @@ export const carsInfo =
     carIndex: "8",
     carName: "Mercedes SL 500",
     carEngine: "4.9 VTI Turbo",
-    carPrice: "800",
+    carPrice: 800,
     carImg: "../images/fleet-icons/fleet-icon-mercedes-sl500.png",
     carEquipement: [
             "System audio Burmester",

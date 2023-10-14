@@ -27,6 +27,8 @@ modalFn.modalBtns.forEach((btn)=> {
 
 ///// stepsHandler Class invoking
 const stepsHandler = new StepsHandler();
+///// bookingModalCalc Class invoking
+// const bookingModalCalc = new BookingModalCalc();
 /////
 
 import {carsInfo} from '../../data/carsInfo.js'
