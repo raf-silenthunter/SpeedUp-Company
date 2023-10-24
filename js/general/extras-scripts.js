@@ -1,4 +1,5 @@
 import importedOrderData from '../../data/orderInfo.js'
+import {getSelectedDate, datePickerInit} from '../datepicker.js';
 
 export class Accordeon {
     constructor(){
@@ -326,7 +327,9 @@ export class StepsHandler{
     init(carPrice){
         this.step = 0;
         this.changeStep(this.step)
+        datePickerInit();
         this.bookingModalCalc.carPrice = carPrice;
+        this.bookingModalCalc.bookingData.equipementPrice = [];
         this.bookingModalCalc.checkStep(this.step)
         this.resetHandler();
     }
@@ -335,56 +338,144 @@ export class StepsHandler{
 
 export class BookingModalCalc{
     constructor(data){
-        this.carPrice = null;
+        this.carPrice = null; //carPrice is submited by StepsHandler init() method
         const {options, equipement} = data; //how to do it async?
-        this.optionPrices = options;
-        this.equipementPrices = equipement;
+        this.optionPrices = options; //coming from contructor
+        this.equipementPrices = equipement; //coming from contructor
 
         this.bookingData = {
             days: null,
-            optionPrice: 50, //basic option is set by default so if user will not change it he will have proce for basic option
+            optionPrice: "basic", //basic option is set by default so if user will not change it he will have proce for basic option
             equipementPrice: [], //user doesn't need to chose any add-on so we can have empty array here
             carPrice : this.carPrice,
         }
+
+        this.boundHandleEquipementchange = this.handleEquipementchange;
+        this.boundOptionchange = this.handleOptionChange;
+        this.boundDatechange = this.handleDateChange;
+        //bounding a reference to the function so I can make sure that I have only one event, and only function is invoked only once
+
+        this.startDate = null;
+        this.endDate = null;
+        this.startPlace = "Kraków ul. Hoyera 1"; //default value
+        this.endPlace = "Kraków ul. Hoyera 1"; //default value
+        this.startHour = "9"; //default value
+        this.endHour = "9"; //default value
     }
 
     calcFinalPrice(updatedOrderData){
-//
+        const {days, optionPrice, equipementPrice, carPrice} = updatedOrderData;
+        //zamienić wyżej na optionData itp. 
+        console.log(days, optionPrice, equipementPrice, carPrice);        
+        const priceForOption = this.optionPrices[optionPrice];
+
+        const findEquipementPrices = () => {
+            if(Array.from(equipementPrice).length === 0){
+                return 0;
+            } else {
+                const allEquipementPrices = [];
+                for(let i = 0; i < equipementPrice.length; i++){
+                    for (const value of Object.keys(this.equipementPrices)){
+                        if(value === equipementPrice[i]) {
+                            const price = this.equipementPrices[value];
+                            if(typeof(price) === "number") {
+                                allEquipementPrices.push(price)
+                            } else console.log('to nie jest number!');
+                        } else console.log('brak podbieństwa');
+                    } //jak napisać powyższe prościej???
+                }
+                    return allEquipementPrices;
+                }
+            }
+            
+        const allEquipementPricesArr = findEquipementPrices();
+        const summEquipementPrices = allEquipementPricesArr.reduce((accum, currVal) => accum + currVal);
+
+        const finalCarPrice = days * carPrice;
+        const finalOptionPrice = priceForOption * (days/2);
+        const finalEquipementPrice = summEquipementPrices * days;
+        //data zmienić na price + musisz jeszcze equipment razy dzień
+        const finalPrice = finalCarPrice + finalOptionPrice + finalEquipementPrice;
     }
 
-    stepZeroUpdate(){
-        // console.log('ok-0');
+    handleEquipementchange = (e) => {
+        // e.stopPropagation();
+        const chosenOption = e.target.id;
+        if(e.target.type === "checkbox" && e.target.checked){
+            this.bookingData.equipementPrice.push(chosenOption);
+        } else if(e.target.type === "checkbox" && !e.target.checked){
+            const newArray = this.bookingData.equipementPrice.filter((element)=> {
+                return element !== chosenOption;
+            })
+            //we need to update an array while user delete chosen option. This is the simpliest way
+            this.bookingData.equipementPrice = newArray;
+        } else console.log("no option in step two has been chosen");
     }
 
-    stepOneUpdate(){
-        const inputsParent = document.querySelector('[data-content="options"]');
-        inputsParent.addEventListener("change", (e) => {
+    handleOptionChange = (e) => {
             const chosenOption = e.target.id;
             if(e.target.type === "radio" && e.target.checked) {
                 this.bookingData.optionPrice = chosenOption;
             } else console.log("no option in step one has been chosen");
-        })
+        }
+
+    checkIsDateReady = (startDate, endDate) => {
+            if((startDate !== null && endDate !== null) && (startDate !== undefined && endDate !== undefined)){
+                const differenceInDays = endDate - startDate;
+                const firstDay = 1;
+                const orderDurationInDays = Math.floor((differenceInDays / (24 * 60 * 60 * 1000)) + firstDay);
+                this.bookingData.days = orderDurationInDays;
+                console.log(this.startDate, this.endDate);
+                } else {
+                    console.log('set second date!', this.startDate, this.endDate);
+                }
+            }  
+
+    handleDateChange = (e) => {
+            switch(e.target.id){
+                case "start-date" : 
+                    this.startDate = getSelectedDate();
+                    this.checkIsDateReady(this.startDate, this.endDate)
+                break;
+                case "end-date" : 
+                    this.endDate = getSelectedDate();
+                    this.checkIsDateReady(this.startDate, this.endDate)
+                break;
+                case "start-time" :
+                    this.startPlace = e.target.value;
+                break;
+                case "end-time" :
+                    this.startPlace = e.target.value;
+                break;
+                case "pickup-location" :
+                    this.startPlace = e.target.value;
+                break;
+                case "delivery-location" :
+                    this.startPlace = e.target.value;
+                break;
+            }
+        }
+
+    stepZeroUpdate(){
+        const inputsParent = document.querySelector(".booking-section__data-wrap");        
+        inputsParent.removeEventListener("change", this.handleDateChange);
+        inputsParent.addEventListener("change", this.handleDateChange);
+    }
+
+    stepOneUpdate(){
+        const inputsParent = document.querySelector('[data-content="options"]');
+        inputsParent.removeEventListener("change", this.handleOptionChange)
+        inputsParent.addEventListener("change", this.handleOptionChange)
     }
 
     stepTwoUpdate(){
         const inputsParent = document.querySelector(".extras");
-        inputsParent.addEventListener("change", (e) => {
-            const chosenOption = e.target.id;
-            if(e.target.type === "checkbox" && e.target.checked){
-                this.bookingData.equipementPrice.push(chosenOption);
-            } else if(e.target.type === "checkbox" && !e.target.checked){
-                const newArray = this.bookingData.equipementPrice.filter((element)=> {
-                    return element !== chosenOption;
-                })
-                //we need to update an array while user delete chosen option. This is the simpliest way
-                this.bookingData.equipementPrice = newArray;
-            }
-            else console.log("no option in step two has been chosen");
-        })
+        inputsParent.removeEventListener("change", this.boundHandleEquipementchange);
+        inputsParent.addEventListener("change", this.boundHandleEquipementchange);
     }
 
     stepThreeUpdate(){
-        // console.log('ok-3');
+        this.calcFinalPrice(this.bookingData);
     }
 
     checkStep(step){
