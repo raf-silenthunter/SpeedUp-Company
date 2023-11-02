@@ -90,11 +90,6 @@ export class DynamicBorder {
     constructor(root, parent){
         this.root = root;
         this.borderParent = parent;
-
-        // this.rootTopPosition = this.root.offsetTop;
-        // this.rootHeight = this.root.offsetHeight;
-        // this.borderParentWidth = this.borderParent.offsetWidth;
-        
         this.addBorder();
     }
 
@@ -308,13 +303,15 @@ export class StepsHandler{
 
     changeSection(e){
         if(e.target.matches('[data-option="next"]')){
-            this.step = ++this.step;
-            this.bookingModalCalc.checkStep(this.step);
-            this.changeStep(this.step);
+            if(this.bookingModalCalc.checkIfcanGoIntoNextStep(this.step)){
+                ++this.step;
+                this.changeStep(this.step);
+                this.bookingModalCalc.handleStep(this.step);
+            }
         }
         else if(e.target.matches('[data-option="prev"]')){
-            this.step = --this.step;
-            this.bookingModalCalc.checkStep(this.step);
+            --this.step;
+            this.bookingModalCalc.handleStep(this.step);
             this.changeStep(this.step);
         }
     }
@@ -329,24 +326,23 @@ export class StepsHandler{
         this.changeStep(this.step)
         datePickerInit();
         this.bookingModalCalc.carPrice = carPrice;
-        this.bookingModalCalc.bookingData.equipementPrice = [];
-        this.bookingModalCalc.checkStep(this.step)
+        this.bookingModalCalc.bookingData.equipementNames = [];
+        this.bookingModalCalc.handleStep(this.step)
         this.resetHandler();
     }
 }
 
-
 export class BookingModalCalc{
     constructor(data){
         this.carPrice = null; //carPrice is submited by StepsHandler init() method
-        const {options, equipement} = data; //how to do it async?
+        const {options, equipement} = data; //fetching data - how to do it async?
         this.optionPrices = options; //coming from contructor
         this.equipementPrices = equipement; //coming from contructor
 
         this.bookingData = {
             days: null,
-            optionPrice: "basic", //basic option is set by default so if user will not change it he will have proce for basic option
-            equipementPrice: [], //user doesn't need to chose any add-on so we can have empty array here
+            optionName: "basic", //basic option is set by default so if user will not change it he will have proce for basic option
+            equipementNames: [], //user doesn't need to chose any add-on so we can have empty array here
             carPrice : this.carPrice,
         }
 
@@ -364,72 +360,82 @@ export class BookingModalCalc{
     }
 
     calcFinalPrice(updatedOrderData){
-        const {days, optionPrice, equipementPrice, carPrice} = updatedOrderData;
-        //zamienić wyżej na optionData itp. 
-        console.log(days, optionPrice, equipementPrice, carPrice);        
-        const priceForOption = this.optionPrices[optionPrice];
+        const {days, optionName, equipementNames, carPrice} = updatedOrderData;        
+        const priceForOption = this.optionPrices[optionName];
 
-        const findEquipementPrices = () => {
-            if(Array.from(equipementPrice).length === 0){
-                return 0;
-            } else {
-                const allEquipementPrices = [];
-                for(let i = 0; i < equipementPrice.length; i++){
-                    for (const value of Object.keys(this.equipementPrices)){
-                        if(value === equipementPrice[i]) {
-                            const price = this.equipementPrices[value];
-                            if(typeof(price) === "number") {
-                                allEquipementPrices.push(price)
-                            } else console.log('to nie jest number!');
-                        } else console.log('brak podbieństwa');
-                    } //jak napisać powyższe prościej???
-                }
-                    return allEquipementPrices;
-                }
+        const getEquipementPrices = () => {
+            if (!equipementNames || equipementNames.length === 0) {
+                return 0; //no equipment chosen
             }
-            
-        const allEquipementPricesArr = findEquipementPrices();
-        const summEquipementPrices = allEquipementPricesArr.reduce((accum, currVal) => accum + currVal);
+            else return equipementNames
+            .map(priceKey => {
+                    const price = this.equipementPrices[priceKey];
+                    if (typeof price === "number") {
+                        return price;
+                    } else {
+                        console.log('this is not numer - fetching data issue!');
+                        return 0;
+                    }
+                })
+                .reduce((accum, currVal) => accum + currVal, 0);
+        };    
+        const summEquipementPrices = getEquipementPrices();
 
         const finalCarPrice = days * carPrice;
         const finalOptionPrice = priceForOption * (days/2);
         const finalEquipementPrice = summEquipementPrices * days;
-        //data zmienić na price + musisz jeszcze equipment razy dzień
-        const finalPrice = finalCarPrice + finalOptionPrice + finalEquipementPrice;
+        return finalCarPrice + finalOptionPrice + finalEquipementPrice;
     }
 
     handleEquipementchange = (e) => {
-        // e.stopPropagation();
         const chosenOption = e.target.id;
         if(e.target.type === "checkbox" && e.target.checked){
-            this.bookingData.equipementPrice.push(chosenOption);
+            this.bookingData.equipementNames.push(chosenOption);
         } else if(e.target.type === "checkbox" && !e.target.checked){
-            const newArray = this.bookingData.equipementPrice.filter((element)=> {
-                return element !== chosenOption;
-            })
+            const newArray = this.bookingData.equipementNames.filter((element)=> element !== chosenOption);
             //we need to update an array while user delete chosen option. This is the simpliest way
-            this.bookingData.equipementPrice = newArray;
+            this.bookingData.equipementNames = newArray;
         } else console.log("no option in step two has been chosen");
     }
 
     handleOptionChange = (e) => {
             const chosenOption = e.target.id;
-            if(e.target.type === "radio" && e.target.checked) {
-                this.bookingData.optionPrice = chosenOption;
-            } else console.log("no option in step one has been chosen");
+            if(e.target.type === "radio" && e.target.checked) this.bookingData.optionName = chosenOption;
+            else console.log('proeblem with option');
         }
 
     checkIsDateReady = (startDate, endDate) => {
-            if((startDate !== null && endDate !== null) && (startDate !== undefined && endDate !== undefined)){
+            const errorInfoInput = document.querySelector(`[data-info="step-0"]`);
+            if(startDate != null && endDate != null){
                 const differenceInDays = endDate - startDate;
                 const firstDay = 1;
                 const orderDurationInDays = Math.floor((differenceInDays / (24 * 60 * 60 * 1000)) + firstDay);
                 this.bookingData.days = orderDurationInDays;
-                console.log(this.startDate, this.endDate);
+                errorInfoInput.textContent = "";
                 } else {
                     console.log('set second date!', this.startDate, this.endDate);
                 }
-            }  
+        }  
+
+    parseDate(dateInTxt){
+        const dataTxt = dateInTxt;
+        const day = dataTxt.getDate();
+        const month = dataTxt.getMonth() + 1;
+        const year = dataTxt.getFullYear();
+        return `${day}.${month}.${year}`;
+    }
+
+    parseEqupiementIdIntoTxt(){
+        const chosenEquipementIds = this.bookingData.equipementNames;
+        const chosenEquipementTxtsArr = [];
+        chosenEquipementIds.forEach((id) => {
+            const element = document.getElementById(id);
+            const txtRelatedToElement = element.nextElementSibling.querySelector("h4").textContent;
+            chosenEquipementTxtsArr.push(txtRelatedToElement);
+        })
+        const equipementTxtsAfterJoin = chosenEquipementTxtsArr.join(", ")
+        return equipementTxtsAfterJoin;
+    }
 
     handleDateChange = (e) => {
             switch(e.target.id){
@@ -442,60 +448,110 @@ export class BookingModalCalc{
                     this.checkIsDateReady(this.startDate, this.endDate)
                 break;
                 case "start-time" :
-                    this.startPlace = e.target.value;
+                    this.startHour = e.target.value;
                 break;
                 case "end-time" :
-                    this.startPlace = e.target.value;
+                    this.endHour = e.target.value;
                 break;
                 case "pickup-location" :
                     this.startPlace = e.target.value;
                 break;
                 case "delivery-location" :
-                    this.startPlace = e.target.value;
+                    this.endPlace = e.target.value;
                 break;
             }
         }
 
-    stepZeroUpdate(){
+    handleStepZero(){
         const inputsParent = document.querySelector(".booking-section__data-wrap");        
         inputsParent.removeEventListener("change", this.handleDateChange);
         inputsParent.addEventListener("change", this.handleDateChange);
     }
 
-    stepOneUpdate(){
+    handleStepOne(){
         const inputsParent = document.querySelector('[data-content="options"]');
-        inputsParent.removeEventListener("change", this.handleOptionChange)
-        inputsParent.addEventListener("change", this.handleOptionChange)
+        inputsParent.removeEventListener("change", this.handleOptionChange);
+        inputsParent.addEventListener("change", this.handleOptionChange);
     }
 
-    stepTwoUpdate(){
+    handleStepTwo(){
         const inputsParent = document.querySelector(".extras");
         inputsParent.removeEventListener("change", this.boundHandleEquipementchange);
         inputsParent.addEventListener("change", this.boundHandleEquipementchange);
     }
 
-    stepThreeUpdate(){
-        this.calcFinalPrice(this.bookingData);
+    handleStepThree(){
+        const carLabel = document.querySelector('[data-order="car"]');
+        const datesLabel = document.querySelector('[data-order="date-range"]');
+        const daysLabel = document.querySelector('[data-order="days"]');
+        const insuranceLabel = document.querySelector('[data-order="option"]');
+        const pickupPlaceLabel = document.querySelector('[data-order="pickup-loc"]');
+        const returnPlaceLabel = document.querySelector('[data-order="return-loc"]');
+        const pickupTimeLabel = document.querySelector('[data-order="pickup-tim"]');
+        const returnTimeLabel = document.querySelector('[data-order="return-tim"]');
+        const extrasLabel = document.querySelector('[data-order="extras"]');
+        const priceLabel = document.querySelector('[data-order="price-full"]');
+
+        carLabel.textContent = document.querySelector('[data-info="car-model"]').textContent;
+        datesLabel.textContent = `${this.parseDate(this.startDate)} to ${this.parseDate(this.endDate)}`
+        daysLabel.textContent = this.bookingData.days;
+        insuranceLabel.textContent = this.bookingData.optionName;
+        pickupPlaceLabel.textContent = this.startPlace;
+        returnPlaceLabel.textContent = this.endPlace;
+        pickupTimeLabel.textContent = `${this.startHour}:00`;
+        returnTimeLabel.textContent = `${this.endHour}:00`;
+        extrasLabel.textContent = this.parseEqupiementIdIntoTxt();
+        priceLabel.textContent = `${this.calcFinalPrice(this.bookingData)} pln`;
     }
 
-    checkStep(step){
+    checkIfcanGoIntoNextStep(step = 0){
+        const errorInfoInput = document.querySelector(`[data-info="step-${step}"]`);
+        const optionInputsArr = [...document.querySelectorAll(".booking-section__checkbox")]; 
+        let status;
+        switch(step){
+            case 0:
+                if((this.startDate === null || this.endDate === null) || (this.startDate === undefined || this.endDate === undefined)){
+                    errorInfoInput.textContent = "Chose pickup and delivery date!";
+                    status = false;
+                    console.log('date has not been chosen!');
+                } else {
+                    errorInfoInput.textContent = "";
+                    status = true;
+                }
+            break;
+            case 1:
+                if(optionInputsArr.some((input) => input.checked)) status = true;
+                else {
+                    status = false;
+                    console.log('option has not been chosen!');
+                }
+            break;
+            case 2: 
+                status = true; //always true. Options in this step are optional
+            break;
+            case 3: 
+                status = true; //always true. Eqipement in this step is optional
+            break;
+        }
+        return status;
+    }
+
+    handleStep(step){
         let actualStep = step;
         this.bookingData.carPrice = this.carPrice;
-        
         switch(actualStep){
             case 0:
-                this.stepZeroUpdate();
+                this.handleStepZero();
                 break;
             case 1:
-                this.stepOneUpdate();
+                this.handleStepOne();
                 break;
             case 2:
-                this.stepTwoUpdate();
+                this.handleStepTwo();
                 break;
             case 3:
-                this.stepThreeUpdate();
-                break;
+                this.handleStepThree();
+            break;
         }
-        // console.log(this.bookingData);
     }
 }

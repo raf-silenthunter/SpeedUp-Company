@@ -94,6 +94,17 @@
     }
 }
 
+.error-info-color {
+    color: v.$error;
+}
+
+.error-info-form{
+    margin-top: 5px;
+    @include m.breakpoint("medium") {
+        font-size: 15px;
+    }
+}
+
 .input-control{
     &--full-row {
         grid-column: 1/-1;

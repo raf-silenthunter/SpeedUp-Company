@@ -547,7 +547,7 @@
                                 <label for="start-date"></label>
                                 <input id="start-date" name="start-date" type="date"
                                     class="calendar__input date-input box-shadow border-r-med" data-date-format="d-m-Y"
-                                    data-min-date=today placeholder="Pick a pickup date" />
+                                    data-min-date="today" placeholder="Pick a pickup date" />
                                 <p class="calendar__notification"></p>
                             </div>
                             <div class="booking-section__data-item">
@@ -579,7 +579,7 @@
                                 <p class="speedup-txt-small">Select a delivery date:</p>
                                 <label for="end-date"></label>
                                 <input id="end-date" name="end-date" type="date"
-                                    class="calendar__input date-input box-shadow border-r-med" data-min-date=today
+                                    class="calendar__input date-input box-shadow border-r-med" data-min-date="today"
                                     data-date-format="d-m-Y" placeholder="Pick a delivery date" />
                                 <p class="calendar__notification"></p>
                             </div>
@@ -611,8 +611,7 @@
                         </div>
                     </div>
                     <div class="booking-section__footer">
-                        <p class="speedup-txt speedup-txt--uppercased">Price: <span
-                                class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span></p>
+                        <p class="speedup-txt error-info-color" data-info="step-0"></p>
                         <div class="booking-section__btn-controls margin-l-auto">
                             <button class="action-btn" data-option="next">NEXT</button>
                         </div>
@@ -696,8 +695,7 @@
                         </label>
                     </section>
                     <div class="booking-section__footer" data-option="option-price">
-                        <p class="speedup-txt speedup-txt--uppercased">Price: <span
-                                class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span></p>
+                        <p class="speedup-txt error-info-color" data-info="step-1"></p>
                         <div class="booking-section__btn-controls margin-l-auto">
                             <button class="action-btn" data-option="prev">PREV</button>
                             <button class="action-btn" data-option="next">NEXT</button>
@@ -709,7 +707,7 @@
                         <div class="booking-section__step">
                             <span
                                 class="booking-section__step speedup-txt speedup-txt--subtitle speedup-txt--uppercased gradient-txt">Step
-                                3:</span>
+                                3 (optional):</span>
                             <span
                                 class="booking-section__step-info speedup-txt speedup-txt--subtitle speedup-txt--yellow">Equipement</span>
                         </div>
@@ -729,9 +727,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Trailer up to 1000kg</h4>
-                                            <p class="speedup-txt-small extra__price">69pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">69pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -747,9 +745,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (Europe)</h4>
-                                            <p class="speedup-txt-small extra__price">59pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">59pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -765,9 +763,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Departure abroad (outside Europe)</h4>
-                                            <p class="speedup-txt-small extra__price">109pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">109pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -786,9 +784,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 0-18kg</h4>
-                                            <p class="speedup-txt-small extra__price">19pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">19pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -804,9 +802,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Child safety seat: 18-36kg</h4>
-                                            <p class="speedup-txt-small extra__price">29pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">29pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -822,9 +820,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Pillow set</h4>
-                                            <p class="speedup-txt-small extra__price">5pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">3pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -840,9 +838,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Representative set</h4>
-                                            <p class="speedup-txt-small extra__price">150pln</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price:
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">10pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -858,9 +856,9 @@
                                         </div>
                                         <div class="extra__txt-wrap">
                                             <h4 class="speedup-txt-small speedup-txt--uppercased">Pet transport seat</h4>
-                                            <p class="speedup-txt-small extra__price">15pln/day</p>
-                                            <p class="speedup-txt-small">Total:
-                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">PRICE</span>
+                                            <p class="speedup-txt-small extra__price">Available</p>
+                                            <p class="speedup-txt-small speedup-txt--uppercased">Price: 
+                                                <span class="speedup-txt-small speedup-txt--green speedup-txt--bold">15pln/day</span>
                                             </p>
                                         </div>
                                     </div>
@@ -869,8 +867,7 @@
                         </div>
                     </section>
                     <div class="booking-section__footer" data-option="option-price">
-                        <p class="speedup-txt speedup-txt--uppercased">Price: <span
-                                class="speedup-txt speedup-txt--yellow booking-section__price">+100 pln</span></p>
+                        <p class="speedup-txt error-info-color" data-info="step-2"></p>
                         <div class="booking-section__btn-controls margin-l-auto">
                             <button class="action-btn" data-option="prev">PREV</button>
                             <button class="action-btn" data-option="next">NEXT</button>
@@ -955,6 +952,7 @@
                         </div>
                     </section>
                     <div class="booking-section__footer">
+                        <!-- <div class="error-info"></div> -->
                         <div class="booking-section__btn-controls margin-l-auto">
                             <button class="action-btn" data-option="prev">PREV</button>
                         </div>

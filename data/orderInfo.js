@@ -11,7 +11,7 @@ export default {
         "extra-seat-18": 19,
         "extra-seat-36": 29,
         "extra-pillow": 3,
-        "extra-bottle": 150,
+        "extra-bottle": 10,
         "extra-pet": 15,
     }   
 }
