@@ -551,6 +551,7 @@ export class BookingModalCalc{
                 break;
             case 3:
                 this.handleStepThree();
+                //reset wybranych dat po przejściu do innego auta
             break;
         }
     }

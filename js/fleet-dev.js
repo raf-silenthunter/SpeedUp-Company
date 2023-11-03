@@ -45,9 +45,6 @@ bookingModal.init(bookingWrap);
 import {FormValidation} from "./general/form-scripts.js";
 
 const form = document.querySelector(".booking-section__form");
-const name = document.getElementById("name");
-const surname = document.getElementById("surname");
-const message = document.getElementById("message");
 
-const contactForm = new FormValidation(form, name, surname, message);
+const contactForm = new FormValidation(form, ["inputMessage"]);
 contactForm.init();

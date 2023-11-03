@@ -1,15 +1,19 @@
 export class FormValidation{
-    constructor(form){
+    constructor(form, optionalInputs){
+        //in second parameter put in Array inputName that is not used in form instance
+        //important! check inputs for data-info in HTML, and delete them if not needed
         this.form = form;
         this.allInputs = Array.from(form.elements).filter((el) => el.tagName === "INPUT");
         
         this.validationData = {
             inputName: null,
+            inputSurname: null,
             inputPhone: null,
             inputMessage: null,
             inputEmail: null,
         }
 
+        this.setOptionalInputs(optionalInputs);
         this.form.reset();
     }
 
@@ -22,7 +26,16 @@ export class FormValidation{
         });
     }
 
+    setOptionalInputs(inputs){
+        if(inputs.length === 0) console.log("no optional inputs");
+        else if(!Array.isArray(inputs)) console.log('wrong type of inputs provided. It is not an Array!');
+        else inputs.map((input) => delete this.validationData[input]);
+    }
+
     baseValidation(value, message, placement, data){
+        //value = value inserted in input; message = error message to display; 
+        //placement = location where to set error-info class
+        //data = indicate which data part should update for validation process
         if(value === ""){
             const errorMessage = message;
             this.setError(placement, errorMessage, true, "inputName");
@@ -41,54 +54,57 @@ export class FormValidation{
     }
 
     checkValidationData(){
-        this.isDataCorrect = Object.values(this.validationData).every((info)=> info === "true");
+        this.isDataCorrect = Object.values(this.validationData).every((value) => value === "true");
     }
 
     handleInputChange(e){
         const inputId = e.target.id;
         const inputValue = e.target.value.trim();
 
+    if(e.target.getAttribute("data-info") === "required") {
         switch(inputId){
-            case "name": 
-            this.baseValidation(inputValue, "Provide your name", this.form.name, "inputName");
-                break;
-            case "surname":
-                break;
-            case "phone":
-                if(inputValue){
-                    const inputValueReduced = inputValue.split(/[ ;-]/).join("");
-                    const phoneno = /^\d{9}$/;
-                    if(!inputValueReduced.match(phoneno)) {
-                        const errorMessage = "Provide 9 numbers phone";
-                        this.setError(this.form.phone, errorMessage, true, "inputPhone");
+                case "name": 
+                    this.baseValidation(inputValue, "Provide your name", this.form.name, "inputName");
+                    break;
+                case "surname":
+                    this.baseValidation(inputValue, "Provide your surname", this.form.surname, "inputSurname");
+                    break;
+                case "phone":
+                    if(inputValue){
+                        const inputValueReduced = inputValue.split(/[ ;-]/).join("");
+                        const phoneno = /^\d{9}$/;
+                        if(!inputValueReduced.match(phoneno)) {
+                            const errorMessage = "Provide 9 numbers phone";
+                            this.setError(this.form.phone, errorMessage, true, "inputPhone");
+                        } else {
+                            this.validationData.inputPhone = "true";
+                            this.setSuccess(this.form.phone);
+                        }
                     } else {
-                        this.validationData.inputPhone = "true";
-                        this.setSuccess(this.form.phone);
+                        const errorMessage = "Insert phone number";
+                        this.setError(this.form.phone, errorMessage, true, "inputPhone");
                     }
-                } else {
-                    const errorMessage = "Insert phone number";
-                    this.setError(this.form.phone, errorMessage, true, "inputPhone");
-                }
-                break;
-            case "email":
-                if(this.validateEmail(inputValue)){
-                    this.validationData.inputEmail = "true";
-                    this.setSuccess(this.form.email);
-                } else {
-                    const errorMessage = "Wrong e-mail adress";                  
-                    this.setError(this.form.email, errorMessage, true,"inputEmail");
-                }
-                break;  
-            case "message":
-                this.baseValidation(inputValue, "Please, tell us what do you need", this.form.message, "inputMessage");
-                break;
+                    break;
+                case "email":
+                    if(this.validateEmail(inputValue)){
+                        this.validationData.inputEmail = "true";
+                        this.setSuccess(this.form.email);
+                    } else {
+                        const errorMessage = "Wrong e-mail adress";                  
+                        this.setError(this.form.email, errorMessage, true,"inputEmail");
+                    }
+                    break;  
+                case "message":
+                    this.baseValidation(inputValue, "Please, tell us what do you need", this.form.message, "inputMessage");
+                    break;
+            }
         }
     }
 
-    setError(element, msg, use, inputStatus){
+    setError(element, msg, setErrorForInput, inputStatus){
         const inputParent = element.parentElement;
         const errorDisplay = inputParent.querySelector(".input-control__error-info");
-        if(use) this.validationData[inputStatus] = null;  
+        if(setErrorForInput) this.validationData[inputStatus] = null;  
 
         errorDisplay.innerHTML = msg;
         errorDisplay.classList.add("error-info");
@@ -124,7 +140,7 @@ export class FormValidation{
     }
 
     validateInputs(){
-        this.checkValidationData()
+        this.checkValidationData();
         if(this.isDataCorrect) {
             this.form.reset();
             this.showSuccessMsg();
@@ -132,7 +148,7 @@ export class FormValidation{
         } else {
             const emptyInputs = this.allInputs.filter((input) => input.value.trim() === "");
             emptyInputs.forEach((input) => {
-                if(input.id !== "surname") this.setError(input, "insert value!", false);
+                if(input.getAttribute("data-info") === "required") this.setError(input, "insert value!", false);
             })
         }
     }
