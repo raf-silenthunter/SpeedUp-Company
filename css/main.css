@@ -1010,8 +1010,17 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 700px) {
   .booking-panel__car {
+    width: 300px;
+  }
+}
+@media (min-width: 900px) {
+  .booking-panel__car {
     border-bottom: none;
-    width: 350px;
+  }
+}
+@media only screen and (orientation: portrait) {
+  .booking-panel__car {
+    width: 100%;
   }
 }
 .booking-panel__content {
@@ -1046,10 +1055,19 @@ a, a:visited, a:active, a:focus {
 .booking-panel__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem 5rem;
   gap: 2rem 3rem;
-  max-width: 800px;
   padding-block: 2rem;
+  max-width: 800px;
+}
+@media (orientation: landscape) and (max-width: 1536px) {
+  .booking-panel__list {
+    max-width: 600px;
+  }
+}
+@media screen and (orientation: portrait) and (min-width: 750px) {
+  .booking-panel__list {
+    padding-block: 5rem;
+  }
 }
 .booking-panel__item {
   display: flex;
@@ -1063,8 +1081,18 @@ a, a:visited, a:active, a:focus {
   border-image-slice: 1;
   border-image-source: radial-gradient(circle at top left, #21288d, transparent);
 }
+@media (min-width: 900px) {
+  .booking-panel__price-info {
+    min-height: 300px;
+  }
+}
 .booking-panel__icon {
   height: 24px;
+}
+@media (orientation: landscape) and (max-width: 1536px) {
+  .booking-panel__txt {
+    font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+  }
 }
 
 .booking-section {

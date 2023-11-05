@@ -35,8 +35,13 @@
         text-align: center;
         border-bottom: 1px solid v.$silver;
         @include m.breakpoint("medium") {
+            width: 300px;
+        }
+        @include m.breakpoint("large"){
             border-bottom: none;
-            width: 350px;
+        }
+        @media only screen and (orientation: portrait) {
+            width: 100%;
         }
     }
 
@@ -72,10 +77,15 @@
     &__list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 2rem 5rem;
         gap: 2rem 3rem;
-        max-width: 800px;
         padding-block: 2rem;
+        max-width: 800px;
+        @include m.breakpoint-scale(1920, 125){
+            max-width: 600px;
+        }
+        @media screen and (orientation: portrait) and (min-width: 750px){
+            padding-block: 5rem;
+        }
     }
 
     &__item {
@@ -93,8 +103,20 @@
         );
     }
 
+    &__price-info{
+        @include m.breakpoint("large"){
+            min-height: 300px;
+        }
+    }
+
     &__icon {
         height: 24px;
+    }
+
+    &__txt{
+        @include m.breakpoint-scale(1920, 125) {
+            font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
+        }
     }
 }
 
