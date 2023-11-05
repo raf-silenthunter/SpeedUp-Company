@@ -1,32 +1,50 @@
 import {FleetFilter} from "./general/filter-scripts.js";
-const grid = document.querySelector(".grid");
-const gridElements = document.querySelectorAll(".option");
-const blogFilter = new FleetFilter(grid, gridElements, true);
+const gridParent = document.querySelector('[data-elem="scroll-wrap"]');
+const gridElements = document.querySelectorAll('[data-elem="elem"]');
+const blogFilter = new FleetFilter(gridParent, gridElements, true);
 blogFilter.filterInit();
 
-import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
-
+import {StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
 //StickyNav Class invoking
-const scrollableContent = window;
+const scrollableContent = document.querySelector(".booking-panel");
 const stickyMenu = new StickyNav(scrollableContent);
 document.addEventListener("DOMContentLoaded", () => stickyMenu.init());
 
-//ShowMobileNav Class invoking
+// ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();
 toggleMobileNav.mobileMenuBtn.addEventListener("click", (e) => toggleMobileNav.showNav(e));
 
-//DropdownNav Class invoking
+// DropdownNav Class invoking
 const dropdownNav = new DropdownNav();
 window.addEventListener("DOMContentLoaded", (e) => dropdownNav.stopPropagation(e));
 dropdownNav.dropdownBtn.addEventListener("click", (e) => dropdownNav.dropdownNav(e));
 
-//OpenModal Class invoking
+// OpenModal Class invoking
 const modalFn = new OpenModal();
 modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
 
-import {ScrollBtn} from "./general/extras-scripts.js";
-const elemsWrap = document.querySelector(".grid");
-const scrollBtn = new ScrollBtn(elemsWrap);
+///// stepsHandler Class invoking
+const stepsHandler = new StepsHandler();
+///// bookingModalCalc Class invoking
+// const bookingModalCalc = new BookingModalCalc();
+/////
+
+import {carsInfo} from '../../data/carsInfo.js'
+const carsInfoDatabase = carsInfo;
+
+import {ScrollBtn, BookingModal, StepsHandler} from "./general/extras-scripts.js";
+const bookingWrap = document.querySelector(".grid");
+const scrollBtn = new ScrollBtn(bookingWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
+
+const bookingModal = new BookingModal(stickyMenu, scrollBtn, stepsHandler, carsInfoDatabase);
+bookingModal.init(bookingWrap);
+
+import {FormValidation} from "./general/form-scripts.js";
+
+const form = document.querySelector(".booking-section__form");
+
+const contactForm = new FormValidation(form, ["inputMessage"]);
+contactForm.init();
