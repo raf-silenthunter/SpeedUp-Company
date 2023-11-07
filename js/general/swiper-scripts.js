@@ -4,30 +4,37 @@ export class MainSlider {
         this.slidesArray = [...document.querySelectorAll(".slide")];
         this.slideTitle = document.querySelector("header h2");
         this.titlePosition = document.querySelector(".main-header__speedup-txt");
+        this.slideDynamicBtn = document.querySelector(".main-header__dynamic-info button");
+        this.slideDynamicLink = document.querySelector(".main-header__dynamic-info a");
+        //kompletnie nie zrozumiałe
         this.slidesStyles = [{
-            h2: "Luksusowe samochody w Twoim zasięgu",
+            h2: "Luxury cars within your reach",
             top: 40,
-            left: 0,
             mobileImg: '../images/slide-1-mobile.jpg',
-            desktopImg: '../images/slide-1.jpg'
+            desktopImg: '../images/slide-1.jpg',
+            buttonTxt: "Check luxurious cars",
+            buttonLink: './fleet/luxury.html',
         }, {
-            h2: 'Poczuj się jak James Bond',
+            h2: 'Feel like James Bond',
             top: 25,
-            left: 0,
             mobileImg: '../images/slide-2-mobile.jpg',
-            desktopImg: '../images/slide-2.jpg'
+            desktopImg: '../images/slide-2.jpg',
+            buttonTxt: "Check oldtimer cars",
+            buttonLink: './fleet/oldtimers.html',
         }, {
-            h2: "Szalej beztrosko po bezdrożach",
+            h2: "Feel the unique power",
             top: 45,
-            left: 0,
             mobileImg: "../images/slide-3-mobile.jpg",
-            desktopImg: "../images/slide-3.jpg"
+            desktopImg: "../images/slide-3.jpg",
+            buttonTxt: "Check sport cars",
+            buttonLink: './fleet/sport.html',
         }, {
-            h2: "Poczuj wyjątkową moc",
+            h2: "Go wild without a care in the wilderness",
             top: 30,
-            left: 0,
             mobileImg: "../images/slide-4-mobile.jpg",
-            desktopImg: "../images/slide-4.jpg"
+            desktopImg: "../images/slide-4.jpg",
+            buttonTxt: "Check terrain cars",
+            buttonLink: './fleet/terrain.html',
         }]
 
         const btnElements = document.querySelectorAll(".btns-wrap__btn");
@@ -72,8 +79,9 @@ export class MainSlider {
     setSlideInterior = () => {
         this.setSlideImg();
         this.titlePosition.style.top = `${this.slidesStyles[this.currentSlide].top}%`;
-        this.titlePosition.style.left = `${this.slidesStyles[this.currentSlide].left}%`;
         this.slideTitle.textContent = this.slidesStyles[this.currentSlide].h2;
+        this.slideDynamicBtn.textContent = this.slidesStyles[this.currentSlide].buttonTxt;
+        this.slideDynamicLink.href = this.slidesStyles[this.currentSlide].buttonLink;
     }
 
     setSlideImg = () => {

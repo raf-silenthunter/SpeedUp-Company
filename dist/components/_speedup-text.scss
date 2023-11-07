@@ -58,10 +58,6 @@
         &-l{
             text-align: left;
         }
-    
-        // @include m.breakpoint("large") {
-        //     text-align: left;
-        // }
 
         @include m.breakpoint(xxl) {
             font-size: v.$xl-font-size-large;

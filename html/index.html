@@ -102,8 +102,10 @@
         </div>
     </div>
     <header class="main-header">
-        <h2 class="speedup-txt speedup-txt--title main-header__speedup-txt gradient-txt">Luksusowe samochody w Twoim
-            zasięgu</h2>
+        <div class="main-header__dynamic-info">
+            <h2 class="main-header__speedup-txt speedup-txt speedup-txt--title gradient-txt">Luxury cars within your reach</h2>
+            <a href="./fleet/luxury.html"><button class="action-btn speedup-txt-dynamic">Check luxurious cars</button></a>
+        </div>
         <div class="main-slider">
             <div class="slide main-slider__slide slide--is-active"></div>
             <div class="slide main-slider__slide"></div>
@@ -185,7 +187,7 @@
             <section class="clients gradient-bgcolor">
                 <div class="clients__wrap clients__wrap--bgc-black">
                     <div class="clients__info">
-                        <h2 class="clients__speedup-txt speedup-txt speedup-txt--subtitle gradient-txt">Personalizowana
+                        <h2 class="clients__speedup-txt speedup-txt speedup-txt--subtitle speedup-txt--subtitle-l gradient-txt">Personalizowana
                             oferta dla <span class="speedup-txt--yellow">biznesu</span></h2>
                         <div class="txt-intro txt-intro--left">
                             <span class="txt-intro__border gradient-bgcolor"></span>
@@ -195,7 +197,9 @@
                                 laborum dolorum,
                                 soluta adipisci ex odit exercitationem nesciunt dignissimos illum? Ipsum!</p>
                         </div>
-                        <button class="action-btn clients__action-btn speedup-txt">Dowiedz się więcej!</button>
+                        <a href="../html/contact.html">
+                            <button class="action-btn clients__action-btn speedup-txt">Dowiedz się więcej!</button>
+                        </a>
                     </div>
                     <div class="clients__extra-content">
                         <div class="biz-slider">
@@ -352,7 +356,7 @@
                 </div>
                 <div class="fleet-underlay fleet__fleet-underlay">
                     <img src="../images/fleet-img-1.jpg" alt="" class="fleet-underlay__big-img">
-                    <a href="browser.html" class="action-btn fleet-underlay__action-btn speedup-txt">Poznaj je wszystkie!</a>
+                    <a href="../html/fleet.html" class="action-btn fleet-underlay__action-btn speedup-txt">Poznaj je wszystkie!</a>
                 </div>
             </section>
         </article>
@@ -362,7 +366,7 @@
         <p class="blog-intro__speedup-txt speedup-txt--subtitle speedup-txt--subtitle-pad gradient-txt">Najnowsze publikacje na naszym blogu</p>
         <div class="blog-intro__wrap">
             <article class="blog-intro__post-intro post-intro">
-                <a class="post-intro__link" href="#">
+                <a class="post-intro__link" href="../html/blog-posts/blog-post.html">
                     <img src="../images/post_lexus_img.webp" alt="" class="post-intro__cover">
                     <div class="post-intro__card card">
                         <header class="card__head card__head--col">
@@ -377,7 +381,7 @@
                 </a>
             </article>
             <article class="blog-intro__post-intro post-intro">
-                <a class="post-intro__link" href="#">
+                <a class="post-intro__link" href="../html/blog-posts/blog-post.html">
                     <img src="../images/post_lakierowanie_img.webp" alt="" class="post-intro__cover">
                     <div class="post-intro__card card">
                         <header class="card__head card__head--col">
@@ -392,7 +396,7 @@
                 </a>
             </article>
             <article class="blog-intro__post-intro post-intro">
-                <a class="post-intro__link" href="#">
+                <a class="post-intro__link" href="../html/blog-posts/blog-post.html">
                     <img src="../images/post_wynajem_img.jpg" alt="" class="post-intro__cover">
                     <div class="post-intro__card card">
                         <header class="card__head card__head--col">
@@ -407,7 +411,9 @@
                 </a>
             </article>
         </div>
-        <button class="action-btn blog-intro__action-btn speedup-txt">Zobacz o czym piszemy</button>
+        <a href="../html/blog.html">
+            <button class="action-btn blog-intro__action-btn speedup-txt">Zobacz o czym piszemy</button>
+        </a>
     </section>
     <!-- RECOMMENDATION STYLE  -->
     <aside class="recommend page__recommend page-item">
@@ -463,7 +469,7 @@
     <footer class="footer">
         <nav class="sitemap gradient-bgcolor page-item">
             <div class="sitemap__column">
-                <p class="speedup-txt speedup-txt--uppercased">Kontakt</p>
+                <p class="speedup-txt speedup-txt--uppercased">Contact Info</p>
                 <ul class="sitemap__list">
                     <li class="sitemap__item speedup-txt">
                         <span class="icon-phone">+48 000 000 000</span>
@@ -475,22 +481,20 @@
                 <p class="speedup-txt">Treści opublikowane w serwisie są chronione prawem autorskim, ich kopiowanie i
                     wykorzystywanie bez zgody autorów
                     zabronione.<br> &copy;!SpeedUp 2022</p>
-                <a href="#" class="speedup-txt sitemap__link">Polityka prywatności</a>
+                <a href="#" class="speedup-txt sitemap__link">Privacy policy</a>
+            </div>
+            <div class="sitemap__column">
+                <p class="speedup-txt speedup-txt--uppercased"><a href="./fleet.html" class="sitemap__link">Flota</a></p>
+                <p class="speedup-txt speedup-txt--uppercased"><a href="./blog.html" class="sitemap__link">Blog</a></p>
+                <p class="speedup-txt speedup-txt--uppercased"><a href="./contact.html" class="sitemap__link">Kontakt</a></p>
             </div>
             <div class="sitemap__column">
                 <p class="speedup-txt speedup-txt--uppercased">Oferta</p>
                 <ul class="sitemap__list">
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Biznes</a></li>
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Prywatny</a></li>
-                </ul>
-            </div>
-            <div class="sitemap__column">
-                <p class="speedup-txt speedup-txt--uppercased">Flota</p>
-                <ul class="sitemap__list">
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Sportowe</a></li>
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Luksusowe</a></li>
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Terenowe</a></li>
-                    <li class="sitemap__item speedup-txt"><a href="" class="sitemap__link">Zabytkowe</a></li>
+                    <li class="sitemap__item speedup-txt"><a href="./fleet/luxury.html" class="sitemap__link">Luksusowe</a></li>
+                    <li class="sitemap__item speedup-txt"><a href="./fleet/oldtimers.html" class="sitemap__link">Zabytkowe</a></li>
+                    <li class="sitemap__item speedup-txt"><a href="./fleet/sport.html" class="sitemap__link">Sportowe</a></li>
+                    <li class="sitemap__item speedup-txt"><a href="./fleet/terrain.html" class="sitemap__link">Terenowe</a></li>
                 </ul>
             </div>
         </nav>

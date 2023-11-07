@@ -57,9 +57,9 @@
 }
 
 @mixin breakpoint-scale($breakpoint-value, $scale){
-    $integer: map-get($map: b.$brakepoint-up-scale, $key: $scale);
+    $divider: map-get($map: b.$brakepoint-up-scale, $key: $scale);
     $px: "px";
-    $effective-width: $breakpoint-value / $integer + $px;
+    $effective-width: $breakpoint-value / $divider + $px;
     @media (orientation: landscape) and (max-width: $effective-width){
         @content;
     }

@@ -1972,6 +1972,7 @@ a, a:visited, a:active, a:focus {
 .sitemap {
   display: flex;
   flex-direction: column;
+  gap: 6rem;
   width: 100%;
   text-align: center;
 }
@@ -1983,16 +1984,10 @@ a, a:visited, a:active, a:focus {
     align-content: "auto";
   }
 }
-.sitemap__column {
-  margin-bottom: 6rem;
-}
 @media (min-width: 700px) {
   .sitemap__column {
     flex-basis: 33.3333%;
   }
-}
-.sitemap__column:last-child {
-  margin-bottom: 0;
 }
 .sitemap__column > * {
   color: #000205;
@@ -2013,19 +2008,23 @@ a, a:visited, a:active, a:focus {
 
 /*Here you can find all pages*/
 /* MAIN HEADER STYLE  */
-.main-header__speedup-txt {
+.main-header__dynamic-info {
+  width: max(30rem, 40vw);
+  height: auto;
+  padding-left: 3%;
   position: absolute;
   top: 50%;
   left: 0;
-  width: max(30rem, 40vw);
   z-index: 10;
-  text-align: left;
-  padding: 1em;
 }
 @media (min-width: 700px) and (max-width: 1200px) {
-  .main-header__speedup-txt {
+  .main-header__dynamic-info {
     width: max(30rem, 75vw);
   }
+}
+.main-header__speedup-txt {
+  margin-bottom: 4rem;
+  text-align: left;
 }
 
 .main-slider {

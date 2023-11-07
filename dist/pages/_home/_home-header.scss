@@ -5,15 +5,20 @@
 
 .main-header{
 //additional styles in future
-&__speedup-txt {
+&__dynamic-info{
+        width: max(30rem, 40vw);    
+    @media (min-width: 700px) and (max-width: 1200px) {
+        width: max(30rem, 75vw);
+    }
+        height: auto;
+        padding-left: 3%;
         @include m.position(absolute, 50%, 0);
-        width: max(30rem, 40vw);
-        @media (min-width: 700px) and (max-width: 1200px) {
-            width: max(30rem, 75vw);
-        };
         z-index: map-get(v.$z-index, "small");
+    }
+
+    &__speedup-txt {
+        margin-bottom: 4rem;
         text-align: left;
-        padding: 1em;
     }
 }
 

@@ -9,6 +9,7 @@
 
 .sitemap {
     @include m.display-flex(flex, column);
+    gap: 6rem;
     width: 100%;
     text-align: center;
     
@@ -21,11 +22,6 @@
         @include m.breakpoint(medium) {
             flex-basis: 33.3333%;
         }
-        margin-bottom: 6rem;
-
-        &:last-child{
-            margin-bottom: 0;
-        }
 
         &>* {
             color: v.$pale-black;
@@ -34,7 +30,7 @@
     }
 
     &__list {
-        // height: 20vh;
+        // place for future style
     }
 
     &__item {
