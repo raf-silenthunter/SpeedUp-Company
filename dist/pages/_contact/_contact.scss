@@ -81,7 +81,6 @@
     &__input{
         width: 100%;
         background: transparent;
-        text-align: left;
         @include m.breakpoint("medium"){
             height: 80px;
         }

@@ -79,11 +79,12 @@
         overflow: hidden;
         position: relative;
 
-        @include m.breakpoint(large) {
+        @include m.breakpoint("large") {
                 width: 70%;
-                height: 65vh;
+                // height: 65vh;
+                height: 550px;
             }
-        @include m.breakpoint(xxl) {
+        @include m.breakpoint("xxl") {
             width: 65%;
             height: 55vh;
         }
@@ -91,15 +92,19 @@
 
     &__option {
         width: 90%;
+        height: 450px;
         @include m.position(absolute, 0, 50%);
-        @include m.breakpoint(medium) {
+        @include m.breakpoint("medium") {
                 width: 60%;
+                height: 550px;
             }
+        @include m.breakpoint("large"){
+            width: 80%;
+        }
     }
 }
 
 .option {
-    height: 100%;
     @include m.display-flex(flex, column);
     justify-content: space-between;
     @include m.border-properties(2px, solid, v.$silver,5px);
@@ -109,7 +114,7 @@
     overflow: hidden;
 
     &__img {
-            height: 40%;
+            max-height: 280px;
             object-fit: cover;
             border-radius: 5px;
         }
@@ -121,6 +126,7 @@
     }
 
     &__item {
+        max-height: 45px;
         border-bottom: 2px solid v.$silver;
         &:last-child{
             border: none;
@@ -132,10 +138,8 @@
         @media (max-width: 400px) {
             font-size: 14px;
         }
-        text-align: center;
-        //wykasować to z góry i zastąpić z dołu
         line-height: 250%;
-        @include m.breakpoint(xxl){
+        @include m.breakpoint("xxl"){
             font-size: v.$xl-font-size-medium;
         }
 

@@ -3,7 +3,7 @@ export class MainSlider {
 
         this.slidesArray = [...document.querySelectorAll(".slide")];
         this.slideTitle = document.querySelector("header h2");
-        this.titlePosition = document.querySelector(".main-header__speedup-txt");
+        this.titlePosition = document.querySelector(".main-header__dynamic-info");
         this.slideDynamicBtn = document.querySelector(".main-header__dynamic-info button");
         this.slideDynamicLink = document.querySelector(".main-header__dynamic-info a");
         //kompletnie nie zrozumiałe
@@ -113,19 +113,15 @@ export class OptionsSlider{
     }
 
     setOptionsPositions() {
-    // Compute the position of each option based on the default position
-    const basicPosition = (this.defaultPosition) % this.optionsClasses.length;
-    const mediumPosition = (this.defaultPosition + 1) % this.optionsClasses.length;
-    const premiumPosition = (this.defaultPosition + 2) % this.optionsClasses.length;
-    // Add the new position class to each option
-    this.options[0].classList.add(`${this.optionsClasses[basicPosition]}`);
-    this.options[1].classList.add(`${this.optionsClasses[mediumPosition]}`);
-    this.options[2].classList.add(`${this.optionsClasses[premiumPosition]}`);
+        this.options.forEach((option, index) => {
+            const positionIndex = (this.defaultPosition + index) % this.optionsClasses.length;
+            console.log(positionIndex);
+            option.classList.add(`${this.optionsClasses[positionIndex]}`);
+        });
     }
 
     changeOption(clickedBtn) {
         this.setBaseOptionsClasses();
-
         switch(clickedBtn){
             case "right": 
                 this.defaultPosition--;
@@ -144,11 +140,15 @@ export class OptionsSlider{
         this.setOptionsPositions(); 
     }
 
-    init(e){
+    checkClickedBtn(e){
         if (e.target.classList.contains('biz-slider__btn')) {
         const clickedBtn = e.target.classList.contains('biz-slider__btn--right') ? 'right' : 'left';
         this.changeOption(clickedBtn);
         }
+    }
+
+    init(){
+        this.bizSlider.addEventListener("click", (e) => this.checkClickedBtn(e));
     }
 }
 
@@ -165,22 +165,18 @@ export class BrandsSlider {
         })
     }
 
-    shiftSlider(clickedBtn) {
-    // INTERFACE FOR SHIFTSLIDER STATEMENTS 
-        const brandColumnWidth = document.querySelector(".brands__col").offsetWidth;
+    moveSlider(direction) {
+        const brandColumnWidth = document.querySelector(".brands__col").offsetWidth; //value updated after every event intentionally. In case of screen change slider will always know correct column width
         const excludedShiftArea = brandColumnWidth * 2; //2 columns are always visible. Their area is excluded from shift
         let maxShiftArea = (brandColumnWidth * this.brandsColumns.length) - excludedShiftArea;
 
-            switch(clickedBtn){
+            switch(direction){
             case "right": {
-                if(this.currShift === maxShiftArea * -1) this.currShift = 0;
-                else this.currShift -= brandColumnWidth;
+                this.currShift = this.currShift === maxShiftArea * -1 ? 0 : this.currShift -= brandColumnWidth;
             break;
-            }
-            
+            }           
             case "left":  {
-                if(!this.currShift) this.currShift = maxShiftArea * -1;
-                else this.currShift += brandColumnWidth;
+                this.currShift = this.currShift === 0 ? maxShiftArea * -1 : this.currShift += brandColumnWidth;
             break;
             }   
             default: throw alert("wrong value!")
@@ -188,11 +184,15 @@ export class BrandsSlider {
         this.setShift();
     }
 
-    init(e){
+    checkClickedBtn(e){
         if (e.target.classList.contains('brands__btn')) {
-            const clickedBtn = e.target.classList.contains('brands__btn--right') ? 'right' : 'left';
-            this.shiftSlider(clickedBtn);
+            const direction = e.target.classList.contains('brands__btn--right') ? 'right' : 'left';
+            this.moveSlider(direction);
         }
+    }
+
+    init(){
+        this.brandsSliderRoot.addEventListener("click", (e) => this.checkClickedBtn(e));
     }
 }
 
@@ -240,9 +240,7 @@ export class Swiper {
                 document.dispatchEvent(this.events.swipeLeft);
             }
         } else {
-                console.log(diffY);
             if(diffY < 0) {
-                console.log(this);
                 document.dispatchEvent(this.events.swipeDown);
             } else {
                 document.dispatchEvent(this.events.swipeUp);

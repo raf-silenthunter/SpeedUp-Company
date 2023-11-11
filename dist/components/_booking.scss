@@ -154,7 +154,10 @@
 
     &__option {
         position: relative;
-        height: auto;
+        height: 450px;
+        @include m.breakpoint("medium"){
+            height: 550px;
+        }
         cursor: pointer;
 
         &::before {

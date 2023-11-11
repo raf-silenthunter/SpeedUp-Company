@@ -19,12 +19,28 @@ export class FormValidation{
 
     init(){
         this.form.addEventListener("change", (e) => this.handleInputChange(e));
-
+        document.addEventListener("DOMContentLoaded", () => this.handlePlaceholderChange())
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
             this.validateInputs();
         });
     }
+
+    handlePlaceholderChange() {
+    this.form.addEventListener("focusin", (e) => {
+        if (e.target.tagName === "INPUT") {
+            this.input = e.target;
+            this.placeholder = this.input.getAttribute("placeholder"); // Przechowuj placeholder aktualnego inputa
+            this.input.placeholder = "";
+        }
+    }, true);
+// do tego wrócić i do rozmowy z chatem i spisać do nauki!!!
+    this.form.addEventListener("blur", (e) => {
+        if (e.target.tagName === "INPUT") {
+            e.target.placeholder = this.placeholder; // Przywróć placeholder dla tego konkretnego inputa
+        }
+    }, true);
+}
 
     setOptionalInputs(inputs){
         if(inputs.length === 0) console.log("no optional inputs");

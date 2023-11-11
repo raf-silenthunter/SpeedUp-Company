@@ -1,6 +1,7 @@
 import {DropdownNav, StickyNav, OpenModal, ShowMobileNav} from "../js/general/mainnav-scripts.js"
 import {counter} from "../js/general/extras-scripts.js";
 import {MainSlider, OptionsSlider, BrandsSlider} from "../js/general/swiper-scripts.js";
+import {FormValidation} from "./general/form-scripts.js";
 
 //StickyNav Class invoking
 const scrollableContent = window;
@@ -32,8 +33,13 @@ document.addEventListener("DOMContentLoaded", mainSlider.setDefaultImage);
 
 //OptionsSlider Class invoking
 const optionsSlider = new OptionsSlider();
-optionsSlider.bizSlider.addEventListener("click", (e) => optionsSlider.init(e));
+optionsSlider.init();
 
 //BrandsSlider Class invoking
 const brandsSlider = new BrandsSlider()
-brandsSlider.brandsSliderRoot.addEventListener("click", (e) => brandsSlider.init(e));
+brandsSlider.init();
+
+//FormValidation Class invoking
+const form = document.querySelector(".nl-wrap__form");
+const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"]);
+contactForm.init();
