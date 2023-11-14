@@ -1,9 +1,10 @@
 export class FormValidation{
-    constructor(form, optionalInputs){
+    constructor(form, optionalInputs, successElement){
         //in second parameter put in Array inputName that is not used in form instance
         //important! check inputs for data-info in HTML, and delete them if not needed
         this.form = form;
         this.allInputs = Array.from(form.elements).filter((el) => el.tagName === "INPUT");
+        this.successInfoPlaceholder = successElement;
         
         this.validationData = {
             inputName: null,
@@ -144,11 +145,12 @@ export class FormValidation{
     }
 
     showSuccessMsg(){
-    const messageElement = document.querySelector(".success-msg");
-    messageElement.classList.add("success-msg--active");
+        console.log(this.successInfoPlaceholder);
+        if(!this.successInfoPlaceholder) console.log("error - no input provided");
+        this.successInfoPlaceholder.classList.add("success-msg--active");
         
         setTimeout(()=> {
-            messageElement.classList.remove("success-msg--active");
+            this.successInfoPlaceholder.classList.remove("success-msg--active");
             this.allInputs.forEach((input)=> {
                 input.classList.remove("input--success");
             })

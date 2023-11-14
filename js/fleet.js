@@ -25,16 +25,12 @@ modalFn.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
 
-///// stepsHandler Class invoking
-const stepsHandler = new StepsHandler();
-///// bookingModalCalc Class invoking
-// const bookingModalCalc = new BookingModalCalc();
-/////
-
+//Booking Modal feature
 import {carsInfo} from '../../data/carsInfo.js'
 const carsInfoDatabase = carsInfo;
 
 import {ScrollBtn, BookingModal, StepsHandler} from "./general/extras-scripts.js";
+const stepsHandler = new StepsHandler();
 const bookingWrap = document.querySelector(".grid");
 const scrollBtn = new ScrollBtn(bookingWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
@@ -43,8 +39,15 @@ const bookingModal = new BookingModal(stickyMenu, scrollBtn, stepsHandler, carsI
 bookingModal.init(bookingWrap);
 
 import {FormValidation} from "./general/form-scripts.js";
-
 const form = document.querySelector(".booking-section__form");
-
-const contactForm = new FormValidation(form, ["inputMessage"]);
+const bookingSuccessInfoPlaceholder = document.querySelector('[data-info="booking-success"]');
+const contactForm = new FormValidation(form, ["inputMessage"], bookingSuccessInfoPlaceholder);
 contactForm.init();
+//Booking Modal feature
+
+//Rozwiązać problem
+// FormValidation Class invoking for just NL subscription
+const nlFormWrap = document.querySelector(".nl-wrap__form");
+const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
+const nlForm = new FormValidation(nlFormWrap, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
+nlForm.init();

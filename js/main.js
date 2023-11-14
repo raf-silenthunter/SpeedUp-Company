@@ -39,7 +39,8 @@ optionsSlider.init();
 const brandsSlider = new BrandsSlider()
 brandsSlider.init();
 
-//FormValidation Class invoking
+//FormValidation Class invoking for just NL subscription
 const form = document.querySelector(".nl-wrap__form");
-const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"]);
+const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
+const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
 contactForm.init();

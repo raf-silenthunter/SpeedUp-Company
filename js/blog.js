@@ -1,4 +1,5 @@
 import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
+import {FormValidation} from "./general/form-scripts.js";
 
 //StickyNav Class invoking
 const scrollableContent = window;
@@ -32,4 +33,10 @@ const gridElements = document.querySelectorAll(".grid__blog-article");
 
 const extraFilter = new ExtraFilter(grid, gridElements, false);
 extraFilter.filterInit();
+
+//FormValidation Class invoking for just NL subscription
+const form = document.querySelector(".nl-wrap__form");
+const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
+const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
+contactForm.init();
 

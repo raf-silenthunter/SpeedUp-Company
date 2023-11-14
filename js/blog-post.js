@@ -1,4 +1,5 @@
 import { StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
+import {FormValidation} from "./general/form-scripts.js";
 import {DynamicBorder} from "./general/extras-scripts.js";
 
 //StickyNav Class invoking
@@ -26,3 +27,9 @@ const root = document.querySelector(".post");
 const mainnav = document.querySelector(".main-nav");
 const dynamicBorder = new DynamicBorder(root, mainnav);
 window.addEventListener("scroll", ()=> dynamicBorder.createBorder());
+
+//FormValidation Class invoking for just NL subscription
+const form = document.querySelector(".nl-wrap__form");
+const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
+const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
+contactForm.init();

@@ -308,9 +308,16 @@
         <p class="speedup-txt speedup-txt--subtitle speedup-txt--subtitle-pad gradient-txt">Bądź zawsze na bieżąco</p>
         <form action="" class="nl-wrap__form form">
             <label for="submit-mail" class="form__label">
-                <input class="form__input speedup-txt" type="email" id="submit-mail" value="Wpisz swój e-mail">
+                <div class="nl-wrap__input-control input-control">
+                    <label for="email" class="input-control__label"></label>
+                    <input type="text" id="email" data-info="required"
+                        class="input-control__input input speedup-txt speedup-txt--center"
+                        placeholder="Insert your email...">
+                    <div class="input-control__error-info"></div>
+                </div>
             </label>
             <button class="form__action-btn action-btn action-btn--animation speedup-txt">Zapisz się!</button>
+            <p class="success-msg speedup-txt-small" data-info="nl-success">Thank you. Soon you will recieve a message from us!</p>
         </form>
         <p class="nl-wrap__speedup-txt speedup-txt">Nie zarzucamy Cię spamem. Informujemy jedynie o nowych autach w
             naszej ofercie, hellkitach, a
