@@ -26,13 +26,13 @@ const elemsWrap = document.querySelector(".grid");
 const scrollBtn = new ScrollBtn(elemsWrap);
 window.addEventListener("scroll", () => scrollBtn.showBtn());
 
-import {ExtraFilter} from "./general/filter-scripts.js";
+import {BlogPostsFilter} from "./general/filter-scripts.js";
+const blogfilterWrap = document.querySelector(".blog-content");
+const blogElementsWrap = document.querySelector(".grid");
+const blogElements = document.querySelectorAll(".grid__blog-article");
 
-const grid = document.querySelector(".grid");
-const gridElements = document.querySelectorAll(".grid__blog-article");
-
-const extraFilter = new ExtraFilter(grid, gridElements, false);
-extraFilter.filterInit();
+const blogFilter = new BlogPostsFilter(blogfilterWrap, blogElementsWrap, blogElements, false);
+blogFilter.filterInit();
 
 //FormValidation Class invoking for just NL subscription
 const form = document.querySelector(".nl-wrap__form");

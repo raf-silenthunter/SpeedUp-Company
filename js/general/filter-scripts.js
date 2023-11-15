@@ -1,64 +1,68 @@
-export class FleetFilter {
-    // unableClean is by default set to false because there is not interface for cleaining filter elems. True if there is interface
-        constructor(wrap, elements, unableClean = false){
-            this.fleetWrap = wrap;
-            this.fleetElements = elements;
-            this.fleetOptions = [...this.fleetElements];
+export class Filter {
+    // unableClean is by default set to false because there is not interface for cleaining filter elems. You can pass true in the class invoke if there is interface 
+        constructor(featureWrap, elementsWrap, elements, unableClean = false){
+            this.filterFeatureWrap = featureWrap;
+            this.filterElemsWrap = elementsWrap;
+            this.filterElements = elements;
+            this.fleetOptions = [...this.filterElements];
             this.unableFreeClean = unableClean;
 
             this.currentFleet = null;
         }
 
         missigContentInfo(){
-            this.fleetWrap.innerHTML = `<p class="speedup-txt--title gradient-txt">Sorry, we don't have what you're looking for :(</p>`;
+            this.filterElemsWrap.innerHTML = `<p class="speedup-txt--title gradient-txt">Sorry, we don't have what you're looking for :(</p>`;
         }
 
         filterInit(){
-            document.addEventListener("click", (e) => this.filterFleet(e));
+            this.filterFeatureWrap.addEventListener("click", (e) => this.filterFleet(e));
         }
 
         cleanFleet() {
-            this.fleetWrap.innerHTML = '';
+            this.filterElemsWrap.innerHTML = '';
         }
 
         restoreOptions(){
             this.cleanFleet();
-            this.fleetOptions.forEach(fleetOption => this.fleetWrap.append(fleetOption));
+            this.fleetOptions.forEach(fleetOption => this.filterElemsWrap.append(fleetOption));
         }
 
         checkBtnKey(e) {
             if(e.target.matches(".filter__btn, .filter__btn--clean, .filter__title, .filter__icon, .filter__picture")){
+                //check only filter button nodes
                 let target = e.target; 
                 while (target && !target.classList.contains("filter__btn")) target = target.parentElement;
                 const clickedBtnKey = target.dataset.key;
                 return clickedBtnKey;
-            } else if (e.target.matches(".option, .option__img, .option__list, .option__item, .option__txt, .action-btn")) {
-                // for the future developement
-                return;
-            } else return undefined;
+            } else if(e.target === this.filterElemsWrap){
+                return "filterElemsWrap";
+            } else return false;
         }
 
         filterFleet(e) {
             const btnKey = this.checkBtnKey(e); 
-            const filteredFleet = this.fleetOptions.filter(e => e.dataset.option === btnKey);
-            if(btnKey === "clean") {
-                return this.restoreOptions();
-            } else if(filteredFleet.length === 0 && btnKey !== "clean" && btnKey !== undefined) {
-                this.missigContentInfo();
-            } else if (btnKey === undefined) {
-                if(this.unableFreeClean) {
-                    this.restoreOptions();
-                } else return;
-            } else {
-                this.cleanFleet();
-                filteredFleet.forEach(fleetElement => this.fleetWrap.append(fleetElement))
+            if(btnKey){
+                const filteredFleet = this.fleetOptions.filter(e => e.dataset.option === btnKey);
+                if(btnKey === "clean") {
+                    return this.restoreOptions();
+                } else if(filteredFleet.length === 0 && btnKey !== "filterElemsWrap") {
+                    this.missigContentInfo();
+                } else if (btnKey === "filterElemsWrap") {            
+                    if(this.unableFreeClean) {
+                        this.restoreOptions();
+                    } else return;
+                } else {
+                    this.cleanFleet();
+                    filteredFleet.forEach(fleetElement => this.filterElemsWrap.append(fleetElement))
+                    return;
+                }
             }
         }
 }
 
-export class ExtraFilter extends FleetFilter{
-    constructor(wrap, elements, unableClean = false){
-        super(wrap, elements, unableClean);
+export class BlogPostsFilter extends Filter{
+    constructor(featureWrap, elementsWrap, elements, unableClean = false){
+        super(featureWrap, elementsWrap, elements, unableClean);
         this.filterInput = document.querySelector(".browser__input");
         this.filterInput.value = "";
         this.cleanBtn = document.querySelector(".browser__action-btn");
@@ -78,7 +82,7 @@ export class ExtraFilter extends FleetFilter{
             this.missigContentInfo();
         } else {
             postsIndexes.forEach((postIndex) => {
-                this.fleetWrap.append(this.fleetOptions[postIndex]);         
+                this.filterElemsWrap.append(this.fleetOptions[postIndex]);         
             })
         }
     }

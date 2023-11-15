@@ -1,8 +1,9 @@
-import {FleetFilter} from "./general/filter-scripts.js";
-const gridParent = document.querySelector('[data-elem="scroll-wrap"]');
-const gridElements = document.querySelectorAll('[data-elem="elem"]');
-const blogFilter = new FleetFilter(gridParent, gridElements, true);
-blogFilter.filterInit();
+import {Filter} from "./general/filter-scripts.js";
+const fleetFeatureWrap = document.querySelector(".gallery__filter-feature");
+const fleetElemsWrap = document.querySelector('[data-elem="scroll-wrap"]');
+const fleetElements = document.querySelectorAll('[data-elem="elem"]');
+const fleetFilter = new Filter(fleetFeatureWrap, fleetElemsWrap, fleetElements, true);
+fleetFilter.filterInit();
 
 import {StickyNav, ShowMobileNav, DropdownNav, OpenModal} from "./general/mainnav-scripts.js";
 //StickyNav Class invoking
@@ -45,7 +46,6 @@ const contactForm = new FormValidation(form, ["inputMessage"], bookingSuccessInf
 contactForm.init();
 //Booking Modal feature
 
-//Rozwiązać problem
 // FormValidation Class invoking for just NL subscription
 const nlFormWrap = document.querySelector(".nl-wrap__form");
 const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');

@@ -226,7 +226,6 @@ export class BookingModal{
             this.stepsHandler.init(this.updatedDataBase.carPrice);
         }
         else return;
-        //tu wyżej wypadałoby dać jakieś zabezpieczenie
     }
 
     toggleModal = () =>{
@@ -240,11 +239,13 @@ export class BookingModal{
         const scrollableContent = document.querySelector(".booking-panel");
         this.stickyMenu.init(scrollableContent);
         this.scrollBtn.removeBtn();
+                console.log(this.scrollBtn.visible);
     }
 
     closeModal(e){
         e.stopPropagation();
         this.stickyMenu.init(window);
+        this.scrollBtn.visible = true;
         this.toggleModal();
     }
     
