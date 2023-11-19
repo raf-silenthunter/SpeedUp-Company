@@ -501,12 +501,19 @@ a, a:visited, a:active, a:focus {
 .input-control--full-row {
   grid-column: 1/-1;
 }
+.input-control--conversion-width {
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .input-control--conversion-width {
+    width: 80%;
+  }
+}
 
 .aside-nav {
   position: fixed;
-  top: 50%;
-  left: calc(100% - 40px);
-  transform: translateY(-75%);
+  top: 30%;
+  left: calc(100% - 30px);
 }
 .aside-nav__list {
   height: 150px;
@@ -517,7 +524,7 @@ a, a:visited, a:active, a:focus {
 .aside-nav__item {
   width: 20px;
   height: 20px;
-  border: 2px solid yellow;
+  border: 2px solid #acacac;
   border-radius: 50%;
   cursor: pointer;
   background-color: yellow;
@@ -536,8 +543,14 @@ a, a:visited, a:active, a:focus {
 .flip-card:hover .flip-card__inner {
   transform: rotateX(180deg);
 }
+.flip-card:active .flip-card__inner {
+  transform: rotateX(180deg);
+}
 .flip-card + .flip-card {
   margin-top: clamp(5px, 1rem, 2rem);
+}
+.flip-card__inner, .flip-card__back {
+  border-radius: 10px;
 }
 .flip-card__inner {
   position: relative;
@@ -546,7 +559,6 @@ a, a:visited, a:active, a:focus {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   background-color: #000205;
-  border-radius: 10px;
   box-shadow: inset 0px 0px 10px 9px rgba(93, 93, 91, 0.81);
 }
 @media (min-width: 450px) {
@@ -571,12 +583,26 @@ a, a:visited, a:active, a:focus {
   gap: 2rem;
 }
 .flip-card__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
   transform: rotateX(180deg);
-  padding: 2rem;
+  padding: 1rem;
+}
+@media (min-width: 450px) {
+  .flip-card__back {
+    padding: 2rem;
+  }
 }
 .flip-card__txt {
   color: #000205;
-  text-align: left;
+  font-size: 12px;
+}
+@media (min-width: 700px) {
+  .flip-card__txt {
+    font-size: clamp(1.2rem, 1rem + 1.5vh, 18px);
+  }
 }
 
 .icon-incentives {
@@ -605,11 +631,37 @@ a, a:visited, a:active, a:focus {
      object-fit: contain;
 }
 
+.accordeon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.accordeon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../images/contact/handshake_500.jpg");
+}
+@media (min-width: 900px) {
+  .accordeon::after {
+    background-image: url("../../images/contact/handshake_1920.jpg");
+  }
+}
 .accordeon__wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  justify-content: center;
+  height: 70vh;
 }
 @media (min-width: 700px) {
   .accordeon__wrap {
@@ -617,7 +669,7 @@ a, a:visited, a:active, a:focus {
   }
 }
 .accordeon__item {
-  width: 85%;
+  width: 90%;
 }
 @media (min-width: 700px) {
   .accordeon__item {
@@ -1226,7 +1278,12 @@ a, a:visited, a:active, a:focus {
 .page__recommend {
   position: relative;
   width: 100%;
-  height: 120vh;
+  height: 100vh;
+}
+@media screen and (max-height: 700px) {
+  .page__recommend {
+    height: 120vh;
+  }
 }
 @media (min-width: 700px) {
   .page__recommend {
@@ -1474,6 +1531,7 @@ a, a:visited, a:active, a:focus {
   top: 100px;
   left: 0;
   box-shadow: 0px 0px 12px 2px rgb(255, 247, 0);
+  z-index: -1;
 }
 
 .dropdown {
@@ -2260,6 +2318,11 @@ a, a:visited, a:active, a:focus {
   overflow: hidden;
   position: relative;
 }
+@media screen and (max-width: 400px) {
+  .biz-slider__options {
+    height: 450px;
+  }
+}
 @media (min-width: 900px) {
   .biz-slider__options {
     width: 70%;
@@ -2960,7 +3023,7 @@ a, a:visited, a:active, a:focus {
     background-size: cover;
     background-position: right;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 33% 99%);
   }

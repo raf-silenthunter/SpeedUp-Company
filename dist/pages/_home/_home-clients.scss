@@ -78,12 +78,15 @@
         height: 55vh;
         overflow: hidden;
         position: relative;
+        @media screen and (max-width: 400px) {
+            height: 450px;
+        }
 
         @include m.breakpoint("large") {
-                width: 70%;
-                // height: 65vh;
-                height: 550px;
-            }
+            width: 70%;
+            height: 550px;
+        }
+        
         @include m.breakpoint("xxl") {
             width: 65%;
             height: 55vh;

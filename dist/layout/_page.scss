@@ -5,8 +5,10 @@
     &__recommend {
         position: relative;
         width: 100%;
-        height: calc(130vh - 10vh);
-    
+        height: 100vh;
+        @media screen and (max-height: 700px){
+            height: 120vh;
+        }
         @include m.breakpoint(medium) {
             height: calc(100vh - 10vh);
         }

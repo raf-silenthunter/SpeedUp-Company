@@ -71,7 +71,7 @@
         </button>
     </nav>
     <div class="modal modal--login">
-        <div class="modal__panel modal--login">
+        <div class="modal__panel modal__panel--login">
             <header class="modal__header">
                 <p class="modal__title speedup-txt speedup-txt--title speedup-txt--uppercased gradient-txt">Log in
                 </p>
@@ -105,7 +105,7 @@
         <section class="swiper-section swiper-section--relative">
             <h1 class="swiper__title speedup-txt speedup-txt--title gradient-txt">Terrain cars for offroad enthusiasts
             </h1>
-            <button class="action-btn swiper__btn speedup-txt">Book a car now</button>
+            <a href="../fleet.html"><button class="action-btn swiper__btn speedup-txt">Book a car now</button></a>
             <picture class="swiper__border">
                 <source media="(max-width: 550px)" srcset="../../images/luxury/luxury-main-mobile.jpg,
                 ../../images/luxury/luxury-main-mobile-2x.jpg 2x">
@@ -199,9 +199,9 @@
                             </div>
                         </div>
                         <div class="flip-card__back gradient-bgcolor">
-                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                            <p class="flip-card__txt">Lorem ipsum dolor sit amet, consectetur
                                 adipisicing elit. Soluta facilis voluptates numquam tenetur qui ullam velit nemo, nihil
-                                temporibus veniam eum nobis natus adipisci.</p>
+                                temporibus.</p>
                         </div>
                     </div>
                 </div>
@@ -223,9 +223,9 @@
                             </div>
                         </div>
                         <div class="flip-card__back gradient-bgcolor">
-                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                            <p class="flip-card__txt">Lorem ipsum dolor sit amet, consectetur
                                 adipisicing elit. Soluta facilis voluptates numquam tenetur qui
-                                ullam velit nemo, nihil temporibus veniam eum nobis natus adipisci esse error.</p>
+                                ullam velit nemo, nihil temporibus veniam.</p>
                         </div>
                     </div>
                 </div>
@@ -248,9 +248,9 @@
                             </div>
                         </div>
                         <div class="flip-card__back gradient-bgcolor">
-                            <p class="flip-card__txt speedup-txt-small">Lorem ipsum dolor sit amet, consectetur
+                            <p class="flip-card__txt">Lorem ipsum dolor sit amet, consectetur
                                 adipisicing elit. Soluta facilis voluptates numquam tenetur qui
-                                ullam velit nemo, nihil temporibus veniam eum nobis natus adipisci.</p>
+                                ullam velit nemo, nihil temporibus veniam.</p>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
             <div class="accordeon__wrap">
                 <div class="accordeon__item">
                     <div class="accordeon__panel">
-                        <h4 class="accordeon__title speedup-txt">What will you learn during tutorial?</h4>
+                        <h4 class="accordeon__title speedup-txt-dynamic">What will you learn during tutorial?</h4>
                         <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
                     </div>
                     <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
@@ -276,7 +276,7 @@
                 </div>
                 <div class="accordeon__item">
                     <div class="accordeon__panel">
-                        <h4 class="accordeon__title speedup-txt">How long you can drive for free?</h4>
+                        <h4 class="accordeon__title speedup-txt-dynamic">How long you can drive for free?</h4>
                         <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
                     </div>
                     <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet consectetur adipisicing
@@ -287,7 +287,7 @@
                 </div>
                 <div class="accordeon__item">
                     <div class="accordeon__panel">
-                        <h4 class="accordeon__title speedup-txt">What will you learn during tutorial?</h4>
+                        <h4 class="accordeon__title speedup-txt-dynamic">What will you learn during tutorial?</h4>
                         <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
                     </div>
                     <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
@@ -298,7 +298,7 @@
                 </div>
                 <div class="accordeon__item">
                     <div class="accordeon__panel">
-                        <h4 class="accordeon__title speedup-txt">How long you can drive for free?</h4>
+                        <h4 class="accordeon__title speedup-txt-dynamic">How long you can drive for free?</h4>
                         <img src="../../images/Icons/down-arrow-32.png" alt="" class="accordeon__icon" />
                     </div>
                     <p class="accordeon__info gradient-bgcolor speedup-txt-small">Lorem ipsum, dolor sit amet
@@ -365,15 +365,22 @@
             <div class="swiper-conversion__item">
                 <p class="speedup-txt speedup-txt--medium swiper-conversion__txt">You need more information? Or maybe
                     you want to cooperate? Book a call with our consultant. We will call you within 24 hours.</p>
-                <form action="#" class="swiper-conversion__form form">
-                    <label for="" class="form__label">
-                        <input type="text" placeholder="Name" class="form__input input speedup-txt">
-                    </label>
-                    <label for="" class="form__label">
-                        <input type="text" placeholder="Telephone" class="form__input input speedup-txt">
-                    </label>
-                    <button class="swiper-conversion__action-btn action-btn action-btn--animation speedup-txt">Book a
-                        call now!</button>
+                <form action="" class="swiper-conversion__form form">
+                    <div class="form__input-control input-control input-control--conversion-width">
+                        <label for="name" class="input-control__label"></label>
+                        <input type="text" id="name" data-info="required" class="input-control__input input speedup-txt-small"
+                            placeholder="Your name...">
+                        <div class="input-control__error-info"></div>
+                    </div>
+                    <div class="form__input-control input-control input-control--conversion-width">
+                        <label for="phone" class="input-control__label"></label>
+                        <input type="tel" id="phone" class="input-control__input input speedup-txt-small" placeholder="Your phone number..."
+                            data-info="required">
+                        <div class="input-control__error-info"></div>
+                    </div>
+                    <button class="swiper-conversion__action-btn action-btn action-btn--animation speedup-txt">Zapisz się!</button>
+                    <p class="success-msg speedup-txt-small" data-info="conversion-success">Thank you. Soon you will recieve a message from us!
+                    </p>
                 </form>
             </div>
         </section>

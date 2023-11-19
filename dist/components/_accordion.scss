@@ -3,10 +3,30 @@
 @use "../utils/breakpoints" as b;
 
 .accordeon {
+    @include m.display-flex(flex, column);
+    justify-content: space-around;
+    position: relative;
+    &::after{
+        content: "";
+        @include m.position(absolute, 0, 0);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: .1;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("../../images/contact/handshake_500.jpg");
+        @include m.breakpoint("large"){
+            background-image: url("../../images/contact/handshake_1920.jpg");
+        }
+    }
+
     &__wrap {
         @include m.display-flex(flex, column);
         align-items: center;
-        height: 80vh;
+        justify-content: center;
+        height: 70vh;
 
         @include m.breakpoint("medium") {
             height: 50vh;
@@ -14,7 +34,7 @@
     }
 
     &__item {
-        width: 85%;
+        width: 90%;
 
         @include m.breakpoint("medium") {
             width: 750px;

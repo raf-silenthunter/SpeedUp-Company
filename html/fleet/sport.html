@@ -106,7 +106,7 @@
         <section class="swiper-section swiper-section--relative">
             <h1 class="swiper__title speedup-txt speedup-txt--title gradient-txt">Sport cars for emotions enthusiasts
             </h1>
-            <button class="action-btn swiper__btn speedup-txt">Book a car now</button>
+            <a href="../fleet.html"><button class="action-btn swiper__btn speedup-txt">Book a car now</button></a>
             <picture class="swiper__border">
                 <source media="(max-width: 550px)" srcset="../../images/sport/sport-main-mobile.jpg,
                 ../../images/sport/sport-main-mobile-2x.jpg 2x">
@@ -366,15 +366,23 @@
             <div class="swiper-conversion__item">
                 <p class="speedup-txt speedup-txt--medium swiper-conversion__txt">You need more information? Or maybe
                     you want to cooperate? Book a call with our consultant. We will call you within 24 hours.</p>
-                <form action="#" class="swiper-conversion__form form">
-                    <label for="" class="form__label">
-                        <input type="text" placeholder="Name" class="form__input input speedup-txt">
-                    </label>
-                    <label for="" class="form__label">
-                        <input type="text" placeholder="Telephone" class="form__input input speedup-txt">
-                    </label>
-                    <button class="swiper-conversion__action-btn action-btn action-btn--animation speedup-txt">Book a
-                        call now!</button>
+                <form action="" class="swiper-conversion__form form">
+                    <div class="form__input-control input-control input-control--conversion-width">
+                        <label for="name" class="input-control__label"></label>
+                        <input type="text" id="name" data-info="required" class="input-control__input input speedup-txt-small"
+                            placeholder="Your name...">
+                        <div class="input-control__error-info"></div>
+                    </div>
+                    <div class="form__input-control input-control input-control--conversion-width">
+                        <label for="phone" class="input-control__label"></label>
+                        <input type="tel" id="phone" class="input-control__input input speedup-txt-small"
+                            placeholder="Your phone number..." data-info="required">
+                        <div class="input-control__error-info"></div>
+                    </div>
+                    <button class="swiper-conversion__action-btn action-btn action-btn--animation speedup-txt">Zapisz się!</button>
+                    <p class="success-msg speedup-txt-small" data-info="conversion-success">Thank you. Soon you will recieve a message
+                        from us!
+                    </p>
                 </form>
             </div>
         </section>

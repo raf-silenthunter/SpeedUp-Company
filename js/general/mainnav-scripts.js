@@ -3,6 +3,7 @@ export class StickyNav {
         this.nav = document.querySelector(".main-nav");
         this.scrollValue = 100;  
         this.scrollPosition = this.checkScrollState(scrollContent);
+        
     }
 
     checkScrollState(scrollContent){
@@ -31,6 +32,9 @@ export class ShowMobileNav {
     showNav() {
         this.mobileMenuList.classList.toggle("list--is-visible");
         this.mainNav.classList.toggle("main-nav--is-dropdown");
+        
+        this.dynamicBorder = document.querySelector(".dynamic-border");
+        this.mobileMenuList.classList.contains("list--is-visible") ? this.dynamicBorder.style.display = "none" : this.dynamicBorder.style.display = "block";
     }
 }
 

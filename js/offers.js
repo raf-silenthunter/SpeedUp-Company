@@ -1,6 +1,7 @@
 import {ShowMobileNav, OpenModal, DropdownNav} from "./general/mainnav-scripts.js";
 import {Accordeon, secondaryImageDetector} from "./general/extras-scripts.js";
 import {Swiper, Scroller} from "./general/swiper-scripts.js";
+import {FormValidation} from "./general/form-scripts.js";
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();
@@ -51,3 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const mainSwiper = new Swiper();
 document.addEventListener("touchstart", (event) => mainSwiper.touchStart(event));
 document.addEventListener("touchmove", (event) => mainSwiper.touchMove(event));
+
+//FormValidation Class invoking
+const form = document.querySelector(".swiper-conversion__form");
+const successElement = document.querySelector('[data-info="conversion-success"]');
+const conversionForm = new FormValidation(form, ["inputSurname", "inputEmail", "inputMessage"], successElement);
+conversionForm.init()

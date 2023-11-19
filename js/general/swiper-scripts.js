@@ -306,8 +306,8 @@ export class Scroller {
     }
 
     changeDot() {
-        this.navDots.forEach(dot => dot.style.backgroundColor = "yellow");
-        this.navDots[this.currSectionIndex].style.backgroundColor = "#000205";
+        this.navDots.forEach(dot => dot.style.backgroundColor = "#000205");
+        this.navDots[this.currSectionIndex].style.backgroundColor = "#acacac";
     }
 
     checkSectionInView(section) {
