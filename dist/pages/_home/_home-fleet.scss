@@ -46,7 +46,6 @@
 
     &__img {
         width: 100%;
-    
         @include m.breakpoint(medium) {
             height: 100%;
         }

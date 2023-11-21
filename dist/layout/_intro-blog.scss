@@ -19,7 +19,8 @@
     
         @include m.breakpoint(large) {
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 3rem;
         }
     }
 
@@ -30,9 +31,6 @@
 
     &__post-intro {
         margin-bottom: 2rem;
-        @include m.breakpoint(large) {
-            width: 30%;
-        }
     }
 
     &__speedup-txt{
@@ -42,7 +40,6 @@
 
 .post-intro {
     position: relative;
-    color: white;
     overflow: hidden;
     border-radius: 10px;
 
@@ -70,11 +67,16 @@
     }
 }
 
-.post-intro__card, .blog-intro__post-intro{
-    @media (max-height: 650px) {
-            height: 60vh;
-        }    
-    height: 45vh;
+.blog-intro__post-intro{
+    height: clamp(35rem, 60vw, 40vh);
+    width: 100%;
+    @media screen and (width: 1280px) and (height: 800px) {
+        height: 40rem;
+    }
+}
+
+.post-intro__card{
+    height: 100%
 }
 
 .card {
@@ -105,7 +107,6 @@
     }
 
     &__head{
-        // for future developpement
         display: flex;
         gap: 1rem;
         &--col {
