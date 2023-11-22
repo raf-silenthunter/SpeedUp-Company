@@ -7,9 +7,9 @@
     display: flex;
     flex-wrap: wrap;
     
-    @include m.breakpoint(large) {
+    @include m.breakpoint("large") {
             flex-direction: column;
-            height: 80vh;
+            height: 70vh;
     }
     @include m.breakpoint(xxl) {
         height: 60vh;
@@ -46,29 +46,28 @@
 
     &__img {
         width: 100%;
-        @include m.breakpoint(medium) {
-            height: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: .2;
+
+        &--bottom-focus{
+            object-position: bottom;
         }
     }
 
     &__fleet-underlay {
         position: relative;
-        
+        width: 100%;
+        height: clamp(250px, 40rem, 50vw);
         @include m.breakpoint(large) {
             width: 50%;
+            height: 100%;
         }
     }
 }
 
 .fleet-underlay {
-    height: 100%;
-
-    &__big-img {
-        width: 100%;
-        height: 100%;
-        opacity: .2;
-        filter: grayscale(1);
-    }
+    overflow: hidden;
 
     &__action-btn {
         position: absolute;

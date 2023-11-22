@@ -2546,7 +2546,7 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 900px) {
   .fleet {
     flex-direction: column;
-    height: 80vh;
+    height: 70vh;
   }
 }
 @media (min-width: 2000px) {
@@ -2587,29 +2587,29 @@ a, a:visited, a:active, a:focus {
 }
 .fleet__img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.2;
 }
-@media (min-width: 700px) {
-  .fleet__img {
-    height: 100%;
-  }
+.fleet__img--bottom-focus {
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 .fleet__fleet-underlay {
   position: relative;
+  width: 100%;
+  height: clamp(250px, 40rem, 50vw);
 }
 @media (min-width: 900px) {
   .fleet__fleet-underlay {
     width: 50%;
+    height: 100%;
   }
 }
 
 .fleet-underlay {
-  height: 100%;
-}
-.fleet-underlay__big-img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  filter: grayscale(1);
+  overflow: hidden;
 }
 .fleet-underlay__action-btn {
   position: absolute;
