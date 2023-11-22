@@ -11,7 +11,7 @@
             flex-direction: column;
             height: 70vh;
     }
-    @include m.breakpoint(xxl) {
+    @include m.breakpoint("xxl") {
         height: 60vh;
     }
 

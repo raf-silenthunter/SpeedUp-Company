@@ -713,9 +713,8 @@ a, a:visited, a:active, a:focus {
   border-radius: 10px;
   transition: box-shadow 0.3s linear;
   background-color: #000205;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   position: relative;
   color: #f3f3f3;
 }
@@ -821,13 +820,12 @@ a, a:visited, a:active, a:focus {
 
 .browser {
   width: 100%;
-  border-block: 2px solid yellow;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 .browser__wrap {
   width: 90%;
   margin: 0 auto;
   display: flex;
+  height: 60px;
 }
 @media (min-width: 900px) {
   .browser__wrap {
@@ -835,9 +833,11 @@ a, a:visited, a:active, a:focus {
   }
 }
 .browser__input {
-  padding: 1rem;
+  padding-block: 1rem;
+  padding-left: 4vw;
   border: none;
-  border-inline: 2px solid yellow;
+  border-left: 2px solid #21288d;
+  border-radius: 5px;
   flex-grow: 4;
   background: #000205;
   color: #acacac;
@@ -2710,7 +2710,6 @@ a, a:visited, a:active, a:focus {
   grid-template: auto/repeat(auto-fit, 300px);
   justify-content: center;
   gap: 2rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
   border-radius: 10px;
@@ -3059,19 +3058,25 @@ a, a:visited, a:active, a:focus {
 /*style for blog mainpage*/
 .blog-head {
   min-height: 100vh;
-  padding-top: calc(100px + 5vh);
+  padding-top: 100px;
 }
-.blog-head__title-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: "auto";
+.blog-head__header {
   height: 20vh;
-  background-image: url("../../../images/race.jpg");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: grayscale(1);
+  position: relative;
+}
+.blog-head__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+.blog-head__img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.1;
 }
 .blog-head__blog-article {
   margin: 0 auto;

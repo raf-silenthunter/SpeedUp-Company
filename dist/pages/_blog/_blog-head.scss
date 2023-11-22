@@ -3,17 +3,27 @@
 
 .blog-head{
     min-height: 100vh;
-    padding-top: calc(v.$main-nav-height + 5vh);
+    padding-top: v.$main-nav-height;
 
-    &__title-wrap{
-        display: flex;
-        @include m.flex-center(center, center);
+    &__header{
         height: 20vh;
-        background-image: url("../../../images/race.jpg");
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: cover;
-        filter:grayscale(1);
+        position: relative;
+        // @include m.breakpoint("large"){
+        //     background-image: url("../../../images/race-desktop.jpg");
+        // }
+    }
+
+    &__title{
+        @include m.position(absolute, 50%, 50%);
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: .1;
     }
 
     &__blog-article{

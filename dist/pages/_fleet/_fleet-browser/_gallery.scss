@@ -47,7 +47,6 @@
             padding-block: 4rem;
         }
         gap: 2rem;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
         border-radius: 10px;
 
@@ -61,10 +60,6 @@
             @include m.breakpoint(xxl){
                 height: 750px;
             }
-        }
-
-        &--white{
-            // background-color: v.$pale-white;
         }
 
         &--blog{

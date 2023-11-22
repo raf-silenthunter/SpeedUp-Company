@@ -7,9 +7,7 @@
     border-radius: 10px;
     transition: box-shadow .3s linear; 
     background-color: v.$pale-black;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     position: relative;
     color: v.$pale-white;
     
@@ -86,6 +84,10 @@
     }
 }
 
+// .business-shadow{
+//     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+//     backdrop-filter: blur(4px);
+// }
 
 .tags {
 
