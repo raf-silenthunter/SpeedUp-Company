@@ -26,14 +26,18 @@
         @include m.display-flex(flex, column);
         @include m.flex-center(space-around, center);
         margin: auto;
-        @include m.border-properties(1px, solid, v.$silver, 3px);
+        @include m.border-properties(1px, solid, v.$silver, 10px);
         background-image: linear-gradient(-45deg, rgba(243, 243, 243, .5) 0%, rgba(0, 2, 5, 0.2) 20% 80%, rgba(243, 243, 243, .5) 100%);
         backdrop-filter: blur(20px);
 
         &--login {
-            width: max(30rem, 70vw);
+            width: max(30rem, 90vw);
             min-height: clamp(55rem, 70vh, 75vh);
-            padding: v.$padding-main;
+            padding: 2rem;
+            @include m.breakpoint("large"){
+                width: max(30rem, 70vw);
+                padding: v.$padding-main;
+            }
         }
     }
 
@@ -49,6 +53,7 @@
         margin-bottom: clamp(5px, 10px, 50px);
         background-color: v.$pale-black;
         box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+        border-radius: 10px;
 
         @include m.breakpoint("small") {
             padding: v.$padding-xl;
@@ -78,13 +83,19 @@
         text-align: center;
     }
 
-    &__call-to-action {
-        margin-bottom: 20px;
+    &__links{
+        &:nth-child(2n){
+            margin-top: 1rem;
+        }
+        //tu coś nie działa - dlaczego
     }
 
     &__password-info {
-        display: none;
-        // password info will be added in future
+        display: block;
+    }
+
+    &__btn-close{
+        @include m.position(absolute, 15px, calc(100% - 15px));
     }
 }
 
@@ -98,15 +109,4 @@
 
 .stop-scroll {
     overflow: hidden;
-}
-
-.hidden-scroll-wrap {
-    position: relative;
-    overflow: hidden;
-    height: auto;
-    display: none;
-}
-
-.not-hidden-scroll-wrap{
-    display: block;
 }

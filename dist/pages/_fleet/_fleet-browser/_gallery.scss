@@ -41,10 +41,11 @@
 
     .grid{
         display: grid;
-        grid-template: auto /repeat(auto-fit, 300px);
         justify-content: center;
-        @include m.breakpoint("large") {
-            padding-block: 4rem;
+        padding: 1rem;
+        @include m.breakpoint("medium") {
+            grid-template: auto /repeat(auto-fit, 300px);
+            padding: 4rem 1.5rem;
         }
         gap: 2rem;
         backdrop-filter: blur(4px);

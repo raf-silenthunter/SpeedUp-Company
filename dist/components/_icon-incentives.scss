@@ -10,6 +10,7 @@
 
     &__item {
         display: flex;
+        width: 100%;
         gap: 1rem;
         align-items: center;
         @include m.breakpoint("small") {
@@ -20,5 +21,9 @@
 
     &__icon{
         object-fit: contain;
+    }
+
+    &__txt{
+        font-size: clamp(1.6rem, 1rem + 0.5vh, 2rem);
     }
 }

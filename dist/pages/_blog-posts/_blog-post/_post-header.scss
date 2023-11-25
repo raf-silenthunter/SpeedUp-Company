@@ -9,13 +9,14 @@
     display: flex;
     @include m.flex-center(center, center);
 
-    &__img{
-        display: block;
+    &__picture, &__img{
         height: 100%;
-        opacity: .3;
-        @include m.breakpoint("large") {
-            width: 100%;
-        }
+        width: 100%;
+    }
+
+    &__img{
+        object-fit: cover;
+        opacity: 0.3;
     }
 
     &__wrap{

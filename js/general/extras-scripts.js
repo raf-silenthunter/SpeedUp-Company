@@ -167,7 +167,7 @@ export class BookingModal{
     constructor(stickyMenu, scrollBtn, stepsHandler, dataBase){
         this.bookingPanel = document.querySelector(".hidden-scroll-wrap");
         this.body = document.querySelector("body");
-        this.btnClose = document.querySelector(".btn-close--sticky");
+        this.btnClose = document.querySelector(".hidden-scroll-wrap__btn-close");
         //komposition: pass here two external classes to use their methods
 
         this.stickyMenu = stickyMenu;
@@ -286,9 +286,9 @@ export class StepsHandler{
 
     scrollToControls(stepSection){
         const wrapHeight = Math.floor(this.stepsElemsParent.scrollHeight);
-        const mainNavHeight = 150;
+        const sectionPositionSetbackHeight = 275;
         const sectionHeight = stepSection.offsetHeight;
-        const scrollValue = wrapHeight - sectionHeight - mainNavHeight;
+        const scrollValue = wrapHeight - sectionHeight - sectionPositionSetbackHeight;
         this.stepsElemsParent.scrollTo({
             top: scrollValue,
             behavior: "smooth",
