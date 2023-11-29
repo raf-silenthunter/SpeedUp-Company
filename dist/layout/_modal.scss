@@ -32,7 +32,7 @@
 
         &--login {
             width: max(30rem, 90vw);
-            min-height: clamp(55rem, 70vh, 75vh);
+            min-height: clamp(60rem, 75vh, 40vw);
             padding: 2rem;
             @include m.breakpoint("large"){
                 width: max(30rem, 70vw);
@@ -41,57 +41,27 @@
         }
     }
 
+    &__form-wrap{
+        width: clamp(300px, 60vw, 550px);
+    }
+
+    &__form{
+        margin-block: 2rem;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
     &__title {
         flex-basis: 20%;
         font-weight: v.$font-weight-bold;
     }
 
-    &__input-wrap {
-        display: flex;
-        flex-wrap: nowrap;
-        padding: v.$padding-main;
-        margin-bottom: clamp(5px, 10px, 50px);
-        background-color: v.$pale-black;
-        box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
-        border-radius: 10px;
-
-        @include m.breakpoint("small") {
-            padding: v.$padding-xl;
-        }
-    }
-
-    &__input,
     &__action-btn {
         width: 100%;
     }
 
-    &__input {
-        border: none;
-        outline: none;
-        background-color: v.$pale-black;
-        color: v.$pale-white;
-        letter-spacing: 3px;
-    }
-
-    &__icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    &__links,
-    &__password-info {
-        text-align: center;
-    }
-
-    &__links{
-        &:nth-child(2n){
+    &__links p:nth-child(2n){
             margin-top: 1rem;
-        }
-        //tu coś nie działa - dlaczego
-    }
-
-    &__password-info {
-        display: block;
     }
 
     &__btn-close{

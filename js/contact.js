@@ -24,6 +24,6 @@ modalFn.modalBtns.forEach((btn)=> {
 import {FormValidation} from "./general/form-scripts.js";
 
 const form = document.querySelector(".contact__form");
-
-const contactForm = new FormValidation(form, ["inputSurname"]);
+const successElement = document.querySelector('[data-info="contact-success"]')
+const contactForm = new FormValidation(form, ["inputSurname"], successElement);
 contactForm.init();

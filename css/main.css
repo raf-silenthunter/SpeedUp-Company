@@ -377,7 +377,6 @@ a, a:visited, a:active, a:focus {
   align-items: center;
 }
 .form__label {
-  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -493,6 +492,33 @@ a, a:visited, a:active, a:focus {
   .input-control--conversion-width {
     width: 80%;
   }
+}
+.input-control__input-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1.5rem;
+  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media (min-width: 900px) {
+  .input-control__input-wrap {
+    padding: 2rem;
+  }
+}
+.input-control__input-login {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #f3f3f3;
+  letter-spacing: 3px;
+}
+.input-control__icon {
+  width: 50px;
+  height: 50px;
 }
 
 .aside-nav {
@@ -1993,7 +2019,7 @@ a, a:visited, a:active, a:focus {
 }
 .modal__panel--login {
   width: max(30rem, 90vw);
-  min-height: clamp(55rem, 70vh, 75vh);
+  min-height: clamp(60rem, 75vh, 40vw);
   padding: 2rem;
 }
 @media (min-width: 900px) {
@@ -2002,46 +2028,23 @@ a, a:visited, a:active, a:focus {
     padding: 1rem;
   }
 }
+.modal__form-wrap {
+  width: clamp(300px, 60vw, 550px);
+}
+.modal__form {
+  margin-block: 2rem;
+  align-items: stretch;
+  gap: 2rem;
+}
 .modal__title {
   flex-basis: 20%;
   font-weight: bold;
 }
-.modal__input-wrap {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 1rem;
-  margin-bottom: 10px;
-  background-color: #000205;
-  box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
-  border-radius: 10px;
-}
-@media (min-width: 450px) {
-  .modal__input-wrap {
-    padding: 2rem;
-  }
-}
-.modal__input, .modal__action-btn {
+.modal__action-btn {
   width: 100%;
 }
-.modal__input {
-  border: none;
-  outline: none;
-  background-color: #000205;
-  color: #f3f3f3;
-  letter-spacing: 3px;
-}
-.modal__icon {
-  width: 50px;
-  height: 50px;
-}
-.modal__links, .modal__password-info {
-  text-align: center;
-}
-.modal__links:nth-child(2n) {
+.modal__links p:nth-child(2n) {
   margin-top: 1rem;
-}
-.modal__password-info {
-  display: block;
 }
 .modal__btn-close {
   position: absolute;

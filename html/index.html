@@ -74,26 +74,42 @@
     <div class="modal modal--login">
         <div class="modal__panel modal__panel--login">
             <header class="modal__header">
-                <p class="modal__title speedup-txt speedup-txt--title speedup-txt--uppercased gradient-txt">Log in</p>
+                <p class="modal__title speedup-txt speedup-txt--title speedup-txt--uppercased gradient-txt">Log in
+                </p>
             </header>
             <section class="modal__form-wrap">
-                <p class="modal__password-info speedup-txt">Password incorrect!</p>
-                <p class="modal__password-info sign-in__password-change speedup-txt">Change password.</p>
-                <form action="#" class="modal__form">
-                    <label for="" class="modal__input-wrap">
-                            <input type="text" placeholder="Login" class="modal__input speedup-txt">
-                            <img src="../images/Icons/user.png" alt="" class="modal__icon">
+                <form action="#" class="modal__form form">
+                    <label for="login" class="input-control">
+                        <div class="input-control__input-wrap">
+                            <input type="text" id="login" data-info="required" placeholder="Login"
+                                class="input-control__input-login speedup-txt">
+                            <img src="../images/Icons/user.png" alt="user icon" class="input-control__icon">
+                        </div>
+                        <div class="input-control__error-info"></div>
                     </label>
-                    <label for="" class="modal__input-wrap">
-                            <input type="password" placeholder="Password" class="modal__input speedup-txt">
-                            <img src="../images/Icons/padlock.png" alt="" class="modal__icon">
+                    <label for="password" class="input-control">
+                        <div class="input-control__input-wrap">
+                            <input type="password" id="password" data-info="required" placeholder="Password"
+                                class="input-control__input-login speedup-txt">
+                            <img src="../images/Icons/padlock.png" alt="lock icon" class="input-control__icon">
+                        </div>
+                        <div class="input-control__error-info"></div>
                     </label>
+                    <button class="action-btn speedup-txt modal__action-btn" data-info="login-btn">Log in</button>
                 </form>
-                <button class="action-btn speedup-txt modal__action-btn">Log in</button>
+                <div class="modal__password-info">
+                    <p class="modal__password-info success-msg speedup-txt-small">Password incorrect!</p>
+                </div>
             </section>
             <section class="modal__links">
-                <p class="modal__call-to-action speedup-txt gradient-txt">You don't have an accont yet?</p>            
-                <a href="#" class="speedup-txt speedup-txt--uppercased speedup-txt--yellow">Register now</a>
+                <p class="speedup-txt-small gradient-txt">You want to change a password?
+                    <a href="#" class="modal__link speedup-txt-small speedup-txt--uppercased speedup-txt--yellow">click
+                        here</a>
+                </p>
+                <p class="speedup-txt-small gradient-txt">You don't have an accont yet?
+                    <a href="#" class="modal__link speedup-txt-small speedup-txt--uppercased speedup-txt--yellow">Register
+                        now</a>
+                </p>
             </section>
             <button class="modal__btn-close btn-close">
                 <span class="btn-close__icon"></span>
