@@ -5,13 +5,15 @@ export class FormValidation{
         this.form = form;
         this.allInputs = Array.from(form.elements).filter((el) => el.tagName === "INPUT");
         this.successInfoPlaceholder = successElement;
-        
+        console.log(this.allInputs);
         this.validationData = {
             inputName: null,
             inputSurname: null,
             inputPhone: null,
             inputMessage: null,
             inputEmail: null,
+            inputLogin: null,
+            inputPassword: null,
         }
 
         this.setOptionalInputs(optionalInputs);
@@ -53,9 +55,10 @@ export class FormValidation{
         //value = value inserted in input; message = error message to display; 
         //placement = location where to set error-info class
         //data = indicate which data part should update for validation process
+
         if(value === ""){
             const errorMessage = message;
-            this.setError(placement, errorMessage, true, "inputName");
+            this.setError(placement, errorMessage, true, data);
         } else {
             this.validationData[data] = "true";
             this.setSuccess(placement);   
@@ -114,28 +117,57 @@ export class FormValidation{
                 case "message":
                     this.baseValidation(inputValue, "Please, tell us what do you need", this.form.message, "inputMessage");
                     break;
+                case "login":
+                    this.baseValidation(inputValue,
+                        "Provide login!",
+                        this.form.login,
+                        "inputLogin");
+                    break;
+                case "password":
+                    this.baseValidation(inputValue,
+                        "Provide correct password!",
+                        this.form.password,
+                        "inputPassword");
+                    break;
             }
         }
     }
 
     setError(element, msg, setErrorForInput, inputStatus){
-        const inputParent = element.parentElement;
-        const errorDisplay = inputParent.querySelector(".input-control__error-info");
+        let input;
+        let errorDisplay;
+        if(element.id === "login" || element.id === "password"){
+            input = element.parentElement;
+            errorDisplay = element.parentElement.nextElementSibling
+        } else {
+            input = element;
+            const inputParent = element.parentElement;
+            errorDisplay = inputParent.querySelector(".input-control__error-info");
+        }
+        
         if(setErrorForInput) this.validationData[inputStatus] = null;  
 
         errorDisplay.innerHTML = msg;
         errorDisplay.classList.add("error-info");
-        element.classList.add("input--error");
-        element.classList.remove("input--success");
+        input.classList.add("input--error");
+        input.classList.remove("input--success");
     }
 
     setSuccess(element){
-        const inputParent = element.parentElement;
-        const errorDisplay = inputParent.querySelector(".input-control__error-info");
+        let input;
+        let errorDisplay;
+        if(element.id === "login" || element.id === "password"){
+            input = element.parentElement;
+            errorDisplay = element.parentElement.nextElementSibling
+        } else {
+            input = element;
+            const inputParent = element.parentElement;
+            errorDisplay = inputParent.querySelector(".input-control__error-info");
+        }
 
         errorDisplay.innerHTML = "";
-        element.classList.remove("input--error");
-        element.classList.add("input--success");
+        input.classList.remove("input--error");
+        input.classList.add("input--success");
     }
 
     cleanValidationData(){
@@ -145,21 +177,25 @@ export class FormValidation{
     }
 
     showSuccessMsg(){
-        console.log(this.successInfoPlaceholder);
         if(!this.successInfoPlaceholder) console.log("error - no input provided");
         this.successInfoPlaceholder.classList.add("success-msg--active");
         
         setTimeout(()=> {
             this.successInfoPlaceholder.classList.remove("success-msg--active");
             this.allInputs.forEach((input)=> {
+                if(input.id === "login" || input.id === "password"){
+                    input.parentElement.classList.remove("input--success");
+                }
                 input.classList.remove("input--success");
             })
-        }, 2000)
+        }, 3000)
     }
 
     validateInputs(){
         this.checkValidationData();
+        console.log(this.isDataCorrect);
         if(this.isDataCorrect) {
+            console.log('data ok');
             this.form.reset();
             this.showSuccessMsg();
             this.cleanValidationData();

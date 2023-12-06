@@ -56,5 +56,11 @@ document.addEventListener("touchmove", (event) => mainSwiper.touchMove(event));
 //FormValidation Class invoking
 const form = document.querySelector(".swiper-conversion__form");
 const successElement = document.querySelector('[data-info="conversion-success"]');
-const conversionForm = new FormValidation(form, ["inputSurname", "inputEmail", "inputMessage"], successElement);
+const conversionForm = new FormValidation(form, ["inputSurname", "inputEmail", "inputMessage", "inputLogin", "inputPassword"], successElement);
 conversionForm.init()
+
+//Login Modal (FormValidation) Class invoking
+const modalLoginform = document.querySelector(".modal__form");
+const modalLoginsuccessElement = document.querySelector('[data-info="login-success"]')
+const modalLoginForm = new FormValidation(modalLoginform, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputEmail"], modalLoginsuccessElement);
+modalLoginForm.init();

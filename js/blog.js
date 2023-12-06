@@ -34,9 +34,17 @@ const blogElements = document.querySelectorAll(".grid__blog-article");
 const blogFilter = new BlogPostsFilter(blogfilterWrap, blogElementsWrap, blogElements, false);
 blogFilter.filterInit();
 
-//FormValidation Class invoking for just NL subscription
-const form = document.querySelector(".nl-wrap__form");
+//NL FormValidation Class invoking for just NL subscription
+const nlForm = document.querySelector(".nl-wrap__form");
 const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
-const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
-contactForm.init();
+const nlContactForm = new FormValidation(nlForm, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputLogin", "inputPassword"], nlSuccessInfoPlaceholder);
+nlContactForm.init();
+
+//Login Modal (FormValidation) Class invoking
+const modalLoginform = document.querySelector(".modal__form");
+const modalLoginsuccessElement = document.querySelector('[data-info="login-success"]')
+const modalLoginForm = new FormValidation(modalLoginform, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputEmail"], modalLoginsuccessElement);
+modalLoginForm.init();
+
+
 

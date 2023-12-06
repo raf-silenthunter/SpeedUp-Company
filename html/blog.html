@@ -81,26 +81,27 @@
             </header>
             <section class="modal__form-wrap">
                 <form action="#" class="modal__form form">
-                    <label for="login" class="input-control">
-                        <div class="input-control__input-wrap">
+                    <div class="form__input-control input-control" data-info="login">
+                        <label for="login" class="input-control__input-wrap input">
                             <input type="text" id="login" data-info="required" placeholder="Login"
                                 class="input-control__input-login speedup-txt">
                             <img src="../images/Icons/user.png" alt="user icon" class="input-control__icon">
-                        </div>
+                        </label>
                         <div class="input-control__error-info"></div>
-                    </label>
-                    <label for="password" class="input-control">
-                        <div class="input-control__input-wrap">
+                    </div>
+                    <div class="form__input-control input-control" data-info="password">
+                        <label for="password" class="input-control__input-wrap input">
                             <input type="password" id="password" data-info="required" placeholder="Password"
                                 class="input-control__input-login speedup-txt">
                             <img src="../images/Icons/padlock.png" alt="lock icon" class="input-control__icon">
-                        </div>
+                        </label>
                         <div class="input-control__error-info"></div>
-                    </label>
+                    </div>
                     <button class="action-btn speedup-txt modal__action-btn" data-info="login-btn">Log in</button>
                 </form>
                 <div class="modal__password-info">
-                    <p class="modal__password-info success-msg speedup-txt-small">Password incorrect!</p>
+                    <p class="modal__password-info success-msg speedup-txt-small" data-info="login-success">Login feature
+                        during development. Please be patient.</p>
                 </div>
             </section>
             <section class="modal__links">

@@ -31,5 +31,11 @@ window.addEventListener("scroll", ()=> dynamicBorder.createBorder());
 //FormValidation Class invoking for just NL subscription
 const form = document.querySelector(".nl-wrap__form");
 const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
-const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
+const contactForm = new FormValidation(form, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputLogin", "inputPassword"], nlSuccessInfoPlaceholder);
 contactForm.init();
+
+//Login Modal (FormValidation) Class invoking
+const modalLoginform = document.querySelector(".modal__form");
+const modalLoginsuccessElement = document.querySelector('[data-info="login-success"]')
+const modalLoginForm = new FormValidation(modalLoginform, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputEmail"], modalLoginsuccessElement);
+modalLoginForm.init();

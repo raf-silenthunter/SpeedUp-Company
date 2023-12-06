@@ -42,12 +42,18 @@ bookingModal.init(bookingWrap);
 import {FormValidation} from "./general/form-scripts.js";
 const form = document.querySelector(".booking-section__form");
 const bookingSuccessInfoPlaceholder = document.querySelector('[data-info="booking-success"]');
-const contactForm = new FormValidation(form, ["inputMessage"], bookingSuccessInfoPlaceholder);
+const contactForm = new FormValidation(form, ["inputMessage", "inputLogin", "inputPassword"], bookingSuccessInfoPlaceholder);
 contactForm.init();
 //Booking Modal feature
 
 // FormValidation Class invoking for just NL subscription
 const nlFormWrap = document.querySelector(".nl-wrap__form");
 const nlSuccessInfoPlaceholder = document.querySelector('[data-info="nl-success"]');
-const nlForm = new FormValidation(nlFormWrap, ["inputName", "inputSurname", "inputPhone", "inputMessage"], nlSuccessInfoPlaceholder);
+const nlForm = new FormValidation(nlFormWrap, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputLogin", "inputPassword"], nlSuccessInfoPlaceholder);
 nlForm.init();
+
+//Login Modal (FormValidation) Class invoking
+const modalLoginform = document.querySelector(".modal__form");
+const modalLoginsuccessElement = document.querySelector('[data-info="login-success"]')
+const modalLoginForm = new FormValidation(modalLoginform, ["inputName", "inputSurname", "inputPhone", "inputMessage", "inputEmail"], modalLoginsuccessElement);
+modalLoginForm.init();

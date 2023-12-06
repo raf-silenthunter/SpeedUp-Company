@@ -6,6 +6,7 @@
     align-items: center;
 
     &__label {
+        width: 100%;
         display: flex;
         justify-content: center;
         &+& {
@@ -120,27 +121,33 @@
         }
     }
 
-    &__input-wrap{
+    &__input{
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
         padding: 1.5rem;
-        box-shadow: inset 0px 0px 5px 0px rgb(172, 172, 172);
-        border-radius: 10px;
-        cursor: pointer;
         @include m.breakpoint("large"){
             padding: 2rem;
         }
     }
 
+    &__input-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        &:focus-within{
+            border-color: v.$yellow;
+        }
+    }
+
     &__input-login{
         width: 100%;
-        height: 100%;
         border: none;
         outline: none;
         background-color: transparent;
         color: v.$pale-white;
-        letter-spacing: 3px;            
+        letter-spacing: 3px;   
     }
 
     &__icon {

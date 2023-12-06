@@ -48,9 +48,10 @@
 
     &__input-control{
         width: 100%;
-        height: 105px;
+        height: 70px;
         @include m.breakpoint("large"){
             width: 50%;
+            height: 105px;
         }
     }
 }
