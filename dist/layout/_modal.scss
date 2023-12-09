@@ -36,7 +36,7 @@
             padding: 2rem;
             @include m.breakpoint("large"){
                 width: max(30rem, 70vw);
-                padding: v.$padding-main;
+                padding: 3rem;
             }
         }
     }

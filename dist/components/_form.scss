@@ -93,9 +93,7 @@
 .error-info{
     color: v.$error;
     margin-top: 5px;
-    @include m.breakpoint("medium"){
-        font-size: 15px;
-    }
+    font-size: clamp(12px, 1rem + .75vh, 1.7rem);
 }
 
 .error-info-color {

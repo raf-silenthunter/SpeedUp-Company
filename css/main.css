@@ -463,11 +463,7 @@ a, a:visited, a:active, a:focus {
 .error-info {
   color: #ff3860;
   margin-top: 5px;
-}
-@media (min-width: 700px) {
-  .error-info {
-    font-size: 15px;
-  }
+  font-size: clamp(12px, 1rem + 0.75vh, 1.7rem);
 }
 
 .error-info-color {
@@ -865,13 +861,16 @@ a, a:visited, a:active, a:focus {
   outline: none;
   transition: all 0.3s linear;
 }
-.browser__input--active {
-  box-shadow: inset 0px 0px 8px 3px yellow;
-}
 @media (min-width: 900px) {
   .browser__input {
     padding: 2rem 4rem;
   }
+}
+.browser__input:focus::-moz-placeholder {
+  color: transparent;
+}
+.browser__input:focus::placeholder {
+  color: transparent;
 }
 .browser__action-btn {
   flex-grow: 1;
@@ -950,10 +949,18 @@ a, a:visited, a:active, a:focus {
   overflow: hidden;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
+@media (max-width: 900px) {
+  .register-panel {
+    margin-top: 4rem;
+  }
+}
 .register-panel__icon-incentives {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+.register-panel__button {
+  width: 100%;
 }
 
 .calendar__input {
@@ -1986,10 +1993,14 @@ a, a:visited, a:active, a:focus {
   width: 100%;
   height: 70px;
 }
+@media (min-width: 700px) {
+  .nl-wrap__input-control {
+    height: 105px;
+  }
+}
 @media (min-width: 900px) {
   .nl-wrap__input-control {
     width: 50%;
-    height: 105px;
   }
 }
 
@@ -2032,7 +2043,7 @@ a, a:visited, a:active, a:focus {
 @media (min-width: 900px) {
   .modal__panel--login {
     width: max(30rem, 70vw);
-    padding: 1rem;
+    padding: 3rem;
   }
 }
 .modal__form-wrap {
@@ -3379,4 +3390,62 @@ a, a:visited, a:active, a:focus {
 
 .contact__map {
   filter: grayscale(0.3);
+}
+
+/*style for register subpage*/
+.register {
+  min-height: 100vh;
+  padding: 12rem 4rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: "auto";
+  gap: 4rem;
+}
+.register__content {
+  width: clamp(200px, 120rem, 80vw);
+}
+@media (min-width: 900px) {
+  .register__content {
+    text-align: center;
+  }
+}
+.register__info:first-of-type {
+  margin-bottom: 10px;
+}
+.register__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: "auto";
+  gap: 3rem;
+  min-height: 200px;
+  margin-top: 3rem;
+}
+@media (min-width: 900px) {
+  .register__buttons {
+    flex-direction: row;
+    margin-top: 6rem;
+  }
+}
+.register__button-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 250px;
+  height: 180px;
+  padding: 2rem;
+  border-radius: 10px;
+}
+@media (min-width: 900px) {
+  .register__button-wrap {
+    width: 30%;
+    height: 220px;
+  }
+}
+.register__button {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

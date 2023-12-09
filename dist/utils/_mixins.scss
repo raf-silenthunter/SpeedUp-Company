@@ -1,4 +1,4 @@
-@use "variables" as v;
+@use "./variables" as v;
 @use "../utils/breakpoints" as b;
 
 // used only with flex-direction: column. No needed when row
@@ -59,7 +59,7 @@
 @mixin breakpoint-scale($breakpoint-value, $scale){
     $divider: map-get($map: b.$brakepoint-up-scale, $key: $scale);
     $px: "px";
-    $effective-width: $breakpoint-value / $divider + $px;
+    $effective-width: calc($breakpoint-value / $divider) + $px;
     @media (orientation: landscape) and (max-width: $effective-width){
         @content;
     }

@@ -1,0 +1,55 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+.register {
+    min-height: 100vh;
+    padding: 12rem 4rem 4rem 4rem;
+    @include m.display-flex(flex, column);
+    @include m.flex-center(center, center);
+    gap: 4rem;
+
+    &__content {
+        width: clamp(200px, 120rem, 80vw);
+
+        @include m.breakpoint("large") {
+            text-align: center;
+        }
+    }
+
+    &__info:first-of-type {
+        margin-bottom: 10px;
+    }
+
+    &__buttons {
+        @include m.display-flex(flex, column);
+        @include m.flex-center(space-around, center);
+        gap: 3rem;
+        min-height: 200px;
+        margin-top: 3rem;
+
+        @include m.breakpoint("large") {
+            flex-direction: row;
+            margin-top: 6rem;
+        }
+    }
+
+    &__button-wrap {
+        @include m.display-flex(flex, column);
+        justify-content: space-between;
+        width: 100%;
+        min-width: 250px;
+        height: 180px;
+
+        @include m.breakpoint("large") {
+            width: 30%;
+            height: 220px;
+        }
+
+        padding: 2rem;
+        border-radius: 10px;
+    }
+
+    &__button {
+        width: 100%;
+    }
+}

@@ -25,11 +25,11 @@
         color: #acacac;
         outline: none;
         transition: all .3s linear;
-        &--active {
-            box-shadow: inset 0px 0px 8px 3px yellow;
-        }
         @include m.breakpoint("large"){
             padding: 2rem 4rem;
+        }
+        &:focus::placeholder{
+            color: transparent;
         }
     }
 
