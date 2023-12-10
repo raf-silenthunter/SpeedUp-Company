@@ -5,7 +5,6 @@ export class FormValidation{
         this.form = form;
         this.allInputs = Array.from(form.elements).filter((el) => el.tagName === "INPUT");
         this.successInfoPlaceholder = successElement;
-        console.log(this.allInputs);
         this.validationData = {
             inputName: null,
             inputSurname: null,
@@ -193,9 +192,7 @@ export class FormValidation{
 
     validateInputs(){
         this.checkValidationData();
-        console.log(this.isDataCorrect);
         if(this.isDataCorrect) {
-            console.log('data ok');
             this.form.reset();
             this.showSuccessMsg();
             this.cleanValidationData();

@@ -11,7 +11,7 @@
             @include m.position(absolute, 0, 0);
             bottom: 0;
             right: 0;
-            background: url('../../../images/slide-3-blur.jpg') fixed center;
+            background: url('../../../images/slide-3-blur.webp') fixed center;
             background-size: cover;
             opacity: 0.4;
             z-index: map-get(v.$z-index, "minus-large");

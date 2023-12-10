@@ -666,11 +666,11 @@ a, a:visited, a:active, a:focus {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../../images/contact/handshake_500.jpg");
+  background-image: url("../../images/contact/handshake_500.webp");
 }
 @media (min-width: 900px) {
   .accordeon::after {
-    background-image: url("../../images/contact/handshake_1920.jpg");
+    background-image: url("../../images/contact/handshake_1920.webp");
   }
 }
 .accordeon__wrap {
@@ -2266,7 +2266,7 @@ a, a:visited, a:active, a:focus {
   }
 }
 .counter__grid-img {
-  background: url("../images/race.jpg") no-repeat fixed center;
+  background: url("../images/race.webp") no-repeat fixed center;
   background-size: cover;
   filter: grayscale(1);
 }
@@ -2672,7 +2672,7 @@ a, a:visited, a:active, a:focus {
   left: 0;
   bottom: 0;
   right: 0;
-  background: url("../../../images/slide-3-blur.jpg") fixed center;
+  background: url("../../../images/slide-3-blur.webp") fixed center;
   background-size: cover;
   opacity: 0.4;
   z-index: -100;
@@ -3057,7 +3057,7 @@ a, a:visited, a:active, a:focus {
     position: absolute;
     bottom: 0;
     left: 40%;
-    background-image: url("../../../../images/keys-to-car-big.jpg");
+    background-image: url("../../../../images/keys-to-car-big.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -3330,7 +3330,7 @@ a, a:visited, a:active, a:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../../../images/contact/handshake_1050.jpg");
+  background-image: url("../../../images/contact/handshake_1050.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3339,7 +3339,7 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 900px) {
   .contact__header::before {
-    background-image: url("../../../images/contact/handshake_1920.jpg");
+    background-image: url("../../../images/contact/handshake_1920.webp");
   }
 }
 .contact__title {

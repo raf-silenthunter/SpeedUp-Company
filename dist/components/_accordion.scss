@@ -16,9 +16,9 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url("../../images/contact/handshake_500.jpg");
+        background-image: url("../../images/contact/handshake_500.webp");
         @include m.breakpoint("large"){
-            background-image: url("../../images/contact/handshake_1920.jpg");
+            background-image: url("../../images/contact/handshake_1920.webp");
         }
     }
 

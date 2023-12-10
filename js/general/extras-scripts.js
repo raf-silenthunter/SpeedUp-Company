@@ -47,15 +47,15 @@ export function secondaryImageDetector() {
         const img = document.querySelector(".swiper-profits__bg");
         const imgData = img.dataset.info;
             switch(imgData) {
-                case "sport": img.setAttribute("src", "../../images/sport/sport-secondary-big.jpg")
+                case "sport": img.setAttribute("src", "../../images/sport/sport-secondary-big.webp")
                     break;
-                case "oldtimer": img.setAttribute("src", "../../images/oldtimer/oldtimer-secondary-image.jpg")
+                case "oldtimer": img.setAttribute("src", "../../images/oldtimer/oldtimer-secondary-image.webp")
                     break;
-                case "luxury": img.setAttribute("src", "../../images/luxury/luxury-secondary-image.jpg")
+                case "luxury": img.setAttribute("src", "../../images/luxury/luxury-secondary-image.webp")
                     break;
-                case "terrain": img.setAttribute("src", "../../images/slide-4.jpg")
+                case "terrain": img.setAttribute("src", "../../images/slide-4.webp")
                     break;
-                default: img.setAttribute("src", "../../images/slide-4.jpg")
+                default: img.setAttribute("src", "../../images/slide-4.webp")
     }
 }
 

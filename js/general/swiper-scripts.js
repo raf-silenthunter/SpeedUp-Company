@@ -10,29 +10,29 @@ export class MainSlider {
         this.slidesStyles = [{
             h2: "Luxury cars within your reach",
             top: 40,
-            mobileImg: '../images/slide-1-mobile.jpg',
-            desktopImg: '../images/slide-1.jpg',
+            mobileImg: '../images/slide-1-mobile.webp',
+            desktopImg: '../images/slide-1.webp',
             buttonTxt: "Check luxurious cars",
             buttonLink: './fleet/luxury.html',
         }, {
             h2: 'Feel like James Bond',
             top: 25,
-            mobileImg: '../images/slide-2-mobile.jpg',
-            desktopImg: '../images/slide-2.jpg',
+            mobileImg: '../images/slide-2-mobile.webp',
+            desktopImg: '../images/slide-2.webp',
             buttonTxt: "Check oldtimer cars",
             buttonLink: './fleet/oldtimers.html',
         }, {
             h2: "Feel the unique power",
             top: 45,
-            mobileImg: "../images/slide-3-mobile.jpg",
-            desktopImg: "../images/slide-3.jpg",
+            mobileImg: "../images/slide-3-mobile.webp",
+            desktopImg: "../images/slide-3.webp",
             buttonTxt: "Check sport cars",
             buttonLink: './fleet/sport.html',
         }, {
             h2: "Go wild without a care in the wilderness",
             top: 30,
             mobileImg: "../images/slide-4-mobile.jpg",
-            desktopImg: "../images/slide-4.jpg",
+            desktopImg: "../images/slide-4.webp",
             buttonTxt: "Check terrain cars",
             buttonLink: './fleet/terrain.html',
         }]
@@ -115,7 +115,6 @@ export class OptionsSlider{
     setOptionsPositions() {
         this.options.forEach((option, index) => {
             const positionIndex = (this.defaultPosition + index) % this.optionsClasses.length;
-            console.log(positionIndex);
             option.classList.add(`${this.optionsClasses[positionIndex]}`);
         });
     }
