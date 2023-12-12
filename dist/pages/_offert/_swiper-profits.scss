@@ -19,7 +19,7 @@
         @include m.breakpoint("large") {
             display: block;
             @include m.position(absolute, v.$main-nav-height, 50%);
-            width: 100%;
+            // width: 100%;
             height: 100%;
             background-size: contain;
             background-repeat: no-repeat;
