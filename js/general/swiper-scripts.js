@@ -255,8 +255,21 @@ export class Scroller {
     constructor() {
         this.swiper = document.querySelector(".swiper");
         this.sections = [...document.querySelectorAll(".swiper-section")];
+        this.sectioninView = (() => {
+            let index = this.sections.findIndex(this.checkSectionInView.bind(this));
+            console.log(index);
+            if (index < 0) {
+                this.sections[0].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                index = 0;
+            }
+            return index;
+        })();
 
-        this.sectioninView = this.sections.findIndex(this.checkSectionInView.bind(this)); 
+        console.log(this.sectioninView);
+
         this.currSectionIndex = this.sectioninView;
         this.isThrottled = false; 
 
@@ -312,6 +325,7 @@ export class Scroller {
     checkSectionInView(section) {
             const {top, bottom} = section.getBoundingClientRect();
             const isVisible = (top >= 0) && (Math.floor(bottom) <= window.innerHeight);
+            console.log(isVisible);
             return isVisible;
     }
 
