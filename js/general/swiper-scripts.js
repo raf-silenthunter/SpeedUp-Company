@@ -257,7 +257,6 @@ export class Scroller {
         this.sections = [...document.querySelectorAll(".swiper-section")];
         this.sectioninView = (() => {
             let index = this.sections.findIndex(this.checkSectionInView.bind(this));
-            console.log(index);
             if (index < 0) {
                 this.sections[0].scrollIntoView({
                     behavior: "smooth",
@@ -267,8 +266,6 @@ export class Scroller {
             }
             return index;
         })();
-
-        console.log(this.sectioninView);
 
         this.currSectionIndex = this.sectioninView;
         this.isThrottled = false; 
@@ -325,7 +322,6 @@ export class Scroller {
     checkSectionInView(section) {
             const {top, bottom} = section.getBoundingClientRect();
             const isVisible = (top >= 0) && (Math.floor(bottom) <= window.innerHeight);
-            console.log(isVisible);
             return isVisible;
     }
 

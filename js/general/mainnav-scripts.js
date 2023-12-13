@@ -34,7 +34,9 @@ export class ShowMobileNav {
         this.mainNav.classList.toggle("main-nav--is-dropdown");
         
         this.dynamicBorder = document.querySelector(".dynamic-border");
-        this.mobileMenuList.classList.contains("list--is-visible") ? this.dynamicBorder.style.display = "none" : this.dynamicBorder.style.display = "block";
+        if(this.dynamicBorder){
+            this.mobileMenuList.classList.contains("list--is-visible") ? this.dynamicBorder.style.display = "none" : this.dynamicBorder.style.display = "block";
+        } else console.log('no dynamic border detected');
     }
 }
 
