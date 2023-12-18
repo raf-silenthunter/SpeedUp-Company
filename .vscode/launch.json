@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch localhost",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://127.0.0.1:5500/html/fleet.html",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "http://127.0.0.1:5500",
+                    "path": "${workspaceFolder}"
+                }
+            ]
+        }
+    ]
+}

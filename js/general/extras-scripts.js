@@ -165,28 +165,26 @@ export class ScrollBtn {
 
 export class BookingModal{
     constructor(stickyMenu, scrollBtn, stepsHandler, dataBase){
-        this.bookingPanel = document.querySelector(".hidden-scroll-wrap");
-        this.body = document.querySelector("body");
-        this.btnClose = document.querySelector(".hidden-scroll-wrap__btn-close");
-        //komposition: pass here two external classes to use their methods
-
+        this.elements = {
+            scrollWrap: document.querySelector(".hidden-scroll-wrap"),
+            body: document.querySelector("body"),
+            btnClose: document.querySelector(".hidden-scroll-wrap__btn-close"),
+        }
+        //komposition: passed here three external classes to use their methods
+        this.dataBase = dataBase;
+        this.updatedDataBase = {};
+        //local database desined to commit info to other Classes
         this.stickyMenu = stickyMenu;
         this.scrollBtn = scrollBtn;
         this.stepsHandler = stepsHandler;
-        // this.bookingCalc = bookingModalInstance;
         //not adding btnClose to the same event handler
-
-        this.dataBase = dataBase;
-        this.btnClose.addEventListener("click", (e) => this.closeModal(e));
-
-        this.updatedDataBase = {};
-        //object desined to commit info to other Classes
+        this.elements.btnClose.addEventListener("click", (e) => this.closeModal(e));
     }
 
     init(bookingParent){
         bookingParent.addEventListener("click", (e) => this.handleModal(e))
     }
-
+    //loading of cars data into users's interface
     loadData(carDataObject){
         const {
             carName : model = "brak",
@@ -195,6 +193,7 @@ export class BookingModal{
             carImg : img = "brak",
             carEquipement : equipement = "brak"
         } = carDataObject;
+        //local database update
         this.updatedDataBase = carDataObject;
 
         const modelLabel = document.querySelector('[data-info="car-model"]');
@@ -224,82 +223,108 @@ export class BookingModal{
             this.checkData(e);
             this.openModal(e);
             this.stepsHandler.init(this.updatedDataBase.carPrice);
+            
         }
         else return;
     }
 
-    toggleModal = () =>{
-        this.bookingPanel.classList.toggle("not-hidden-scroll-wrap");
-        this.body.classList.toggle("stop-scroll");
+    handleScrollContextChange = () =>{
+        this.elements.scrollWrap.classList.toggle("not-hidden-scroll-wrap");
+        this.elements.body.classList.toggle("stop-scroll");
     }
 
     openModal(e){
         e.stopPropagation();
-        this.toggleModal();
+        this.handleScrollContextChange();
         const scrollableContent = document.querySelector(".booking-panel");
         this.stickyMenu.init(scrollableContent);
         this.scrollBtn.removeBtn();
-                console.log(this.scrollBtn.visible);
     }
 
     closeModal(e){
         e.stopPropagation();
         this.stickyMenu.init(window);
         this.scrollBtn.visible = true;
-        this.toggleModal();
-    }
-    
+        this.handleScrollContextChange();
+        this.stepsHandler.bookingModalCalc.startDate = null;
+        this.stepsHandler.bookingModalCalc.endDate = null;
+        this.stepsHandler.bookingModalCalc.errorInfoInput.textContent = "";
+    }  
 }
 
 export class StepsHandler{
     constructor(){
-        this.stepsWrap;
-        this.stepsElemsParent = document.querySelector(".booking-panel");
-        this.stepsElems = [...document.querySelectorAll(".booking-section")];
+        this.elements = {
+            stepsElemsParent: document.querySelector(".booking-panel"),
+            stepsElems: [...document.querySelectorAll(".booking-section")],
+        }
         this.step = 0;
-
+        //external Class invoking in order to use external methods
         this.bookingModalCalc = new BookingModalCalc(importedOrderData);
 
         this.buttonControls = [...document.querySelectorAll(".booking-section__btn-controls")];
         this.buttonControls.forEach(controls => {
-            controls.addEventListener("click", (e)=> this.changeSection(e))
+            controls.addEventListener("click", (e) => this.changeSection(e))
         }) 
     }
 
-    resetHandler(){
-        const textInputs = this.stepsElemsParent.querySelectorAll('input[type="text"]');
+    resetTextInputs(){
+        const textInputs = this.elements.stepsElemsParent.querySelectorAll('input[type="text"]');
         textInputs.forEach(input => input.value = '');
+    }
 
-        const selectElements = this.stepsElemsParent.querySelectorAll('select')
+    resetSelectInputs(){
+        const selectElements = this.elements.stepsElemsParent.querySelectorAll('select')
         selectElements.forEach(select => select.selectedIndex = 0);
+    }
 
-        const radioInputs = this.stepsElemsParent.querySelectorAll('input[type="radio"]');
+    resetRadioInputs(){
+        const radioInputs = this.elements.stepsElemsParent.querySelectorAll('input[type="radio"]');
         radioInputs[0].checked = 1;
+    }
 
-        const checkboxInputs = this.stepsElemsParent.querySelectorAll('input[type="checkbox"]');
+    resetCheckboxInputs(){
+        const checkboxInputs = this.elements.stepsElemsParent.querySelectorAll('input[type="checkbox"]');
         checkboxInputs.forEach(box => box.checked = 0);
     }
 
-    removeVisibleSections(){
-        this.stepsElems.forEach(step => step.classList.remove("visible", "not-visible-section"));
+    resetHandler(){
+        this.resetTextInputs();
+        this.resetSelectInputs();
+        this.resetRadioInputs();
+        this.resetCheckboxInputs();
     }
 
+    updateVisibilityOfSections(step){
+        this.elements.stepsElems.forEach((elem, index) => {
+            if (index === step) {
+                elem.classList.add("visible");
+                elem.classList.remove("not-visible-section");
+            } else {
+                elem.classList.remove("visible");
+                elem.classList.add("not-visible-section");
+            }
+        });
+}
+
     scrollToControls(stepSection){
-        const wrapHeight = Math.floor(this.stepsElemsParent.scrollHeight);
+        const wrapHeight = Math.floor(this.elements.stepsElemsParent.scrollHeight);
         const sectionPositionSetbackHeight = 275;
+        // sectionPositionSetbackHeight is used to adjust the scroll position.
+        // subtracts a constant value from the calculated scroll position to ensure that the 
+        // section of the form is not scrolled too high or too low on the screen,
+        // which improves the visibility and accessibility of the user interface.
         const sectionHeight = stepSection.offsetHeight;
         const scrollValue = wrapHeight - sectionHeight - sectionPositionSetbackHeight;
-        this.stepsElemsParent.scrollTo({
+        this.elements.stepsElemsParent.scrollTo({
             top: scrollValue,
             behavior: "smooth",
         })
     }
 
     changeStep(step){
-        this.removeVisibleSections();
-        this.stepsElems[step].classList.add("visible");
-        this.hideElems();
-        if(step !== 0) this.scrollToControls(this.stepsElems[step]);
+        this.updateVisibilityOfSections(step);
+        if(step !== 0) this.scrollToControls(this.elements.stepsElems[step]);
     }
 
     changeSection(e){
@@ -317,33 +342,30 @@ export class StepsHandler{
         }
     }
 
-    hideElems(){
-        const elemsToHide = this.stepsElems.filter(element => !element.classList.contains("visible"))
-        elemsToHide.forEach(elem => elem.classList.add("not-visible-section"));
-    }
-
     init(carPrice){
         this.step = 0;
-        this.changeStep(this.step)
+        this.changeStep(this.step);
         datePickerInit();
+        //set car price from external database
         this.bookingModalCalc.carPrice = carPrice;
-        this.bookingModalCalc.bookingData.equipementNames = [];
-        this.bookingModalCalc.handleStep(this.step)
+        //create database for equipment chosen by the user
+        this.bookingModalCalc.bookingData.equipementIds = [];
+        this.bookingModalCalc.handleStep(this.step);
         this.resetHandler();
     }
 }
 
 export class BookingModalCalc{
     constructor(data){
-        this.carPrice = null; //carPrice is submited by StepsHandler init() method
+        this.carPrice = null; //carPrice is submited by StepsHandler init() method. This value comes from checkData method in BookingModal Class
         const {options, equipement} = data; //fetching data - how to do it async?
-        this.optionPrices = options; //coming from contructor
-        this.equipementPrices = equipement; //coming from contructor
+        this.optionPrices = options; //coming from constructor
+        this.equipementPrices = equipement; //coming from constructor
 
         this.bookingData = {
             days: null,
-            optionName: "basic", //basic option is set by default so if user will not change it he will have proce for basic option
-            equipementNames: [], //user doesn't need to chose any add-on so we can have empty array here
+            optionName: "basic", //basic option is set by default so if user will not change it price from basic option will be submitted
+            equipementIds: [], //user doesn't need to chose any add-on so we can have empty array here
             carPrice : this.carPrice,
         }
 
@@ -351,24 +373,27 @@ export class BookingModalCalc{
         this.boundOptionchange = this.handleOptionChange;
         this.boundDatechange = this.handleDateChange;
         //bounding a reference to the function so I can make sure that I have only one event, and only function is invoked only once
-
+        //o co chodzi w tym powyższym !!!
         this.startDate = null;
         this.endDate = null;
         this.startPlace = "Kraków ul. Hoyera 1"; //default value
         this.endPlace = "Kraków ul. Hoyera 1"; //default value
         this.startHour = "9"; //default value
         this.endHour = "9"; //default value
+
+        this.errorInfoInput;
     }
 
     calcFinalPrice(updatedOrderData){
-        const {days, optionName, equipementNames, carPrice} = updatedOrderData;        
+        const {days, optionName, equipementIds, carPrice} = updatedOrderData;        
         const priceForOption = this.optionPrices[optionName];
 
         const getEquipementPrices = () => {
-            if (!equipementNames || equipementNames.length === 0) {
-                return 0; //no equipment chosen
+            if (!equipementIds || equipementIds.length === 0) {
+                console.log('no equipment chosen');
+                return 0; //no equipment chosen - this is not an error!
             }
-            else return equipementNames
+            else return equipementIds
             .map(priceKey => {
                     const price = this.equipementPrices[priceKey];
                     if (typeof price === "number") {
@@ -379,6 +404,7 @@ export class BookingModalCalc{
                     }
                 })
                 .reduce((accum, currVal) => accum + currVal, 0);
+                //co robi powyższy kod!!!
         };    
         const summEquipementPrices = getEquipementPrices();
 
@@ -391,18 +417,18 @@ export class BookingModalCalc{
     handleEquipementchange = (e) => {
         const chosenOption = e.target.id;
         if(e.target.type === "checkbox" && e.target.checked){
-            this.bookingData.equipementNames.push(chosenOption);
+            this.bookingData.equipementIds.push(chosenOption);
         } else if(e.target.type === "checkbox" && !e.target.checked){
-            const newArray = this.bookingData.equipementNames.filter((element)=> element !== chosenOption);
+            const newArray = this.bookingData.equipementIds.filter((element)=> element !== chosenOption);
             //we need to update an array while user delete chosen option. This is the simpliest way
-            this.bookingData.equipementNames = newArray;
+            this.bookingData.equipementIds = newArray;
         } else console.log("no option in step two has been chosen");
     }
 
     handleOptionChange = (e) => {
             const chosenOption = e.target.id;
             if(e.target.type === "radio" && e.target.checked) this.bookingData.optionName = chosenOption;
-            else console.log('proeblem with option');
+            else console.log('problem with option');
         }
 
     checkIsDateReady = (startDate, endDate) => {
@@ -413,9 +439,9 @@ export class BookingModalCalc{
                 const orderDurationInDays = Math.floor((differenceInDays / (24 * 60 * 60 * 1000)) + firstDay);
                 this.bookingData.days = orderDurationInDays;
                 errorInfoInput.textContent = "";
-                } else {
-                    console.log('set second date!', this.startDate, this.endDate);
-                }
+            } else {
+                console.log('set second date!', this.startDate, this.endDate);
+            }
         }  
 
     parseDate(dateInTxt){
@@ -426,16 +452,17 @@ export class BookingModalCalc{
         return `${day}.${month}.${year}`;
     }
 
-    parseEqupiementIdIntoTxt(){
-        const chosenEquipementIds = this.bookingData.equipementNames;
-        const chosenEquipementTxtsArr = [];
+    parseEqupiementIdIntoTitles(){
+        //every equipement element in HTML has its own id thats connects it with local database
+        const chosenEquipementIds = this.bookingData.equipementIds;
+        const chosenEquipementTitlesArr = [];
         chosenEquipementIds.forEach((id) => {
-            const element = document.getElementById(id);
-            const txtRelatedToElement = element.nextElementSibling.querySelector("h4").textContent;
-            chosenEquipementTxtsArr.push(txtRelatedToElement);
+            const equipementElement = document.getElementById(id);
+            const equipementElementTitle = equipementElement.nextElementSibling.querySelector("h4").textContent;
+            chosenEquipementTitlesArr.push(equipementElementTitle);
         })
-        const equipementTxtsAfterJoin = chosenEquipementTxtsArr.join(", ")
-        return equipementTxtsAfterJoin;
+        const equipementTitlesWithComma = chosenEquipementTitlesArr.join(", ")
+        return equipementTitlesWithComma;
     }
 
     handleDateChange = (e) => {
@@ -466,12 +493,14 @@ export class BookingModalCalc{
     handleStepZero(){
         const inputsParent = document.querySelector(".booking-section__data-wrap");        
         inputsParent.removeEventListener("change", this.handleDateChange);
+        //to chyba zadziała tylko raz i nigdy więcej a remove powinien być po przejściu a nie przed !!!
         inputsParent.addEventListener("change", this.handleDateChange);
     }
 
     handleStepOne(){
         const inputsParent = document.querySelector('[data-content="options"]');
         inputsParent.removeEventListener("change", this.handleOptionChange);
+        //to chyba zadziała tylko raz i nigdy więcej a remove powinien być po przejściu a nie przed !!! 
         inputsParent.addEventListener("change", this.handleOptionChange);
     }
 
@@ -481,42 +510,55 @@ export class BookingModalCalc{
         inputsParent.addEventListener("change", this.boundHandleEquipementchange);
     }
 
-    handleStepThree(){
-        const carLabel = document.querySelector('[data-order="car"]');
-        const datesLabel = document.querySelector('[data-order="date-range"]');
-        const daysLabel = document.querySelector('[data-order="days"]');
-        const insuranceLabel = document.querySelector('[data-order="option"]');
-        const pickupPlaceLabel = document.querySelector('[data-order="pickup-loc"]');
-        const returnPlaceLabel = document.querySelector('[data-order="return-loc"]');
-        const pickupTimeLabel = document.querySelector('[data-order="pickup-tim"]');
-        const returnTimeLabel = document.querySelector('[data-order="return-tim"]');
-        const extrasLabel = document.querySelector('[data-order="extras"]');
-        const priceLabel = document.querySelector('[data-order="price-full"]');
+    updateLabelContent(label, content){
+        if(label) label.textContent = content;
+    }
 
-        carLabel.textContent = document.querySelector('[data-info="car-model"]').textContent;
-        datesLabel.textContent = `${this.parseDate(this.startDate)} to ${this.parseDate(this.endDate)}`
-        daysLabel.textContent = this.bookingData.days;
-        insuranceLabel.textContent = this.bookingData.optionName;
-        pickupPlaceLabel.textContent = this.startPlace;
-        returnPlaceLabel.textContent = this.endPlace;
-        pickupTimeLabel.textContent = `${this.startHour}:00`;
-        returnTimeLabel.textContent = `${this.endHour}:00`;
-        extrasLabel.textContent = this.parseEqupiementIdIntoTxt();
-        priceLabel.textContent = `${this.calcFinalPrice(this.bookingData)} pln`;
+    handleStepThree(){
+        const labels = {
+            carLabel: document.querySelector('[data-order="car"]'),
+            datesLabel: document.querySelector('[data-order="date-range"]'),
+            daysLabel: document.querySelector('[data-order="days"]'),
+            insuranceLabel: document.querySelector('[data-order="option"]'),
+            pickupPlaceLabel: document.querySelector('[data-order="pickup-loc"]'),
+            returnPlaceLabel: document.querySelector('[data-order="return-loc"]'),
+            pickupTimeLabel: document.querySelector('[data-order="pickup-tim"]'),
+            returnTimeLabel: document.querySelector('[data-order="return-tim"]'),
+            extrasLabel: document.querySelector('[data-order="extras"]'),
+            priceLabel: document.querySelector('[data-order="price-full"]'),
+        }
+
+        this.updateLabelContent(labels.carLabel, document.querySelector('[data-info="car-model"]').textContent);
+        this.updateLabelContent(labels.datesLabel, `${this.parseDate(this.startDate)} to ${this.parseDate(this.endDate)}`);
+        this.updateLabelContent(labels.daysLabel, this.bookingData.days);
+        this.updateLabelContent(labels.insuranceLabel, this.bookingData.optionName);
+        this.updateLabelContent(labels.pickupPlaceLabel, this.startPlace);
+        this.updateLabelContent(labels.returnPlaceLabel, this.endPlace);
+        this.updateLabelContent(labels.pickupTimeLabel, `${this.startHour}:00`);
+        this.updateLabelContent(labels.returnTimeLabel, `${this.endHour}:00`);
+        this.updateLabelContent(labels.extrasLabel, this.parseEqupiementIdIntoTitles());
+        this.updateLabelContent(labels.priceLabel, `${this.calcFinalPrice(this.bookingData)} pln`);
     }
 
     checkIfcanGoIntoNextStep(step = 0){
-        const errorInfoInput = document.querySelector(`[data-info="step-${step}"]`);
-        const optionInputsArr = [...document.querySelectorAll(".booking-section__checkbox")]; 
-        let status;
+        this.errorInfoInput = document.querySelector(`[data-info="step-${step}"]`);
+        const optionInputsArr = [...document.querySelectorAll(".booking-section__checkbox")];
+        //powyższe wartości chyba są pobierane za każdym razem przy wykonaniu funkcji !!! 
+        let status = false;
         switch(step){
             case 0:
                 if((this.startDate === null || this.endDate === null) || (this.startDate === undefined || this.endDate === undefined)){
-                    errorInfoInput.textContent = "Chose pickup and delivery date!";
+                    this.errorInfoInput.textContent = "Chose pickup and delivery date!";
                     status = false;
                     console.log('date has not been chosen!');
-                } else {
-                    errorInfoInput.textContent = "";
+                } 
+                else if(this.startDate > this.endDate){
+                    this.errorInfoInput.textContent = "Delivery date can't be earlier than pickup date!";
+                    status = false;
+                    console.log('date has not been chosen!');
+                } 
+                else {
+                    this.errorInfoInput.textContent = "";
                     status = true;
                 }
             break;
@@ -540,6 +582,7 @@ export class BookingModalCalc{
     handleStep(step){
         let actualStep = step;
         this.bookingData.carPrice = this.carPrice;
+        //to powyższe raczej nie powinno być przekazywane przy każdym wywołaniu funkcji !!!
         switch(actualStep){
             case 0:
                 this.handleStepZero();
