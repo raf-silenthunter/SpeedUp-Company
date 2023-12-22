@@ -609,10 +609,30 @@
                                         placeholder="Pick a pickup date" />
                                     <p class="calendar__notification"></p>
                                 </div>
+                                <div class="booking-section__data-item calendar">
+                                    <p class="speedup-txt-small">Select a return date:</p>
+                                    <label for="end-date"></label>
+                                    <input id="end-date" name="end-date" type="date"
+                                        class="calendar__input date-input box-shadow border-r-med" data-min-date="today"
+                                        data-date-format="d-m-Y" placeholder="Pick a delivery date" />
+                                    <p class="calendar__notification"></p>
+                                </div>
                                 <div class="booking-section__data-item">
                                     <p class="speedup-txt-small">Select a pickup location:</p>
                                     <label for="pickup-location"></label>
                                     <select name="pickup-location" id="pickup-location"
+                                        class="calendar__input box-shadow border-r-med">
+                                        <option value="Kraków ul. Hoyera 1">Kraków ul. Hoyera 1</option>
+                                        <option value="Warszawa ul. Dewceny 23" selected>Warszawa ul. Dewceny 23
+                                        </option>
+                                        <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
+                                        <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
+                                    </select>
+                                </div>
+                                <div class="booking-section__data-item">
+                                    <p class="speedup-txt-small">Select a return location:</p>
+                                    <label for="delivery-location"></label>
+                                    <select name="delivery-location" id="delivery-location"
                                         class="calendar__input box-shadow border-r-med">
                                         <option value="Kraków ul. Hoyera 1">Kraków ul. Hoyera 1</option>
                                         <option value="Warszawa ul. Dewceny 23" selected>Warszawa ul. Dewceny 23
@@ -637,28 +657,8 @@
                                         <option value="17">17:00</option>
                                     </select>
                                 </div>
-                                <div class="booking-section__data-item calendar">
-                                    <p class="speedup-txt-small">Select a delivery date:</p>
-                                    <label for="end-date"></label>
-                                    <input id="end-date" name="end-date" type="date"
-                                        class="calendar__input date-input box-shadow border-r-med" data-min-date="today"
-                                        data-date-format="d-m-Y" placeholder="Pick a delivery date" />
-                                    <p class="calendar__notification"></p>
-                                </div>
                                 <div class="booking-section__data-item">
-                                    <p class="speedup-txt-small">Select a delivery location:</p>
-                                    <label for="delivery-location"></label>
-                                    <select name="delivery-location" id="delivery-location"
-                                        class="calendar__input box-shadow border-r-med">
-                                        <option value="Kraków ul. Hoyera 1">Kraków ul. Hoyera 1</option>
-                                        <option value="Warszawa ul. Dewceny 23" selected>Warszawa ul. Dewceny 23
-                                        </option>
-                                        <option value="Warszawa ul. Motyki 88/2">Warszawa ul. Motyki 88/2</option>
-                                        <option value="Poznań ul. Białugi 3A">Poznań ul. Białugi 3A</option>
-                                    </select>
-                                </div>
-                                <div class="booking-section__data-item">
-                                    <p class="speedup-txt-small">Select a delivery hour:</p>
+                                    <p class="speedup-txt-small">Select a return hour:</p>
                                     <label for="end-time"></label>
                                     <select name="end-time" id="end-time"
                                         class="calendar__input box-shadow border-r-med">
