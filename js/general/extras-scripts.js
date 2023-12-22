@@ -246,8 +246,7 @@ export class BookingModal{
         this.stickyMenu.init(window);
         this.scrollBtn.visible = true;
         this.handleScrollContextChange();
-        this.stepsHandler.bookingModalCalc.startDate = null;
-        this.stepsHandler.bookingModalCalc.endDate = null;
+        this.stepsHandler.bookingModalCalc.resetChosenValues();
         this.stepsHandler.bookingModalCalc.errorInfoInput.textContent = "";
     }  
 }
@@ -372,8 +371,8 @@ export class BookingModalCalc{
         this.boundHandleEquipementchange = this.handleEquipementchange;
         this.boundOptionchange = this.handleOptionChange;
         this.boundDatechange = this.handleDateChange;
-        //bounding a reference to the function so I can make sure that I have only one event, and only function is invoked only once
-        //o co chodzi w tym powyższym !!!
+        //bounding a reference to the function so I can make sure that I have only one event, and function is invoked only once
+
         this.startDate = null;
         this.endDate = null;
         this.startPlace = "Kraków ul. Hoyera 1"; //default value
@@ -382,6 +381,16 @@ export class BookingModalCalc{
         this.endHour = "9"; //default value
 
         this.errorInfoInput;
+    }
+
+    resetChosenValues(){
+        this.startDate = null;
+        this.endDate = null;
+        this.startPlace = "Kraków ul. Hoyera 1";
+        this.endPlace = "Kraków ul. Hoyera 1";
+        this.startHour = "9";
+        this.endHour = "9";
+        this.bookingData.optionName = "basic";
     }
 
     calcFinalPrice(updatedOrderData){
@@ -455,14 +464,19 @@ export class BookingModalCalc{
     parseEqupiementIdIntoTitles(){
         //every equipement element in HTML has its own id thats connects it with local database
         const chosenEquipementIds = this.bookingData.equipementIds;
-        const chosenEquipementTitlesArr = [];
-        chosenEquipementIds.forEach((id) => {
-            const equipementElement = document.getElementById(id);
-            const equipementElementTitle = equipementElement.nextElementSibling.querySelector("h4").textContent;
-            chosenEquipementTitlesArr.push(equipementElementTitle);
-        })
-        const equipementTitlesWithComma = chosenEquipementTitlesArr.join(", ")
-        return equipementTitlesWithComma;
+        if(chosenEquipementIds.length !== 0){
+            const chosenEquipementTitlesArr = [];
+            chosenEquipementIds.forEach((id) => {
+                const equipementElement = document.getElementById(id);
+                const equipementElementTitle = equipementElement.nextElementSibling.querySelector("h4").textContent;
+                chosenEquipementTitlesArr.push(equipementElementTitle);
+            })
+            const equipementTitlesWithComma = chosenEquipementTitlesArr.join(", ")
+            return equipementTitlesWithComma;
+        } else {
+            return "NONE";
+        }
+
     }
 
     handleDateChange = (e) => {
@@ -490,24 +504,20 @@ export class BookingModalCalc{
             }
         }
 
-    handleStepZero(){
-        const inputsParent = document.querySelector(".booking-section__data-wrap");        
-        inputsParent.removeEventListener("change", this.handleDateChange);
-        //to chyba zadziała tylko raz i nigdy więcej a remove powinien być po przejściu a nie przed !!!
-        inputsParent.addEventListener("change", this.handleDateChange);
+    removeEvent(eventTarget, eventType, eventFunction){
+        eventTarget.removeEventListener(eventType, eventFunction);
     }
 
-    handleStepOne(){
-        const inputsParent = document.querySelector('[data-content="options"]');
-        inputsParent.removeEventListener("change", this.handleOptionChange);
-        //to chyba zadziała tylko raz i nigdy więcej a remove powinien być po przejściu a nie przed !!! 
-        inputsParent.addEventListener("change", this.handleOptionChange);
+    handleStepZero(eventHook){
+        eventHook.addEventListener("change", this.boundDatechange);
     }
 
-    handleStepTwo(){
-        const inputsParent = document.querySelector(".extras");
-        inputsParent.removeEventListener("change", this.boundHandleEquipementchange);
-        inputsParent.addEventListener("change", this.boundHandleEquipementchange);
+    handleStepOne(eventHook){
+        eventHook.addEventListener("change", this.boundOptionchange);
+    }
+
+    handleStepTwo(eventHook){
+        eventHook.addEventListener("change", this.boundHandleEquipementchange);
     }
 
     updateLabelContent(label, content){
@@ -542,8 +552,6 @@ export class BookingModalCalc{
 
     checkIfcanGoIntoNextStep(step = 0){
         this.errorInfoInput = document.querySelector(`[data-info="step-${step}"]`);
-        const optionInputsArr = [...document.querySelectorAll(".booking-section__checkbox")];
-        //powyższe wartości chyba są pobierane za każdym razem przy wykonaniu funkcji !!! 
         let status = false;
         switch(step){
             case 0:
@@ -563,7 +571,8 @@ export class BookingModalCalc{
                 }
             break;
             case 1:
-                if(optionInputsArr.some((input) => input.checked)) status = true;
+                this.optionInputsArr = [...document.querySelectorAll('[data-name="option-group"]')];
+                if(this.optionInputsArr.some((input) => input.checked)) status = true;
                 else {
                     status = false;
                     console.log('option has not been chosen!');
@@ -579,23 +588,35 @@ export class BookingModalCalc{
         return status;
     }
 
+    removeBookingEvents(dataHook, optionHook, extrasHook){
+        this.removeEvent(dataHook, "change", this.boundDatechange);
+        this.removeEvent(optionHook, "change", this.boundOptionchange);
+        this.removeEvent(extrasHook, "change", this.boundHandleEquipementchange);
+    }
+
     handleStep(step){
         let actualStep = step;
-        this.bookingData.carPrice = this.carPrice;
-        //to powyższe raczej nie powinno być przekazywane przy każdym wywołaniu funkcji !!!
+        const stepsEventsHooks = {
+            dataEventHook: document.querySelector(".booking-section__data-wrap"),
+            optionEventHook: document.querySelector('[data-content="options"]'),
+            extrasEventHook: document.querySelector(".extras"),
+        }
+        
+        this.removeBookingEvents(stepsEventsHooks.dataEventHook, stepsEventsHooks.optionEventHook, stepsEventsHooks.extrasEventHook);
+        //this function deletes all events hooked to specific section of modal
         switch(actualStep){
             case 0:
-                this.handleStepZero();
+                this.bookingData.carPrice = this.carPrice;
+                this.handleStepZero(stepsEventsHooks.dataEventHook);
                 break;
             case 1:
-                this.handleStepOne();
+                this.handleStepOne(stepsEventsHooks.optionEventHook);
                 break;
             case 2:
-                this.handleStepTwo();
+                this.handleStepTwo(stepsEventsHooks.extrasEventHook);
                 break;
             case 3:
                 this.handleStepThree();
-                //reset wybranych dat po przejściu do innego auta
             break;
         }
     }
