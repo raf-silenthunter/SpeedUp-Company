@@ -10,6 +10,7 @@
     backdrop-filter: blur(4px);
     position: relative;
     color: v.$pale-white;
+    gap: 1rem;
     
     &:hover{
         box-shadow: 0px 0px 8px 3px yellow;
@@ -17,13 +18,13 @@
 
     &--newest{
         flex-direction: column;
-        @include m.breakpoint("large") {
+        @include m.breakpoint("big") {
             flex-direction: row;
             gap: 5rem;
         }
         width: 90%;
         position: relative;
-        @include m.breakpoint("large"){
+        @include m.breakpoint("big"){
             width: 80%;
         }
         background-image: linear-gradient(-45deg, rgba(243, 243, 243, 0.5) 0%, rgba(0, 2, 5, 0.2) 30% 70%, rgba(243, 243, 243, 0.5) 100%);
@@ -41,6 +42,9 @@
         border-radius: 10px;
         max-height: 200px;
         @include m.breakpoint("medium"){
+            max-height: 250px;
+        }
+        @media screen and (min-width: 999px){
             max-height: 350px;
         }
         &--dark{
@@ -53,21 +57,23 @@
     &__content{
         @include m.display-flex(flex, column);
         justify-content: space-between;
-        min-height: 250px;
-        @include m.breakpoint("medium"){
+        min-height: 150px;
+        @media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 999px) {
+            min-height: 250px;
             position: absolute;
         }
 
         &--newest{
             position: static;
             margin-top: 20px;
-            @include m.breakpoint("large"){
+            @include m.breakpoint("big"){
                 max-width: 50%;
                 margin-top: 0;
             }
         }
         &--positioned{
-            @include m.breakpoint("medium") {
+            @media screen and (min-width: 700px) and (orientation: portrait),
+            screen and (min-width: 999px) and (orientation: landscape) {
                 padding: 3rem;
                 height: calc(100% - 6rem);
                 width: calc(100% - 6rem);
@@ -84,11 +90,6 @@
     }
 }
 
-// .business-shadow{
-//     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-//     backdrop-filter: blur(4px);
-// }
-
 .tags {
 
     &--absolute{
@@ -96,7 +97,7 @@
         top: -2.5%;
         left: 5%;
 
-        @include m.breakpoint("medium") {
+        @include m.breakpoint("big") {
             position: static;
         }   
     }

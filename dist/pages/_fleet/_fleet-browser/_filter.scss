@@ -29,7 +29,7 @@
         &--clean{
             border-color: yellow;
             grid-column: 1/-1;
-            @include m.breakpoint("large"){
+            @media (min-width: 999px){
                 grid-column: auto;
             }
         }

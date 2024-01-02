@@ -769,6 +769,7 @@ a, a:visited, a:active, a:focus {
           backdrop-filter: blur(4px);
   position: relative;
   color: #f3f3f3;
+  gap: 1rem;
 }
 .blog-article:hover {
   box-shadow: 0px 0px 8px 3px yellow;
@@ -781,13 +782,13 @@ a, a:visited, a:active, a:focus {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
 }
-@media (min-width: 900px) {
+@media (min-width: 1400px) {
   .blog-article--newest {
     flex-direction: row;
     gap: 5rem;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 1400px) {
   .blog-article--newest {
     width: 80%;
   }
@@ -805,6 +806,11 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 700px) {
   .blog-article__img {
+    max-height: 250px;
+  }
+}
+@media screen and (min-width: 999px) {
+  .blog-article__img {
     max-height: 350px;
   }
 }
@@ -817,10 +823,11 @@ a, a:visited, a:active, a:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 250px;
+  min-height: 150px;
 }
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 999px) {
   .blog-article__content {
+    min-height: 250px;
     position: absolute;
   }
 }
@@ -828,13 +835,13 @@ a, a:visited, a:active, a:focus {
   position: static;
   margin-top: 20px;
 }
-@media (min-width: 900px) {
+@media (min-width: 1400px) {
   .blog-article__content--newest {
     max-width: 50%;
     margin-top: 0;
   }
 }
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) and (orientation: portrait), screen and (min-width: 999px) and (orientation: landscape) {
   .blog-article__content--positioned {
     padding: 3rem;
     height: calc(100% - 6rem);
@@ -853,7 +860,7 @@ a, a:visited, a:active, a:focus {
   top: -2.5%;
   left: 5%;
 }
-@media (min-width: 700px) {
+@media (min-width: 1400px) {
   .tags--absolute {
     position: static;
   }
@@ -2893,7 +2900,7 @@ a, a:visited, a:active, a:focus {
   border-color: yellow;
   grid-column: 1/-1;
 }
-@media (min-width: 900px) {
+@media (min-width: 999px) {
   .filter__btn--clean {
     grid-column: auto;
   }
@@ -3192,6 +3199,11 @@ a, a:visited, a:active, a:focus {
 .blog-head {
   min-height: 100vh;
   padding-top: 100px;
+}
+@media screen and (orientation: landscape) and (max-width: 999px) {
+  .blog-head {
+    padding-top: 70px;
+  }
 }
 .blog-head__header {
   height: 20vh;

@@ -4,13 +4,13 @@
 .blog-head{
     min-height: 100vh;
     padding-top: v.$main-nav-height;
+    @media screen and (orientation: landscape) and (max-width: 999px) {
+        padding-top: 70px;
+    }
 
     &__header{
         height: 20vh;
         position: relative;
-        // @include m.breakpoint("large"){
-        //     background-image: url("../../../images/race-desktop.jpg");
-        // }
     }
 
     &__title{
