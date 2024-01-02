@@ -15,9 +15,9 @@
         }
 
     &__wrap {
-        @include m.display-flex(flex, column);
-    
-        @include m.breakpoint(large) {
+        width: 100%;
+        @include m.display-flex(flex, column);    
+        @media screen and (orientation: landscape) and (min-width: 1200px) {
             flex-direction: row;
             justify-content: center;
             gap: 3rem;
@@ -72,6 +72,9 @@
     width: 100%;
     @media screen and (width: 1280px) and (height: 800px) {
         height: 40rem;
+    }
+    @media screen and (orientation: landscape) and (max-width: 1200px) {
+        height: 300px;
     }
 }
 

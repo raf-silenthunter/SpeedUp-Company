@@ -27,17 +27,6 @@
             }
     }
 
-    &__btn {
-        width: 10vh;
-        height: 10vh;
-        background: transparent;
-
-        @include m.breakpoint(large) {
-                width: min(15vh, 200px);
-                height: min(15vh, 200px);
-            }
-    }
-
     &__slides {
         display: flex;
         width: 100%;
@@ -56,28 +45,25 @@
 
     &__col {
         @include m.display-flex(flex, column);
-        justify-content: space-around;
+        @include m.flex-center(center, center);
         width: 50%;
         height: 65vh;
         flex-shrink: 0;
         // transform is declared via JavaScript
         transition: transform .45s linear;
     
-        @include m.breakpoint(large) {
+        @media screen and (orientation: landscape) {
             flex-direction: row;
             height: auto;
         }
     }
 
     &__slide {
+        width: 100%;
         @include m.display-flex(flex, column);
-        justify-content: space-around;
-        height: calc(100% / 3);
-        max-height: 20vh;
-    
-        @include m.breakpoint(large) {
-            width: calc(100% / 3);
-            height: 25vh;
+        @include m.flex-center(center, center);
+        @media screen and (max-width: 950px) {
+            height: 100%;
         }
 
         &:nth-child(2n) {
@@ -90,6 +76,7 @@
     &__slide-item {
         width: 100%;
         height: 50%;
+        max-width: 10vh;
         object-fit: contain;
 
         &:last-child {

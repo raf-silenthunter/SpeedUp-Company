@@ -2,7 +2,7 @@
 @use "../utils/mixins" as m;
 
 .txt-intro {
-    @include m.breakpoint(large) {
+    @media screen and (orientation: landscape) and (min-width: 1200px) {
         text-align: justify;
     }
 

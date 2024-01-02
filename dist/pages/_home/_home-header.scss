@@ -7,9 +7,12 @@
 //additional styles in future
 &__dynamic-info{
         width: max(30rem, 40vw);    
-    @media (min-width: 700px) and (max-width: 1200px) {
-        width: max(30rem, 75vw);
-    }
+        @media (min-width: 700px) and (max-width: 1200px){
+            width: max(30rem, 75vw);
+        }
+        @media screen and (orientation: landscape) and (max-width: 1200px){
+            width: 100%;
+        }
         height: auto;
         padding-left: 3%;
         @include m.position(absolute, 50%, 0);
@@ -18,6 +21,9 @@
 
     &__speedup-txt {
         margin-bottom: 4rem;
+        @media screen and (orientation: landscape) and (max-width: 1200px){
+            margin-bottom: 2rem;
+        }
         text-align: left;
     }
 }

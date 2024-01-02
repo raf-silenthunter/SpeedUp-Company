@@ -5,12 +5,12 @@ import {FormValidation} from "./general/form-scripts.js";
 
 //ShowMobileNav Class invoking
 const toggleMobileNav = new ShowMobileNav();
-toggleMobileNav.mobileMenuBtn.addEventListener("click", (e) => toggleMobileNav.showNav(e));
+toggleMobileNav.elements.mobileMenuBtn.addEventListener("click", (e) => toggleMobileNav.showNav(e));
 
 //DropdownNav Class invoking
 const dropdownNav = new DropdownNav();
 window.addEventListener("DOMContentLoaded", (e) => dropdownNav.stopPropagation(e));
-dropdownNav.dropdownBtn.addEventListener("click", (e) => dropdownNav.dropdownNav(e));
+dropdownNav.elements.dropdownBtn.addEventListener("click", (e) => dropdownNav.dropdownNav(e));
 
 //OpenModal Class invoking
 const modalFn = new OpenModal();

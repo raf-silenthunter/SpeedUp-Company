@@ -20,6 +20,9 @@
     @include m.breakpoint("large") {
         padding: 1rem 2rem;
     }
+    @media screen and (orientation: landscape) and (max-width: 999px){
+        height: 70px;
+    }
     @include m.breakpoint("xxl") {
         height: v.$main-nav-height-desktop;
     }
@@ -61,6 +64,11 @@
         height: calc(100vh - 100px);
         width: 100%;
 
+        @media screen and (orientation: landscape) and (max-width: 999px){
+            top: 70px;
+            height: calc(100vh - 70px);
+        }
+
         @include m.breakpoint("large"){
             @include m.position (static, 0, 0);
             height: 100%;
@@ -79,7 +87,7 @@
             width: auto;
             height: auto;
             visibility: visible;
-            padding: 1.5rem;
+            padding: clamp(1rem, 1vw, 1.5rem);
             @include m.border-properties(2px, solid, v.$silver, 3px);
             background: transparent;
             overflow: hidden;
@@ -157,6 +165,7 @@
 
     &--is-visible {
         transform: translateX(0);
+        overflow: scroll;
     }
 
     &__item {

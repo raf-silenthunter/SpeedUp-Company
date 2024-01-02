@@ -85,9 +85,7 @@ export class MainSlider {
     }
 
     setSlideImg = () => {
-            const screenWidth = window.innerWidth;
-            const tabletWidth = 700;
-            const isDesktop =  screenWidth >= tabletWidth ? true : false;
+            const isDesktop = window.matchMedia('(orientation: landscape)').matches;
             if(isDesktop) {
                 this.slidesStyles[this.currentSlide].mobileImg = this.slidesStyles[this.currentSlide].desktopImg;
             }
@@ -141,7 +139,8 @@ export class OptionsSlider{
 
     checkClickedBtn(e){
         if (e.target.classList.contains('biz-slider__btn')) {
-        const clickedBtn = e.target.classList.contains('biz-slider__btn--right') ? 'right' : 'left';
+        const clickedBtn = e.target.dataset.btn === 'biz-right' ? 'right' : 'left';
+        console.log(clickedBtn);
         this.changeOption(clickedBtn);
         }
     }
@@ -185,7 +184,7 @@ export class BrandsSlider {
 
     checkClickedBtn(e){
         if (e.target.classList.contains('brands__btn')) {
-            const direction = e.target.classList.contains('brands__btn--right') ? 'right' : 'left';
+            const direction = e.target.dataset.btn === 'brands-right' ? 'right' : 'left'
             this.moveSlider(direction);
         }
     }

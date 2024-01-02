@@ -20,6 +20,9 @@
 
     &--login {
         height: 100vh;
+        @media screen and (orientation: landscape) and (max-width: 999px){
+            padding-block: 4rem;
+        }
     }
 
     &__panel {
@@ -34,7 +37,7 @@
             width: max(30rem, 90vw);
             min-height: clamp(60rem, 75vh, 40vw);
             padding: 2rem;
-            @include m.breakpoint("large"){
+            @media screen and (orientation: landscape) and (min-width: 999px){
                 width: max(30rem, 70vw);
                 padding: 3rem;
             }
@@ -49,6 +52,10 @@
         margin-block: 2rem;
         align-items: stretch;
         gap: 2rem;
+        @media screen and (orientation: landscape) and (max-width: 999px){
+            gap: unset;
+            margin-block: unset;
+        }
     }
 
     &__title {
@@ -71,6 +78,7 @@
 
 .visible {
     display: flex;
+    overflow: scroll;
 }
 
 .not-visible-section{

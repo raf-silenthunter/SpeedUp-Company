@@ -2,8 +2,7 @@ export class StickyNav {
     constructor(scrollContent){
         this.nav = document.querySelector(".main-nav");
         this.scrollValue = 100;  
-        this.scrollPosition = this.checkScrollState(scrollContent);
-        
+        this.scrollPosition = this.checkScrollState(scrollContent);  
     }
 
     checkScrollState(scrollContent){
@@ -24,33 +23,61 @@ export class StickyNav {
 
 export class ShowMobileNav {
     constructor() {
-        this.mobileMenuBtn = document.querySelector(".main-nav__hamburger-btn");
-        this.mobileMenuList = document.querySelector(".list");
-        this.mainNav = document.querySelector(".main-nav");  
+        this.elements = {
+            body: document.querySelector("body"),
+            mobileMenuBtn: document.querySelector(".main-nav__hamburger-btn"),
+            mobileMenuList: document.querySelector(".list"),
+            mainNav: document.querySelector(".main-nav"),  
+        }
+
+        this.bodyScrollActive = true; //indicartes if there is overflow:hidden/stop scroll on body
+    }
+
+    handleBodyScroll(){
+        const bookingPanelActive = document.querySelector(".not-hidden-scroll-wrap");
+        const modalActive = document.querySelector(".visible");
+        if(this.bodyScrollActive) {
+            this.elements.body.classList.add("stop-scroll");
+            this.bodyScrollActive = false;
+        } else {
+            //if bookign panel is active then there already is no scroll on body
+
+            if(!bookingPanelActive || !modalActive) {
+                this.elements.body.classList.remove("stop-scroll");
+                //remove only when there is no booking panel
+                //booking panel can handle scroll so there is no need
+                //to update scroll in every situation
+            }
+            this.bodyScrollActive = true;
+        }
     }
 
     showNav() {
-        this.mobileMenuList.classList.toggle("list--is-visible");
-        this.mainNav.classList.toggle("main-nav--is-dropdown");
-        
+        this.elements.mobileMenuList.classList.toggle("list--is-visible");
+        this.elements.mainNav.classList.toggle("main-nav--is-dropdown");
+        this.handleBodyScroll();
+
+        //hide dynamic border when you use mobile nav
         this.dynamicBorder = document.querySelector(".dynamic-border");
         if(this.dynamicBorder){
-            this.mobileMenuList.classList.contains("list--is-visible") ? this.dynamicBorder.style.display = "none" : this.dynamicBorder.style.display = "block";
+            this.elements.mobileMenuList.classList.contains("list--is-visible") ? this.dynamicBorder.style.display = "none" : this.dynamicBorder.style.display = "block";
         } else console.log('no dynamic border detected');
     }
 }
 
 export class DropdownNav {
     constructor(){
-        this.dropdownBtn = document.querySelector(".dropdown");
-        this.dropdownList = document.querySelector(".dropdown__list");
-        this.dropdownItems = [...document.querySelectorAll(".dropdown__item")];
-        this.dropdownLinks = [...document.querySelectorAll(".dropdown__link")];
+        this.elements = {
+            dropdownBtn: document.querySelector(".dropdown"),
+            dropdownList: document.querySelector(".dropdown__list"),
+            dropdownItems: [...document.querySelectorAll(".dropdown__item")],
+            dropdownLinks: [...document.querySelectorAll(".dropdown__link")],
+        };
     }
 
     slowDropDownList(){
         let showItemTime = 0;
-        this.dropdownItems.forEach(item => {
+        this.elements.dropdownItems.forEach(item => {
                 setTimeout(() => {
                 item.classList.add("dropdown__item--is-dropdown");
             }, showItemTime)
@@ -59,7 +86,7 @@ export class DropdownNav {
     }
 
     stopPropagation(){
-        this.dropdownLinks.forEach(link => {
+        this.elements.dropdownLinks.forEach(link => {
             link.addEventListener("click", (e) => {
                 e.stopPropagation(e);
             })
@@ -68,15 +95,16 @@ export class DropdownNav {
 
     dropdownNav(e){
         e.preventDefault();
-        this.dropdownBtn.classList.toggle("dropdown--is-checked");
-        const isListdropDown = this.dropdownList.classList.contains("dropdown__list--is-dropdown");
+        const isListDropDown = this.elements.dropdownList.classList.contains("dropdown__list--is-dropdown");
+
+        this.elements.dropdownBtn.classList.toggle("dropdown--is-checked");
         this.slowDropDownList();
-        if(!isListdropDown){
-            this.dropdownList.classList.add("dropdown__list--is-dropdown");
+        if(!isListDropDown){
+            this.elements.dropdownList.classList.add("dropdown__list--is-dropdown");
         } else {
             const dropDownItem = document.querySelector(".dropdown__item");
             const isItemInView = dropDownItem.classList.contains("dropdown__item--is-dropdown");
-            if(isItemInView) this.dropdownList.classList.remove("dropdown__list--is-dropdown");
+            if(isItemInView) this.elements.dropdownList.classList.remove("dropdown__list--is-dropdown");
             else return;
         }
     }
@@ -84,9 +112,13 @@ export class DropdownNav {
 
 export class OpenModal{
     constructor(){
-        this.modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
-        this.modalBtns = [...this.modalBtnsElements];
-        this.loginModal = document.querySelector(".modal");
+        const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
+        this.elements = {
+            modalBtnsElements: modalBtnsElements,
+            modalBtns: [...modalBtnsElements],
+            loginModal: document.querySelector(".modal"),
+            body: document.querySelector("body"),
+        }
     }
 
     checkModalBtn = (e) => {
@@ -97,6 +129,16 @@ export class OpenModal{
 
     changeModalState = (e) => {
         let clickedBtn = this.checkModalBtn(e);
-        this.loginModal.classList.toggle("visible", clickedBtn === "open");
+        const isMainNavActive = document.querySelector(".main-nav--is-dropdown");
+        this.elements.loginModal.classList.toggle("visible", clickedBtn === "open");
+        //you always need to check whether main nav is open, because OpenModal and ShowMobileNav Class
+        //they both add a stop-scroll on body. You need to detect that, so it won't be doubled
+        if(clickedBtn === "open"){
+            this.elements.body.classList.add("stop-scroll")
+        } else if (clickedBtn === "close"){
+            if(!isMainNavActive){
+                this.elements.body.classList.remove("stop-scroll");
+            }
+        }
     }
 }

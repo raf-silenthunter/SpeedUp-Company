@@ -4,7 +4,7 @@
 .speedup-txt {
     font-size: v.$font-size-big;
 
-    @include m.breakpoint(xxl){
+    @include m.breakpoint("xxl"){
         font-size: v.$xl-font-size-big;
     }
 
@@ -59,7 +59,7 @@
             text-align: left;
         }
 
-        @include m.breakpoint(xxl) {
+        @include m.breakpoint("xxl") {
             font-size: v.$xl-font-size-large;
         }
     }
@@ -68,7 +68,11 @@
         font-size: v.$font-size-xl;
         text-align: center;
 
-        @include m.breakpoint(xxl) {
+        @media screen and (orientation: landscape) and (max-width: 1200px) {
+            font-size: v.$font-size-large;
+        }
+
+        @include m.breakpoint("xxl") {
             font-size: v.$xl-font-size-xl;
         }
 
@@ -87,6 +91,10 @@
     
     @include m.breakpoint("large") {
         font-size: v.$font-size-medium;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 1200px){
+        font-size: v.$font-size-small;
     }
 }
 

@@ -3,7 +3,7 @@
 
 .action-btn {
     padding: 1rem 2rem;
-    @include m.breakpoint("small"){
+    @media screen and (orientation: landscape) and (min-width: 1000px){
         padding-block: 1.5rem;
     }
     font-weight: v.$font-weight-xl;

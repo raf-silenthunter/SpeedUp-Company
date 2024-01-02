@@ -17,7 +17,6 @@
 
     &__socials-wrap {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
     
         @include m.breakpoint(medium) {
@@ -26,20 +25,16 @@
     }
 
     &__btn {
-        @include m.breakpoint(small) {
-                width: 12vh;
-                height: 12vh;
-            }
-
         display: flex;
         @include m.flex-center(center, center);
-        width: calc(50vw - 8rem);
-        height: calc(50vw - 8rem);
         margin: 1rem;
-
-        @include m.breakpoint(xxl) {
-                margin: 3rem;
-            }
+        @include m.breakpoint("xxl") {
+            margin: 3rem;
+        }
+        @media screen and (orientation: portrait) and (max-width: 1000px){
+            width: 40px;
+            height: 40px;
+        }
     }
 
     &__form{

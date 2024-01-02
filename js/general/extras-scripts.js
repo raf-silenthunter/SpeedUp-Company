@@ -247,7 +247,7 @@ export class BookingModal{
         this.scrollBtn.visible = true;
         this.handleScrollContextChange();
         this.stepsHandler.bookingModalCalc.resetChosenValues();
-        this.stepsHandler.bookingModalCalc.errorInfoInput.textContent = "";
+        if(this.stepsHandler.bookingModalCalc.errorInfoInput) this.stepsHandler.bookingModalCalc.errorInfoInput.textContent = "";
     }  
 }
 

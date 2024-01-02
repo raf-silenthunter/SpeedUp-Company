@@ -26,8 +26,9 @@
     }
 
     &__input-control {
-        height: 90px;
-        @include m.breakpoint("medium"){
+        height: 95px;
+
+        @media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 999px){
             height: 115px;
         }
     }
@@ -71,6 +72,10 @@
     box-shadow: inset 0px 0px 5px 0px rgba(172, 172, 172, 1);
     outline: none;
     transition: all .4s linear;
+
+    @media screen and (orientation: landscape) and (max-width: 999px){
+        padding: 1rem;
+    }
 
     @include m.breakpoint("xxl") {
             padding: 4rem;

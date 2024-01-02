@@ -6,10 +6,10 @@
 .fleet {
     display: flex;
     flex-wrap: wrap;
-    
-    @include m.breakpoint("large") {
-            flex-direction: column;
-            height: 70vh;
+    justify-content: center;   
+    @media screen and (orientation: landscape) and (min-width: 1200px) {
+        flex-direction: column;
+        height: 70vh;
     }
     @include m.breakpoint("xxl") {
         height: 60vh;
@@ -18,7 +18,7 @@
     &__grid {
         overflow: hidden;
 
-        @include m.breakpoint(large) {
+        @media screen and (orientation: landscape) and (min-width: 1200px) {
             width: 25%;
             height: 50%;
         } 
@@ -26,7 +26,7 @@
         &:nth-child(2), &:nth-child(3){
             width: 50%;
             
-            @include m.breakpoint(large) {
+            @media screen and (orientation: landscape) and (min-width: 1200px) {
                 width: 25%;
             }
         }
@@ -59,7 +59,7 @@
         position: relative;
         width: 100%;
         height: clamp(250px, 40rem, 50vw);
-        @include m.breakpoint(large) {
+        @media screen and (orientation: landscape) and (min-width: 1200px) {
             width: 50%;
             height: 100%;
         }

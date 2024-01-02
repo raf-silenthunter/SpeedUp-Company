@@ -5,13 +5,13 @@
 .clients {
     padding: 6rem 1rem;
     @include m.breakpoint(large) {
-            padding: 5rem;
+            padding: 4rem;
         }
 
     &__wrap {
         min-height: 80vh;
         @include m.display-flex(flex, column);
-        @include m.breakpoint(large) {
+        @media screen and (orientation: landscape) and (min-width: 1200px) {
                 flex-direction: row;
             }
             &--bgc-black {
@@ -22,9 +22,9 @@
 
     &__wrap>*{
     padding: 3rem;
-    @include m.breakpoint(large) {
+    @media screen and (orientation: landscape) and (min-width: 1200px) {
             width: 50%;
-            padding: 5rem;
+            padding: 4rem;
         }
     }
 
@@ -62,11 +62,8 @@
 
     &__btn {
         order: 2;
-        width: 10vh;
-        height: 10vh;
-        background-color: transparent;
         margin-top: 3rem;
-        @include m.breakpoint(large) {
+        @media (min-width: 900px), (orientation: landscape) and (max-width: 1200px){
                 order: 1;
                 margin-top: 0;
             }
@@ -81,7 +78,10 @@
         @media screen and (max-width: 400px) {
             height: 450px;
         }
-
+        @media screen and (orientation: landscape) and (max-width: 1200px){
+            width: 70%;
+            height: 150vh;
+        }
         @include m.breakpoint("large") {
             width: 70%;
             height: 550px;
@@ -98,12 +98,13 @@
         height: 450px;
         @include m.position(absolute, 0, 50%);
         @include m.breakpoint("medium") {
-                width: 60%;
+                width: 350px;
                 height: 550px;
             }
-        @include m.breakpoint("large"){
-            width: 80%;
-        }
+        @media screen and (orientation: landscape) and (max-width: 1200px) {
+                width: 350px;
+                height: 450px;
+            }
     }
 }
 
