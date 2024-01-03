@@ -1872,7 +1872,7 @@ a, a:visited, a:active, a:focus {
 }
 @media (min-width: 900px) {
   .blog-intro {
-    padding: 8rem;
+    padding: 0 8rem;
   }
 }
 .blog-intro__wrap {
@@ -1894,9 +1894,6 @@ a, a:visited, a:active, a:focus {
 }
 .blog-intro__post-intro {
   margin-bottom: 2rem;
-}
-.blog-intro__speedup-txt {
-  margin-top: 6rem;
 }
 
 .post-intro {
@@ -2018,11 +2015,11 @@ a, a:visited, a:active, a:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 4rem;
+  padding: 0 4rem 4rem 4rem;
 }
 @media (min-width: 900px) {
   .nl-wrap {
-    padding-inline: 8rem;
+    padding: 0 8rem 6rem 8rem;
   }
 }
 .nl-wrap__speedup-txt {
@@ -2859,7 +2856,7 @@ a, a:visited, a:active, a:focus {
           backdrop-filter: blur(4px);
   border-radius: 10px;
 }
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
   .grid {
     grid-template: auto/repeat(auto-fit, 300px);
     padding: 4rem 1.5rem;
@@ -2871,6 +2868,11 @@ a, a:visited, a:active, a:focus {
 .grid__element {
   width: 100%;
   height: 450px;
+}
+@media screen and (orientation: landscape) and (max-width: 699px) {
+  .grid__element {
+    height: unset;
+  }
 }
 @media (min-width: 2000px) {
   .grid__element {

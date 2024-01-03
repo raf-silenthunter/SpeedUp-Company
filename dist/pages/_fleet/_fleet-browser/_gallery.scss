@@ -43,7 +43,7 @@
         display: grid;
         justify-content: center;
         padding: 1rem;
-        @include m.breakpoint("medium") {
+        @media screen and (min-width: 700px) {
             grid-template: auto /repeat(auto-fit, 300px);
             padding: 4rem 1.5rem;
         }
@@ -58,7 +58,10 @@
         &__element{
             width: 100%;
             height: 450px;
-            @include m.breakpoint(xxl){
+            @media screen and (orientation: landscape) and (max-width: 699px) {
+                height: unset;
+            }
+            @include m.breakpoint("xxl"){
                 height: 750px;
             }
         }

@@ -5,10 +5,10 @@
 .nl-wrap {
     @include m.display-flex(flex, column);
     align-items: center;
-    padding: 6rem 4rem;
+    padding: 0 4rem 4rem 4rem;
     
     @include m.breakpoint(large){
-        padding-inline: 8rem;
+        padding: 0 8rem 6rem 8rem;
     }
 
     &__speedup-txt {
