@@ -226,6 +226,9 @@
     height: 1px;
     background-color: yellow;
     @include m.position(fixed, v.$main-nav-height, 0);
+    @media screen and (orientation: landscape) and (max-width: 999px){
+        top: 70px; //it has to be equal to mainnav height on landscape mobile
+    }
     box-shadow: 0px 0px 12px 2px rgb(255, 247, 0);
     z-index: -1;
 }
