@@ -14,7 +14,7 @@ dropdownNav.elements.dropdownBtn.addEventListener("click", (e) => dropdownNav.dr
 
 //OpenModal Class invoking
 const modalFn = new OpenModal();
-modalFn.modalBtns.forEach((btn)=> {
+modalFn.elements.modalBtns.forEach((btn)=> {
     btn.addEventListener("click", modalFn.changeModalState);
 });
 

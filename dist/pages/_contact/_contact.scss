@@ -74,7 +74,8 @@
     &__input{
         width: 100%;
         background: transparent;
-        @include m.breakpoint("medium"){
+        @media screen and (min-width: 700px) and (orientation: portrait),
+            (orientation: landscape) and (min-width: 1099px){
             height: 80px;
         }
     }

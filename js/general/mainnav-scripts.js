@@ -137,7 +137,7 @@ export class OpenModal{
             this.elements.body.classList.add("stop-scroll")
         } else if (clickedBtn === "close"){
             if(!isMainNavActive){
-                this.elements.body.classList.remove("stop-scroll");
+                this.elements.body.classList.remove(".stop-scroll");
             }
         }
     }

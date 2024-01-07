@@ -428,7 +428,12 @@ a, a:visited, a:active, a:focus {
 .form__input-control {
   height: 95px;
 }
-@media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 999px) {
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .form__input-control {
+    height: 80px;
+  }
+}
+@media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 1100px) {
   .form__input-control {
     height: 115px;
   }
@@ -460,6 +465,11 @@ a, a:visited, a:active, a:focus {
   text-align: center;
   opacity: 0;
   transition: opacity 0.4s linear;
+}
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .success-msg {
+    margin-block: 10px;
+  }
 }
 .success-msg--active {
   opacity: 1;
@@ -531,7 +541,7 @@ a, a:visited, a:active, a:focus {
   align-items: center;
   padding: 1.5rem;
 }
-@media (min-width: 900px) {
+@media screen and (orientation: portrait) and (min-width: 400px), (orientation: landscape) and (min-width: 700px) {
   .input-control__input {
     padding: 2rem;
   }
@@ -708,6 +718,11 @@ a, a:visited, a:active, a:focus {
     background-image: url("../../images/contact/handshake_1920.webp");
   }
 }
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .accordeon__title {
+    display: none;
+  }
+}
 .accordeon__wrap {
   display: flex;
   flex-direction: column;
@@ -715,7 +730,13 @@ a, a:visited, a:active, a:focus {
   justify-content: center;
   height: 70vh;
 }
-@media (min-width: 700px) {
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .accordeon__wrap {
+    width: 100%;
+    height: 85vh;
+  }
+}
+@media screen and (orientation: portrait) and (min-width: 700px), (orientation: landscape) and (min-width: 1100px) {
   .accordeon__wrap {
     height: 50vh;
   }
@@ -723,7 +744,7 @@ a, a:visited, a:active, a:focus {
 .accordeon__item {
   width: 90%;
 }
-@media (min-width: 700px) {
+@media screen and (orientation: portrait) and (min-width: 700px), (orientation: landscape) and (min-width: 1100px) {
   .accordeon__item {
     width: 750px;
   }
@@ -1135,19 +1156,15 @@ a, a:visited, a:active, a:focus {
   text-align: center;
   border-bottom: 1px solid #acacac;
 }
-@media (min-width: 700px) {
-  .booking-panel__car {
-    width: 300px;
-  }
-}
-@media (min-width: 900px) {
-  .booking-panel__car {
-    border-bottom: none;
-  }
-}
 @media only screen and (orientation: portrait) {
   .booking-panel__car {
     width: 100%;
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 999px) {
+  .booking-panel__car {
+    width: 300px;
+    border-bottom: none;
   }
 }
 .booking-panel__content {
@@ -1170,7 +1187,7 @@ a, a:visited, a:active, a:focus {
     align-items: center;
   }
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) and (min-width: 1099px) {
   .booking-panel__cover {
     flex-direction: row;
     justify-content: space-between;
@@ -1208,10 +1225,13 @@ a, a:visited, a:active, a:focus {
   border-image-slice: 1;
   border-image-source: radial-gradient(circle at top left, #21288d, transparent);
 }
-@media (min-width: 900px) {
+@media screen and (min-width: 1099px) and (orientation: landscape) {
   .booking-panel__price-info {
     min-height: 300px;
   }
+}
+.booking-panel__price-label {
+  text-align: center;
 }
 .booking-panel__icon {
   height: 24px;
@@ -1250,12 +1270,17 @@ a, a:visited, a:active, a:focus {
   max-width: 450px;
   min-width: 200px;
 }
+@media screen and (orientation: landscape) and (max-width: 999px) {
+  .booking-section__label {
+    max-width: 350px;
+  }
+}
 @media (max-width: 1200px) {
   .booking-section__label {
     margin: 0 auto;
   }
 }
-@media (min-width: 900px) {
+@media screen and (min-width: 999px) {
   .booking-section__label {
     width: 30%;
   }
@@ -1335,7 +1360,7 @@ a, a:visited, a:active, a:focus {
 .booking-section__action-btn {
   width: 100%;
 }
-@media (max-width: 800px) {
+@media screen and (orientation: portrait) and (max-width: 800px), screen and (orientation: landscape) and (max-width: 1099px) {
   .booking-section__order-info {
     display: block;
   }
@@ -1977,6 +2002,11 @@ a, a:visited, a:active, a:focus {
 .card__head--col {
   flex-direction: column;
 }
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .card__head--in-swiper {
+    display: none;
+  }
+}
 .card__title, .card__category {
   padding: 1rem;
 }
@@ -2059,7 +2089,7 @@ a, a:visited, a:active, a:focus {
   width: 100%;
   height: 70px;
 }
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 1099px) {
   .nl-wrap__input-control {
     height: 105px;
   }
@@ -2943,24 +2973,27 @@ a, a:visited, a:active, a:focus {
   height: 100vh;
 }
 .swiper__title, .swiper__btn {
-  z-index: 10;
   text-transform: uppercase;
 }
-.swiper__title {
+.swiper__header {
   position: absolute;
   top: 15%;
   left: 8vw;
-  text-align: left;
+  z-index: 10;
+}
+@media screen and (max-width: 1099px) and (orientation: landscape) {
+  .swiper__header {
+    top: 20%;
+  }
 }
 @media (min-width: 900px) {
-  .swiper__title {
+  .swiper__header {
     top: 25%;
   }
 }
-.swiper__btn {
-  position: absolute;
-  top: 35%;
-  left: 8vw;
+.swiper__title {
+  text-align: left;
+  margin-bottom: 10px;
 }
 .swiper__border {
   box-shadow: 0 0 10px 5px yellow;
@@ -2982,12 +3015,20 @@ a, a:visited, a:active, a:focus {
   padding-left: 3rem;
   transform: translateY(-60%);
 }
-@media (min-width: 450px) {
+@media screen and (min-width: 450px) and (orientation: portrait) {
   .swiper__cards {
     top: 75vh;
   }
 }
-@media (min-width: 900px) {
+@media screen and (max-width: 1099px) and (orientation: landscape) {
+  .swiper__cards {
+    width: 80vw;
+    top: 85vh;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1100px) {
   .swiper__cards {
     width: 60vw;
     top: 80vh;
@@ -3006,6 +3047,11 @@ a, a:visited, a:active, a:focus {
   overflow: hidden;
   padding-top: 100px;
 }
+@media (orientation: landscape) and (max-width: 1100px) {
+  .swiper-section {
+    padding-top: 70px;
+  }
+}
 .swiper-section--relative {
   position: relative;
   padding: 0;
@@ -3020,7 +3066,7 @@ a, a:visited, a:active, a:focus {
 .swiper-section--pad {
   padding-inline: 4vw;
 }
-@media (min-width: 700px) {
+@media screen and (orientation: portrait) and (min-width: 700px), (orientation: landscape) and (min-width: 1100px) {
   .swiper-section--pad {
     padding-inline: 10vw;
   }
@@ -3028,7 +3074,7 @@ a, a:visited, a:active, a:focus {
 .swiper-section__txt {
   display: none;
 }
-@media (min-width: 700px) {
+@media screen and (orientation: portrait) and (min-width: 700px), (orientation: landscape) and (min-width: 1099px) {
   .swiper-section__txt {
     display: block;
   }
@@ -3045,7 +3091,7 @@ a, a:visited, a:active, a:focus {
   flex-direction: column;
   justify-content: space-around;
 }
-@media (min-width: 450px) {
+@media screen and (orientation: landscape) and (min-width: 1100px), (orientation: landscape) and (min-width: 1100px) {
   .swiper-section__icon-incentives {
     display: block;
   }
@@ -3058,7 +3104,7 @@ a, a:visited, a:active, a:focus {
   justify-content: space-around;
   padding: 100px 5vw 0 5vw;
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) and (min-width: 1099px), screen and (orientation: portrait) and (min-width: 700px) {
   .swiper-profits {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -3086,6 +3132,14 @@ a, a:visited, a:active, a:focus {
     opacity: 0.3;
   }
 }
+.swiper-profits__flip-cards {
+  display: block;
+}
+@media screen and (orientation: landscape) and (max-width: 999px) {
+  .swiper-profits__flip-cards {
+    display: none;
+  }
+}
 @media (min-width: 900px) {
   .swiper-profits__flip-cards {
     width: 40vw;
@@ -3093,23 +3147,34 @@ a, a:visited, a:active, a:focus {
     grid-row: 1/-1;
   }
 }
+.swiper-profits__icon-incentives {
+  display: block;
+}
+@media screen and (orientation: landscape) and (max-width: 999px) {
+  .swiper-profits__icon-incentives {
+    display: none;
+  }
+}
 
+.swiper-gallery {
+  row-gap: 2rem;
+}
 .swiper-gallery__images {
   width: 70vw;
   height: 70vh;
   display: grid;
+  grid-template-rows: repeat(2, 1fr);
   align-content: space-around;
   gap: 1rem;
 }
-@media (min-width: 700px) {
+@media screen and (orientation: portrait) and (min-width: 700px) {
   .swiper-gallery__images {
     height: 50vh;
     width: 85vw;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
   }
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) {
   .swiper-gallery__images {
     height: 60vh;
     grid-auto-flow: column dense;
@@ -3118,12 +3183,12 @@ a, a:visited, a:active, a:focus {
     padding-bottom: 2rem;
   }
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) {
   .swiper-gallery__image--row {
     grid-column: 2/3;
   }
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) {
   .swiper-gallery__image--col {
     grid-row: 1/-1;
   }
@@ -3151,9 +3216,10 @@ a, a:visited, a:active, a:focus {
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
   justify-content: space-evenly;
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) and (min-width: 1099px) {
   .swiper-conversion {
     flex-direction: row;
   }
@@ -3180,7 +3246,7 @@ a, a:visited, a:active, a:focus {
   flex-direction: column;
   gap: 2rem;
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) and (min-width: 1099px) {
   .swiper-conversion__item {
     width: 40%;
   }
@@ -3188,9 +3254,19 @@ a, a:visited, a:active, a:focus {
 .swiper-conversion__form {
   width: 100%;
 }
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .swiper-conversion__txt {
+    display: none;
+  }
+}
 .swiper-conversion__action-btn {
   margin-top: 2rem;
   width: 100%;
+}
+@media screen and (orientation: landscape) and (max-width: 1099px), (orientation: portrait) and (max-width: 400px) {
+  .swiper-conversion__action-btn {
+    margin-top: unset;
+  }
 }
 @media (min-width: 900px) {
   .swiper-conversion__action-btn {
@@ -3504,7 +3580,7 @@ a, a:visited, a:active, a:focus {
   width: 100%;
   background: transparent;
 }
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 1099px) {
   .input-control__input {
     height: 80px;
   }

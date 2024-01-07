@@ -8,7 +8,8 @@
     justify-content: space-around;
     padding: v.$main-nav-height 5vw 0 5vw;
 
-    @include m.breakpoint("large") {
+    @media screen and (orientation: landscape) and (min-width: 1099px),
+    screen and (orientation: portrait) and (min-width: 700px) {
         @include m.grid-parent(repeat(3, 1fr), repeat(2, 1fr));
         column-gap: 5rem;
         @include m.flex-center(center, center);
@@ -29,10 +30,21 @@
     }
 
     &__flip-cards {
+        display: block;
+        @media screen and (orientation: landscape) and (max-width: 999px){
+            display: none;
+        }
         @include m.breakpoint("large") {
             width: 40vw;
             grid-column: 2/ span 1;
             grid-row: 1/-1;
+        }
+    }
+
+    &__icon-incentives{
+        display: block;
+        @media screen and (orientation: landscape) and (max-width: 999px){
+            display: none;
         }
     }
 }

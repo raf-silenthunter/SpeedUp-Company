@@ -3,21 +3,22 @@
 @use "../../utils/breakpoints" as b;
 
 .swiper-gallery {
+    row-gap: 2rem;
     &__images {
         width: 70vw;
         height: 70vh;
         display: grid;
+        grid-template-rows: repeat(2, 1fr);
         align-content: space-around;
         gap: 1rem;
 
-        @include m.breakpoint("medium") {
+        @media screen and (orientation: portrait) and (min-width: 700px){
             height: 50vh;
             width: 85vw;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
         }
 
-        @include m.breakpoint("large") {
+        @media screen and (orientation: landscape){
             height: 60vh;
             grid-auto-flow: column dense;
             grid-template-columns: repeat(3, 1fr);
@@ -28,13 +29,13 @@
 
     &__image {
         &--row {
-            @include m.breakpoint("large") {
+            @media screen and (orientation: landscape) {
                 grid-column: 2/3;
             }
         }
 
         &--col {
-            @include m.breakpoint("large") {
+            @media screen and (orientation: landscape) {
                 grid-row: 1/-1;
             }
         }

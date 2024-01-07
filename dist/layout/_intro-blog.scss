@@ -111,6 +111,11 @@
         &--col {
             flex-direction: column;
         }
+        &--in-swiper{
+            @media screen and (orientation: landscape) and (max-width: 1099px){
+                display: none;
+            }
+        }
     }
 
     &__title, &__category{
