@@ -3,7 +3,10 @@
 @use "../../utils/breakpoints" as b;
 
 .swiper-gallery {
-    row-gap: 2rem;
+    gap: 1rem;    
+    @include m.breakpoint("small"){
+        row-gap: 2rem;
+    }
     &__images {
         width: 70vw;
         height: 70vh;
@@ -48,7 +51,7 @@
         border-radius: 10px;
         filter: grayscale(.7);
 
-        @media (max-width: 400px) {
+        @media (orientation: portrait) and (max-height: 700px) {
             aspect-ratio: 2.5/1;
         }
 

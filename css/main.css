@@ -428,11 +428,6 @@ a, a:visited, a:active, a:focus {
 .form__input-control {
   height: 95px;
 }
-@media screen and (orientation: landscape) and (max-width: 1099px) {
-  .form__input-control {
-    height: 80px;
-  }
-}
 @media screen and (min-width: 700px) and (orientation: portrait), (orientation: landscape) and (min-width: 1100px) {
   .form__input-control {
     height: 115px;
@@ -527,11 +522,16 @@ a, a:visited, a:active, a:focus {
 .input-control--full-row {
   grid-column: 1/-1;
 }
-.input-control--conversion-width {
+.input-control--conversion-size {
   width: 100%;
 }
+@media screen and (orientation: landscape) and (max-width: 1099px) {
+  .input-control--conversion-size {
+    height: 87px;
+  }
+}
 @media (min-width: 900px) {
-  .input-control--conversion-width {
+  .input-control--conversion-size {
     width: 80%;
   }
 }
@@ -2157,7 +2157,6 @@ a, a:visited, a:active, a:focus {
 }
 @media screen and (orientation: landscape) and (max-width: 999px) {
   .modal__form {
-    gap: unset;
     margin-block: unset;
   }
 }
@@ -3085,17 +3084,6 @@ a, a:visited, a:active, a:focus {
 .swiper-section__maintitle {
   text-align: center;
 }
-.swiper-section__icon-incentives {
-  display: none;
-  height: 40%;
-  flex-direction: column;
-  justify-content: space-around;
-}
-@media screen and (orientation: landscape) and (min-width: 1100px), (orientation: landscape) and (min-width: 1100px) {
-  .swiper-section__icon-incentives {
-    display: block;
-  }
-}
 
 .swiper-profits {
   position: relative;
@@ -3104,7 +3092,7 @@ a, a:visited, a:active, a:focus {
   justify-content: space-around;
   padding: 100px 5vw 0 5vw;
 }
-@media screen and (orientation: landscape) and (min-width: 1099px), screen and (orientation: portrait) and (min-width: 700px) {
+@media screen and (orientation: landscape) and (min-width: 1099px), screen and (orientation: portrait) and (min-width: 900px) {
   .swiper-profits {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -3119,7 +3107,7 @@ a, a:visited, a:active, a:focus {
 .swiper-profits__bg {
   display: none;
 }
-@media (min-width: 900px) {
+@media screen and (orientation: landscape) and (min-width: 999px) {
   .swiper-profits__bg {
     display: block;
     position: absolute;
@@ -3132,10 +3120,7 @@ a, a:visited, a:active, a:focus {
     opacity: 0.3;
   }
 }
-.swiper-profits__flip-cards {
-  display: block;
-}
-@media screen and (orientation: landscape) and (max-width: 999px) {
+@media screen and (orientation: landscape) and (max-width: 1099px), (orientation: portrait) and (max-width: 700px) {
   .swiper-profits__flip-cards {
     display: none;
   }
@@ -3147,17 +3132,27 @@ a, a:visited, a:active, a:focus {
     grid-row: 1/-1;
   }
 }
-.swiper-profits__icon-incentives {
-  display: block;
-}
-@media screen and (orientation: landscape) and (max-width: 999px) {
+@media screen and (orientation: landscape) and (max-width: 799px) {
   .swiper-profits__icon-incentives {
     display: none;
   }
 }
+.swiper-profits__txt {
+  font-size: clamp(1.4rem, 0.8rem + 0.5vh, 1.6rem);
+}
+@media screen and (orientation: landscape) and (min-width: 1099px), (orientation: portrait) and (min-width: 400px) {
+  .swiper-profits__txt {
+    font-size: clamp(1.75rem, 1rem + 1.1vh, 2.25rem);
+  }
+}
 
 .swiper-gallery {
-  row-gap: 2rem;
+  gap: 1rem;
+}
+@media (min-width: 450px) {
+  .swiper-gallery {
+    row-gap: 2rem;
+  }
 }
 .swiper-gallery__images {
   width: 70vw;
@@ -3203,7 +3198,7 @@ a, a:visited, a:active, a:focus {
   aspect-ratio: 2/1;
   transition: filter 0.3s linear;
 }
-@media (max-width: 400px) {
+@media (orientation: portrait) and (max-height: 700px) {
   .swiper-gallery__img {
     aspect-ratio: 2.5/1;
   }
@@ -3266,11 +3261,23 @@ a, a:visited, a:active, a:focus {
 @media screen and (orientation: landscape) and (max-width: 1099px), (orientation: portrait) and (max-width: 400px) {
   .swiper-conversion__action-btn {
     margin-top: unset;
+    padding: 0.5rem 2rem;
   }
 }
 @media (min-width: 900px) {
   .swiper-conversion__action-btn {
     width: 50%;
+  }
+}
+.swiper-conversion__icon-incentives {
+  display: none;
+  height: 40%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media screen and (orientation: landscape) and (min-width: 1100px), (orientation: landscape) and (min-width: 1100px) {
+  .swiper-conversion__icon-incentives {
+    display: block;
   }
 }
 

@@ -115,17 +115,4 @@
     &__maintitle {
         text-align: center;
     }
-
-    &__icon-incentives {
-        display: none;
-
-        @media screen and (orientation: landscape) and (min-width: 1100px),
-        (orientation: landscape) and (min-width: 1100px) {
-                display: block;
-        }
-        
-        height: 40%;
-        flex-direction: column;
-        justify-content: space-around;
-    }
 }

@@ -57,11 +57,25 @@
         @media screen and (orientation: landscape) and (max-width: 1099px),
         (orientation: portrait) and (max-width: 400px){
             margin-top: unset;
+            padding: .5rem 2rem;
         }
 
         @include m.breakpoint("large") {
             width: 50%;
         }
+    }
+
+    &__icon-incentives {
+        display: none;
+
+        @media screen and (orientation: landscape) and (min-width: 1100px),
+        (orientation: landscape) and (min-width: 1100px) {
+                display: block;
+        }
+        
+        height: 40%;
+        flex-direction: column;
+        justify-content: space-around;
     }
 }
 

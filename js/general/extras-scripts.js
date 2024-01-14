@@ -22,8 +22,7 @@ export class Accordeon {
 
     initAccordion(e){
         const clickedElem = e.target;
-        if(!clickedElem.matches(".accordeon__panel, .accordeon__title, .accordeon__icon")) return;
-            
+        if(!clickedElem.matches(".accordeon__panel, .accordeon__question, .accordeon__icon")) return;            
         this.setAttrforArr(this.accordeonPanels, "data-key");
 
         this.panelToCollapseIndex = this.checkParentHasAttr(clickedElem);
