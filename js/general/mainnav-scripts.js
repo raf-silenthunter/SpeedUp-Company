@@ -112,7 +112,8 @@ export class DropdownNav {
 
 export class OpenModal{
     constructor(){
-        const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .btn-close");
+        const modalBtnsElements = document.querySelectorAll(".main-nav__sign-btn, .modal__btn-close");
+
         this.elements = {
             modalBtnsElements: modalBtnsElements,
             modalBtns: [...modalBtnsElements],
@@ -130,15 +131,37 @@ export class OpenModal{
     changeModalState = (e) => {
         let clickedBtn = this.checkModalBtn(e);
         const isMainNavActive = document.querySelector(".main-nav--is-dropdown");
+        const isBookingPanelActive = document.querySelector(".not-hidden-scroll-wrap");
         this.elements.loginModal.classList.toggle("visible", clickedBtn === "open");
         //you always need to check whether main nav is open, because OpenModal and ShowMobileNav Class
         //they both add a stop-scroll on body. You need to detect that, so it won't be doubled
         if(clickedBtn === "open"){
-            this.elements.body.classList.add("stop-scroll")
+            this.elements.body.classList.add("stop-scroll");
         } else if (clickedBtn === "close"){
-            if(!isMainNavActive){
-                this.elements.body.classList.remove(".stop-scroll");
+            if(!isMainNavActive && !isBookingPanelActive){
+                this.elements.body.classList.remove("stop-scroll");
             }
         }
     }
 }
+
+// export class ScrollHandler{
+//     constructor(){
+//         this.body = document.querySelector("body");
+//         this.activeElements = {
+//             //below you can add elements that change scroll context
+//             //but you should add elements only based by classes that make an element visible
+//             //element is visible if it has a proper class that changes visibility
+//             bookingModal: document.querySelector(".not-hidden-scroll-wrap"),
+//             loginModal: document.querySelector(".visible"),
+//             dropdownNav: document.querySelector(".main-nav--is-dropdown"),
+//         }
+//     }
+
+//     restoreScrollOnBody(){
+//         if(!this.activeElements.bookingModal && !this.activeElements.loginModal
+//             && !this.activeElements.dropdownNav) {
+//             this.body.classList.remove("stop-scroll");
+//         }
+//     }
+// }
