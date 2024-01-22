@@ -364,7 +364,6 @@ export class Scroller {
             const listItem = document.createElement("li");
             listItem.className = "aside-nav__item";
             asideList.append(listItem);
-            // przerobić listenery na parent element - zrób poza forEachem i pobierz tam itemy
             listItem.addEventListener("click", () => {
                 this.currSectionIndex = index;
                 this.scrollToCurrSection();

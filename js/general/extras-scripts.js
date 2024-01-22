@@ -183,7 +183,7 @@ export class BookingModal{
     init(bookingParent){
         bookingParent.addEventListener("click", (e) => this.handleModal(e))
     }
-    //loading of cars data into users's interface
+    //loading cars data into users's interface
     loadData(carDataObject){
         const {
             carName : model = "brak",
@@ -222,7 +222,6 @@ export class BookingModal{
             this.checkData(e);
             this.openModal(e);
             this.stepsHandler.init(this.updatedDataBase.carPrice);
-            
         }
         else return;
     }
@@ -412,7 +411,6 @@ export class BookingModalCalc{
                     }
                 })
                 .reduce((accum, currVal) => accum + currVal, 0);
-                //co robi powyższy kod!!!
         };    
         const summEquipementPrices = getEquipementPrices();
 
