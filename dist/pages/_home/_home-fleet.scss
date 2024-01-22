@@ -33,7 +33,7 @@
 
         &--center-content{
             display: flex;
-            @include m.flex-center(center, center, auto);
+            @include m.flex-center(center, center);
         }
     }
 

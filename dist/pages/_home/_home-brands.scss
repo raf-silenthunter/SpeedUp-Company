@@ -8,7 +8,7 @@
 
     &__slider {
             display: flex;
-            @include m.flex-center(space-between, center, auto);
+            @include m.flex-center(space-between, center);
             flex-wrap: wrap;
             width: 100%;
             @include m.breakpoint(medium) {

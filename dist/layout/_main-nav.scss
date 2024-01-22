@@ -151,14 +151,14 @@
 
 .list{
     @include m.display-flex(flex, column);
-    @include m.flex-center(flex-start, center, auto);
+    @include m.flex-center(flex-start, center);
     transform: translateX(-100%);
     transition: transform .4s linear;
     background: v.$pale-black;
 
     @include m.breakpoint("large"){
             @include m.display-flex (flex, row);
-            @include m.flex-center(center, center, auto);
+            @include m.flex-center(center, center);
             transform: translate(0);
             background: transparent;
     }

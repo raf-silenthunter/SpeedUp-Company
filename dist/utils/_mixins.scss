@@ -7,10 +7,10 @@
     flex-direction: $direction;
 }
 
-@mixin flex-center ($justify-content, $align-items, $align-content: "auto") {
+@mixin flex-center ($justify-content, $align-items) {
     justify-content: $justify-content;
     align-items: $align-items;
-    align-content: $align-content;
+    // align-content: $align-content;
 }
 
 @mixin position ($position, $top, $left) {

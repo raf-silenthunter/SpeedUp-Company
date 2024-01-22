@@ -1,12 +1,20 @@
 export class MainSlider {
     constructor(time) {
+        this.elements = {
+            slideTitle: document.querySelector("header h2"),
+            slidesArray: [...document.querySelectorAll(".slide")],
+            titlePosition: document.querySelector(".main-header__dynamic-info"),
+            //buttons are called DynamicButtons because their href and text changes with slides
+            slideDynamicBtn: document.querySelector(".main-header__dynamic-info button"),
+            slideDynamicLink: document.querySelector(".main-header__dynamic-info a"),    
+            
+            sliderBtnControlsArr: [...document.querySelectorAll(".btns-wrap__btn")],
+            sliderBtnControlsArrParent: document.querySelector(".btns-wrap"),
 
-        this.slidesArray = [...document.querySelectorAll(".slide")];
-        this.slideTitle = document.querySelector("header h2");
-        this.titlePosition = document.querySelector(".main-header__dynamic-info");
-        this.slideDynamicBtn = document.querySelector(".main-header__dynamic-info button");
-        this.slideDynamicLink = document.querySelector(".main-header__dynamic-info a");
-        //kompletnie nie zrozumiałe
+            slideChangeTime: time,
+            body: document.querySelector("body"),
+        }
+
         this.slidesStyles = [{
             h2: "Luxury cars within your reach",
             top: 40,
@@ -37,59 +45,81 @@ export class MainSlider {
             buttonLink: './fleet/terrain.html',
         }]
 
-        const btnElements = document.querySelectorAll(".btns-wrap__btn");
-        this.sliderBtns = [...btnElements];
-        this.sliderBtns.forEach((btn, i) => btn.dataset.key = `${i}`);
-        this.sliderBtns.forEach(btn => btn.addEventListener("click", this.changeSlideByBtn))
+        this.currentSlideIndex = 0;
+        this.isTrottled = false;
 
-        this.currentSlide = 0;
-        this.slideChangeTime = this.getSlideChangeTime(time);
+        this.elements.sliderBtnControlsArr.forEach((btn, i) => btn.dataset.key = `${i}`);
+        this.elements.sliderBtnControlsArrParent.addEventListener("click", (e) => this.changeSlideByBtn(e));
 
-        this.autoSlide = setInterval(this.changeSlide, this.slideChangeTime);
+        this.changeSlideAuto = setInterval(() => {
+            this.changeSlide()
+        }, this.elements.slideChangeTime);
+
+        this.initResizeObserver();
     }
 
-    getSlideChangeTime = (time) => time;
+    initResizeObserver(){
+        const resizeObserver = new ResizeObserver((entries) => {
+            if(this.isTrottled) return;
+            this.isTrottled = true;
+
+            setTimeout(()=> {
+                for(let entry of entries){
+                    this.setSlideImg();
+                    }
+                this.isTrottled = false;
+            }, 2500)
+        });
+        resizeObserver.observe(document.body);
+    }
+
+    resetInterval(){
+        clearInterval(this.changeSlideAuto);
+        this.changeSlideAuto = setInterval(this.changeSlide, this.elements.slideChangeTime);
+    }
 
     changeSlideByBtn = (e) => {
-        const clickedBtn = e.target.dataset.key;
-        this.currentSlide = clickedBtn;
+        if(!e.target.classList.contains("btns-wrap__btn")) return;
+        const clickedBtnKey = e.target.dataset.key;
+        this.currentSlideIndex = clickedBtnKey;
 
-        clearInterval(this.autoSlide);
-        this.currentSlide--;
+        this.currentSlideIndex--;
         this.changeSlide();
-        this.autoSlide = setInterval(this.changeSlide, this.slideChangeTime);
+        this.resetInterval();
     }
 
     changeSlide = () => {
-        this.currentSlide++;
-        this.currentSlide >= this.slidesStyles.length ? this.currentSlide = 0 : this.currentSlide;
+        this.currentSlideIndex++;
+        this.currentSlideIndex >= this.slidesStyles.length ? this.currentSlideIndex = 0 : this.currentSlideIndex;
         
-        this.slidesArray.forEach(slide => slide.classList.remove("slide--is-active"))
-        this.slidesArray[this.currentSlide].classList.add("slide--is-active");
+        this.elements.slidesArray.forEach(slide => slide.classList.remove("slide--is-active"))
+        this.elements.slidesArray[this.currentSlideIndex].classList.add("slide--is-active");
         
         this.setSlideInterior();
         this.changeBtn();
     }
 
     changeBtn = () => {
-        this.sliderBtns.forEach(btn => btn.classList.remove("is-btn-filled"));
-        this.sliderBtns[this.currentSlide].classList.add("is-btn-filled");
+        this.elements.sliderBtnControlsArr.forEach(btn => btn.classList.remove("is-btn-filled"));
+        this.elements.sliderBtnControlsArr[this.currentSlideIndex].classList.add("is-btn-filled");
     }
 
     setSlideInterior = () => {
         this.setSlideImg();
-        this.titlePosition.style.top = `${this.slidesStyles[this.currentSlide].top}%`;
-        this.slideTitle.textContent = this.slidesStyles[this.currentSlide].h2;
-        this.slideDynamicBtn.textContent = this.slidesStyles[this.currentSlide].buttonTxt;
-        this.slideDynamicLink.href = this.slidesStyles[this.currentSlide].buttonLink;
+        this.elements.titlePosition.style.top = `${this.slidesStyles[this.currentSlideIndex].top}%`;
+        this.elements.slideTitle.textContent = this.slidesStyles[this.currentSlideIndex].h2;
+        this.elements.slideDynamicBtn.textContent = this.slidesStyles[this.currentSlideIndex].buttonTxt;
+        this.elements.slideDynamicLink.href = this.slidesStyles[this.currentSlideIndex].buttonLink;
     }
 
     setSlideImg = () => {
-            const isDesktop = window.matchMedia('(orientation: landscape)').matches;
-            if(isDesktop) {
-                this.slidesStyles[this.currentSlide].mobileImg = this.slidesStyles[this.currentSlide].desktopImg;
+            this.isViewportDesktop = window.matchMedia('(orientation: landscape)').matches;
+            const currSlideBackgroundImg = this.elements.slidesArray[this.currentSlideIndex];
+            if(this.isViewportDesktop) {
+                currSlideBackgroundImg.style.backgroundImage = `url(${this.slidesStyles[this.currentSlideIndex].desktopImg}`;
+            } else {
+                currSlideBackgroundImg.style.backgroundImage = `url(${this.slidesStyles[this.currentSlideIndex].mobileImg}`;
             }
-            this.slidesArray[this.currentSlide].style.backgroundImage = `url(${this.slidesStyles[this.currentSlide].mobileImg}`;
         }
     
     setDefaultImage = () => this.setSlideImg();

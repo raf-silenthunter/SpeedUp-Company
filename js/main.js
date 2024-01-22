@@ -29,7 +29,8 @@ document.addEventListener("scroll", initCounter);
 
 //MainSlider Class invoking
 const mainSlider = new MainSlider(10000);
-document.addEventListener("DOMContentLoaded", mainSlider.setDefaultImage);
+document.addEventListener("DOMContentLoaded", () => mainSlider.setDefaultImage());
+//czy tutaj jest wywołanie wyniku funkcji?
 
 //OptionsSlider Class invoking
 const optionsSlider = new OptionsSlider();
